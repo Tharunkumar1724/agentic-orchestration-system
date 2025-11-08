@@ -1,0 +1,7 @@
+id: search_tool
+name: Web Search Tool
+type: websearch
+config:
+  description: Searches the web for information
+  max_results: 5
+version: v1

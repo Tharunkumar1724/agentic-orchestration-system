@@ -1,0 +1,855 @@
+# ============================================================================
+# PERFECT TOOL YAML ARCHITECTURE - Complete Reference Template
+# ============================================================================
+# This template demonstrates the complete structure for tools that work
+# seamlessly with both frontend and backend APIs
+# ============================================================================
+
+# --------------------- BASIC IDENTIFICATION ---------------------
+id: perfect_tool_template
+name: "Perfect Tool Template"
+type: api  # Types: api, websearch, code, file, database, llm
+description: "Complete tool architecture template with all API integrations"
+version: v1
+
+# --------------------- METADATA & DOCUMENTATION ---------------------
+metadata:
+  # Timestamps
+  created_at: "2025-11-07T00:00:00Z"
+  updated_at: "2025-11-07T00:00:00Z"
+  
+  # Authorship
+  author: "System"
+  maintainer: "API Team"
+  
+  # Classification
+  category: template
+  tags:
+    - template
+    - reference
+    - complete
+  
+  # Status
+  status: active  # active, deprecated, experimental
+  stability: stable  # stable, beta, alpha
+  
+  # Usage Information
+  usage_count: 0
+  last_used: null
+  
+  # Documentation
+  documentation_url: "https://docs.example.com/tools/perfect-template"
+  example_url: "https://github.com/example/tool-examples"
+  
+  # Performance
+  avg_execution_time_ms: 100
+  success_rate: 0.99
+  error_rate: 0.01
+
+# --------------------- CORE CONFIGURATION ---------------------
+config:
+  # API Configuration (for type: api)
+  api:
+    base_url: "https://api.example.com/v1"
+    endpoint: "/resource"
+    method: GET  # GET, POST, PUT, DELETE, PATCH
+    
+    # Authentication
+    auth:
+      type: bearer  # bearer, api_key, basic, oauth2, none
+      token: "${API_TOKEN}"  # Environment variable
+      header: "Authorization"
+      prefix: "Bearer"
+    
+    # Headers
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+      User-Agent: "AgenticApp/1.0"
+    
+    # Query Parameters (for GET requests)
+    query_params:
+      format: json
+      version: v1
+    
+    # Timeout & Retry
+    timeout: 30
+    retry_attempts: 3
+    retry_delay: 1.0
+    retry_strategy: exponential_backoff  # linear, exponential_backoff
+    
+    # Rate Limiting
+    rate_limit:
+      requests_per_second: 10
+      requests_per_minute: 100
+      requests_per_hour: 1000
+  
+  # Search Configuration (for type: websearch)
+  search:
+    engine: duckduckgo  # duckduckgo, google, bing
+    max_results: 10
+    region: wt-wt
+    language: en
+    safesearch: moderate
+    timelimit: null  # d, w, m, y, null
+  
+  # Code Execution Configuration (for type: code)
+  code:
+    language: python  # python, javascript, bash
+    runtime: python3.11
+    sandbox: true
+    timeout: 60
+    max_memory_mb: 512
+  
+  # File Operations Configuration (for type: file)
+  file:
+    base_path: "./data"
+    allowed_extensions: [".txt", ".json", ".csv", ".yaml"]
+    max_file_size_mb: 10
+    encoding: utf-8
+  
+  # Database Configuration (for type: database)
+  database:
+    type: postgresql  # postgresql, mysql, mongodb, redis
+    connection_string: "${DATABASE_URL}"
+    pool_size: 10
+    timeout: 30
+  
+  # LLM Configuration (for type: llm)
+  llm:
+    provider: groq  # groq, openai, anthropic
+    model: llama-3.1-70b-versatile
+    temperature: 0.7
+    max_tokens: 2000
+    stream: false
+
+# --------------------- INPUT SCHEMA ---------------------
+# Defines what parameters the tool accepts
+input_schema:
+  type: object
+  
+  properties:
+    # Required Parameters
+    query:
+      type: string
+      description: "Primary search/query parameter"
+      minLength: 1
+      maxLength: 500
+      examples:
+        - "example query"
+        - "search term"
+    
+    # Optional Parameters
+    max_results:
+      type: integer
+      description: "Maximum number of results to return"
+      minimum: 1
+      maximum: 100
+      default: 10
+    
+    filters:
+      type: object
+      description: "Additional filtering options"
+      properties:
+        date_from:
+          type: string
+          format: date
+          description: "Start date filter (YYYY-MM-DD)"
+        
+        date_to:
+          type: string
+          format: date
+          description: "End date filter (YYYY-MM-DD)"
+        
+        category:
+          type: string
+          enum: [news, articles, blogs, academic]
+          description: "Content category filter"
+        
+        language:
+          type: string
+          description: "Language code (en, es, fr, de, etc.)"
+          pattern: "^[a-z]{2}$"
+      
+      additionalProperties: false
+    
+    # Advanced Options
+    options:
+      type: object
+      description: "Advanced configuration options"
+      properties:
+        timeout:
+          type: integer
+          description: "Request timeout in seconds"
+          minimum: 1
+          maximum: 120
+          default: 30
+        
+        cache:
+          type: boolean
+          description: "Enable result caching"
+          default: true
+        
+        verbose:
+          type: boolean
+          description: "Return detailed information"
+          default: false
+      
+      additionalProperties: true
+  
+  # Required Fields
+  required:
+    - query
+  
+  # Additional Validation
+  additionalProperties: false
+
+# --------------------- OUTPUT SCHEMA ---------------------
+# Defines what the tool returns
+output_schema:
+  type: object
+  
+  properties:
+    # Status Information
+    success:
+      type: boolean
+      description: "Whether the operation was successful"
+    
+    status_code:
+      type: integer
+      description: "HTTP status code or execution status"
+    
+    # Data Payload
+    data:
+      type: object
+      description: "Main response data"
+      properties:
+        results:
+          type: array
+          description: "Array of results"
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: "Unique result identifier"
+              
+              title:
+                type: string
+                description: "Result title"
+              
+              description:
+                type: string
+                description: "Result description or snippet"
+              
+              url:
+                type: string
+                format: uri
+                description: "Resource URL"
+              
+              metadata:
+                type: object
+                description: "Additional metadata"
+                properties:
+                  source:
+                    type: string
+                  
+                  published_date:
+                    type: string
+                    format: date-time
+                  
+                  author:
+                    type: string
+                  
+                  score:
+                    type: number
+                    minimum: 0.0
+                    maximum: 1.0
+        
+        total_count:
+          type: integer
+          description: "Total number of results available"
+        
+        page:
+          type: integer
+          description: "Current page number"
+        
+        has_more:
+          type: boolean
+          description: "Whether more results are available"
+    
+    # Metadata
+    metadata:
+      type: object
+      description: "Response metadata"
+      properties:
+        execution_time_ms:
+          type: integer
+          description: "Execution time in milliseconds"
+        
+        timestamp:
+          type: string
+          format: date-time
+          description: "Response timestamp"
+        
+        request_id:
+          type: string
+          description: "Unique request identifier"
+        
+        cache_hit:
+          type: boolean
+          description: "Whether result was from cache"
+    
+    # Error Information
+    error:
+      type: object
+      description: "Error details (if success = false)"
+      properties:
+        code:
+          type: string
+          description: "Error code"
+        
+        message:
+          type: string
+          description: "Human-readable error message"
+        
+        details:
+          type: object
+          description: "Additional error details"
+        
+        timestamp:
+          type: string
+          format: date-time
+    
+    # Warnings (Non-fatal issues)
+    warnings:
+      type: array
+      items:
+        type: object
+        properties:
+          code:
+            type: string
+          message:
+            type: string
+  
+  required:
+    - success
+    - data
+
+# --------------------- API INTEGRATION ---------------------
+# Frontend & Backend API Integration Configuration
+api_integration:
+  # Backend API Endpoints
+  backend:
+    base_url: "http://localhost:8000"
+    
+    endpoints:
+      # Tool Management
+      create: 
+        path: "/tools"
+        method: POST
+        description: "Create a new tool"
+      
+      get:
+        path: "/tools/{tool_id}"
+        method: GET
+        description: "Get tool by ID"
+      
+      list:
+        path: "/tools"
+        method: GET
+        description: "List all tools"
+      
+      update:
+        path: "/tools/{tool_id}"
+        method: PUT
+        description: "Update tool"
+      
+      delete:
+        path: "/tools/{tool_id}"
+        method: DELETE
+        description: "Delete tool"
+      
+      # Dynamic Tool Creation
+      from_template:
+        path: "/tools/dynamic/from-template"
+        method: POST
+        description: "Create tool from template"
+        request_body:
+          template: string
+          name: string
+          description: string
+          config_overrides: object
+          save_to_disk: boolean
+      
+      custom:
+        path: "/tools/dynamic/custom"
+        method: POST
+        description: "Create custom tool"
+        request_body:
+          name: string
+          type: string
+          config: object
+          input_schema: object
+          output_schema: object
+          save_to_disk: boolean
+      
+      # Tool Execution
+      execute:
+        path: "/tools/{tool_id}/execute"
+        method: POST
+        description: "Execute tool with parameters"
+        request_body:
+          parameters: object
+          context: object
+  
+  # Frontend Integration
+  frontend:
+    # API Service Functions
+    service_functions:
+      - name: "getAll"
+        description: "Fetch all tools"
+        endpoint: "/tools"
+        method: "GET"
+        returns: "Array<ToolDef>"
+      
+      - name: "getById"
+        description: "Fetch tool by ID"
+        endpoint: "/tools/{id}"
+        method: "GET"
+        parameters: ["id"]
+        returns: "ToolDef"
+      
+      - name: "create"
+        description: "Create new tool"
+        endpoint: "/tools"
+        method: "POST"
+        parameters: ["data"]
+        returns: "ToolDef"
+      
+      - name: "update"
+        description: "Update existing tool"
+        endpoint: "/tools/{id}"
+        method: "PUT"
+        parameters: ["id", "data"]
+        returns: "ToolDef"
+      
+      - name: "delete"
+        description: "Delete tool"
+        endpoint: "/tools/{id}"
+        method: "DELETE"
+        parameters: ["id"]
+        returns: "void"
+    
+    # Component Integration
+    components:
+      - name: "ToolsList"
+        description: "Display and manage tools"
+        api_calls: ["getAll", "delete"]
+      
+      - name: "ToolForm"
+        description: "Create/edit tool form"
+        api_calls: ["create", "update", "getById"]
+      
+      - name: "ToolExecutor"
+        description: "Execute tool with parameters"
+        api_calls: ["getById", "execute"]
+
+# --------------------- ERROR HANDLING ---------------------
+error_handling:
+  # Retry Configuration
+  retry:
+    enabled: true
+    max_attempts: 3
+    strategy: exponential_backoff
+    base_delay: 1.0
+    max_delay: 30.0
+    
+    # Errors to Retry
+    retry_on:
+      - connection_timeout
+      - connection_refused
+      - rate_limit_exceeded
+      - temporary_failure
+      - service_unavailable
+    
+    # Errors NOT to Retry
+    no_retry_on:
+      - authentication_failed
+      - invalid_request
+      - not_found
+      - forbidden
+  
+  # Validation
+  validation:
+    validate_input: true
+    validate_output: true
+    strict_mode: false
+  
+  # Fallback Behavior
+  fallback:
+    on_error: return_error  # return_error, return_partial, return_cached, raise_exception
+    return_partial_results: false
+    use_cache_on_error: true
+    default_value: null
+  
+  # Logging
+  logging:
+    log_errors: true
+    log_level: ERROR
+    include_stack_trace: true
+    log_destination: "logs/errors.log"
+  
+  # Error Categories
+  error_codes:
+    4000: "Invalid Input"
+    4001: "Missing Required Parameter"
+    4002: "Invalid Parameter Type"
+    4003: "Parameter Out of Range"
+    4004: "Authentication Failed"
+    4005: "Authorization Failed"
+    4006: "Rate Limit Exceeded"
+    5000: "Internal Server Error"
+    5001: "External Service Error"
+    5002: "Timeout Error"
+    5003: "Connection Error"
+
+# --------------------- EXECUTION CONFIGURATION ---------------------
+execution:
+  # Async/Parallel
+  async_enabled: true
+  parallel_execution: false
+  max_concurrent: 5
+  
+  # Resource Limits
+  limits:
+    max_memory_mb: 512
+    max_execution_time_seconds: 60
+    max_retries: 3
+    max_queue_size: 100
+  
+  # Caching
+  cache:
+    enabled: true
+    ttl_seconds: 3600
+    max_size_mb: 100
+    strategy: lru  # lru, fifo, lfu
+    cache_key_format: "{tool_id}:{input_hash}"
+  
+  # Monitoring & Telemetry
+  monitoring:
+    enabled: true
+    collect_metrics: true
+    collect_traces: true
+    metrics_interval_seconds: 60
+    
+    metrics:
+      - execution_time
+      - success_rate
+      - error_rate
+      - cache_hit_rate
+      - throughput
+  
+  # Logging
+  logging:
+    enabled: true
+    log_level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+    log_format: json
+    log_destination: "logs/execution.log"
+    log_rotation: daily
+    max_log_size_mb: 100
+  
+  # Result Processing
+  post_processing:
+    enabled: true
+    steps:
+      - validate_output
+      - format_response
+      - add_metadata
+      - cache_result
+
+# --------------------- SECURITY & PERMISSIONS ---------------------
+security:
+  # Authentication
+  authentication:
+    required: false
+    methods: [api_key, bearer_token]
+  
+  # Authorization
+  authorization:
+    required: false
+    roles: [admin, user, viewer]
+    permissions:
+      admin: [create, read, update, delete, execute]
+      user: [read, execute]
+      viewer: [read]
+  
+  # Data Security
+  data_security:
+    encrypt_sensitive_data: true
+    mask_credentials: true
+    sanitize_input: true
+    sanitize_output: false
+  
+  # Rate Limiting
+  rate_limiting:
+    enabled: true
+    per_user: 100
+    per_ip: 1000
+    window_seconds: 60
+
+# --------------------- INTEGRATION POINTS ---------------------
+integrations:
+  # LLM Integration
+  llm:
+    enabled: false
+    provider: groq
+    model: llama-3.1-70b-versatile
+    use_cases:
+      - summarize_results
+      - extract_insights
+      - enhance_query
+  
+  # Storage Integration
+  storage:
+    enabled: true
+    save_results: true
+    save_format: json
+    storage_path: "data/tools/results/"
+  
+  # Notification Integration
+  notifications:
+    enabled: false
+    channels: [email, slack, webhook]
+    notify_on:
+      - error
+      - completion
+      - threshold_exceeded
+  
+  # Analytics
+  analytics:
+    enabled: true
+    track_usage: true
+    track_performance: true
+    track_errors: true
+    analytics_platform: internal
+
+# --------------------- EXAMPLES & USAGE ---------------------
+examples:
+  # Basic Usage Example
+  - name: "Basic Search"
+    description: "Simple search with default parameters"
+    input:
+      query: "artificial intelligence"
+    expected_output:
+      success: true
+      data:
+        results:
+          - title: "Example Result"
+            url: "https://example.com"
+  
+  # Advanced Usage Example
+  - name: "Advanced Search with Filters"
+    description: "Search with date filters and options"
+    input:
+      query: "machine learning"
+      max_results: 20
+      filters:
+        date_from: "2024-01-01"
+        date_to: "2024-12-31"
+        category: academic
+      options:
+        cache: false
+        verbose: true
+    expected_output:
+      success: true
+      data:
+        results: []
+        total_count: 0
+  
+  # Error Example
+  - name: "Error Handling"
+    description: "Example of error response"
+    input:
+      query: ""  # Invalid empty query
+    expected_output:
+      success: false
+      error:
+        code: "4001"
+        message: "Missing Required Parameter"
+
+# --------------------- FRONTEND USAGE ---------------------
+# How to use this tool in the frontend
+frontend_integration:
+  # React Component Example
+  react_example: |
+    import { toolsAPI } from './services/api';
+    
+    // Fetch all tools
+    const tools = await toolsAPI.getAll();
+    
+    // Create a new tool
+    const newTool = await toolsAPI.create({
+      id: 'my_tool',
+      name: 'My Custom Tool',
+      type: 'api',
+      config: {
+        api: {
+          base_url: 'https://api.example.com',
+          endpoint: '/data',
+          method: 'GET'
+        }
+      }
+    });
+    
+    // Update a tool
+    const updatedTool = await toolsAPI.update('my_tool', {
+      ...newTool,
+      config: {
+        ...newTool.config,
+        api: {
+          ...newTool.config.api,
+          timeout: 60
+        }
+      }
+    });
+    
+    // Delete a tool
+    await toolsAPI.delete('my_tool');
+  
+  # State Management
+  state_example: |
+    const [tools, setTools] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+      const fetchTools = async () => {
+        try {
+          setLoading(true);
+          const response = await toolsAPI.getAll();
+          setTools(response.data);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      fetchTools();
+    }, []);
+
+# --------------------- BACKEND USAGE ---------------------
+# How to use this tool in the backend
+backend_integration:
+  # FastAPI Router Example
+  fastapi_example: |
+    from fastapi import APIRouter, HTTPException
+    from app.models import ToolDef
+    from app.storage import save, load, list_all, delete
+    
+    router = APIRouter()
+    
+    @router.post("/tools", response_model=ToolDef)
+    async def create_tool(tool: ToolDef):
+        if load("tools", tool.id):
+            raise HTTPException(status_code=400, detail="Tool already exists")
+        save("tools", tool.id, tool.model_dump())
+        return tool
+    
+    @router.get("/tools/{tool_id}", response_model=ToolDef)
+    async def get_tool(tool_id: str):
+        data = load("tools", tool_id)
+        if not data:
+            raise HTTPException(status_code=404, detail="Tool not found")
+        return data
+    
+    @router.get("/tools", response_model=List[ToolDef])
+    async def list_tools():
+        return list_all("tools")
+    
+    @router.put("/tools/{tool_id}", response_model=ToolDef)
+    async def update_tool(tool_id: str, tool: ToolDef):
+        save("tools", tool_id, tool.model_dump())
+        return tool
+    
+    @router.delete("/tools/{tool_id}")
+    async def delete_tool(tool_id: str):
+        ok = delete("tools", tool_id)
+        if not ok:
+            raise HTTPException(status_code=404, detail="Tool not found")
+        return {"deleted": True}
+
+# --------------------- TESTING ---------------------
+testing:
+  # Unit Tests
+  unit_tests:
+    - name: "test_input_validation"
+      description: "Test input schema validation"
+      type: validation
+    
+    - name: "test_output_format"
+      description: "Test output schema format"
+      type: validation
+    
+    - name: "test_error_handling"
+      description: "Test error handling mechanisms"
+      type: error
+  
+  # Integration Tests
+  integration_tests:
+    - name: "test_api_integration"
+      description: "Test API endpoint integration"
+      type: api
+    
+    - name: "test_frontend_integration"
+      description: "Test frontend component integration"
+      type: frontend
+  
+  # Performance Tests
+  performance_tests:
+    - name: "test_response_time"
+      description: "Test average response time"
+      threshold_ms: 500
+    
+    - name: "test_throughput"
+      description: "Test requests per second"
+      threshold_rps: 100
+
+# --------------------- VERSIONING & CHANGELOG ---------------------
+versioning:
+  current_version: v1
+  schema_version: "1.0.0"
+  
+  changelog:
+    - version: v1
+      date: "2025-11-07"
+      changes:
+        - "Initial tool architecture template"
+        - "Complete API integration"
+        - "Frontend & backend examples"
+  
+  deprecation_policy:
+    notice_period_days: 90
+    support_period_days: 180
+    migration_guide_url: "https://docs.example.com/migration"
+
+# --------------------- COMPLIANCE & GOVERNANCE ---------------------
+compliance:
+  # Data Privacy
+  data_privacy:
+    gdpr_compliant: true
+    data_retention_days: 90
+    anonymize_data: true
+  
+  # Legal
+  legal:
+    license: MIT
+    terms_of_service_url: "https://example.com/terms"
+    privacy_policy_url: "https://example.com/privacy"
+  
+  # Audit
+  audit:
+    enabled: true
+    log_all_operations: true
+    audit_log_path: "logs/audit.log"

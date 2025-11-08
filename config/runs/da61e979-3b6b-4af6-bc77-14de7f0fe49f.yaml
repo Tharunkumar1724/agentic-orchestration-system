@@ -1,0 +1,636 @@
+workflow_id: test1
+run_id: da61e979-3b6b-4af6-bc77-14de7f0fe49f
+status: success
+result:
+  node_1762447366839:
+    agent_id: '1'
+    agent_name: Test_Agent
+    agent_type: react
+    task: Orwell
+    llm_response: 'George Orwell was a British author, journalist, and critic best
+      known for his dystopian novels, which depicted the dangers of totalitarianism
+      and the erosion of individual freedom.
+
+
+      **Early Life**
+
+
+      Eric Arthur Blair, known by his pen name George Orwell, was born on June 25,
+      1903, in Motihari, Bihar, India, where his father was serving as a civil servant.
+      When Orwell was one year old, his family moved to England, and he spent most
+      of his childhood in the south of England.
+
+
+      **Education and Early Writing Career**
+
+
+      Orwell attended Eton College, a prestigious boarding school, where he developed
+      a passion for writing and literature. After Eton, he enrolled in the British
+      Imperial Police in Burma (now Myanmar), where he served from 1922 to 1927. During
+      this time, he began writing short stories and articles under the pseudonym George
+      Orwell.
+
+
+      **Literary Career**
+
+
+      Orwell''s literary career took off in the 1930s, with the publication of his
+      first novel, "Down and Out in Paris and London" (1933), which chronicled his
+      experiences as a down-and-out in both cities. He also wrote essays and articles
+      on politics, culture, and literature, which were published in various journals
+      and newspapers.
+
+
+      **Dystopian Novels**
+
+
+      Orwell''s most famous works are his dystopian novels, which depicted a future
+      world where totalitarian governments had complete control over citizens. These
+      novels include:
+
+
+      1. **"Burmese Days" (1934)**: A novel about colonialism and racism in Burma.
+
+      2. **"A Clergyman''s Daughter" (1935)**: A novel about the decline of traditional
+      values in modern society.
+
+      3. **"Keep the Aspidistra Flying" (1936)**: A novel about the struggles of a
+      young man to maintain his independence in a society that values materialism.
+
+      4. **"Coming Up for Air" (1939)**: A novel about a man''s nostalgia for a simpler
+      past.
+
+      5. **"Animal Farm" (1945)**: A novella about a group of animals who rebel against
+      their human oppressors, only to become corrupted by power.
+
+      6. **"1984" (1949)**: A novel about a future world where the totalitarian government,
+      led by a figure known as Big Brother, exercises total control over citizens.
+
+
+      **Themes and Influence**
+
+
+      Orwell''s works often explored themes of totalitarianism, censorship, propaganda,
+      and the erosion of individual freedom. His writing was heavily influenced by
+      his experiences in colonial Burma, his observations of fascist and communist
+      regimes in Europe, and his own concerns about the rise of nationalism and militarism.
+
+
+      **Legacy**
+
+
+      Orwell''s works have had a significant impact on literature and culture. His
+      dystopian novels, particularly "1984," have become classics of the genre and
+      have influenced countless other authors, including Margaret Atwood, Philip K.
+      Dick, and Aldous Huxley. His writing style, which combined lucid prose with
+      a strong moral compass, has also influenced many writers and journalists.
+
+
+      **Personal Life**
+
+
+      Orwell was married to Eileen O''Shaughnessy, a writer and journalist, from 1936
+      until her death in 1945. He subsequently married Sonia Brownell, a former secretary,
+      in 1949. Orwell died on January 21, 1950, at the age of 46, due to complications
+      from tuberculosis.
+
+
+      Overall, George Orwell was a prolific writer, a fierce critic of totalitarianism,
+      and a passionate advocate for individual freedom and dignity. His works continue
+      to be widely read and studied today, offering insights into the dangers of government
+      control and the importance of preserving human liberty.'
+    context_size: 2
+    tool_results: {}
+    tools_used: []
+meta:
+  communication_log:
+  - sender: node_1762447366839
+    agent: '1'
+    content:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: Orwell
+      llm_response: 'George Orwell was a British author, journalist, and critic best
+        known for his dystopian novels, which depicted the dangers of totalitarianism
+        and the erosion of individual freedom.
+
+
+        **Early Life**
+
+
+        Eric Arthur Blair, known by his pen name George Orwell, was born on June 25,
+        1903, in Motihari, Bihar, India, where his father was serving as a civil servant.
+        When Orwell was one year old, his family moved to England, and he spent most
+        of his childhood in the south of England.
+
+
+        **Education and Early Writing Career**
+
+
+        Orwell attended Eton College, a prestigious boarding school, where he developed
+        a passion for writing and literature. After Eton, he enrolled in the British
+        Imperial Police in Burma (now Myanmar), where he served from 1922 to 1927.
+        During this time, he began writing short stories and articles under the pseudonym
+        George Orwell.
+
+
+        **Literary Career**
+
+
+        Orwell''s literary career took off in the 1930s, with the publication of his
+        first novel, "Down and Out in Paris and London" (1933), which chronicled his
+        experiences as a down-and-out in both cities. He also wrote essays and articles
+        on politics, culture, and literature, which were published in various journals
+        and newspapers.
+
+
+        **Dystopian Novels**
+
+
+        Orwell''s most famous works are his dystopian novels, which depicted a future
+        world where totalitarian governments had complete control over citizens. These
+        novels include:
+
+
+        1. **"Burmese Days" (1934)**: A novel about colonialism and racism in Burma.
+
+        2. **"A Clergyman''s Daughter" (1935)**: A novel about the decline of traditional
+        values in modern society.
+
+        3. **"Keep the Aspidistra Flying" (1936)**: A novel about the struggles of
+        a young man to maintain his independence in a society that values materialism.
+
+        4. **"Coming Up for Air" (1939)**: A novel about a man''s nostalgia for a
+        simpler past.
+
+        5. **"Animal Farm" (1945)**: A novella about a group of animals who rebel
+        against their human oppressors, only to become corrupted by power.
+
+        6. **"1984" (1949)**: A novel about a future world where the totalitarian
+        government, led by a figure known as Big Brother, exercises total control
+        over citizens.
+
+
+        **Themes and Influence**
+
+
+        Orwell''s works often explored themes of totalitarianism, censorship, propaganda,
+        and the erosion of individual freedom. His writing was heavily influenced
+        by his experiences in colonial Burma, his observations of fascist and communist
+        regimes in Europe, and his own concerns about the rise of nationalism and
+        militarism.
+
+
+        **Legacy**
+
+
+        Orwell''s works have had a significant impact on literature and culture. His
+        dystopian novels, particularly "1984," have become classics of the genre and
+        have influenced countless other authors, including Margaret Atwood, Philip
+        K. Dick, and Aldous Huxley. His writing style, which combined lucid prose
+        with a strong moral compass, has also influenced many writers and journalists.
+
+
+        **Personal Life**
+
+
+        Orwell was married to Eileen O''Shaughnessy, a writer and journalist, from
+        1936 until her death in 1945. He subsequently married Sonia Brownell, a former
+        secretary, in 1949. Orwell died on January 21, 1950, at the age of 46, due
+        to complications from tuberculosis.
+
+
+        Overall, George Orwell was a prolific writer, a fierce critic of totalitarianism,
+        and a passionate advocate for individual freedom and dignity. His works continue
+        to be widely read and studied today, offering insights into the dangers of
+        government control and the importance of preserving human liberty.'
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_state:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: Orwell
+      llm_response: 'George Orwell was a British author, journalist, and critic best
+        known for his dystopian novels, which depicted the dangers of totalitarianism
+        and the erosion of individual freedom.
+
+
+        **Early Life**
+
+
+        Eric Arthur Blair, known by his pen name George Orwell, was born on June 25,
+        1903, in Motihari, Bihar, India, where his father was serving as a civil servant.
+        When Orwell was one year old, his family moved to England, and he spent most
+        of his childhood in the south of England.
+
+
+        **Education and Early Writing Career**
+
+
+        Orwell attended Eton College, a prestigious boarding school, where he developed
+        a passion for writing and literature. After Eton, he enrolled in the British
+        Imperial Police in Burma (now Myanmar), where he served from 1922 to 1927.
+        During this time, he began writing short stories and articles under the pseudonym
+        George Orwell.
+
+
+        **Literary Career**
+
+
+        Orwell''s literary career took off in the 1930s, with the publication of his
+        first novel, "Down and Out in Paris and London" (1933), which chronicled his
+        experiences as a down-and-out in both cities. He also wrote essays and articles
+        on politics, culture, and literature, which were published in various journals
+        and newspapers.
+
+
+        **Dystopian Novels**
+
+
+        Orwell''s most famous works are his dystopian novels, which depicted a future
+        world where totalitarian governments had complete control over citizens. These
+        novels include:
+
+
+        1. **"Burmese Days" (1934)**: A novel about colonialism and racism in Burma.
+
+        2. **"A Clergyman''s Daughter" (1935)**: A novel about the decline of traditional
+        values in modern society.
+
+        3. **"Keep the Aspidistra Flying" (1936)**: A novel about the struggles of
+        a young man to maintain his independence in a society that values materialism.
+
+        4. **"Coming Up for Air" (1939)**: A novel about a man''s nostalgia for a
+        simpler past.
+
+        5. **"Animal Farm" (1945)**: A novella about a group of animals who rebel
+        against their human oppressors, only to become corrupted by power.
+
+        6. **"1984" (1949)**: A novel about a future world where the totalitarian
+        government, led by a figure known as Big Brother, exercises total control
+        over citizens.
+
+
+        **Themes and Influence**
+
+
+        Orwell''s works often explored themes of totalitarianism, censorship, propaganda,
+        and the erosion of individual freedom. His writing was heavily influenced
+        by his experiences in colonial Burma, his observations of fascist and communist
+        regimes in Europe, and his own concerns about the rise of nationalism and
+        militarism.
+
+
+        **Legacy**
+
+
+        Orwell''s works have had a significant impact on literature and culture. His
+        dystopian novels, particularly "1984," have become classics of the genre and
+        have influenced countless other authors, including Margaret Atwood, Philip
+        K. Dick, and Aldous Huxley. His writing style, which combined lucid prose
+        with a strong moral compass, has also influenced many writers and journalists.
+
+
+        **Personal Life**
+
+
+        Orwell was married to Eileen O''Shaughnessy, a writer and journalist, from
+        1936 until her death in 1945. He subsequently married Sonia Brownell, a former
+        secretary, in 1949. Orwell died on January 21, 1950, at the age of 46, due
+        to complications from tuberculosis.
+
+
+        Overall, George Orwell was a prolific writer, a fierce critic of totalitarianism,
+        and a passionate advocate for individual freedom and dignity. His works continue
+        to be widely read and studied today, offering insights into the dangers of
+        government control and the importance of preserving human liberty.'
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - '1'
+  total_messages: 1
+  final_step: node_1762447366839
+error: null
+state:
+  messages:
+  - sender: node_1762447366839
+    agent: '1'
+    content:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: Orwell
+      llm_response: 'George Orwell was a British author, journalist, and critic best
+        known for his dystopian novels, which depicted the dangers of totalitarianism
+        and the erosion of individual freedom.
+
+
+        **Early Life**
+
+
+        Eric Arthur Blair, known by his pen name George Orwell, was born on June 25,
+        1903, in Motihari, Bihar, India, where his father was serving as a civil servant.
+        When Orwell was one year old, his family moved to England, and he spent most
+        of his childhood in the south of England.
+
+
+        **Education and Early Writing Career**
+
+
+        Orwell attended Eton College, a prestigious boarding school, where he developed
+        a passion for writing and literature. After Eton, he enrolled in the British
+        Imperial Police in Burma (now Myanmar), where he served from 1922 to 1927.
+        During this time, he began writing short stories and articles under the pseudonym
+        George Orwell.
+
+
+        **Literary Career**
+
+
+        Orwell''s literary career took off in the 1930s, with the publication of his
+        first novel, "Down and Out in Paris and London" (1933), which chronicled his
+        experiences as a down-and-out in both cities. He also wrote essays and articles
+        on politics, culture, and literature, which were published in various journals
+        and newspapers.
+
+
+        **Dystopian Novels**
+
+
+        Orwell''s most famous works are his dystopian novels, which depicted a future
+        world where totalitarian governments had complete control over citizens. These
+        novels include:
+
+
+        1. **"Burmese Days" (1934)**: A novel about colonialism and racism in Burma.
+
+        2. **"A Clergyman''s Daughter" (1935)**: A novel about the decline of traditional
+        values in modern society.
+
+        3. **"Keep the Aspidistra Flying" (1936)**: A novel about the struggles of
+        a young man to maintain his independence in a society that values materialism.
+
+        4. **"Coming Up for Air" (1939)**: A novel about a man''s nostalgia for a
+        simpler past.
+
+        5. **"Animal Farm" (1945)**: A novella about a group of animals who rebel
+        against their human oppressors, only to become corrupted by power.
+
+        6. **"1984" (1949)**: A novel about a future world where the totalitarian
+        government, led by a figure known as Big Brother, exercises total control
+        over citizens.
+
+
+        **Themes and Influence**
+
+
+        Orwell''s works often explored themes of totalitarianism, censorship, propaganda,
+        and the erosion of individual freedom. His writing was heavily influenced
+        by his experiences in colonial Burma, his observations of fascist and communist
+        regimes in Europe, and his own concerns about the rise of nationalism and
+        militarism.
+
+
+        **Legacy**
+
+
+        Orwell''s works have had a significant impact on literature and culture. His
+        dystopian novels, particularly "1984," have become classics of the genre and
+        have influenced countless other authors, including Margaret Atwood, Philip
+        K. Dick, and Aldous Huxley. His writing style, which combined lucid prose
+        with a strong moral compass, has also influenced many writers and journalists.
+
+
+        **Personal Life**
+
+
+        Orwell was married to Eileen O''Shaughnessy, a writer and journalist, from
+        1936 until her death in 1945. He subsequently married Sonia Brownell, a former
+        secretary, in 1949. Orwell died on January 21, 1950, at the age of 46, due
+        to complications from tuberculosis.
+
+
+        Overall, George Orwell was a prolific writer, a fierce critic of totalitarianism,
+        and a passionate advocate for individual freedom and dignity. His works continue
+        to be widely read and studied today, offering insights into the dangers of
+        government control and the importance of preserving human liberty.'
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_data:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: Orwell
+      llm_response: 'George Orwell was a British author, journalist, and critic best
+        known for his dystopian novels, which depicted the dangers of totalitarianism
+        and the erosion of individual freedom.
+
+
+        **Early Life**
+
+
+        Eric Arthur Blair, known by his pen name George Orwell, was born on June 25,
+        1903, in Motihari, Bihar, India, where his father was serving as a civil servant.
+        When Orwell was one year old, his family moved to England, and he spent most
+        of his childhood in the south of England.
+
+
+        **Education and Early Writing Career**
+
+
+        Orwell attended Eton College, a prestigious boarding school, where he developed
+        a passion for writing and literature. After Eton, he enrolled in the British
+        Imperial Police in Burma (now Myanmar), where he served from 1922 to 1927.
+        During this time, he began writing short stories and articles under the pseudonym
+        George Orwell.
+
+
+        **Literary Career**
+
+
+        Orwell''s literary career took off in the 1930s, with the publication of his
+        first novel, "Down and Out in Paris and London" (1933), which chronicled his
+        experiences as a down-and-out in both cities. He also wrote essays and articles
+        on politics, culture, and literature, which were published in various journals
+        and newspapers.
+
+
+        **Dystopian Novels**
+
+
+        Orwell''s most famous works are his dystopian novels, which depicted a future
+        world where totalitarian governments had complete control over citizens. These
+        novels include:
+
+
+        1. **"Burmese Days" (1934)**: A novel about colonialism and racism in Burma.
+
+        2. **"A Clergyman''s Daughter" (1935)**: A novel about the decline of traditional
+        values in modern society.
+
+        3. **"Keep the Aspidistra Flying" (1936)**: A novel about the struggles of
+        a young man to maintain his independence in a society that values materialism.
+
+        4. **"Coming Up for Air" (1939)**: A novel about a man''s nostalgia for a
+        simpler past.
+
+        5. **"Animal Farm" (1945)**: A novella about a group of animals who rebel
+        against their human oppressors, only to become corrupted by power.
+
+        6. **"1984" (1949)**: A novel about a future world where the totalitarian
+        government, led by a figure known as Big Brother, exercises total control
+        over citizens.
+
+
+        **Themes and Influence**
+
+
+        Orwell''s works often explored themes of totalitarianism, censorship, propaganda,
+        and the erosion of individual freedom. His writing was heavily influenced
+        by his experiences in colonial Burma, his observations of fascist and communist
+        regimes in Europe, and his own concerns about the rise of nationalism and
+        militarism.
+
+
+        **Legacy**
+
+
+        Orwell''s works have had a significant impact on literature and culture. His
+        dystopian novels, particularly "1984," have become classics of the genre and
+        have influenced countless other authors, including Margaret Atwood, Philip
+        K. Dick, and Aldous Huxley. His writing style, which combined lucid prose
+        with a strong moral compass, has also influenced many writers and journalists.
+
+
+        **Personal Life**
+
+
+        Orwell was married to Eileen O''Shaughnessy, a writer and journalist, from
+        1936 until her death in 1945. He subsequently married Sonia Brownell, a former
+        secretary, in 1949. Orwell died on January 21, 1950, at the age of 46, due
+        to complications from tuberculosis.
+
+
+        Overall, George Orwell was a prolific writer, a fierce critic of totalitarianism,
+        and a passionate advocate for individual freedom and dignity. His works continue
+        to be widely read and studied today, offering insights into the dangers of
+        government control and the importance of preserving human liberty.'
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - '1'
+  current_step: node_1762447366839
+  results:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: Orwell
+      llm_response: 'George Orwell was a British author, journalist, and critic best
+        known for his dystopian novels, which depicted the dangers of totalitarianism
+        and the erosion of individual freedom.
+
+
+        **Early Life**
+
+
+        Eric Arthur Blair, known by his pen name George Orwell, was born on June 25,
+        1903, in Motihari, Bihar, India, where his father was serving as a civil servant.
+        When Orwell was one year old, his family moved to England, and he spent most
+        of his childhood in the south of England.
+
+
+        **Education and Early Writing Career**
+
+
+        Orwell attended Eton College, a prestigious boarding school, where he developed
+        a passion for writing and literature. After Eton, he enrolled in the British
+        Imperial Police in Burma (now Myanmar), where he served from 1922 to 1927.
+        During this time, he began writing short stories and articles under the pseudonym
+        George Orwell.
+
+
+        **Literary Career**
+
+
+        Orwell''s literary career took off in the 1930s, with the publication of his
+        first novel, "Down and Out in Paris and London" (1933), which chronicled his
+        experiences as a down-and-out in both cities. He also wrote essays and articles
+        on politics, culture, and literature, which were published in various journals
+        and newspapers.
+
+
+        **Dystopian Novels**
+
+
+        Orwell''s most famous works are his dystopian novels, which depicted a future
+        world where totalitarian governments had complete control over citizens. These
+        novels include:
+
+
+        1. **"Burmese Days" (1934)**: A novel about colonialism and racism in Burma.
+
+        2. **"A Clergyman''s Daughter" (1935)**: A novel about the decline of traditional
+        values in modern society.
+
+        3. **"Keep the Aspidistra Flying" (1936)**: A novel about the struggles of
+        a young man to maintain his independence in a society that values materialism.
+
+        4. **"Coming Up for Air" (1939)**: A novel about a man''s nostalgia for a
+        simpler past.
+
+        5. **"Animal Farm" (1945)**: A novella about a group of animals who rebel
+        against their human oppressors, only to become corrupted by power.
+
+        6. **"1984" (1949)**: A novel about a future world where the totalitarian
+        government, led by a figure known as Big Brother, exercises total control
+        over citizens.
+
+
+        **Themes and Influence**
+
+
+        Orwell''s works often explored themes of totalitarianism, censorship, propaganda,
+        and the erosion of individual freedom. His writing was heavily influenced
+        by his experiences in colonial Burma, his observations of fascist and communist
+        regimes in Europe, and his own concerns about the rise of nationalism and
+        militarism.
+
+
+        **Legacy**
+
+
+        Orwell''s works have had a significant impact on literature and culture. His
+        dystopian novels, particularly "1984," have become classics of the genre and
+        have influenced countless other authors, including Margaret Atwood, Philip
+        K. Dick, and Aldous Huxley. His writing style, which combined lucid prose
+        with a strong moral compass, has also influenced many writers and journalists.
+
+
+        **Personal Life**
+
+
+        Orwell was married to Eileen O''Shaughnessy, a writer and journalist, from
+        1936 until her death in 1945. He subsequently married Sonia Brownell, a former
+        secretary, in 1949. Orwell died on January 21, 1950, at the age of 46, due
+        to complications from tuberculosis.
+
+
+        Overall, George Orwell was a prolific writer, a fierce critic of totalitarianism,
+        and a passionate advocate for individual freedom and dignity. His works continue
+        to be widely read and studied today, offering insights into the dangers of
+        government control and the importance of preserving human liberty.'
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  error: null

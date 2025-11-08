@@ -1,0 +1,47 @@
+workflow_id: exec_workflow
+run_id: 96610454-5cba-436b-9e01-115bdef9539e
+status: success
+result:
+  step1:
+    agent_id: exec_agent
+    agent_type: zero_shot
+    llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+    context_size: 2
+    tool_results:
+      exec_tool:
+        search_results:
+        - Result for 'Test execution' - item 1
+        - Result for 'Test execution' - item 2
+        - Result for 'Test execution' - item 3
+meta:
+  communication_log:
+  - sender: step1
+    content:
+      agent_id: exec_agent
+      agent_type: zero_shot
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 2
+      tool_results:
+        exec_tool:
+          search_results:
+          - Result for 'Test execution' - item 1
+          - Result for 'Test execution' - item 2
+          - Result for 'Test execution' - item 3
+    type: agent_result
+  shared_state:
+    step1:
+      agent_id: exec_agent
+      agent_type: zero_shot
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 2
+      tool_results:
+        exec_tool:
+          search_results:
+          - Result for 'Test execution' - item 1
+          - Result for 'Test execution' - item 2
+          - Result for 'Test execution' - item 3
+  agents_used:
+  - exec_agent
+  total_messages: 1
+  final_step: step1
+error: null

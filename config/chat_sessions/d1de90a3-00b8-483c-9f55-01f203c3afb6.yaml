@@ -1,0 +1,43 @@
+session_id: d1de90a3-00b8-483c-9f55-01f203c3afb6
+workflow_id: ai_research_workflow
+created_at: '2025-11-05T13:02:59.893463'
+updated_at: '2025-11-05T13:03:02.323756'
+messages:
+- role: user
+  content: Test session 1
+  timestamp: '2025-11-05T13:02:59.893463'
+  metadata: {}
+- role: assistant
+  content: "{'research': {'agent_id': 'groq_researcher', 'agent_type': 'react', 'task':\
+    \ 'Search for latest developments in artificial intelligence and LangGraph', 'llm_response':\
+    \ \"[groq-error: Client error '429 Too Many Requests' for url 'https://api.groq.com/openai/v1/chat/completions'\\\
+    nFor m]\", 'context_size': 11, 'tool_results': {'duckduckgo_search': {'tool':\
+    \ 'duckduckgo_search', 'query': 'Search for latest developments in artificial\
+    \ intelligence and LangGraph', 'count': 5, 'results': [{'title': 'Google', 'href':\
+    \ 'https://www.google.com/xhtml/search', 'body': \"Search the world's information,\
+    \ including webpages, images, videos and more. Google has many special features\
+    \ to help you find exactly what you're looking for.\"}, {'title': 'Yahoo Search\
+    \ - Web Search', 'href': 'https://search.yahoo.com/', 'body': \"The search engine\
+    \ that helps you find exactly what you're looking for. Find the most relevant\
+    \ information, video, images, and answers from all across the Web.\"}, {'title':\
+    \ 'Search - Microsoft Bing', 'href': 'https://www.bing.com/', 'body': 'Search\
+    \ with Microsoft Bing and use the power of AI to find information, explore webpages,\
+    \ images, videos, maps, and more. A smart search engine for the forever curious.'},\
+    \ {'title': 'SEARCH Definition & Meaning | Dictionary.com', 'href': 'https://www.dictionary.com/browse/Search',\
+    \ 'body': 'Search definition: to go or look through (a place, area, etc.) carefully\
+    \ in order to find something missing or lost.. See examples of SEARCH used in\
+    \ a sentence.'}, {'title': 'SEARCH | English meaning - Cambridge Dictionary',\
+    \ 'href': 'https://dictionary.cambridge.org/dictionary/english/search', 'body':\
+    \ 'SEARCH definition: 1. to look somewhere carefully in order to find something:\
+    \ 2. to try to find the answer to a\u2026. Learn more.'}]}}}, 'analyze': {'agent_id':\
+    \ 'analyzer_agent', 'agent_type': 'react', 'task': 'Analyze the research findings\
+    \ received and provide key insights', 'llm_response': \"[groq-error: Client error\
+    \ '429 Too Many Requests' for url 'https://api.groq.com/openai/v1/chat/completions'\\\
+    nFor m]\", 'context_size': 11, 'tool_results': {'code_tool': {'executed': True,\
+    \ 'output': \"Code executed: print('Hello from code tool')\"}}}}"
+  timestamp: '2025-11-05T13:03:02.323740'
+  metadata:
+    run_id: 4421272b-66c8-4108-9923-b9406723237a
+    status: success
+state: {}
+metadata: {}

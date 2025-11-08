@@ -1,0 +1,11 @@
+id: writer_agent
+name: Writer Agent
+type: zero_shot
+llm_config:
+  provider: groq
+  model: llama-3.1-8b-instant
+  temperature: 0.8
+tools: []
+use_kag: false
+version: v1
+description: Agent specialized in writing and content creation

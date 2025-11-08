@@ -1,0 +1,487 @@
+workflow_id: test
+run_id: c4ed29e2-d08d-483e-86e1-25f28012c60c
+status: success
+result:
+  node_1762356676843:
+    agent_id: groq_researcher
+    agent_name: Groq Research Agent
+    agent_type: react
+    task: Enter task description...
+    llm_response: 'To add a task description, follow these steps:
+
+
+      1. Select the task you want to add a description to.
+
+      2. Click on the task to open the task view.
+
+      3. Under the task name, click on "Description".
+
+      4. Enter your task description.
+
+
+      Alternatively, you can also:
+
+
+      1. Select the task you want to add a description to.
+
+      2. Click on the task to open the task details screen.
+
+      3. Click inside the description box.
+
+      4. Enter your task description and use various formatting options to enhance
+      its appearance.
+
+
+      Note: The steps may vary slightly depending on the specific application or platform
+      you are using (e.g. Todoist, Workast, or Onestream).'
+    context_size: 2
+    tool_results:
+      duckduckgo_search:
+        tool: duckduckgo_search
+        query: Enter task description...
+        count: 5
+        results:
+        - title: Add a task description - Todoist
+          href: https://www.todoist.com/help/articles/add-a-task-description-rOryWIHn
+          body: "Apr 30, 2025 \xB7 Click the task you wish to add a task description\
+            \ to. This will open the task view. Under the task name, click Description.\
+            \ Enter a description for your task. Once you\u2019ve added your task\
+            \ description , as well as made any other necessary edits to your task,\
+            \ select Save."
+        - title: How to add and format a task description - Workast
+          href: https://www.workast.com/help/article/how-to-add-a-task-description/
+          body: 'Click on a task in the web app to open the task details screen. Click
+            over the description box. Enter your description . You can use various
+            formattings, such as numbered lists, bullet points, checklists, code,
+            or headings using ## and ###. Click "Save" to save your description .'
+        - title: Set Up Task Descriptions - documentation.onestream.com
+          href: https://documentation.onestream.com/1375907/Content/UTM/Set+up+Task+Descriptions.html
+          body: The following image shows the Description field in the Task Editor.
+            You can use either the Task Editor or Task Administration task list to
+            enter descriptions for tasks that you manually add. Task descriptions
+            display in the Task Details pane of the Task Grid View and Task Gantt
+            View pages, so you can quickly assess the nature of the task .
+        - title: How to properly write a task name and description - Labrika
+          href: https://labrika.com/help/workplan/how-to-properly-write-a-task-name-and-description
+          body: 'How to properly write a task name and description A well-thought-out
+            task name makes it easier to organize your company''s workflow and for
+            your employees/contractors to understand what is needed of them. There
+            are several simple rules for the creation of a task name: The name should
+            begin with a verb that answers the question of what to do. For example,
+            "determine what has caused the ...'
+        - title: Add Tasks - TickTick
+          href: https://help.ticktick.com/articles/7055782422935240704
+          body: Enter the content in the " task addition bar" at the top of the task
+            list page, and press the Enter key to create it. When adding a task ,
+            you can also press the shortcut 'Shift + Enter' to quickly add a task
+            description . After entering the description , press 'Command + Enter'
+            to create the task successfully.
+    tools_used:
+    - DuckDuckGo Web Search
+meta:
+  communication_log:
+  - sender: node_1762356676843
+    agent: groq_researcher
+    content:
+      agent_id: groq_researcher
+      agent_name: Groq Research Agent
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To add a task description, follow these steps:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task view.
+
+        3. Under the task name, click on "Description".
+
+        4. Enter your task description.
+
+
+        Alternatively, you can also:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task details screen.
+
+        3. Click inside the description box.
+
+        4. Enter your task description and use various formatting options to enhance
+        its appearance.
+
+
+        Note: The steps may vary slightly depending on the specific application or
+        platform you are using (e.g. Todoist, Workast, or Onestream).'
+      context_size: 2
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 5
+          results:
+          - title: Add a task description - Todoist
+            href: https://www.todoist.com/help/articles/add-a-task-description-rOryWIHn
+            body: "Apr 30, 2025 \xB7 Click the task you wish to add a task description\
+              \ to. This will open the task view. Under the task name, click Description.\
+              \ Enter a description for your task. Once you\u2019ve added your task\
+              \ description , as well as made any other necessary edits to your task,\
+              \ select Save."
+          - title: How to add and format a task description - Workast
+            href: https://www.workast.com/help/article/how-to-add-a-task-description/
+            body: 'Click on a task in the web app to open the task details screen.
+              Click over the description box. Enter your description . You can use
+              various formattings, such as numbered lists, bullet points, checklists,
+              code, or headings using ## and ###. Click "Save" to save your description
+              .'
+          - title: Set Up Task Descriptions - documentation.onestream.com
+            href: https://documentation.onestream.com/1375907/Content/UTM/Set+up+Task+Descriptions.html
+            body: The following image shows the Description field in the Task Editor.
+              You can use either the Task Editor or Task Administration task list
+              to enter descriptions for tasks that you manually add. Task descriptions
+              display in the Task Details pane of the Task Grid View and Task Gantt
+              View pages, so you can quickly assess the nature of the task .
+          - title: How to properly write a task name and description - Labrika
+            href: https://labrika.com/help/workplan/how-to-properly-write-a-task-name-and-description
+            body: 'How to properly write a task name and description A well-thought-out
+              task name makes it easier to organize your company''s workflow and for
+              your employees/contractors to understand what is needed of them. There
+              are several simple rules for the creation of a task name: The name should
+              begin with a verb that answers the question of what to do. For example,
+              "determine what has caused the ...'
+          - title: Add Tasks - TickTick
+            href: https://help.ticktick.com/articles/7055782422935240704
+            body: Enter the content in the " task addition bar" at the top of the
+              task list page, and press the Enter key to create it. When adding a
+              task , you can also press the shortcut 'Shift + Enter' to quickly add
+              a task description . After entering the description , press 'Command
+              + Enter' to create the task successfully.
+      tools_used:
+      - DuckDuckGo Web Search
+    type: agent_result
+  shared_state:
+    node_1762356676843:
+      agent_id: groq_researcher
+      agent_name: Groq Research Agent
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To add a task description, follow these steps:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task view.
+
+        3. Under the task name, click on "Description".
+
+        4. Enter your task description.
+
+
+        Alternatively, you can also:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task details screen.
+
+        3. Click inside the description box.
+
+        4. Enter your task description and use various formatting options to enhance
+        its appearance.
+
+
+        Note: The steps may vary slightly depending on the specific application or
+        platform you are using (e.g. Todoist, Workast, or Onestream).'
+      context_size: 2
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 5
+          results:
+          - title: Add a task description - Todoist
+            href: https://www.todoist.com/help/articles/add-a-task-description-rOryWIHn
+            body: "Apr 30, 2025 \xB7 Click the task you wish to add a task description\
+              \ to. This will open the task view. Under the task name, click Description.\
+              \ Enter a description for your task. Once you\u2019ve added your task\
+              \ description , as well as made any other necessary edits to your task,\
+              \ select Save."
+          - title: How to add and format a task description - Workast
+            href: https://www.workast.com/help/article/how-to-add-a-task-description/
+            body: 'Click on a task in the web app to open the task details screen.
+              Click over the description box. Enter your description . You can use
+              various formattings, such as numbered lists, bullet points, checklists,
+              code, or headings using ## and ###. Click "Save" to save your description
+              .'
+          - title: Set Up Task Descriptions - documentation.onestream.com
+            href: https://documentation.onestream.com/1375907/Content/UTM/Set+up+Task+Descriptions.html
+            body: The following image shows the Description field in the Task Editor.
+              You can use either the Task Editor or Task Administration task list
+              to enter descriptions for tasks that you manually add. Task descriptions
+              display in the Task Details pane of the Task Grid View and Task Gantt
+              View pages, so you can quickly assess the nature of the task .
+          - title: How to properly write a task name and description - Labrika
+            href: https://labrika.com/help/workplan/how-to-properly-write-a-task-name-and-description
+            body: 'How to properly write a task name and description A well-thought-out
+              task name makes it easier to organize your company''s workflow and for
+              your employees/contractors to understand what is needed of them. There
+              are several simple rules for the creation of a task name: The name should
+              begin with a verb that answers the question of what to do. For example,
+              "determine what has caused the ...'
+          - title: Add Tasks - TickTick
+            href: https://help.ticktick.com/articles/7055782422935240704
+            body: Enter the content in the " task addition bar" at the top of the
+              task list page, and press the Enter key to create it. When adding a
+              task , you can also press the shortcut 'Shift + Enter' to quickly add
+              a task description . After entering the description , press 'Command
+              + Enter' to create the task successfully.
+      tools_used:
+      - DuckDuckGo Web Search
+  agents_used:
+  - groq_researcher
+  total_messages: 1
+  final_step: node_1762356676843
+error: null
+state:
+  messages:
+  - sender: node_1762356676843
+    agent: groq_researcher
+    content:
+      agent_id: groq_researcher
+      agent_name: Groq Research Agent
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To add a task description, follow these steps:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task view.
+
+        3. Under the task name, click on "Description".
+
+        4. Enter your task description.
+
+
+        Alternatively, you can also:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task details screen.
+
+        3. Click inside the description box.
+
+        4. Enter your task description and use various formatting options to enhance
+        its appearance.
+
+
+        Note: The steps may vary slightly depending on the specific application or
+        platform you are using (e.g. Todoist, Workast, or Onestream).'
+      context_size: 2
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 5
+          results:
+          - title: Add a task description - Todoist
+            href: https://www.todoist.com/help/articles/add-a-task-description-rOryWIHn
+            body: "Apr 30, 2025 \xB7 Click the task you wish to add a task description\
+              \ to. This will open the task view. Under the task name, click Description.\
+              \ Enter a description for your task. Once you\u2019ve added your task\
+              \ description , as well as made any other necessary edits to your task,\
+              \ select Save."
+          - title: How to add and format a task description - Workast
+            href: https://www.workast.com/help/article/how-to-add-a-task-description/
+            body: 'Click on a task in the web app to open the task details screen.
+              Click over the description box. Enter your description . You can use
+              various formattings, such as numbered lists, bullet points, checklists,
+              code, or headings using ## and ###. Click "Save" to save your description
+              .'
+          - title: Set Up Task Descriptions - documentation.onestream.com
+            href: https://documentation.onestream.com/1375907/Content/UTM/Set+up+Task+Descriptions.html
+            body: The following image shows the Description field in the Task Editor.
+              You can use either the Task Editor or Task Administration task list
+              to enter descriptions for tasks that you manually add. Task descriptions
+              display in the Task Details pane of the Task Grid View and Task Gantt
+              View pages, so you can quickly assess the nature of the task .
+          - title: How to properly write a task name and description - Labrika
+            href: https://labrika.com/help/workplan/how-to-properly-write-a-task-name-and-description
+            body: 'How to properly write a task name and description A well-thought-out
+              task name makes it easier to organize your company''s workflow and for
+              your employees/contractors to understand what is needed of them. There
+              are several simple rules for the creation of a task name: The name should
+              begin with a verb that answers the question of what to do. For example,
+              "determine what has caused the ...'
+          - title: Add Tasks - TickTick
+            href: https://help.ticktick.com/articles/7055782422935240704
+            body: Enter the content in the " task addition bar" at the top of the
+              task list page, and press the Enter key to create it. When adding a
+              task , you can also press the shortcut 'Shift + Enter' to quickly add
+              a task description . After entering the description , press 'Command
+              + Enter' to create the task successfully.
+      tools_used:
+      - DuckDuckGo Web Search
+    type: agent_result
+  shared_data:
+    node_1762356676843:
+      agent_id: groq_researcher
+      agent_name: Groq Research Agent
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To add a task description, follow these steps:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task view.
+
+        3. Under the task name, click on "Description".
+
+        4. Enter your task description.
+
+
+        Alternatively, you can also:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task details screen.
+
+        3. Click inside the description box.
+
+        4. Enter your task description and use various formatting options to enhance
+        its appearance.
+
+
+        Note: The steps may vary slightly depending on the specific application or
+        platform you are using (e.g. Todoist, Workast, or Onestream).'
+      context_size: 2
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 5
+          results:
+          - title: Add a task description - Todoist
+            href: https://www.todoist.com/help/articles/add-a-task-description-rOryWIHn
+            body: "Apr 30, 2025 \xB7 Click the task you wish to add a task description\
+              \ to. This will open the task view. Under the task name, click Description.\
+              \ Enter a description for your task. Once you\u2019ve added your task\
+              \ description , as well as made any other necessary edits to your task,\
+              \ select Save."
+          - title: How to add and format a task description - Workast
+            href: https://www.workast.com/help/article/how-to-add-a-task-description/
+            body: 'Click on a task in the web app to open the task details screen.
+              Click over the description box. Enter your description . You can use
+              various formattings, such as numbered lists, bullet points, checklists,
+              code, or headings using ## and ###. Click "Save" to save your description
+              .'
+          - title: Set Up Task Descriptions - documentation.onestream.com
+            href: https://documentation.onestream.com/1375907/Content/UTM/Set+up+Task+Descriptions.html
+            body: The following image shows the Description field in the Task Editor.
+              You can use either the Task Editor or Task Administration task list
+              to enter descriptions for tasks that you manually add. Task descriptions
+              display in the Task Details pane of the Task Grid View and Task Gantt
+              View pages, so you can quickly assess the nature of the task .
+          - title: How to properly write a task name and description - Labrika
+            href: https://labrika.com/help/workplan/how-to-properly-write-a-task-name-and-description
+            body: 'How to properly write a task name and description A well-thought-out
+              task name makes it easier to organize your company''s workflow and for
+              your employees/contractors to understand what is needed of them. There
+              are several simple rules for the creation of a task name: The name should
+              begin with a verb that answers the question of what to do. For example,
+              "determine what has caused the ...'
+          - title: Add Tasks - TickTick
+            href: https://help.ticktick.com/articles/7055782422935240704
+            body: Enter the content in the " task addition bar" at the top of the
+              task list page, and press the Enter key to create it. When adding a
+              task , you can also press the shortcut 'Shift + Enter' to quickly add
+              a task description . After entering the description , press 'Command
+              + Enter' to create the task successfully.
+      tools_used:
+      - DuckDuckGo Web Search
+  agents_used:
+  - groq_researcher
+  current_step: node_1762356676843
+  results:
+    node_1762356676843:
+      agent_id: groq_researcher
+      agent_name: Groq Research Agent
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To add a task description, follow these steps:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task view.
+
+        3. Under the task name, click on "Description".
+
+        4. Enter your task description.
+
+
+        Alternatively, you can also:
+
+
+        1. Select the task you want to add a description to.
+
+        2. Click on the task to open the task details screen.
+
+        3. Click inside the description box.
+
+        4. Enter your task description and use various formatting options to enhance
+        its appearance.
+
+
+        Note: The steps may vary slightly depending on the specific application or
+        platform you are using (e.g. Todoist, Workast, or Onestream).'
+      context_size: 2
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 5
+          results:
+          - title: Add a task description - Todoist
+            href: https://www.todoist.com/help/articles/add-a-task-description-rOryWIHn
+            body: "Apr 30, 2025 \xB7 Click the task you wish to add a task description\
+              \ to. This will open the task view. Under the task name, click Description.\
+              \ Enter a description for your task. Once you\u2019ve added your task\
+              \ description , as well as made any other necessary edits to your task,\
+              \ select Save."
+          - title: How to add and format a task description - Workast
+            href: https://www.workast.com/help/article/how-to-add-a-task-description/
+            body: 'Click on a task in the web app to open the task details screen.
+              Click over the description box. Enter your description . You can use
+              various formattings, such as numbered lists, bullet points, checklists,
+              code, or headings using ## and ###. Click "Save" to save your description
+              .'
+          - title: Set Up Task Descriptions - documentation.onestream.com
+            href: https://documentation.onestream.com/1375907/Content/UTM/Set+up+Task+Descriptions.html
+            body: The following image shows the Description field in the Task Editor.
+              You can use either the Task Editor or Task Administration task list
+              to enter descriptions for tasks that you manually add. Task descriptions
+              display in the Task Details pane of the Task Grid View and Task Gantt
+              View pages, so you can quickly assess the nature of the task .
+          - title: How to properly write a task name and description - Labrika
+            href: https://labrika.com/help/workplan/how-to-properly-write-a-task-name-and-description
+            body: 'How to properly write a task name and description A well-thought-out
+              task name makes it easier to organize your company''s workflow and for
+              your employees/contractors to understand what is needed of them. There
+              are several simple rules for the creation of a task name: The name should
+              begin with a verb that answers the question of what to do. For example,
+              "determine what has caused the ...'
+          - title: Add Tasks - TickTick
+            href: https://help.ticktick.com/articles/7055782422935240704
+            body: Enter the content in the " task addition bar" at the top of the
+              task list page, and press the Enter key to create it. When adding a
+              task , you can also press the shortcut 'Shift + Enter' to quickly add
+              a task description . After entering the description , press 'Command
+              + Enter' to create the task successfully.
+      tools_used:
+      - DuckDuckGo Web Search
+  error: null

@@ -1,0 +1,11 @@
+id: academic_search_tool
+name: Academic Research Search
+type: websearch
+config:
+  engine: duckduckgo
+  max_results: 15
+  region: wt-wt
+  safesearch: strict
+  timelimit: null
+description: "Search for academic and research content with strict filtering"
+version: v1

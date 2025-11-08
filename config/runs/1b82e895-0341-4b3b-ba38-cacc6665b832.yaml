@@ -1,0 +1,296 @@
+workflow_id: test1
+run_id: 1b82e895-0341-4b3b-ba38-cacc6665b832
+status: success
+result:
+  node_1762447366839:
+    agent_id: '1'
+    agent_name: Test_Agent
+    agent_type: react
+    task: ai
+    llm_response: 'Artificial Intelligence (AI). AI has become increasingly prominent
+      in recent years, transforming the way we live, work, and interact with each
+      other.
+
+
+      Some key areas of AI research and development include:
+
+
+      1. **Machine Learning (ML)**: A subset of AI that enables machines to learn
+      from data and improve their performance over time.
+
+      2. **Natural Language Processing (NLP)**: AI that allows computers to understand,
+      interpret, and generate human language.
+
+      3. **Computer Vision**: AI that enables computers to interpret and understand
+      visual data from images and videos.
+
+      4. **Robotics**: AI that powers robots to perform tasks autonomously or semi-autonomously.
+
+
+      Applications of AI include:
+
+
+      1. **Virtual Assistants**: Siri, Alexa, and Google Assistant use AI to understand
+      voice commands and perform tasks.
+
+      2. **Image Recognition**: AI is used in self-driving cars to recognize objects
+      and navigate roads.
+
+      3. **Medical Diagnosis**: AI is used in healthcare to analyze medical data and
+      diagnose diseases.
+
+      4. **Personalized Recommendations**: AI is used in e-commerce to recommend products
+      based on user behavior.
+
+
+      What specific aspect of AI would you like to know more about?'
+    context_size: 4
+    tool_results: {}
+    tools_used: []
+meta:
+  communication_log:
+  - sender: node_1762447366839
+    agent: '1'
+    content:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: ai
+      llm_response: 'Artificial Intelligence (AI). AI has become increasingly prominent
+        in recent years, transforming the way we live, work, and interact with each
+        other.
+
+
+        Some key areas of AI research and development include:
+
+
+        1. **Machine Learning (ML)**: A subset of AI that enables machines to learn
+        from data and improve their performance over time.
+
+        2. **Natural Language Processing (NLP)**: AI that allows computers to understand,
+        interpret, and generate human language.
+
+        3. **Computer Vision**: AI that enables computers to interpret and understand
+        visual data from images and videos.
+
+        4. **Robotics**: AI that powers robots to perform tasks autonomously or semi-autonomously.
+
+
+        Applications of AI include:
+
+
+        1. **Virtual Assistants**: Siri, Alexa, and Google Assistant use AI to understand
+        voice commands and perform tasks.
+
+        2. **Image Recognition**: AI is used in self-driving cars to recognize objects
+        and navigate roads.
+
+        3. **Medical Diagnosis**: AI is used in healthcare to analyze medical data
+        and diagnose diseases.
+
+        4. **Personalized Recommendations**: AI is used in e-commerce to recommend
+        products based on user behavior.
+
+
+        What specific aspect of AI would you like to know more about?'
+      context_size: 4
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_state:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: ai
+      llm_response: 'Artificial Intelligence (AI). AI has become increasingly prominent
+        in recent years, transforming the way we live, work, and interact with each
+        other.
+
+
+        Some key areas of AI research and development include:
+
+
+        1. **Machine Learning (ML)**: A subset of AI that enables machines to learn
+        from data and improve their performance over time.
+
+        2. **Natural Language Processing (NLP)**: AI that allows computers to understand,
+        interpret, and generate human language.
+
+        3. **Computer Vision**: AI that enables computers to interpret and understand
+        visual data from images and videos.
+
+        4. **Robotics**: AI that powers robots to perform tasks autonomously or semi-autonomously.
+
+
+        Applications of AI include:
+
+
+        1. **Virtual Assistants**: Siri, Alexa, and Google Assistant use AI to understand
+        voice commands and perform tasks.
+
+        2. **Image Recognition**: AI is used in self-driving cars to recognize objects
+        and navigate roads.
+
+        3. **Medical Diagnosis**: AI is used in healthcare to analyze medical data
+        and diagnose diseases.
+
+        4. **Personalized Recommendations**: AI is used in e-commerce to recommend
+        products based on user behavior.
+
+
+        What specific aspect of AI would you like to know more about?'
+      context_size: 4
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - '1'
+  total_messages: 1
+  final_step: node_1762447366839
+error: null
+state:
+  messages:
+  - sender: node_1762447366839
+    agent: '1'
+    content:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: ai
+      llm_response: 'Artificial Intelligence (AI). AI has become increasingly prominent
+        in recent years, transforming the way we live, work, and interact with each
+        other.
+
+
+        Some key areas of AI research and development include:
+
+
+        1. **Machine Learning (ML)**: A subset of AI that enables machines to learn
+        from data and improve their performance over time.
+
+        2. **Natural Language Processing (NLP)**: AI that allows computers to understand,
+        interpret, and generate human language.
+
+        3. **Computer Vision**: AI that enables computers to interpret and understand
+        visual data from images and videos.
+
+        4. **Robotics**: AI that powers robots to perform tasks autonomously or semi-autonomously.
+
+
+        Applications of AI include:
+
+
+        1. **Virtual Assistants**: Siri, Alexa, and Google Assistant use AI to understand
+        voice commands and perform tasks.
+
+        2. **Image Recognition**: AI is used in self-driving cars to recognize objects
+        and navigate roads.
+
+        3. **Medical Diagnosis**: AI is used in healthcare to analyze medical data
+        and diagnose diseases.
+
+        4. **Personalized Recommendations**: AI is used in e-commerce to recommend
+        products based on user behavior.
+
+
+        What specific aspect of AI would you like to know more about?'
+      context_size: 4
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_data:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: ai
+      llm_response: 'Artificial Intelligence (AI). AI has become increasingly prominent
+        in recent years, transforming the way we live, work, and interact with each
+        other.
+
+
+        Some key areas of AI research and development include:
+
+
+        1. **Machine Learning (ML)**: A subset of AI that enables machines to learn
+        from data and improve their performance over time.
+
+        2. **Natural Language Processing (NLP)**: AI that allows computers to understand,
+        interpret, and generate human language.
+
+        3. **Computer Vision**: AI that enables computers to interpret and understand
+        visual data from images and videos.
+
+        4. **Robotics**: AI that powers robots to perform tasks autonomously or semi-autonomously.
+
+
+        Applications of AI include:
+
+
+        1. **Virtual Assistants**: Siri, Alexa, and Google Assistant use AI to understand
+        voice commands and perform tasks.
+
+        2. **Image Recognition**: AI is used in self-driving cars to recognize objects
+        and navigate roads.
+
+        3. **Medical Diagnosis**: AI is used in healthcare to analyze medical data
+        and diagnose diseases.
+
+        4. **Personalized Recommendations**: AI is used in e-commerce to recommend
+        products based on user behavior.
+
+
+        What specific aspect of AI would you like to know more about?'
+      context_size: 4
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - '1'
+  current_step: node_1762447366839
+  results:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: ai
+      llm_response: 'Artificial Intelligence (AI). AI has become increasingly prominent
+        in recent years, transforming the way we live, work, and interact with each
+        other.
+
+
+        Some key areas of AI research and development include:
+
+
+        1. **Machine Learning (ML)**: A subset of AI that enables machines to learn
+        from data and improve their performance over time.
+
+        2. **Natural Language Processing (NLP)**: AI that allows computers to understand,
+        interpret, and generate human language.
+
+        3. **Computer Vision**: AI that enables computers to interpret and understand
+        visual data from images and videos.
+
+        4. **Robotics**: AI that powers robots to perform tasks autonomously or semi-autonomously.
+
+
+        Applications of AI include:
+
+
+        1. **Virtual Assistants**: Siri, Alexa, and Google Assistant use AI to understand
+        voice commands and perform tasks.
+
+        2. **Image Recognition**: AI is used in self-driving cars to recognize objects
+        and navigate roads.
+
+        3. **Medical Diagnosis**: AI is used in healthcare to analyze medical data
+        and diagnose diseases.
+
+        4. **Personalized Recommendations**: AI is used in e-commerce to recommend
+        products based on user behavior.
+
+
+        What specific aspect of AI would you like to know more about?'
+      context_size: 4
+      tool_results: {}
+      tools_used: []
+  error: null

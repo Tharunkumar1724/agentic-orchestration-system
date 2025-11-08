@@ -1,0 +1,172 @@
+# ============================================================================
+# REST API Tool - Production Ready
+# ============================================================================
+# Generic REST API caller with full integration
+# ============================================================================
+
+id: rest_api_caller
+name: "REST API Caller"
+type: api
+description: "Generic REST API caller for any HTTP endpoint"
+version: v1
+
+# --------------------- METADATA ---------------------
+metadata:
+  created_at: "2025-11-07T00:00:00Z"
+  updated_at: "2025-11-07T00:00:00Z"
+  author: "System"
+  category: api
+  tags: [api, rest, http, integration]
+  status: active
+  stability: stable
+
+# --------------------- CONFIGURATION ---------------------
+config:
+  api:
+    base_url: "https://api.example.com"
+    endpoint: "/v1/resource"
+    method: GET
+    
+    auth:
+      type: none
+      token: null
+    
+    headers:
+      Content-Type: "application/json"
+      Accept: "application/json"
+    
+    timeout: 30
+    retry_attempts: 3
+    retry_delay: 1.0
+    
+    rate_limit:
+      requests_per_second: 10
+      requests_per_minute: 100
+
+# --------------------- INPUT SCHEMA ---------------------
+input_schema:
+  type: object
+  properties:
+    url:
+      type: string
+      description: "API endpoint URL"
+      format: uri
+    
+    method:
+      type: string
+      description: "HTTP method"
+      enum: [GET, POST, PUT, DELETE, PATCH]
+      default: GET
+    
+    headers:
+      type: object
+      description: "Request headers"
+      additionalProperties:
+        type: string
+    
+    params:
+      type: object
+      description: "Query parameters"
+      additionalProperties: true
+    
+    body:
+      type: object
+      description: "Request body (for POST/PUT/PATCH)"
+      additionalProperties: true
+    
+    auth:
+      type: object
+      description: "Authentication details"
+      properties:
+        type:
+          type: string
+          enum: [bearer, api_key, basic, none]
+        token:
+          type: string
+  
+  required: [url]
+
+# --------------------- OUTPUT SCHEMA ---------------------
+output_schema:
+  type: object
+  properties:
+    success:
+      type: boolean
+    
+    status_code:
+      type: integer
+    
+    data:
+      type: object
+      description: "Response data"
+      additionalProperties: true
+    
+    headers:
+      type: object
+      description: "Response headers"
+    
+    metadata:
+      type: object
+      properties:
+        execution_time_ms:
+          type: integer
+        timestamp:
+          type: string
+        request_id:
+          type: string
+
+# --------------------- API INTEGRATION ---------------------
+api_integration:
+  backend:
+    base_url: "http://localhost:8000"
+    endpoints:
+      create:
+        path: "/tools"
+        method: POST
+      execute:
+        path: "/tools/{tool_id}/execute"
+        method: POST
+  
+  frontend:
+    service_functions:
+      - name: "callAPI"
+        endpoint: "/tools/rest_api_caller/execute"
+        method: "POST"
+
+# --------------------- ERROR HANDLING ---------------------
+error_handling:
+  retry:
+    enabled: true
+    max_attempts: 3
+    retry_on: [connection_timeout, rate_limit_exceeded]
+  
+  validation:
+    validate_input: true
+    validate_output: true
+
+# --------------------- EXECUTION ---------------------
+execution:
+  async_enabled: true
+  cache:
+    enabled: false
+  monitoring:
+    enabled: true
+  logging:
+    enabled: true
+    log_level: INFO
+
+# --------------------- EXAMPLES ---------------------
+examples:
+  - name: "GET Request"
+    input:
+      url: "https://jsonplaceholder.typicode.com/posts/1"
+      method: GET
+  
+  - name: "POST Request"
+    input:
+      url: "https://jsonplaceholder.typicode.com/posts"
+      method: POST
+      body:
+        title: "Test Post"
+        body: "This is a test"
+        userId: 1

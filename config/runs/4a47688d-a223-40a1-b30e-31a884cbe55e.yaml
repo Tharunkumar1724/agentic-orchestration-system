@@ -1,0 +1,86 @@
+workflow_id: test1
+run_id: 4a47688d-a223-40a1-b30e-31a884cbe55e
+status: success
+result:
+  node_1762447366839:
+    agent_id: '1'
+    agent_name: Test_Agent
+    agent_type: react
+    task: test
+    llm_response: It appears to be a simple test. Is there anything specific you would
+      like to discuss or would you like me to assist you with something?
+    context_size: 2
+    tool_results: {}
+    tools_used: []
+meta:
+  communication_log:
+  - sender: node_1762447366839
+    agent: '1'
+    content:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: test
+      llm_response: It appears to be a simple test. Is there anything specific you
+        would like to discuss or would you like me to assist you with something?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_state:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: test
+      llm_response: It appears to be a simple test. Is there anything specific you
+        would like to discuss or would you like me to assist you with something?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - '1'
+  total_messages: 1
+  final_step: node_1762447366839
+error: null
+state:
+  messages:
+  - sender: node_1762447366839
+    agent: '1'
+    content:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: test
+      llm_response: It appears to be a simple test. Is there anything specific you
+        would like to discuss or would you like me to assist you with something?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_data:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: test
+      llm_response: It appears to be a simple test. Is there anything specific you
+        would like to discuss or would you like me to assist you with something?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - '1'
+  current_step: node_1762447366839
+  results:
+    node_1762447366839:
+      agent_id: '1'
+      agent_name: Test_Agent
+      agent_type: react
+      task: test
+      llm_response: It appears to be a simple test. Is there anything specific you
+        would like to discuss or would you like me to assist you with something?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  error: null

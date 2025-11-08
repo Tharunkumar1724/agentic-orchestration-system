@@ -1,0 +1,1391 @@
+workflow_id: ai-research-workflow
+run_id: 0bd36ce3-ad24-41b3-a143-79de72f09c13
+status: success
+result:
+  research-node:
+    agent_id: researcher-agent
+    agent_name: Research Agent
+    agent_type: react
+    task: 'Ai agents and  yaml architecture '
+    llm_response: "Based on the web search results, I have compiled a comprehensive\
+      \ analysis of AI agents and YAML architecture.\n\n**Introduction to AI Agents:**\n\
+      \nAI agents are software programs that interact with their environment and make\
+      \ decisions based on their programming, data, and algorithms. They can be used\
+      \ in various applications, such as chatbots, virtual assistants, and decision-making\
+      \ systems.\n\n**Types of AI Agent Architectures:**\n\n1. **Single Agent Architecture**:\
+      \ This type of architecture uses a single AI agent to perform all tasks and\
+      \ make decisions.\n2. **Multi-Agent Architecture**: This type of architecture\
+      \ uses multiple AI agents, each with their own roles and responsibilities, to\
+      \ perform tasks and make decisions.\n3. **Hybrid Architecture**: This type of\
+      \ architecture combines elements of single and multi-agent architectures to\
+      \ create a flexible and adaptable system.\n\n**YAML Architecture for AI Agents:**\n\
+      \nYAML (YAML Ain't Markup Language) is a human-readable serialization format\
+      \ that is commonly used to define the configuration and parameters of AI agents.\
+      \ YAML files can be used to specify the tasks, parameters, and interactions\
+      \ of AI agents, making it easier to manage and maintain complex AI systems.\n\
+      \n**Best Practices for YAML Architecture:**\n\n1. **Use a clear and consistent\
+      \ naming convention**: Use a consistent naming convention for variables and\
+      \ parameters in YAML files to make it easier to read and understand.\n2. **Use\
+      \ indentation and whitespace**: Use indentation and whitespace to make YAML\
+      \ files easier to read and understand.\n3. **Use comments and documentation**:\
+      \ Use comments and documentation to explain the purpose and behavior of YAML\
+      \ files.\n4. **Use version control**: Use version control to track changes to\
+      \ YAML files and ensure that all team members are working with the same version.\n\
+      \n**YAML File Structure:**\n\nA typical YAML file for AI agents consists of\
+      \ the following sections:\n\n1. **Agent Definition**: This section defines the\
+      \ AI agent, including its type, name, and parameters.\n2. **Task Definition**:\
+      \ This section defines the tasks that the AI agent will perform, including the\
+      \ inputs, outputs, and dependencies.\n3. **Parameter Definition**: This section\
+      \ defines the parameters that will be used by the AI agent, including their\
+      \ values and data types.\n4. **Interaction Definition**: This section defines\
+      \ how the AI agent will interact with other agents and systems, including the\
+      \ communication protocols and data formats.\n\n**Real-World Example:**\n\nHere\
+      \ is an example of a YAML file for an AI agent:\n```yml\nagent:\n  type: chatbot\n\
+      \  name: customer-support\n  parameters:\n    language: english\n    tone: friendly\n\
+      \ntasks:\n  - name: respond-to-question\n    inputs: [question]\n    outputs:\
+      \ [answer]\n    dependencies: [knowledge-base]\n\nparameters:\n  knowledge-base:\n\
+      \    data: [faq, product-description]\n    format: json\n\ninteractions:\n \
+      \ - name: send-response\n    protocol: http\n    data-format: json\n```\nThis\
+      \ YAML file defines a chatbot AI agent that responds to customer questions based\
+      \ on a knowledge base. The agent uses a friendly tone and responds in English.\
+      \ The knowledge base is stored in a JSON file and is accessed through an HTTP\
+      \ protocol."
+    context_size: 6
+    tool_results:
+      web-search-tool:
+        tool: web-search-tool
+        query: 'Ai agents and  yaml architecture '
+        count: 5
+        results:
+        - title: AI Agent Orchestration Patterns - Azure Architecture Center
+          href: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns
+          body: "Jul 18, 2025 \xB7 As architects and developers design their workload\
+            \ to take full advantage of language model capabilities, AI agent systems\
+            \ become increasingly complex. These systems often exceed the abilities\
+            \ of a single agent that has access to many tools and knowledge sources."
+        - title: Using YAML Files to Define Tasks and Parameters for AI Agents
+          href: https://empathyfirstmedia.com/yaml-files-ai-agents/
+          body: "May 27, 2025 \xB7 This comprehensive guide reveals exactly how we\
+            \ structure YAML files for AI agent configuration, complete with real-world\
+            \ examples, best practices, and implementation strategies that you can\
+            \ apply immediately."
+        - title: The ultimate guide to AI agent architectures in 2025
+          href: https://dev.to/sohail-akbar/the-ultimate-guide-to-ai-agent-architectures-in-2025-2j1c
+          body: "May 5, 2025 \xB7 The Agents Hierarchy + Parallel Agents + Shared\
+            \ Tools architecture creates a system of multiple specialized agents organized\
+            \ in a hierarchical structure, with parallel execution capability and\
+            \ access to shared tools."
+        - title: Every AI Agent Framework Should Adopt YAML - Julep AI
+          href: https://julep.ai/blog/why-every-ai-agent-framework-should-adopt-yaml-a-technical-deep-dive
+          body: "Aug 18, 2025 \xB7 After building and deploying dozens of production\
+            \ AI systems, I'm convinced: YAML should be the universal language for\
+            \ AI agent workflows. Not because it's trendy, but because it solves the\
+            \ actual problems teams face when building AI systems at scale."
+        - title: 'The Architectural Shift: AI Agents Become Execution Engines ...'
+          href: https://www.infoq.com/news/2025/10/ai-agent-orchestration/
+          body: "Oct 29, 2025 \xB7 A fundamental shift in enterprise software architecture\
+            \ is emerging as AI agents transition from assistive tools to operational\
+            \ execution engines, with traditional application backends retreating\
+            \ ..."
+    tools_used:
+    - Web Search
+  analysis-node:
+    agent_id: researcher-agent
+    agent_name: Research Agent
+    agent_type: react
+    task: Based on the research findings, analyze the key features and use cases
+    llm_response: 'Based on the web search results, I have compiled a comprehensive
+      analysis of the key features and use cases of case studies.
+
+
+      **Key Features of Case Studies:**
+
+
+      1. **In-depth analysis**: Case studies provide an in-depth examination of a
+      specific event, project, or organization, allowing for a detailed understanding
+      of the context, processes, and outcomes.
+
+      2. **Qualitative and quantitative data**: Case studies can involve various research
+      methods to collect both qualitative and quantitative data, providing a comprehensive
+      understanding of the subject matter.
+
+      3. **Contextual understanding**: Case studies aim to provide a rich and nuanced
+      understanding of the case, taking into account the social, cultural, and environmental
+      context in which it operates.
+
+      4. **Analytical framework**: Case studies often involve the use of an analytical
+      framework to guide the data collection and analysis process, ensuring a systematic
+      and structured approach.
+
+
+      **Use Cases of Case Studies:**
+
+
+      1. **Research and development**: Case studies are commonly used in research
+      and development to explore new concepts, technologies, or business models.
+
+      2. **Business and organizational analysis**: Case studies can be used to analyze
+      the operations, management, and performance of organizations, providing insights
+      for improvement and optimization.
+
+      3. **Education and training**: Case studies are often used in educational settings
+      to teach students about real-world applications of theoretical concepts, promoting
+      experiential learning and skill development.
+
+      4. **Policy and decision-making**: Case studies can inform policy decisions
+      and strategic planning by providing an in-depth understanding of the impact
+      and effectiveness of different interventions or policies.
+
+
+      **Best Practices for Conducting Case Studies:**
+
+
+      1. **Clearly define the research question**: Establish a clear and focused research
+      question to guide the data collection and analysis process.
+
+      2. **Select a suitable case**: Choose a case that is relevant and representative
+      of the research question, ensuring that it is feasible to collect and analyze
+      the necessary data.
+
+      3. **Use a range of research methods**: Employ a combination of qualitative
+      and quantitative research methods to collect and analyze data, providing a comprehensive
+      understanding of the case.
+
+      4. **Analyzing and interpreting findings**: Use an analytical framework to guide
+      the data analysis and interpretation, ensuring a systematic and structured approach.
+
+
+      **Comparison with YAML Architecture:**
+
+
+      While case studies and YAML architecture are distinct research approaches, they
+      share some similarities:
+
+
+      1. **Structured approach**: Both case studies and YAML architecture involve
+      a structured approach to data collection and analysis.
+
+      2. **Comprehensive understanding**: Both approaches aim to provide a comprehensive
+      understanding of the subject matter, whether it is a case or a system.
+
+      3. **Analysis and interpretation**: Both approaches involve analyzing and interpreting
+      data to extract insights and meaning.
+
+
+      However, there are also significant differences between the two approaches:
+
+
+      1. **Focus**: Case studies focus on a specific case or event, while YAML architecture
+      focuses on designing and implementing a system.
+
+      2. **Methodology**: Case studies involve a range of research methods, while
+      YAML architecture involves defining and configuring a system using YAML files.
+
+      3. **Scope**: Case studies typically have a narrower scope than YAML architecture,
+      which can involve multiple systems and components.
+
+
+      By understanding the key features and use cases of case studies and YAML architecture,
+      researchers and practitioners can choose the most appropriate approach for their
+      research goals and objectives.'
+    context_size: 8
+    tool_results:
+      web-search-tool:
+        tool: web-search-tool
+        query: Based on the research findings, analyze the key features and use cases
+        count: 5
+        results:
+        - title: Case Study - Methods, Examples and Guide - Research Method
+          href: https://researchmethod.net/case-study-research/
+          body: "Mar 26, 2024 \xB7 Case studies can involve various research methods\
+            \ to collect data and analyze the case comprehensively. The primary methods\
+            \ include interviews, observations, document analysis, and surveys."
+        - title: The case study approach - PMC
+          href: https://pmc.ncbi.nlm.nih.gov/articles/PMC3141799/
+          body: Our aim in writing this piece is to provide insights into when to
+            consider employing this approach and an overview of key methodological
+            considerations in relation to the design, planning, analysis , interpretation
+            and reporting of case studies.
+        - title: Analyzing and Interpreting Findings - SAGE Publications Inc
+          href: https://us.sagepub.com/sites/default/files/upm-binaries/18534_Chapter5.pdf
+          body: In this chapter, you serve as a guide to your readers, helping them
+            to under-stand the findings of your study based on your intensive and
+            careful analysis . The chapter is essentially a well-thought-out conversation
+            that integrates your findings with literature, research , and practice.
+        - title: 'The Value of Case Study Research in Practice: A ...'
+          href: https://www.researchgate.net/publication/385894147_The_Value_of_Case_Study_Research_in_Practice_A_Methodological_Review_with_Practical_Insights_from_Organisational_Studies
+          body: "Nov 1, 2024 \xB7 Based on a study involving four organisations and\
+            \ the researcher \u2019s practical experience, the article details how\
+            \ case studies were conducted, how access to organisations was gained,\
+            \ and how..."
+        - title: What is a Case Study in Research? Definition, Methods, and ...
+          href: https://researcher.life/blog/article/what-is-a-case-study-in-research-definition-methods-and-examples/
+          body: "Jun 27, 2024 \xB7 Learn what is case study in research and how to\
+            \ apply it to your investigations. This article covers the step-by-step\
+            \ process of designing and conducting effective case studies along with\
+            \ the examples."
+    tools_used:
+    - Web Search
+meta:
+  communication_log:
+  - sender: research-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: 'Ai agents and  yaml architecture '
+      llm_response: "Based on the web search results, I have compiled a comprehensive\
+        \ analysis of AI agents and YAML architecture.\n\n**Introduction to AI Agents:**\n\
+        \nAI agents are software programs that interact with their environment and\
+        \ make decisions based on their programming, data, and algorithms. They can\
+        \ be used in various applications, such as chatbots, virtual assistants, and\
+        \ decision-making systems.\n\n**Types of AI Agent Architectures:**\n\n1. **Single\
+        \ Agent Architecture**: This type of architecture uses a single AI agent to\
+        \ perform all tasks and make decisions.\n2. **Multi-Agent Architecture**:\
+        \ This type of architecture uses multiple AI agents, each with their own roles\
+        \ and responsibilities, to perform tasks and make decisions.\n3. **Hybrid\
+        \ Architecture**: This type of architecture combines elements of single and\
+        \ multi-agent architectures to create a flexible and adaptable system.\n\n\
+        **YAML Architecture for AI Agents:**\n\nYAML (YAML Ain't Markup Language)\
+        \ is a human-readable serialization format that is commonly used to define\
+        \ the configuration and parameters of AI agents. YAML files can be used to\
+        \ specify the tasks, parameters, and interactions of AI agents, making it\
+        \ easier to manage and maintain complex AI systems.\n\n**Best Practices for\
+        \ YAML Architecture:**\n\n1. **Use a clear and consistent naming convention**:\
+        \ Use a consistent naming convention for variables and parameters in YAML\
+        \ files to make it easier to read and understand.\n2. **Use indentation and\
+        \ whitespace**: Use indentation and whitespace to make YAML files easier to\
+        \ read and understand.\n3. **Use comments and documentation**: Use comments\
+        \ and documentation to explain the purpose and behavior of YAML files.\n4.\
+        \ **Use version control**: Use version control to track changes to YAML files\
+        \ and ensure that all team members are working with the same version.\n\n\
+        **YAML File Structure:**\n\nA typical YAML file for AI agents consists of\
+        \ the following sections:\n\n1. **Agent Definition**: This section defines\
+        \ the AI agent, including its type, name, and parameters.\n2. **Task Definition**:\
+        \ This section defines the tasks that the AI agent will perform, including\
+        \ the inputs, outputs, and dependencies.\n3. **Parameter Definition**: This\
+        \ section defines the parameters that will be used by the AI agent, including\
+        \ their values and data types.\n4. **Interaction Definition**: This section\
+        \ defines how the AI agent will interact with other agents and systems, including\
+        \ the communication protocols and data formats.\n\n**Real-World Example:**\n\
+        \nHere is an example of a YAML file for an AI agent:\n```yml\nagent:\n  type:\
+        \ chatbot\n  name: customer-support\n  parameters:\n    language: english\n\
+        \    tone: friendly\n\ntasks:\n  - name: respond-to-question\n    inputs:\
+        \ [question]\n    outputs: [answer]\n    dependencies: [knowledge-base]\n\n\
+        parameters:\n  knowledge-base:\n    data: [faq, product-description]\n   \
+        \ format: json\n\ninteractions:\n  - name: send-response\n    protocol: http\n\
+        \    data-format: json\n```\nThis YAML file defines a chatbot AI agent that\
+        \ responds to customer questions based on a knowledge base. The agent uses\
+        \ a friendly tone and responds in English. The knowledge base is stored in\
+        \ a JSON file and is accessed through an HTTP protocol."
+      context_size: 6
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: 'Ai agents and  yaml architecture '
+          count: 5
+          results:
+          - title: AI Agent Orchestration Patterns - Azure Architecture Center
+            href: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns
+            body: "Jul 18, 2025 \xB7 As architects and developers design their workload\
+              \ to take full advantage of language model capabilities, AI agent systems\
+              \ become increasingly complex. These systems often exceed the abilities\
+              \ of a single agent that has access to many tools and knowledge sources."
+          - title: Using YAML Files to Define Tasks and Parameters for AI Agents
+            href: https://empathyfirstmedia.com/yaml-files-ai-agents/
+            body: "May 27, 2025 \xB7 This comprehensive guide reveals exactly how\
+              \ we structure YAML files for AI agent configuration, complete with\
+              \ real-world examples, best practices, and implementation strategies\
+              \ that you can apply immediately."
+          - title: The ultimate guide to AI agent architectures in 2025
+            href: https://dev.to/sohail-akbar/the-ultimate-guide-to-ai-agent-architectures-in-2025-2j1c
+            body: "May 5, 2025 \xB7 The Agents Hierarchy + Parallel Agents + Shared\
+              \ Tools architecture creates a system of multiple specialized agents\
+              \ organized in a hierarchical structure, with parallel execution capability\
+              \ and access to shared tools."
+          - title: Every AI Agent Framework Should Adopt YAML - Julep AI
+            href: https://julep.ai/blog/why-every-ai-agent-framework-should-adopt-yaml-a-technical-deep-dive
+            body: "Aug 18, 2025 \xB7 After building and deploying dozens of production\
+              \ AI systems, I'm convinced: YAML should be the universal language for\
+              \ AI agent workflows. Not because it's trendy, but because it solves\
+              \ the actual problems teams face when building AI systems at scale."
+          - title: 'The Architectural Shift: AI Agents Become Execution Engines ...'
+            href: https://www.infoq.com/news/2025/10/ai-agent-orchestration/
+            body: "Oct 29, 2025 \xB7 A fundamental shift in enterprise software architecture\
+              \ is emerging as AI agents transition from assistive tools to operational\
+              \ execution engines, with traditional application backends retreating\
+              \ ..."
+      tools_used:
+      - Web Search
+    type: agent_result
+  - sender: analysis-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: 'Based on the web search results, I have compiled a comprehensive
+        analysis of the key features and use cases of case studies.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **In-depth analysis**: Case studies provide an in-depth examination of
+        a specific event, project, or organization, allowing for a detailed understanding
+        of the context, processes, and outcomes.
+
+        2. **Qualitative and quantitative data**: Case studies can involve various
+        research methods to collect both qualitative and quantitative data, providing
+        a comprehensive understanding of the subject matter.
+
+        3. **Contextual understanding**: Case studies aim to provide a rich and nuanced
+        understanding of the case, taking into account the social, cultural, and environmental
+        context in which it operates.
+
+        4. **Analytical framework**: Case studies often involve the use of an analytical
+        framework to guide the data collection and analysis process, ensuring a systematic
+        and structured approach.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Research and development**: Case studies are commonly used in research
+        and development to explore new concepts, technologies, or business models.
+
+        2. **Business and organizational analysis**: Case studies can be used to analyze
+        the operations, management, and performance of organizations, providing insights
+        for improvement and optimization.
+
+        3. **Education and training**: Case studies are often used in educational
+        settings to teach students about real-world applications of theoretical concepts,
+        promoting experiential learning and skill development.
+
+        4. **Policy and decision-making**: Case studies can inform policy decisions
+        and strategic planning by providing an in-depth understanding of the impact
+        and effectiveness of different interventions or policies.
+
+
+        **Best Practices for Conducting Case Studies:**
+
+
+        1. **Clearly define the research question**: Establish a clear and focused
+        research question to guide the data collection and analysis process.
+
+        2. **Select a suitable case**: Choose a case that is relevant and representative
+        of the research question, ensuring that it is feasible to collect and analyze
+        the necessary data.
+
+        3. **Use a range of research methods**: Employ a combination of qualitative
+        and quantitative research methods to collect and analyze data, providing a
+        comprehensive understanding of the case.
+
+        4. **Analyzing and interpreting findings**: Use an analytical framework to
+        guide the data analysis and interpretation, ensuring a systematic and structured
+        approach.
+
+
+        **Comparison with YAML Architecture:**
+
+
+        While case studies and YAML architecture are distinct research approaches,
+        they share some similarities:
+
+
+        1. **Structured approach**: Both case studies and YAML architecture involve
+        a structured approach to data collection and analysis.
+
+        2. **Comprehensive understanding**: Both approaches aim to provide a comprehensive
+        understanding of the subject matter, whether it is a case or a system.
+
+        3. **Analysis and interpretation**: Both approaches involve analyzing and
+        interpreting data to extract insights and meaning.
+
+
+        However, there are also significant differences between the two approaches:
+
+
+        1. **Focus**: Case studies focus on a specific case or event, while YAML architecture
+        focuses on designing and implementing a system.
+
+        2. **Methodology**: Case studies involve a range of research methods, while
+        YAML architecture involves defining and configuring a system using YAML files.
+
+        3. **Scope**: Case studies typically have a narrower scope than YAML architecture,
+        which can involve multiple systems and components.
+
+
+        By understanding the key features and use cases of case studies and YAML architecture,
+        researchers and practitioners can choose the most appropriate approach for
+        their research goals and objectives.'
+      context_size: 8
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Case Study - Methods, Examples and Guide - Research Method
+            href: https://researchmethod.net/case-study-research/
+            body: "Mar 26, 2024 \xB7 Case studies can involve various research methods\
+              \ to collect data and analyze the case comprehensively. The primary\
+              \ methods include interviews, observations, document analysis, and surveys."
+          - title: The case study approach - PMC
+            href: https://pmc.ncbi.nlm.nih.gov/articles/PMC3141799/
+            body: Our aim in writing this piece is to provide insights into when to
+              consider employing this approach and an overview of key methodological
+              considerations in relation to the design, planning, analysis , interpretation
+              and reporting of case studies.
+          - title: Analyzing and Interpreting Findings - SAGE Publications Inc
+            href: https://us.sagepub.com/sites/default/files/upm-binaries/18534_Chapter5.pdf
+            body: In this chapter, you serve as a guide to your readers, helping them
+              to under-stand the findings of your study based on your intensive and
+              careful analysis . The chapter is essentially a well-thought-out conversation
+              that integrates your findings with literature, research , and practice.
+          - title: 'The Value of Case Study Research in Practice: A ...'
+            href: https://www.researchgate.net/publication/385894147_The_Value_of_Case_Study_Research_in_Practice_A_Methodological_Review_with_Practical_Insights_from_Organisational_Studies
+            body: "Nov 1, 2024 \xB7 Based on a study involving four organisations\
+              \ and the researcher \u2019s practical experience, the article details\
+              \ how case studies were conducted, how access to organisations was gained,\
+              \ and how..."
+          - title: What is a Case Study in Research? Definition, Methods, and ...
+            href: https://researcher.life/blog/article/what-is-a-case-study-in-research-definition-methods-and-examples/
+            body: "Jun 27, 2024 \xB7 Learn what is case study in research and how\
+              \ to apply it to your investigations. This article covers the step-by-step\
+              \ process of designing and conducting effective case studies along with\
+              \ the examples."
+      tools_used:
+      - Web Search
+    type: agent_result
+  shared_state:
+    research-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: 'Ai agents and  yaml architecture '
+      llm_response: "Based on the web search results, I have compiled a comprehensive\
+        \ analysis of AI agents and YAML architecture.\n\n**Introduction to AI Agents:**\n\
+        \nAI agents are software programs that interact with their environment and\
+        \ make decisions based on their programming, data, and algorithms. They can\
+        \ be used in various applications, such as chatbots, virtual assistants, and\
+        \ decision-making systems.\n\n**Types of AI Agent Architectures:**\n\n1. **Single\
+        \ Agent Architecture**: This type of architecture uses a single AI agent to\
+        \ perform all tasks and make decisions.\n2. **Multi-Agent Architecture**:\
+        \ This type of architecture uses multiple AI agents, each with their own roles\
+        \ and responsibilities, to perform tasks and make decisions.\n3. **Hybrid\
+        \ Architecture**: This type of architecture combines elements of single and\
+        \ multi-agent architectures to create a flexible and adaptable system.\n\n\
+        **YAML Architecture for AI Agents:**\n\nYAML (YAML Ain't Markup Language)\
+        \ is a human-readable serialization format that is commonly used to define\
+        \ the configuration and parameters of AI agents. YAML files can be used to\
+        \ specify the tasks, parameters, and interactions of AI agents, making it\
+        \ easier to manage and maintain complex AI systems.\n\n**Best Practices for\
+        \ YAML Architecture:**\n\n1. **Use a clear and consistent naming convention**:\
+        \ Use a consistent naming convention for variables and parameters in YAML\
+        \ files to make it easier to read and understand.\n2. **Use indentation and\
+        \ whitespace**: Use indentation and whitespace to make YAML files easier to\
+        \ read and understand.\n3. **Use comments and documentation**: Use comments\
+        \ and documentation to explain the purpose and behavior of YAML files.\n4.\
+        \ **Use version control**: Use version control to track changes to YAML files\
+        \ and ensure that all team members are working with the same version.\n\n\
+        **YAML File Structure:**\n\nA typical YAML file for AI agents consists of\
+        \ the following sections:\n\n1. **Agent Definition**: This section defines\
+        \ the AI agent, including its type, name, and parameters.\n2. **Task Definition**:\
+        \ This section defines the tasks that the AI agent will perform, including\
+        \ the inputs, outputs, and dependencies.\n3. **Parameter Definition**: This\
+        \ section defines the parameters that will be used by the AI agent, including\
+        \ their values and data types.\n4. **Interaction Definition**: This section\
+        \ defines how the AI agent will interact with other agents and systems, including\
+        \ the communication protocols and data formats.\n\n**Real-World Example:**\n\
+        \nHere is an example of a YAML file for an AI agent:\n```yml\nagent:\n  type:\
+        \ chatbot\n  name: customer-support\n  parameters:\n    language: english\n\
+        \    tone: friendly\n\ntasks:\n  - name: respond-to-question\n    inputs:\
+        \ [question]\n    outputs: [answer]\n    dependencies: [knowledge-base]\n\n\
+        parameters:\n  knowledge-base:\n    data: [faq, product-description]\n   \
+        \ format: json\n\ninteractions:\n  - name: send-response\n    protocol: http\n\
+        \    data-format: json\n```\nThis YAML file defines a chatbot AI agent that\
+        \ responds to customer questions based on a knowledge base. The agent uses\
+        \ a friendly tone and responds in English. The knowledge base is stored in\
+        \ a JSON file and is accessed through an HTTP protocol."
+      context_size: 6
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: 'Ai agents and  yaml architecture '
+          count: 5
+          results:
+          - title: AI Agent Orchestration Patterns - Azure Architecture Center
+            href: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns
+            body: "Jul 18, 2025 \xB7 As architects and developers design their workload\
+              \ to take full advantage of language model capabilities, AI agent systems\
+              \ become increasingly complex. These systems often exceed the abilities\
+              \ of a single agent that has access to many tools and knowledge sources."
+          - title: Using YAML Files to Define Tasks and Parameters for AI Agents
+            href: https://empathyfirstmedia.com/yaml-files-ai-agents/
+            body: "May 27, 2025 \xB7 This comprehensive guide reveals exactly how\
+              \ we structure YAML files for AI agent configuration, complete with\
+              \ real-world examples, best practices, and implementation strategies\
+              \ that you can apply immediately."
+          - title: The ultimate guide to AI agent architectures in 2025
+            href: https://dev.to/sohail-akbar/the-ultimate-guide-to-ai-agent-architectures-in-2025-2j1c
+            body: "May 5, 2025 \xB7 The Agents Hierarchy + Parallel Agents + Shared\
+              \ Tools architecture creates a system of multiple specialized agents\
+              \ organized in a hierarchical structure, with parallel execution capability\
+              \ and access to shared tools."
+          - title: Every AI Agent Framework Should Adopt YAML - Julep AI
+            href: https://julep.ai/blog/why-every-ai-agent-framework-should-adopt-yaml-a-technical-deep-dive
+            body: "Aug 18, 2025 \xB7 After building and deploying dozens of production\
+              \ AI systems, I'm convinced: YAML should be the universal language for\
+              \ AI agent workflows. Not because it's trendy, but because it solves\
+              \ the actual problems teams face when building AI systems at scale."
+          - title: 'The Architectural Shift: AI Agents Become Execution Engines ...'
+            href: https://www.infoq.com/news/2025/10/ai-agent-orchestration/
+            body: "Oct 29, 2025 \xB7 A fundamental shift in enterprise software architecture\
+              \ is emerging as AI agents transition from assistive tools to operational\
+              \ execution engines, with traditional application backends retreating\
+              \ ..."
+      tools_used:
+      - Web Search
+    analysis-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: 'Based on the web search results, I have compiled a comprehensive
+        analysis of the key features and use cases of case studies.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **In-depth analysis**: Case studies provide an in-depth examination of
+        a specific event, project, or organization, allowing for a detailed understanding
+        of the context, processes, and outcomes.
+
+        2. **Qualitative and quantitative data**: Case studies can involve various
+        research methods to collect both qualitative and quantitative data, providing
+        a comprehensive understanding of the subject matter.
+
+        3. **Contextual understanding**: Case studies aim to provide a rich and nuanced
+        understanding of the case, taking into account the social, cultural, and environmental
+        context in which it operates.
+
+        4. **Analytical framework**: Case studies often involve the use of an analytical
+        framework to guide the data collection and analysis process, ensuring a systematic
+        and structured approach.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Research and development**: Case studies are commonly used in research
+        and development to explore new concepts, technologies, or business models.
+
+        2. **Business and organizational analysis**: Case studies can be used to analyze
+        the operations, management, and performance of organizations, providing insights
+        for improvement and optimization.
+
+        3. **Education and training**: Case studies are often used in educational
+        settings to teach students about real-world applications of theoretical concepts,
+        promoting experiential learning and skill development.
+
+        4. **Policy and decision-making**: Case studies can inform policy decisions
+        and strategic planning by providing an in-depth understanding of the impact
+        and effectiveness of different interventions or policies.
+
+
+        **Best Practices for Conducting Case Studies:**
+
+
+        1. **Clearly define the research question**: Establish a clear and focused
+        research question to guide the data collection and analysis process.
+
+        2. **Select a suitable case**: Choose a case that is relevant and representative
+        of the research question, ensuring that it is feasible to collect and analyze
+        the necessary data.
+
+        3. **Use a range of research methods**: Employ a combination of qualitative
+        and quantitative research methods to collect and analyze data, providing a
+        comprehensive understanding of the case.
+
+        4. **Analyzing and interpreting findings**: Use an analytical framework to
+        guide the data analysis and interpretation, ensuring a systematic and structured
+        approach.
+
+
+        **Comparison with YAML Architecture:**
+
+
+        While case studies and YAML architecture are distinct research approaches,
+        they share some similarities:
+
+
+        1. **Structured approach**: Both case studies and YAML architecture involve
+        a structured approach to data collection and analysis.
+
+        2. **Comprehensive understanding**: Both approaches aim to provide a comprehensive
+        understanding of the subject matter, whether it is a case or a system.
+
+        3. **Analysis and interpretation**: Both approaches involve analyzing and
+        interpreting data to extract insights and meaning.
+
+
+        However, there are also significant differences between the two approaches:
+
+
+        1. **Focus**: Case studies focus on a specific case or event, while YAML architecture
+        focuses on designing and implementing a system.
+
+        2. **Methodology**: Case studies involve a range of research methods, while
+        YAML architecture involves defining and configuring a system using YAML files.
+
+        3. **Scope**: Case studies typically have a narrower scope than YAML architecture,
+        which can involve multiple systems and components.
+
+
+        By understanding the key features and use cases of case studies and YAML architecture,
+        researchers and practitioners can choose the most appropriate approach for
+        their research goals and objectives.'
+      context_size: 8
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Case Study - Methods, Examples and Guide - Research Method
+            href: https://researchmethod.net/case-study-research/
+            body: "Mar 26, 2024 \xB7 Case studies can involve various research methods\
+              \ to collect data and analyze the case comprehensively. The primary\
+              \ methods include interviews, observations, document analysis, and surveys."
+          - title: The case study approach - PMC
+            href: https://pmc.ncbi.nlm.nih.gov/articles/PMC3141799/
+            body: Our aim in writing this piece is to provide insights into when to
+              consider employing this approach and an overview of key methodological
+              considerations in relation to the design, planning, analysis , interpretation
+              and reporting of case studies.
+          - title: Analyzing and Interpreting Findings - SAGE Publications Inc
+            href: https://us.sagepub.com/sites/default/files/upm-binaries/18534_Chapter5.pdf
+            body: In this chapter, you serve as a guide to your readers, helping them
+              to under-stand the findings of your study based on your intensive and
+              careful analysis . The chapter is essentially a well-thought-out conversation
+              that integrates your findings with literature, research , and practice.
+          - title: 'The Value of Case Study Research in Practice: A ...'
+            href: https://www.researchgate.net/publication/385894147_The_Value_of_Case_Study_Research_in_Practice_A_Methodological_Review_with_Practical_Insights_from_Organisational_Studies
+            body: "Nov 1, 2024 \xB7 Based on a study involving four organisations\
+              \ and the researcher \u2019s practical experience, the article details\
+              \ how case studies were conducted, how access to organisations was gained,\
+              \ and how..."
+          - title: What is a Case Study in Research? Definition, Methods, and ...
+            href: https://researcher.life/blog/article/what-is-a-case-study-in-research-definition-methods-and-examples/
+            body: "Jun 27, 2024 \xB7 Learn what is case study in research and how\
+              \ to apply it to your investigations. This article covers the step-by-step\
+              \ process of designing and conducting effective case studies along with\
+              \ the examples."
+      tools_used:
+      - Web Search
+  agents_used:
+  - researcher-agent
+  total_messages: 2
+  final_step: analysis-node
+error: null
+state:
+  messages:
+  - sender: research-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: 'Ai agents and  yaml architecture '
+      llm_response: "Based on the web search results, I have compiled a comprehensive\
+        \ analysis of AI agents and YAML architecture.\n\n**Introduction to AI Agents:**\n\
+        \nAI agents are software programs that interact with their environment and\
+        \ make decisions based on their programming, data, and algorithms. They can\
+        \ be used in various applications, such as chatbots, virtual assistants, and\
+        \ decision-making systems.\n\n**Types of AI Agent Architectures:**\n\n1. **Single\
+        \ Agent Architecture**: This type of architecture uses a single AI agent to\
+        \ perform all tasks and make decisions.\n2. **Multi-Agent Architecture**:\
+        \ This type of architecture uses multiple AI agents, each with their own roles\
+        \ and responsibilities, to perform tasks and make decisions.\n3. **Hybrid\
+        \ Architecture**: This type of architecture combines elements of single and\
+        \ multi-agent architectures to create a flexible and adaptable system.\n\n\
+        **YAML Architecture for AI Agents:**\n\nYAML (YAML Ain't Markup Language)\
+        \ is a human-readable serialization format that is commonly used to define\
+        \ the configuration and parameters of AI agents. YAML files can be used to\
+        \ specify the tasks, parameters, and interactions of AI agents, making it\
+        \ easier to manage and maintain complex AI systems.\n\n**Best Practices for\
+        \ YAML Architecture:**\n\n1. **Use a clear and consistent naming convention**:\
+        \ Use a consistent naming convention for variables and parameters in YAML\
+        \ files to make it easier to read and understand.\n2. **Use indentation and\
+        \ whitespace**: Use indentation and whitespace to make YAML files easier to\
+        \ read and understand.\n3. **Use comments and documentation**: Use comments\
+        \ and documentation to explain the purpose and behavior of YAML files.\n4.\
+        \ **Use version control**: Use version control to track changes to YAML files\
+        \ and ensure that all team members are working with the same version.\n\n\
+        **YAML File Structure:**\n\nA typical YAML file for AI agents consists of\
+        \ the following sections:\n\n1. **Agent Definition**: This section defines\
+        \ the AI agent, including its type, name, and parameters.\n2. **Task Definition**:\
+        \ This section defines the tasks that the AI agent will perform, including\
+        \ the inputs, outputs, and dependencies.\n3. **Parameter Definition**: This\
+        \ section defines the parameters that will be used by the AI agent, including\
+        \ their values and data types.\n4. **Interaction Definition**: This section\
+        \ defines how the AI agent will interact with other agents and systems, including\
+        \ the communication protocols and data formats.\n\n**Real-World Example:**\n\
+        \nHere is an example of a YAML file for an AI agent:\n```yml\nagent:\n  type:\
+        \ chatbot\n  name: customer-support\n  parameters:\n    language: english\n\
+        \    tone: friendly\n\ntasks:\n  - name: respond-to-question\n    inputs:\
+        \ [question]\n    outputs: [answer]\n    dependencies: [knowledge-base]\n\n\
+        parameters:\n  knowledge-base:\n    data: [faq, product-description]\n   \
+        \ format: json\n\ninteractions:\n  - name: send-response\n    protocol: http\n\
+        \    data-format: json\n```\nThis YAML file defines a chatbot AI agent that\
+        \ responds to customer questions based on a knowledge base. The agent uses\
+        \ a friendly tone and responds in English. The knowledge base is stored in\
+        \ a JSON file and is accessed through an HTTP protocol."
+      context_size: 6
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: 'Ai agents and  yaml architecture '
+          count: 5
+          results:
+          - title: AI Agent Orchestration Patterns - Azure Architecture Center
+            href: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns
+            body: "Jul 18, 2025 \xB7 As architects and developers design their workload\
+              \ to take full advantage of language model capabilities, AI agent systems\
+              \ become increasingly complex. These systems often exceed the abilities\
+              \ of a single agent that has access to many tools and knowledge sources."
+          - title: Using YAML Files to Define Tasks and Parameters for AI Agents
+            href: https://empathyfirstmedia.com/yaml-files-ai-agents/
+            body: "May 27, 2025 \xB7 This comprehensive guide reveals exactly how\
+              \ we structure YAML files for AI agent configuration, complete with\
+              \ real-world examples, best practices, and implementation strategies\
+              \ that you can apply immediately."
+          - title: The ultimate guide to AI agent architectures in 2025
+            href: https://dev.to/sohail-akbar/the-ultimate-guide-to-ai-agent-architectures-in-2025-2j1c
+            body: "May 5, 2025 \xB7 The Agents Hierarchy + Parallel Agents + Shared\
+              \ Tools architecture creates a system of multiple specialized agents\
+              \ organized in a hierarchical structure, with parallel execution capability\
+              \ and access to shared tools."
+          - title: Every AI Agent Framework Should Adopt YAML - Julep AI
+            href: https://julep.ai/blog/why-every-ai-agent-framework-should-adopt-yaml-a-technical-deep-dive
+            body: "Aug 18, 2025 \xB7 After building and deploying dozens of production\
+              \ AI systems, I'm convinced: YAML should be the universal language for\
+              \ AI agent workflows. Not because it's trendy, but because it solves\
+              \ the actual problems teams face when building AI systems at scale."
+          - title: 'The Architectural Shift: AI Agents Become Execution Engines ...'
+            href: https://www.infoq.com/news/2025/10/ai-agent-orchestration/
+            body: "Oct 29, 2025 \xB7 A fundamental shift in enterprise software architecture\
+              \ is emerging as AI agents transition from assistive tools to operational\
+              \ execution engines, with traditional application backends retreating\
+              \ ..."
+      tools_used:
+      - Web Search
+    type: agent_result
+  - sender: analysis-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: 'Based on the web search results, I have compiled a comprehensive
+        analysis of the key features and use cases of case studies.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **In-depth analysis**: Case studies provide an in-depth examination of
+        a specific event, project, or organization, allowing for a detailed understanding
+        of the context, processes, and outcomes.
+
+        2. **Qualitative and quantitative data**: Case studies can involve various
+        research methods to collect both qualitative and quantitative data, providing
+        a comprehensive understanding of the subject matter.
+
+        3. **Contextual understanding**: Case studies aim to provide a rich and nuanced
+        understanding of the case, taking into account the social, cultural, and environmental
+        context in which it operates.
+
+        4. **Analytical framework**: Case studies often involve the use of an analytical
+        framework to guide the data collection and analysis process, ensuring a systematic
+        and structured approach.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Research and development**: Case studies are commonly used in research
+        and development to explore new concepts, technologies, or business models.
+
+        2. **Business and organizational analysis**: Case studies can be used to analyze
+        the operations, management, and performance of organizations, providing insights
+        for improvement and optimization.
+
+        3. **Education and training**: Case studies are often used in educational
+        settings to teach students about real-world applications of theoretical concepts,
+        promoting experiential learning and skill development.
+
+        4. **Policy and decision-making**: Case studies can inform policy decisions
+        and strategic planning by providing an in-depth understanding of the impact
+        and effectiveness of different interventions or policies.
+
+
+        **Best Practices for Conducting Case Studies:**
+
+
+        1. **Clearly define the research question**: Establish a clear and focused
+        research question to guide the data collection and analysis process.
+
+        2. **Select a suitable case**: Choose a case that is relevant and representative
+        of the research question, ensuring that it is feasible to collect and analyze
+        the necessary data.
+
+        3. **Use a range of research methods**: Employ a combination of qualitative
+        and quantitative research methods to collect and analyze data, providing a
+        comprehensive understanding of the case.
+
+        4. **Analyzing and interpreting findings**: Use an analytical framework to
+        guide the data analysis and interpretation, ensuring a systematic and structured
+        approach.
+
+
+        **Comparison with YAML Architecture:**
+
+
+        While case studies and YAML architecture are distinct research approaches,
+        they share some similarities:
+
+
+        1. **Structured approach**: Both case studies and YAML architecture involve
+        a structured approach to data collection and analysis.
+
+        2. **Comprehensive understanding**: Both approaches aim to provide a comprehensive
+        understanding of the subject matter, whether it is a case or a system.
+
+        3. **Analysis and interpretation**: Both approaches involve analyzing and
+        interpreting data to extract insights and meaning.
+
+
+        However, there are also significant differences between the two approaches:
+
+
+        1. **Focus**: Case studies focus on a specific case or event, while YAML architecture
+        focuses on designing and implementing a system.
+
+        2. **Methodology**: Case studies involve a range of research methods, while
+        YAML architecture involves defining and configuring a system using YAML files.
+
+        3. **Scope**: Case studies typically have a narrower scope than YAML architecture,
+        which can involve multiple systems and components.
+
+
+        By understanding the key features and use cases of case studies and YAML architecture,
+        researchers and practitioners can choose the most appropriate approach for
+        their research goals and objectives.'
+      context_size: 8
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Case Study - Methods, Examples and Guide - Research Method
+            href: https://researchmethod.net/case-study-research/
+            body: "Mar 26, 2024 \xB7 Case studies can involve various research methods\
+              \ to collect data and analyze the case comprehensively. The primary\
+              \ methods include interviews, observations, document analysis, and surveys."
+          - title: The case study approach - PMC
+            href: https://pmc.ncbi.nlm.nih.gov/articles/PMC3141799/
+            body: Our aim in writing this piece is to provide insights into when to
+              consider employing this approach and an overview of key methodological
+              considerations in relation to the design, planning, analysis , interpretation
+              and reporting of case studies.
+          - title: Analyzing and Interpreting Findings - SAGE Publications Inc
+            href: https://us.sagepub.com/sites/default/files/upm-binaries/18534_Chapter5.pdf
+            body: In this chapter, you serve as a guide to your readers, helping them
+              to under-stand the findings of your study based on your intensive and
+              careful analysis . The chapter is essentially a well-thought-out conversation
+              that integrates your findings with literature, research , and practice.
+          - title: 'The Value of Case Study Research in Practice: A ...'
+            href: https://www.researchgate.net/publication/385894147_The_Value_of_Case_Study_Research_in_Practice_A_Methodological_Review_with_Practical_Insights_from_Organisational_Studies
+            body: "Nov 1, 2024 \xB7 Based on a study involving four organisations\
+              \ and the researcher \u2019s practical experience, the article details\
+              \ how case studies were conducted, how access to organisations was gained,\
+              \ and how..."
+          - title: What is a Case Study in Research? Definition, Methods, and ...
+            href: https://researcher.life/blog/article/what-is-a-case-study-in-research-definition-methods-and-examples/
+            body: "Jun 27, 2024 \xB7 Learn what is case study in research and how\
+              \ to apply it to your investigations. This article covers the step-by-step\
+              \ process of designing and conducting effective case studies along with\
+              \ the examples."
+      tools_used:
+      - Web Search
+    type: agent_result
+  shared_data:
+    research-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: 'Ai agents and  yaml architecture '
+      llm_response: "Based on the web search results, I have compiled a comprehensive\
+        \ analysis of AI agents and YAML architecture.\n\n**Introduction to AI Agents:**\n\
+        \nAI agents are software programs that interact with their environment and\
+        \ make decisions based on their programming, data, and algorithms. They can\
+        \ be used in various applications, such as chatbots, virtual assistants, and\
+        \ decision-making systems.\n\n**Types of AI Agent Architectures:**\n\n1. **Single\
+        \ Agent Architecture**: This type of architecture uses a single AI agent to\
+        \ perform all tasks and make decisions.\n2. **Multi-Agent Architecture**:\
+        \ This type of architecture uses multiple AI agents, each with their own roles\
+        \ and responsibilities, to perform tasks and make decisions.\n3. **Hybrid\
+        \ Architecture**: This type of architecture combines elements of single and\
+        \ multi-agent architectures to create a flexible and adaptable system.\n\n\
+        **YAML Architecture for AI Agents:**\n\nYAML (YAML Ain't Markup Language)\
+        \ is a human-readable serialization format that is commonly used to define\
+        \ the configuration and parameters of AI agents. YAML files can be used to\
+        \ specify the tasks, parameters, and interactions of AI agents, making it\
+        \ easier to manage and maintain complex AI systems.\n\n**Best Practices for\
+        \ YAML Architecture:**\n\n1. **Use a clear and consistent naming convention**:\
+        \ Use a consistent naming convention for variables and parameters in YAML\
+        \ files to make it easier to read and understand.\n2. **Use indentation and\
+        \ whitespace**: Use indentation and whitespace to make YAML files easier to\
+        \ read and understand.\n3. **Use comments and documentation**: Use comments\
+        \ and documentation to explain the purpose and behavior of YAML files.\n4.\
+        \ **Use version control**: Use version control to track changes to YAML files\
+        \ and ensure that all team members are working with the same version.\n\n\
+        **YAML File Structure:**\n\nA typical YAML file for AI agents consists of\
+        \ the following sections:\n\n1. **Agent Definition**: This section defines\
+        \ the AI agent, including its type, name, and parameters.\n2. **Task Definition**:\
+        \ This section defines the tasks that the AI agent will perform, including\
+        \ the inputs, outputs, and dependencies.\n3. **Parameter Definition**: This\
+        \ section defines the parameters that will be used by the AI agent, including\
+        \ their values and data types.\n4. **Interaction Definition**: This section\
+        \ defines how the AI agent will interact with other agents and systems, including\
+        \ the communication protocols and data formats.\n\n**Real-World Example:**\n\
+        \nHere is an example of a YAML file for an AI agent:\n```yml\nagent:\n  type:\
+        \ chatbot\n  name: customer-support\n  parameters:\n    language: english\n\
+        \    tone: friendly\n\ntasks:\n  - name: respond-to-question\n    inputs:\
+        \ [question]\n    outputs: [answer]\n    dependencies: [knowledge-base]\n\n\
+        parameters:\n  knowledge-base:\n    data: [faq, product-description]\n   \
+        \ format: json\n\ninteractions:\n  - name: send-response\n    protocol: http\n\
+        \    data-format: json\n```\nThis YAML file defines a chatbot AI agent that\
+        \ responds to customer questions based on a knowledge base. The agent uses\
+        \ a friendly tone and responds in English. The knowledge base is stored in\
+        \ a JSON file and is accessed through an HTTP protocol."
+      context_size: 6
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: 'Ai agents and  yaml architecture '
+          count: 5
+          results:
+          - title: AI Agent Orchestration Patterns - Azure Architecture Center
+            href: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns
+            body: "Jul 18, 2025 \xB7 As architects and developers design their workload\
+              \ to take full advantage of language model capabilities, AI agent systems\
+              \ become increasingly complex. These systems often exceed the abilities\
+              \ of a single agent that has access to many tools and knowledge sources."
+          - title: Using YAML Files to Define Tasks and Parameters for AI Agents
+            href: https://empathyfirstmedia.com/yaml-files-ai-agents/
+            body: "May 27, 2025 \xB7 This comprehensive guide reveals exactly how\
+              \ we structure YAML files for AI agent configuration, complete with\
+              \ real-world examples, best practices, and implementation strategies\
+              \ that you can apply immediately."
+          - title: The ultimate guide to AI agent architectures in 2025
+            href: https://dev.to/sohail-akbar/the-ultimate-guide-to-ai-agent-architectures-in-2025-2j1c
+            body: "May 5, 2025 \xB7 The Agents Hierarchy + Parallel Agents + Shared\
+              \ Tools architecture creates a system of multiple specialized agents\
+              \ organized in a hierarchical structure, with parallel execution capability\
+              \ and access to shared tools."
+          - title: Every AI Agent Framework Should Adopt YAML - Julep AI
+            href: https://julep.ai/blog/why-every-ai-agent-framework-should-adopt-yaml-a-technical-deep-dive
+            body: "Aug 18, 2025 \xB7 After building and deploying dozens of production\
+              \ AI systems, I'm convinced: YAML should be the universal language for\
+              \ AI agent workflows. Not because it's trendy, but because it solves\
+              \ the actual problems teams face when building AI systems at scale."
+          - title: 'The Architectural Shift: AI Agents Become Execution Engines ...'
+            href: https://www.infoq.com/news/2025/10/ai-agent-orchestration/
+            body: "Oct 29, 2025 \xB7 A fundamental shift in enterprise software architecture\
+              \ is emerging as AI agents transition from assistive tools to operational\
+              \ execution engines, with traditional application backends retreating\
+              \ ..."
+      tools_used:
+      - Web Search
+    analysis-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: 'Based on the web search results, I have compiled a comprehensive
+        analysis of the key features and use cases of case studies.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **In-depth analysis**: Case studies provide an in-depth examination of
+        a specific event, project, or organization, allowing for a detailed understanding
+        of the context, processes, and outcomes.
+
+        2. **Qualitative and quantitative data**: Case studies can involve various
+        research methods to collect both qualitative and quantitative data, providing
+        a comprehensive understanding of the subject matter.
+
+        3. **Contextual understanding**: Case studies aim to provide a rich and nuanced
+        understanding of the case, taking into account the social, cultural, and environmental
+        context in which it operates.
+
+        4. **Analytical framework**: Case studies often involve the use of an analytical
+        framework to guide the data collection and analysis process, ensuring a systematic
+        and structured approach.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Research and development**: Case studies are commonly used in research
+        and development to explore new concepts, technologies, or business models.
+
+        2. **Business and organizational analysis**: Case studies can be used to analyze
+        the operations, management, and performance of organizations, providing insights
+        for improvement and optimization.
+
+        3. **Education and training**: Case studies are often used in educational
+        settings to teach students about real-world applications of theoretical concepts,
+        promoting experiential learning and skill development.
+
+        4. **Policy and decision-making**: Case studies can inform policy decisions
+        and strategic planning by providing an in-depth understanding of the impact
+        and effectiveness of different interventions or policies.
+
+
+        **Best Practices for Conducting Case Studies:**
+
+
+        1. **Clearly define the research question**: Establish a clear and focused
+        research question to guide the data collection and analysis process.
+
+        2. **Select a suitable case**: Choose a case that is relevant and representative
+        of the research question, ensuring that it is feasible to collect and analyze
+        the necessary data.
+
+        3. **Use a range of research methods**: Employ a combination of qualitative
+        and quantitative research methods to collect and analyze data, providing a
+        comprehensive understanding of the case.
+
+        4. **Analyzing and interpreting findings**: Use an analytical framework to
+        guide the data analysis and interpretation, ensuring a systematic and structured
+        approach.
+
+
+        **Comparison with YAML Architecture:**
+
+
+        While case studies and YAML architecture are distinct research approaches,
+        they share some similarities:
+
+
+        1. **Structured approach**: Both case studies and YAML architecture involve
+        a structured approach to data collection and analysis.
+
+        2. **Comprehensive understanding**: Both approaches aim to provide a comprehensive
+        understanding of the subject matter, whether it is a case or a system.
+
+        3. **Analysis and interpretation**: Both approaches involve analyzing and
+        interpreting data to extract insights and meaning.
+
+
+        However, there are also significant differences between the two approaches:
+
+
+        1. **Focus**: Case studies focus on a specific case or event, while YAML architecture
+        focuses on designing and implementing a system.
+
+        2. **Methodology**: Case studies involve a range of research methods, while
+        YAML architecture involves defining and configuring a system using YAML files.
+
+        3. **Scope**: Case studies typically have a narrower scope than YAML architecture,
+        which can involve multiple systems and components.
+
+
+        By understanding the key features and use cases of case studies and YAML architecture,
+        researchers and practitioners can choose the most appropriate approach for
+        their research goals and objectives.'
+      context_size: 8
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Case Study - Methods, Examples and Guide - Research Method
+            href: https://researchmethod.net/case-study-research/
+            body: "Mar 26, 2024 \xB7 Case studies can involve various research methods\
+              \ to collect data and analyze the case comprehensively. The primary\
+              \ methods include interviews, observations, document analysis, and surveys."
+          - title: The case study approach - PMC
+            href: https://pmc.ncbi.nlm.nih.gov/articles/PMC3141799/
+            body: Our aim in writing this piece is to provide insights into when to
+              consider employing this approach and an overview of key methodological
+              considerations in relation to the design, planning, analysis , interpretation
+              and reporting of case studies.
+          - title: Analyzing and Interpreting Findings - SAGE Publications Inc
+            href: https://us.sagepub.com/sites/default/files/upm-binaries/18534_Chapter5.pdf
+            body: In this chapter, you serve as a guide to your readers, helping them
+              to under-stand the findings of your study based on your intensive and
+              careful analysis . The chapter is essentially a well-thought-out conversation
+              that integrates your findings with literature, research , and practice.
+          - title: 'The Value of Case Study Research in Practice: A ...'
+            href: https://www.researchgate.net/publication/385894147_The_Value_of_Case_Study_Research_in_Practice_A_Methodological_Review_with_Practical_Insights_from_Organisational_Studies
+            body: "Nov 1, 2024 \xB7 Based on a study involving four organisations\
+              \ and the researcher \u2019s practical experience, the article details\
+              \ how case studies were conducted, how access to organisations was gained,\
+              \ and how..."
+          - title: What is a Case Study in Research? Definition, Methods, and ...
+            href: https://researcher.life/blog/article/what-is-a-case-study-in-research-definition-methods-and-examples/
+            body: "Jun 27, 2024 \xB7 Learn what is case study in research and how\
+              \ to apply it to your investigations. This article covers the step-by-step\
+              \ process of designing and conducting effective case studies along with\
+              \ the examples."
+      tools_used:
+      - Web Search
+  agents_used:
+  - researcher-agent
+  current_step: analysis-node
+  results:
+    research-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: 'Ai agents and  yaml architecture '
+      llm_response: "Based on the web search results, I have compiled a comprehensive\
+        \ analysis of AI agents and YAML architecture.\n\n**Introduction to AI Agents:**\n\
+        \nAI agents are software programs that interact with their environment and\
+        \ make decisions based on their programming, data, and algorithms. They can\
+        \ be used in various applications, such as chatbots, virtual assistants, and\
+        \ decision-making systems.\n\n**Types of AI Agent Architectures:**\n\n1. **Single\
+        \ Agent Architecture**: This type of architecture uses a single AI agent to\
+        \ perform all tasks and make decisions.\n2. **Multi-Agent Architecture**:\
+        \ This type of architecture uses multiple AI agents, each with their own roles\
+        \ and responsibilities, to perform tasks and make decisions.\n3. **Hybrid\
+        \ Architecture**: This type of architecture combines elements of single and\
+        \ multi-agent architectures to create a flexible and adaptable system.\n\n\
+        **YAML Architecture for AI Agents:**\n\nYAML (YAML Ain't Markup Language)\
+        \ is a human-readable serialization format that is commonly used to define\
+        \ the configuration and parameters of AI agents. YAML files can be used to\
+        \ specify the tasks, parameters, and interactions of AI agents, making it\
+        \ easier to manage and maintain complex AI systems.\n\n**Best Practices for\
+        \ YAML Architecture:**\n\n1. **Use a clear and consistent naming convention**:\
+        \ Use a consistent naming convention for variables and parameters in YAML\
+        \ files to make it easier to read and understand.\n2. **Use indentation and\
+        \ whitespace**: Use indentation and whitespace to make YAML files easier to\
+        \ read and understand.\n3. **Use comments and documentation**: Use comments\
+        \ and documentation to explain the purpose and behavior of YAML files.\n4.\
+        \ **Use version control**: Use version control to track changes to YAML files\
+        \ and ensure that all team members are working with the same version.\n\n\
+        **YAML File Structure:**\n\nA typical YAML file for AI agents consists of\
+        \ the following sections:\n\n1. **Agent Definition**: This section defines\
+        \ the AI agent, including its type, name, and parameters.\n2. **Task Definition**:\
+        \ This section defines the tasks that the AI agent will perform, including\
+        \ the inputs, outputs, and dependencies.\n3. **Parameter Definition**: This\
+        \ section defines the parameters that will be used by the AI agent, including\
+        \ their values and data types.\n4. **Interaction Definition**: This section\
+        \ defines how the AI agent will interact with other agents and systems, including\
+        \ the communication protocols and data formats.\n\n**Real-World Example:**\n\
+        \nHere is an example of a YAML file for an AI agent:\n```yml\nagent:\n  type:\
+        \ chatbot\n  name: customer-support\n  parameters:\n    language: english\n\
+        \    tone: friendly\n\ntasks:\n  - name: respond-to-question\n    inputs:\
+        \ [question]\n    outputs: [answer]\n    dependencies: [knowledge-base]\n\n\
+        parameters:\n  knowledge-base:\n    data: [faq, product-description]\n   \
+        \ format: json\n\ninteractions:\n  - name: send-response\n    protocol: http\n\
+        \    data-format: json\n```\nThis YAML file defines a chatbot AI agent that\
+        \ responds to customer questions based on a knowledge base. The agent uses\
+        \ a friendly tone and responds in English. The knowledge base is stored in\
+        \ a JSON file and is accessed through an HTTP protocol."
+      context_size: 6
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: 'Ai agents and  yaml architecture '
+          count: 5
+          results:
+          - title: AI Agent Orchestration Patterns - Azure Architecture Center
+            href: https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns
+            body: "Jul 18, 2025 \xB7 As architects and developers design their workload\
+              \ to take full advantage of language model capabilities, AI agent systems\
+              \ become increasingly complex. These systems often exceed the abilities\
+              \ of a single agent that has access to many tools and knowledge sources."
+          - title: Using YAML Files to Define Tasks and Parameters for AI Agents
+            href: https://empathyfirstmedia.com/yaml-files-ai-agents/
+            body: "May 27, 2025 \xB7 This comprehensive guide reveals exactly how\
+              \ we structure YAML files for AI agent configuration, complete with\
+              \ real-world examples, best practices, and implementation strategies\
+              \ that you can apply immediately."
+          - title: The ultimate guide to AI agent architectures in 2025
+            href: https://dev.to/sohail-akbar/the-ultimate-guide-to-ai-agent-architectures-in-2025-2j1c
+            body: "May 5, 2025 \xB7 The Agents Hierarchy + Parallel Agents + Shared\
+              \ Tools architecture creates a system of multiple specialized agents\
+              \ organized in a hierarchical structure, with parallel execution capability\
+              \ and access to shared tools."
+          - title: Every AI Agent Framework Should Adopt YAML - Julep AI
+            href: https://julep.ai/blog/why-every-ai-agent-framework-should-adopt-yaml-a-technical-deep-dive
+            body: "Aug 18, 2025 \xB7 After building and deploying dozens of production\
+              \ AI systems, I'm convinced: YAML should be the universal language for\
+              \ AI agent workflows. Not because it's trendy, but because it solves\
+              \ the actual problems teams face when building AI systems at scale."
+          - title: 'The Architectural Shift: AI Agents Become Execution Engines ...'
+            href: https://www.infoq.com/news/2025/10/ai-agent-orchestration/
+            body: "Oct 29, 2025 \xB7 A fundamental shift in enterprise software architecture\
+              \ is emerging as AI agents transition from assistive tools to operational\
+              \ execution engines, with traditional application backends retreating\
+              \ ..."
+      tools_used:
+      - Web Search
+    analysis-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: 'Based on the web search results, I have compiled a comprehensive
+        analysis of the key features and use cases of case studies.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **In-depth analysis**: Case studies provide an in-depth examination of
+        a specific event, project, or organization, allowing for a detailed understanding
+        of the context, processes, and outcomes.
+
+        2. **Qualitative and quantitative data**: Case studies can involve various
+        research methods to collect both qualitative and quantitative data, providing
+        a comprehensive understanding of the subject matter.
+
+        3. **Contextual understanding**: Case studies aim to provide a rich and nuanced
+        understanding of the case, taking into account the social, cultural, and environmental
+        context in which it operates.
+
+        4. **Analytical framework**: Case studies often involve the use of an analytical
+        framework to guide the data collection and analysis process, ensuring a systematic
+        and structured approach.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Research and development**: Case studies are commonly used in research
+        and development to explore new concepts, technologies, or business models.
+
+        2. **Business and organizational analysis**: Case studies can be used to analyze
+        the operations, management, and performance of organizations, providing insights
+        for improvement and optimization.
+
+        3. **Education and training**: Case studies are often used in educational
+        settings to teach students about real-world applications of theoretical concepts,
+        promoting experiential learning and skill development.
+
+        4. **Policy and decision-making**: Case studies can inform policy decisions
+        and strategic planning by providing an in-depth understanding of the impact
+        and effectiveness of different interventions or policies.
+
+
+        **Best Practices for Conducting Case Studies:**
+
+
+        1. **Clearly define the research question**: Establish a clear and focused
+        research question to guide the data collection and analysis process.
+
+        2. **Select a suitable case**: Choose a case that is relevant and representative
+        of the research question, ensuring that it is feasible to collect and analyze
+        the necessary data.
+
+        3. **Use a range of research methods**: Employ a combination of qualitative
+        and quantitative research methods to collect and analyze data, providing a
+        comprehensive understanding of the case.
+
+        4. **Analyzing and interpreting findings**: Use an analytical framework to
+        guide the data analysis and interpretation, ensuring a systematic and structured
+        approach.
+
+
+        **Comparison with YAML Architecture:**
+
+
+        While case studies and YAML architecture are distinct research approaches,
+        they share some similarities:
+
+
+        1. **Structured approach**: Both case studies and YAML architecture involve
+        a structured approach to data collection and analysis.
+
+        2. **Comprehensive understanding**: Both approaches aim to provide a comprehensive
+        understanding of the subject matter, whether it is a case or a system.
+
+        3. **Analysis and interpretation**: Both approaches involve analyzing and
+        interpreting data to extract insights and meaning.
+
+
+        However, there are also significant differences between the two approaches:
+
+
+        1. **Focus**: Case studies focus on a specific case or event, while YAML architecture
+        focuses on designing and implementing a system.
+
+        2. **Methodology**: Case studies involve a range of research methods, while
+        YAML architecture involves defining and configuring a system using YAML files.
+
+        3. **Scope**: Case studies typically have a narrower scope than YAML architecture,
+        which can involve multiple systems and components.
+
+
+        By understanding the key features and use cases of case studies and YAML architecture,
+        researchers and practitioners can choose the most appropriate approach for
+        their research goals and objectives.'
+      context_size: 8
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Case Study - Methods, Examples and Guide - Research Method
+            href: https://researchmethod.net/case-study-research/
+            body: "Mar 26, 2024 \xB7 Case studies can involve various research methods\
+              \ to collect data and analyze the case comprehensively. The primary\
+              \ methods include interviews, observations, document analysis, and surveys."
+          - title: The case study approach - PMC
+            href: https://pmc.ncbi.nlm.nih.gov/articles/PMC3141799/
+            body: Our aim in writing this piece is to provide insights into when to
+              consider employing this approach and an overview of key methodological
+              considerations in relation to the design, planning, analysis , interpretation
+              and reporting of case studies.
+          - title: Analyzing and Interpreting Findings - SAGE Publications Inc
+            href: https://us.sagepub.com/sites/default/files/upm-binaries/18534_Chapter5.pdf
+            body: In this chapter, you serve as a guide to your readers, helping them
+              to under-stand the findings of your study based on your intensive and
+              careful analysis . The chapter is essentially a well-thought-out conversation
+              that integrates your findings with literature, research , and practice.
+          - title: 'The Value of Case Study Research in Practice: A ...'
+            href: https://www.researchgate.net/publication/385894147_The_Value_of_Case_Study_Research_in_Practice_A_Methodological_Review_with_Practical_Insights_from_Organisational_Studies
+            body: "Nov 1, 2024 \xB7 Based on a study involving four organisations\
+              \ and the researcher \u2019s practical experience, the article details\
+              \ how case studies were conducted, how access to organisations was gained,\
+              \ and how..."
+          - title: What is a Case Study in Research? Definition, Methods, and ...
+            href: https://researcher.life/blog/article/what-is-a-case-study-in-research-definition-methods-and-examples/
+            body: "Jun 27, 2024 \xB7 Learn what is case study in research and how\
+              \ to apply it to your investigations. This article covers the step-by-step\
+              \ process of designing and conducting effective case studies along with\
+              \ the examples."
+      tools_used:
+      - Web Search
+  error: null

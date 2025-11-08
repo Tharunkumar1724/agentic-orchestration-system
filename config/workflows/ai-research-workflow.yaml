@@ -1,0 +1,17 @@
+id: ai-research-workflow
+name: AI Research Workflow
+description: Research AI topics using web search and generate comprehensive reports
+type: dag
+nodes:
+- id: research-node
+  agent_ref: researcher-agent
+  task: Search for the latest developments in LangChain framework and provide a detailed
+    summary
+  receives_from: []
+  sends_to: []
+- id: analysis-node
+  agent_ref: researcher-agent
+  task: Based on the research findings, analyze the key features and use cases
+  receives_from: []
+  sends_to: []
+version: v1

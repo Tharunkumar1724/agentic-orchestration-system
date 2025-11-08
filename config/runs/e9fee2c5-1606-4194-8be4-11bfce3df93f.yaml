@@ -1,0 +1,54 @@
+workflow_id: exec_workflow
+run_id: e9fee2c5-1606-4194-8be4-11bfce3df93f
+status: success
+result:
+  step1:
+    agent_id: exec_agent
+    agent_type: zero_shot
+    task: null
+    llm_response: '[groq-error: Client error ''400 Bad Request'' for url ''https://api.groq.com/openai/v1/chat/completions''
+
+      For more in]'
+    context_size: 2
+    tool_results:
+      exec_tool:
+        tool: exec_tool
+        error: 'DuckDuckGo search failed: keywords is mandatory'
+        query: ''
+meta:
+  communication_log:
+  - sender: step1
+    agent: exec_agent
+    content:
+      agent_id: exec_agent
+      agent_type: zero_shot
+      task: null
+      llm_response: '[groq-error: Client error ''400 Bad Request'' for url ''https://api.groq.com/openai/v1/chat/completions''
+
+        For more in]'
+      context_size: 2
+      tool_results:
+        exec_tool:
+          tool: exec_tool
+          error: 'DuckDuckGo search failed: keywords is mandatory'
+          query: ''
+    type: agent_result
+  shared_state:
+    step1:
+      agent_id: exec_agent
+      agent_type: zero_shot
+      task: null
+      llm_response: '[groq-error: Client error ''400 Bad Request'' for url ''https://api.groq.com/openai/v1/chat/completions''
+
+        For more in]'
+      context_size: 2
+      tool_results:
+        exec_tool:
+          tool: exec_tool
+          error: 'DuckDuckGo search failed: keywords is mandatory'
+          query: ''
+  agents_used:
+  - exec_agent
+  total_messages: 1
+  final_step: step1
+error: null

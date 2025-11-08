@@ -1,0 +1,80 @@
+workflow_id: test_workflow_tools
+run_id: 96fa3845-7a3b-4ba1-81a7-86663c3fda62
+status: success
+result:
+  node1:
+    agent_id: researcher-agent
+    agent_name: Research Agent
+    agent_type: react
+    task: Test query
+    llm_response: I'm ready to assist you. What query would you like me to test?
+    context_size: 2
+    tool_results: {}
+    tools_used: []
+meta:
+  communication_log:
+  - sender: node1
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Test query
+      llm_response: I'm ready to assist you. What query would you like me to test?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_state:
+    node1:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Test query
+      llm_response: I'm ready to assist you. What query would you like me to test?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - researcher-agent
+  total_messages: 1
+  final_step: node1
+error: null
+state:
+  messages:
+  - sender: node1
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Test query
+      llm_response: I'm ready to assist you. What query would you like me to test?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+    type: agent_result
+  shared_data:
+    node1:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Test query
+      llm_response: I'm ready to assist you. What query would you like me to test?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  agents_used:
+  - researcher-agent
+  current_step: node1
+  results:
+    node1:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Test query
+      llm_response: I'm ready to assist you. What query would you like me to test?
+      context_size: 2
+      tool_results: {}
+      tools_used: []
+  error: null

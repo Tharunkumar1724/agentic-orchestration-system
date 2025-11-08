@@ -1,0 +1,15 @@
+id: test_workflow_tools
+name: Test Tools Workflow
+description: Testing tools persistence
+type: sequence
+nodes:
+- id: node1
+  agent_ref: researcher-agent
+  task: Test task
+  tools:
+  - duckduckgo_search
+  - rest_api_caller
+  dependencies: []
+  receives_from: []
+  sends_to: []
+version: v1

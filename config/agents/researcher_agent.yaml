@@ -1,0 +1,13 @@
+id: researcher_agent
+name: Research Agent
+type: react
+llm_config:
+  provider: groq
+  model: llama-3.1-8b-instant
+  temperature: 0.7
+tools:
+  - search_tool
+  - api_tool
+use_kag: false
+version: v1
+description: Agent specialized in research tasks using web search and API calls

@@ -1,0 +1,1331 @@
+workflow_id: code_review_workflow
+run_id: 981cdefd-222b-4bb6-b8b6-4ab057d5eb3e
+status: success
+result:
+  fetch_best_practices:
+    agent_id: groq_researcher
+    agent_type: react
+    task: Search for Python code review best practices and common issues to look for
+    llm_response: '**Python Code Review Best Practices:**
+
+
+      ### 1. **Readability**
+
+
+      *   Use consistent naming conventions (e.g., `lowercase_with_underscores`).
+
+      *   Use blank lines to separate logical sections of code.
+
+      *   Limit line length to 79 characters.
+
+      *   Use comments to explain complex sections of code.
+
+
+      ### 2. **Naming Conventions**
+
+
+      *   Use descriptive variable names (e.g., `user_id` instead of `x`).
+
+      *   Use consistent naming conventions for functions and methods (e.g., `camelCase`
+      or `snake_case`).
+
+      *   Avoid using single-letter variable names.
+
+
+      ### 3. **Code Organization**
+
+
+      *   Use modules to organize related functions and variables.
+
+      *   Use a consistent layout for functions and methods (e.g., arguments on the
+      left, return type on the right).
+
+      *   Avoid deep nesting of functions and methods.
+
+
+      ### 4. **Error Handling**
+
+
+      *   Use try-except blocks to catch and handle exceptions.
+
+      *   Use specific exception types (e.g., `TypeError` instead of `Exception`).
+
+      *   Provide informative error messages.
+
+
+      ### 5. **Testing**
+
+
+      *   Write unit tests for functions and classes.
+
+      *   Use a testing framework (e.g., `unittest`).
+
+      *   Run tests regularly.
+
+
+      ### 6. **Code Style**
+
+
+      *   Use 4 spaces for indentation.
+
+      *   Use consistent spacing around operators (e.g., `if x == 5:` instead of `if
+      x==5:`).
+
+      *   Use a consistent coding style throughout the codebase.
+
+
+      ### 7. **Security**
+
+
+      *   Validate user input to prevent SQL injection and cross-site scripting (XSS)
+      attacks.
+
+      *   Use secure password storage (e.g., hashing and salting).
+
+      *   Avoid using insecure protocols (e.g., `telnet` or `ftp`).
+
+
+      ### 8. **Optimization**
+
+
+      *   Use caching to improve performance (e.g., caching database queries).
+
+      *   Avoid using redundant calculations (e.g., calculating `x * y` twice).
+
+      *   Use efficient data structures (e.g., using a hash table instead of a linked
+      list).
+
+
+      ### Common Issues to Look for in Code Reviews:
+
+
+      ### 1. **Unclear Variable Names**
+
+
+      *   Variable names that are too long or too short.
+
+      *   Variable names that are not descriptive (e.g., `x` instead of `user_id`).
+
+
+      ### 2. **Insufficient Comments**
+
+
+      *   Missing comments that explain complex sections of code.
+
+      *   Comments that are not accurate or up-to-date.
+
+
+      ### 3. **Poor Code Organization**
+
+
+      *   Functions or methods that are too long or complex.
+
+      *   Deeply nested functions or methods.
+
+
+      ### 4. **Insecure Error Handling**
+
+
+      *   Using `except Exception` to catch all exceptions (can mask bugs).
+
+      *   Not providing informative error messages.
+
+
+      ### 5. **Inefficient Code**
+
+
+      *   Using redundant calculations or data structures.
+
+      *   Not using caching or other optimization techniques.
+
+
+      ### 6. **Outdated Libraries or Frameworks**
+
+
+      *   Using outdated libraries or frameworks that are no longer maintained.
+
+      *   Not keeping up with security updates or bug fixes.
+
+
+      ### 7. **Non-Compliant Code**
+
+
+      *   Code that does not follow the project''s coding style or guidelines.
+
+      *   Code that uses non-standard or deprecated features.
+
+
+      ### 8. **Untested Code**
+
+
+      *   Functions or methods that are not tested.
+
+      *   Not running tests regularly to catch bugs.
+
+
+      By following these best practices and looking for these common issues, you can
+      help ensure that your code is maintainable, efficient, and secure.
+
+
+      Here is a sample Python code review checklist:
+
+
+      ```python
+
+      # Code Review Checklist
+
+
+      # Readability
+
+      # - Use consistent naming conventions
+
+      # - Use blank lines to separate logical sections of code
+
+      # - Limit line length to 79 characters
+
+      # - Use comments to explain complex sections of code
+
+
+      # Naming Conventions
+
+      # - Use descriptive variable names
+
+      # - Use consistent naming conventions for functions and methods
+
+      # - Avoid using single-letter variable names
+
+
+      # Code Organization
+
+      # - Use modules to organize related functions and variables
+
+      # - Use a consistent layout for functions and methods
+
+      # - Avoid deep nesting of functions and methods
+
+
+      # Error Handling
+
+      # - Use try-except blocks to catch and handle exceptions
+
+      # - Use specific exception types
+
+      # - Provide informative error messages
+
+
+      # Testing
+
+      # - Write unit tests for functions and classes
+
+      # - Use a testing framework
+
+      # - Run tests regularly
+
+
+      # Code Style
+
+      # - Use 4 spaces for indentation
+
+      # - Use consistent spacing around operators
+
+      # - Use a consistent coding style throughout the codebase
+
+
+      # Security
+
+      # - Validate user input to prevent SQL injection and XSS attacks
+
+      # - Use secure password storage
+
+      # - Avoid using insecure protocols
+
+
+      # Optimization
+
+      # - Use caching to improve performance
+
+      # - Avoid using redundant calculations
+
+      # - Use'
+    context_size: 5
+    tool_results:
+      duckduckgo_search:
+        tool: duckduckgo_search
+        query: Search for Python code review best practices and common issues to look
+          for
+        count: 0
+        results: []
+  analyze_code:
+    agent_id: analyzer_agent
+    agent_type: react
+    task: Analyze the code quality based on best practices and identify potential
+      issues
+    llm_response: 'Based on your previous task, we can proceed with the next steps
+      to analyze the code quality and identify potential issues based on Python code
+      review best practices.
+
+
+      Here are some common best practices and potential issues to look for in Python
+      code:
+
+
+      **Best Practices:**
+
+
+      1. **Readability**: Use clear and concise variable names, comments, and docstrings.
+
+      2. **Code organization**: Use functions, classes, and modules to organize code
+      and reduce complexity.
+
+      3. **Error handling**: Use try-except blocks to handle potential errors and
+      exceptions.
+
+      4. **Type hints**: Use type hints to indicate the expected types of function
+      parameters and return values.
+
+      5. **Testing**: Write unit tests to ensure code functionality and catch regressions.
+
+      6. **Security**: Avoid using insecure functions like `eval()` and `exec()`.
+
+      7. **Code style**: Follow the PEP 8 style guide for consistent indentation,
+      spacing, and naming conventions.
+
+      8. **Use of libraries**: Use established libraries and frameworks to avoid reinventing
+      the wheel.
+
+
+      **Potential Issues:**
+
+
+      1. **Code duplication**: Look for duplicated code and refactor it into reusable
+      functions or classes.
+
+      2. **Insecure data handling**: Identify potential security vulnerabilities when
+      handling user input, database connections, or external APIs.
+
+      3. **Performance issues**: Optimize code to improve execution speed, especially
+      in loops or recursive functions.
+
+      4. **Code smell**: Identify code with high complexity, low cohesion, or high
+      coupling, and refactor it for better maintainability.
+
+      5. **Uncaught exceptions**: Look for unhandled exceptions and add try-except
+      blocks to handle them gracefully.
+
+      6. **Inconsistent naming conventions**: Enforce consistent naming conventions
+      throughout the codebase.
+
+      7. **Unused code**: Remove unused code, functions, or variables to declutter
+      the codebase.
+
+      8. **Magic numbers**: Replace magic numbers with named constants or variables
+      for better readability and maintainability.
+
+
+      To proceed, I''ll need more information about the specific code you''d like
+      to review. Can you provide the code or a link to it?'
+    context_size: 2
+    tool_results:
+      code_tool:
+        executed: true
+        output: 'Code executed: print(''Hello from code tool'')'
+  generate_recommendations:
+    agent_id: writer_agent
+    agent_type: zero_shot
+    task: Generate detailed recommendations and improvement suggestions based on the
+      analysis
+    llm_response: 'Based on the research findings and analysis, I''ll generate detailed
+      recommendations and improvement suggestions to help improve code quality and
+      best practices.
+
+
+      **Recommendations and Improvement Suggestions**
+
+
+      **Code Structure and Organization**
+
+
+      1. **Separate Concerns**: Break down large functions into smaller, independent
+      functions with clear responsibilities.
+
+      2. **Use Meaningful Function Names**: Use descriptive names for functions and
+      variables to improve code readability.
+
+      3. **Organize Code into Modules**: Group related functions and classes into
+      separate modules to improve code organization and reusability.
+
+
+      **Code Quality and Conventions**
+
+
+      1. **Follow PEP 8**: Adhere to the official Python style guide (PEP 8) for naming
+      conventions, indentation, and whitespace.
+
+      2. **Use Type Hints**: Add type hints to function parameters and return types
+      to improve code readability and maintainability.
+
+      3. **Use Docstrings**: Add docstrings to functions and classes to provide documentation
+      and improve code readability.
+
+
+      **Error Handling and Logging**
+
+
+      1. **Use Try-Except Blocks**: Implement try-except blocks to catch and handle
+      exceptions, ensuring that the program doesn''t crash unexpectedly.
+
+      2. **Log Errors and Exceptions**: Use logging mechanisms to record errors and
+      exceptions, making it easier to diagnose and debug issues.
+
+      3. **Raise Custom Exceptions**: Raise custom exceptions to provide more informative
+      error messages and improve error handling.
+
+
+      **Security and Best Practices**
+
+
+      1. **Use Secure Password Hashing**: Use secure password hashing algorithms (e.g.,
+      bcrypt,argon2) to protect user passwords.
+
+      2. **Validate User Input**: Validate user input to prevent SQL injection and
+      cross-site scripting (XSS) attacks.
+
+      3. **Use Secure Communication Protocols**: Use secure communication protocols
+      (e.g., HTTPS, SFTP) to protect data in transit.
+
+
+      **Testing and Debugging**
+
+
+      1. **Write Automated Tests**: Write automated tests to ensure code reliability
+      and catch bugs early.
+
+      2. **Use Debugging Tools**: Utilize debugging tools (e.g., pdb, print statements)
+      to identify and fix issues.
+
+      3. **Continuously Integrate and Deploy**: Implement continuous integration and
+      deployment (CI/CD) pipelines to automate testing, building, and deployment.
+
+
+      **Code Smells and Improvements**
+
+
+      1. **Avoid Dead Code**: Remove dead code and unused functions to improve code
+      maintainability and reduce complexity.
+
+      2. **Minimize Global Variables**: Avoid using global variables and instead use
+      function parameters and return values to improve code modularity.
+
+      3. **Avoid Deep Nesting**: Refactor code to avoid deep nesting and improve code
+      readability.
+
+
+      **Best Practices for Code Review**
+
+
+      1. **Review Code Regularly**: Regularly review code to catch bugs and improve
+      code quality.
+
+      2. **Use Code Review Tools**: Utilize code review tools (e.g., GitHub Code Review,
+      CodeFactor) to streamline the review process.
+
+      3. **Implement Code Standards**: Establish and enforce code standards to improve
+      code consistency and quality.
+
+
+      By following these recommendations and improvement suggestions, developers can
+      improve code quality, maintainability, and security, ultimately leading to better
+      software development practices and more efficient coding processes.'
+    context_size: 4
+    tool_results: {}
+meta:
+  communication_log:
+  - sender: fetch_best_practices
+    agent: groq_researcher
+    content:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Search for Python code review best practices and common issues to look
+        for
+      llm_response: '**Python Code Review Best Practices:**
+
+
+        ### 1. **Readability**
+
+
+        *   Use consistent naming conventions (e.g., `lowercase_with_underscores`).
+
+        *   Use blank lines to separate logical sections of code.
+
+        *   Limit line length to 79 characters.
+
+        *   Use comments to explain complex sections of code.
+
+
+        ### 2. **Naming Conventions**
+
+
+        *   Use descriptive variable names (e.g., `user_id` instead of `x`).
+
+        *   Use consistent naming conventions for functions and methods (e.g., `camelCase`
+        or `snake_case`).
+
+        *   Avoid using single-letter variable names.
+
+
+        ### 3. **Code Organization**
+
+
+        *   Use modules to organize related functions and variables.
+
+        *   Use a consistent layout for functions and methods (e.g., arguments on
+        the left, return type on the right).
+
+        *   Avoid deep nesting of functions and methods.
+
+
+        ### 4. **Error Handling**
+
+
+        *   Use try-except blocks to catch and handle exceptions.
+
+        *   Use specific exception types (e.g., `TypeError` instead of `Exception`).
+
+        *   Provide informative error messages.
+
+
+        ### 5. **Testing**
+
+
+        *   Write unit tests for functions and classes.
+
+        *   Use a testing framework (e.g., `unittest`).
+
+        *   Run tests regularly.
+
+
+        ### 6. **Code Style**
+
+
+        *   Use 4 spaces for indentation.
+
+        *   Use consistent spacing around operators (e.g., `if x == 5:` instead of
+        `if x==5:`).
+
+        *   Use a consistent coding style throughout the codebase.
+
+
+        ### 7. **Security**
+
+
+        *   Validate user input to prevent SQL injection and cross-site scripting
+        (XSS) attacks.
+
+        *   Use secure password storage (e.g., hashing and salting).
+
+        *   Avoid using insecure protocols (e.g., `telnet` or `ftp`).
+
+
+        ### 8. **Optimization**
+
+
+        *   Use caching to improve performance (e.g., caching database queries).
+
+        *   Avoid using redundant calculations (e.g., calculating `x * y` twice).
+
+        *   Use efficient data structures (e.g., using a hash table instead of a linked
+        list).
+
+
+        ### Common Issues to Look for in Code Reviews:
+
+
+        ### 1. **Unclear Variable Names**
+
+
+        *   Variable names that are too long or too short.
+
+        *   Variable names that are not descriptive (e.g., `x` instead of `user_id`).
+
+
+        ### 2. **Insufficient Comments**
+
+
+        *   Missing comments that explain complex sections of code.
+
+        *   Comments that are not accurate or up-to-date.
+
+
+        ### 3. **Poor Code Organization**
+
+
+        *   Functions or methods that are too long or complex.
+
+        *   Deeply nested functions or methods.
+
+
+        ### 4. **Insecure Error Handling**
+
+
+        *   Using `except Exception` to catch all exceptions (can mask bugs).
+
+        *   Not providing informative error messages.
+
+
+        ### 5. **Inefficient Code**
+
+
+        *   Using redundant calculations or data structures.
+
+        *   Not using caching or other optimization techniques.
+
+
+        ### 6. **Outdated Libraries or Frameworks**
+
+
+        *   Using outdated libraries or frameworks that are no longer maintained.
+
+        *   Not keeping up with security updates or bug fixes.
+
+
+        ### 7. **Non-Compliant Code**
+
+
+        *   Code that does not follow the project''s coding style or guidelines.
+
+        *   Code that uses non-standard or deprecated features.
+
+
+        ### 8. **Untested Code**
+
+
+        *   Functions or methods that are not tested.
+
+        *   Not running tests regularly to catch bugs.
+
+
+        By following these best practices and looking for these common issues, you
+        can help ensure that your code is maintainable, efficient, and secure.
+
+
+        Here is a sample Python code review checklist:
+
+
+        ```python
+
+        # Code Review Checklist
+
+
+        # Readability
+
+        # - Use consistent naming conventions
+
+        # - Use blank lines to separate logical sections of code
+
+        # - Limit line length to 79 characters
+
+        # - Use comments to explain complex sections of code
+
+
+        # Naming Conventions
+
+        # - Use descriptive variable names
+
+        # - Use consistent naming conventions for functions and methods
+
+        # - Avoid using single-letter variable names
+
+
+        # Code Organization
+
+        # - Use modules to organize related functions and variables
+
+        # - Use a consistent layout for functions and methods
+
+        # - Avoid deep nesting of functions and methods
+
+
+        # Error Handling
+
+        # - Use try-except blocks to catch and handle exceptions
+
+        # - Use specific exception types
+
+        # - Provide informative error messages
+
+
+        # Testing
+
+        # - Write unit tests for functions and classes
+
+        # - Use a testing framework
+
+        # - Run tests regularly
+
+
+        # Code Style
+
+        # - Use 4 spaces for indentation
+
+        # - Use consistent spacing around operators
+
+        # - Use a consistent coding style throughout the codebase
+
+
+        # Security
+
+        # - Validate user input to prevent SQL injection and XSS attacks
+
+        # - Use secure password storage
+
+        # - Avoid using insecure protocols
+
+
+        # Optimization
+
+        # - Use caching to improve performance
+
+        # - Avoid using redundant calculations
+
+        # - Use'
+      context_size: 5
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Search for Python code review best practices and common issues to
+            look for
+          count: 0
+          results: []
+    type: agent_result
+  - sender: analyze_code
+    agent: analyzer_agent
+    content:
+      agent_id: analyzer_agent
+      agent_type: react
+      task: Analyze the code quality based on best practices and identify potential
+        issues
+      llm_response: 'Based on your previous task, we can proceed with the next steps
+        to analyze the code quality and identify potential issues based on Python
+        code review best practices.
+
+
+        Here are some common best practices and potential issues to look for in Python
+        code:
+
+
+        **Best Practices:**
+
+
+        1. **Readability**: Use clear and concise variable names, comments, and docstrings.
+
+        2. **Code organization**: Use functions, classes, and modules to organize
+        code and reduce complexity.
+
+        3. **Error handling**: Use try-except blocks to handle potential errors and
+        exceptions.
+
+        4. **Type hints**: Use type hints to indicate the expected types of function
+        parameters and return values.
+
+        5. **Testing**: Write unit tests to ensure code functionality and catch regressions.
+
+        6. **Security**: Avoid using insecure functions like `eval()` and `exec()`.
+
+        7. **Code style**: Follow the PEP 8 style guide for consistent indentation,
+        spacing, and naming conventions.
+
+        8. **Use of libraries**: Use established libraries and frameworks to avoid
+        reinventing the wheel.
+
+
+        **Potential Issues:**
+
+
+        1. **Code duplication**: Look for duplicated code and refactor it into reusable
+        functions or classes.
+
+        2. **Insecure data handling**: Identify potential security vulnerabilities
+        when handling user input, database connections, or external APIs.
+
+        3. **Performance issues**: Optimize code to improve execution speed, especially
+        in loops or recursive functions.
+
+        4. **Code smell**: Identify code with high complexity, low cohesion, or high
+        coupling, and refactor it for better maintainability.
+
+        5. **Uncaught exceptions**: Look for unhandled exceptions and add try-except
+        blocks to handle them gracefully.
+
+        6. **Inconsistent naming conventions**: Enforce consistent naming conventions
+        throughout the codebase.
+
+        7. **Unused code**: Remove unused code, functions, or variables to declutter
+        the codebase.
+
+        8. **Magic numbers**: Replace magic numbers with named constants or variables
+        for better readability and maintainability.
+
+
+        To proceed, I''ll need more information about the specific code you''d like
+        to review. Can you provide the code or a link to it?'
+      context_size: 2
+      tool_results:
+        code_tool:
+          executed: true
+          output: 'Code executed: print(''Hello from code tool'')'
+    type: agent_result
+  - sender: generate_recommendations
+    agent: writer_agent
+    content:
+      agent_id: writer_agent
+      agent_type: zero_shot
+      task: Generate detailed recommendations and improvement suggestions based on
+        the analysis
+      llm_response: 'Based on the research findings and analysis, I''ll generate detailed
+        recommendations and improvement suggestions to help improve code quality and
+        best practices.
+
+
+        **Recommendations and Improvement Suggestions**
+
+
+        **Code Structure and Organization**
+
+
+        1. **Separate Concerns**: Break down large functions into smaller, independent
+        functions with clear responsibilities.
+
+        2. **Use Meaningful Function Names**: Use descriptive names for functions
+        and variables to improve code readability.
+
+        3. **Organize Code into Modules**: Group related functions and classes into
+        separate modules to improve code organization and reusability.
+
+
+        **Code Quality and Conventions**
+
+
+        1. **Follow PEP 8**: Adhere to the official Python style guide (PEP 8) for
+        naming conventions, indentation, and whitespace.
+
+        2. **Use Type Hints**: Add type hints to function parameters and return types
+        to improve code readability and maintainability.
+
+        3. **Use Docstrings**: Add docstrings to functions and classes to provide
+        documentation and improve code readability.
+
+
+        **Error Handling and Logging**
+
+
+        1. **Use Try-Except Blocks**: Implement try-except blocks to catch and handle
+        exceptions, ensuring that the program doesn''t crash unexpectedly.
+
+        2. **Log Errors and Exceptions**: Use logging mechanisms to record errors
+        and exceptions, making it easier to diagnose and debug issues.
+
+        3. **Raise Custom Exceptions**: Raise custom exceptions to provide more informative
+        error messages and improve error handling.
+
+
+        **Security and Best Practices**
+
+
+        1. **Use Secure Password Hashing**: Use secure password hashing algorithms
+        (e.g., bcrypt,argon2) to protect user passwords.
+
+        2. **Validate User Input**: Validate user input to prevent SQL injection and
+        cross-site scripting (XSS) attacks.
+
+        3. **Use Secure Communication Protocols**: Use secure communication protocols
+        (e.g., HTTPS, SFTP) to protect data in transit.
+
+
+        **Testing and Debugging**
+
+
+        1. **Write Automated Tests**: Write automated tests to ensure code reliability
+        and catch bugs early.
+
+        2. **Use Debugging Tools**: Utilize debugging tools (e.g., pdb, print statements)
+        to identify and fix issues.
+
+        3. **Continuously Integrate and Deploy**: Implement continuous integration
+        and deployment (CI/CD) pipelines to automate testing, building, and deployment.
+
+
+        **Code Smells and Improvements**
+
+
+        1. **Avoid Dead Code**: Remove dead code and unused functions to improve code
+        maintainability and reduce complexity.
+
+        2. **Minimize Global Variables**: Avoid using global variables and instead
+        use function parameters and return values to improve code modularity.
+
+        3. **Avoid Deep Nesting**: Refactor code to avoid deep nesting and improve
+        code readability.
+
+
+        **Best Practices for Code Review**
+
+
+        1. **Review Code Regularly**: Regularly review code to catch bugs and improve
+        code quality.
+
+        2. **Use Code Review Tools**: Utilize code review tools (e.g., GitHub Code
+        Review, CodeFactor) to streamline the review process.
+
+        3. **Implement Code Standards**: Establish and enforce code standards to improve
+        code consistency and quality.
+
+
+        By following these recommendations and improvement suggestions, developers
+        can improve code quality, maintainability, and security, ultimately leading
+        to better software development practices and more efficient coding processes.'
+      context_size: 4
+      tool_results: {}
+    type: agent_result
+  shared_state:
+    fetch_best_practices:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Search for Python code review best practices and common issues to look
+        for
+      llm_response: '**Python Code Review Best Practices:**
+
+
+        ### 1. **Readability**
+
+
+        *   Use consistent naming conventions (e.g., `lowercase_with_underscores`).
+
+        *   Use blank lines to separate logical sections of code.
+
+        *   Limit line length to 79 characters.
+
+        *   Use comments to explain complex sections of code.
+
+
+        ### 2. **Naming Conventions**
+
+
+        *   Use descriptive variable names (e.g., `user_id` instead of `x`).
+
+        *   Use consistent naming conventions for functions and methods (e.g., `camelCase`
+        or `snake_case`).
+
+        *   Avoid using single-letter variable names.
+
+
+        ### 3. **Code Organization**
+
+
+        *   Use modules to organize related functions and variables.
+
+        *   Use a consistent layout for functions and methods (e.g., arguments on
+        the left, return type on the right).
+
+        *   Avoid deep nesting of functions and methods.
+
+
+        ### 4. **Error Handling**
+
+
+        *   Use try-except blocks to catch and handle exceptions.
+
+        *   Use specific exception types (e.g., `TypeError` instead of `Exception`).
+
+        *   Provide informative error messages.
+
+
+        ### 5. **Testing**
+
+
+        *   Write unit tests for functions and classes.
+
+        *   Use a testing framework (e.g., `unittest`).
+
+        *   Run tests regularly.
+
+
+        ### 6. **Code Style**
+
+
+        *   Use 4 spaces for indentation.
+
+        *   Use consistent spacing around operators (e.g., `if x == 5:` instead of
+        `if x==5:`).
+
+        *   Use a consistent coding style throughout the codebase.
+
+
+        ### 7. **Security**
+
+
+        *   Validate user input to prevent SQL injection and cross-site scripting
+        (XSS) attacks.
+
+        *   Use secure password storage (e.g., hashing and salting).
+
+        *   Avoid using insecure protocols (e.g., `telnet` or `ftp`).
+
+
+        ### 8. **Optimization**
+
+
+        *   Use caching to improve performance (e.g., caching database queries).
+
+        *   Avoid using redundant calculations (e.g., calculating `x * y` twice).
+
+        *   Use efficient data structures (e.g., using a hash table instead of a linked
+        list).
+
+
+        ### Common Issues to Look for in Code Reviews:
+
+
+        ### 1. **Unclear Variable Names**
+
+
+        *   Variable names that are too long or too short.
+
+        *   Variable names that are not descriptive (e.g., `x` instead of `user_id`).
+
+
+        ### 2. **Insufficient Comments**
+
+
+        *   Missing comments that explain complex sections of code.
+
+        *   Comments that are not accurate or up-to-date.
+
+
+        ### 3. **Poor Code Organization**
+
+
+        *   Functions or methods that are too long or complex.
+
+        *   Deeply nested functions or methods.
+
+
+        ### 4. **Insecure Error Handling**
+
+
+        *   Using `except Exception` to catch all exceptions (can mask bugs).
+
+        *   Not providing informative error messages.
+
+
+        ### 5. **Inefficient Code**
+
+
+        *   Using redundant calculations or data structures.
+
+        *   Not using caching or other optimization techniques.
+
+
+        ### 6. **Outdated Libraries or Frameworks**
+
+
+        *   Using outdated libraries or frameworks that are no longer maintained.
+
+        *   Not keeping up with security updates or bug fixes.
+
+
+        ### 7. **Non-Compliant Code**
+
+
+        *   Code that does not follow the project''s coding style or guidelines.
+
+        *   Code that uses non-standard or deprecated features.
+
+
+        ### 8. **Untested Code**
+
+
+        *   Functions or methods that are not tested.
+
+        *   Not running tests regularly to catch bugs.
+
+
+        By following these best practices and looking for these common issues, you
+        can help ensure that your code is maintainable, efficient, and secure.
+
+
+        Here is a sample Python code review checklist:
+
+
+        ```python
+
+        # Code Review Checklist
+
+
+        # Readability
+
+        # - Use consistent naming conventions
+
+        # - Use blank lines to separate logical sections of code
+
+        # - Limit line length to 79 characters
+
+        # - Use comments to explain complex sections of code
+
+
+        # Naming Conventions
+
+        # - Use descriptive variable names
+
+        # - Use consistent naming conventions for functions and methods
+
+        # - Avoid using single-letter variable names
+
+
+        # Code Organization
+
+        # - Use modules to organize related functions and variables
+
+        # - Use a consistent layout for functions and methods
+
+        # - Avoid deep nesting of functions and methods
+
+
+        # Error Handling
+
+        # - Use try-except blocks to catch and handle exceptions
+
+        # - Use specific exception types
+
+        # - Provide informative error messages
+
+
+        # Testing
+
+        # - Write unit tests for functions and classes
+
+        # - Use a testing framework
+
+        # - Run tests regularly
+
+
+        # Code Style
+
+        # - Use 4 spaces for indentation
+
+        # - Use consistent spacing around operators
+
+        # - Use a consistent coding style throughout the codebase
+
+
+        # Security
+
+        # - Validate user input to prevent SQL injection and XSS attacks
+
+        # - Use secure password storage
+
+        # - Avoid using insecure protocols
+
+
+        # Optimization
+
+        # - Use caching to improve performance
+
+        # - Avoid using redundant calculations
+
+        # - Use'
+      context_size: 5
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Search for Python code review best practices and common issues to
+            look for
+          count: 0
+          results: []
+    analyze_code:
+      agent_id: analyzer_agent
+      agent_type: react
+      task: Analyze the code quality based on best practices and identify potential
+        issues
+      llm_response: 'Based on your previous task, we can proceed with the next steps
+        to analyze the code quality and identify potential issues based on Python
+        code review best practices.
+
+
+        Here are some common best practices and potential issues to look for in Python
+        code:
+
+
+        **Best Practices:**
+
+
+        1. **Readability**: Use clear and concise variable names, comments, and docstrings.
+
+        2. **Code organization**: Use functions, classes, and modules to organize
+        code and reduce complexity.
+
+        3. **Error handling**: Use try-except blocks to handle potential errors and
+        exceptions.
+
+        4. **Type hints**: Use type hints to indicate the expected types of function
+        parameters and return values.
+
+        5. **Testing**: Write unit tests to ensure code functionality and catch regressions.
+
+        6. **Security**: Avoid using insecure functions like `eval()` and `exec()`.
+
+        7. **Code style**: Follow the PEP 8 style guide for consistent indentation,
+        spacing, and naming conventions.
+
+        8. **Use of libraries**: Use established libraries and frameworks to avoid
+        reinventing the wheel.
+
+
+        **Potential Issues:**
+
+
+        1. **Code duplication**: Look for duplicated code and refactor it into reusable
+        functions or classes.
+
+        2. **Insecure data handling**: Identify potential security vulnerabilities
+        when handling user input, database connections, or external APIs.
+
+        3. **Performance issues**: Optimize code to improve execution speed, especially
+        in loops or recursive functions.
+
+        4. **Code smell**: Identify code with high complexity, low cohesion, or high
+        coupling, and refactor it for better maintainability.
+
+        5. **Uncaught exceptions**: Look for unhandled exceptions and add try-except
+        blocks to handle them gracefully.
+
+        6. **Inconsistent naming conventions**: Enforce consistent naming conventions
+        throughout the codebase.
+
+        7. **Unused code**: Remove unused code, functions, or variables to declutter
+        the codebase.
+
+        8. **Magic numbers**: Replace magic numbers with named constants or variables
+        for better readability and maintainability.
+
+
+        To proceed, I''ll need more information about the specific code you''d like
+        to review. Can you provide the code or a link to it?'
+      context_size: 2
+      tool_results:
+        code_tool:
+          executed: true
+          output: 'Code executed: print(''Hello from code tool'')'
+    generate_recommendations:
+      agent_id: writer_agent
+      agent_type: zero_shot
+      task: Generate detailed recommendations and improvement suggestions based on
+        the analysis
+      llm_response: 'Based on the research findings and analysis, I''ll generate detailed
+        recommendations and improvement suggestions to help improve code quality and
+        best practices.
+
+
+        **Recommendations and Improvement Suggestions**
+
+
+        **Code Structure and Organization**
+
+
+        1. **Separate Concerns**: Break down large functions into smaller, independent
+        functions with clear responsibilities.
+
+        2. **Use Meaningful Function Names**: Use descriptive names for functions
+        and variables to improve code readability.
+
+        3. **Organize Code into Modules**: Group related functions and classes into
+        separate modules to improve code organization and reusability.
+
+
+        **Code Quality and Conventions**
+
+
+        1. **Follow PEP 8**: Adhere to the official Python style guide (PEP 8) for
+        naming conventions, indentation, and whitespace.
+
+        2. **Use Type Hints**: Add type hints to function parameters and return types
+        to improve code readability and maintainability.
+
+        3. **Use Docstrings**: Add docstrings to functions and classes to provide
+        documentation and improve code readability.
+
+
+        **Error Handling and Logging**
+
+
+        1. **Use Try-Except Blocks**: Implement try-except blocks to catch and handle
+        exceptions, ensuring that the program doesn''t crash unexpectedly.
+
+        2. **Log Errors and Exceptions**: Use logging mechanisms to record errors
+        and exceptions, making it easier to diagnose and debug issues.
+
+        3. **Raise Custom Exceptions**: Raise custom exceptions to provide more informative
+        error messages and improve error handling.
+
+
+        **Security and Best Practices**
+
+
+        1. **Use Secure Password Hashing**: Use secure password hashing algorithms
+        (e.g., bcrypt,argon2) to protect user passwords.
+
+        2. **Validate User Input**: Validate user input to prevent SQL injection and
+        cross-site scripting (XSS) attacks.
+
+        3. **Use Secure Communication Protocols**: Use secure communication protocols
+        (e.g., HTTPS, SFTP) to protect data in transit.
+
+
+        **Testing and Debugging**
+
+
+        1. **Write Automated Tests**: Write automated tests to ensure code reliability
+        and catch bugs early.
+
+        2. **Use Debugging Tools**: Utilize debugging tools (e.g., pdb, print statements)
+        to identify and fix issues.
+
+        3. **Continuously Integrate and Deploy**: Implement continuous integration
+        and deployment (CI/CD) pipelines to automate testing, building, and deployment.
+
+
+        **Code Smells and Improvements**
+
+
+        1. **Avoid Dead Code**: Remove dead code and unused functions to improve code
+        maintainability and reduce complexity.
+
+        2. **Minimize Global Variables**: Avoid using global variables and instead
+        use function parameters and return values to improve code modularity.
+
+        3. **Avoid Deep Nesting**: Refactor code to avoid deep nesting and improve
+        code readability.
+
+
+        **Best Practices for Code Review**
+
+
+        1. **Review Code Regularly**: Regularly review code to catch bugs and improve
+        code quality.
+
+        2. **Use Code Review Tools**: Utilize code review tools (e.g., GitHub Code
+        Review, CodeFactor) to streamline the review process.
+
+        3. **Implement Code Standards**: Establish and enforce code standards to improve
+        code consistency and quality.
+
+
+        By following these recommendations and improvement suggestions, developers
+        can improve code quality, maintainability, and security, ultimately leading
+        to better software development practices and more efficient coding processes.'
+      context_size: 4
+      tool_results: {}
+  agents_used:
+  - writer_agent
+  total_messages: 3
+  final_step: generate_recommendations
+error: null

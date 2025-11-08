@@ -1,0 +1,2036 @@
+workflow_id: ai-research-workflow
+run_id: b47fdd2a-3b67-4900-a905-ca7c08738e61
+status: success
+result:
+  research-node:
+    agent_id: researcher-agent
+    agent_name: Research Agent
+    agent_type: react
+    task: Run workflow
+    llm_response: 'Based on the web search results, it appears that the button "Run
+      workflow" might not be visible in Microsoft Teams, and instead, you can manually
+      run a workflow using specific commands or tools. Here are the steps to run a
+      workflow based on the search results:
+
+
+      **Option 1: Using GitHub Actions**
+
+
+      1. If you have created a workflow on a non-default branch (e.g., a feature branch),
+      you can use the `--ref` flag to run the workflow on that branch. For example:
+
+      ```
+
+      gh workflow run --ref <branch-name> <workflow-name>
+
+      ```
+
+      Replace `<branch-name>` with the name of the branch you want to run the workflow
+      on, and `<workflow-name>` with the name of the workflow you want to run.
+
+
+      2. If you want to list valid workflow names, use the `gh workflow` command with
+      the `list` option:
+
+      ```
+
+      gh workflow list
+
+      ```
+
+      **Option 2: Using GitHub CLI**
+
+
+      1. To run a workflow, use the `workflow run` subcommand. Replace `<workflow-parameter>`
+      with the name, ID, or file name of the workflow you want to run:
+
+      ```
+
+      gh workflow run <workflow-parameter>
+
+      ```
+
+      **Option 3: Using GitHub Web Interface**
+
+
+      1. Log in to your GitHub account and navigate to the repository where you created
+      the workflow.
+
+      2. Click on the "Actions" tab.
+
+      3. Find the workflow you want to run and click on the three dots next to it.
+
+      4. Select "Run workflow" from the dropdown menu.
+
+
+      **Option 4: Using Power Apps or Power Automate**
+
+
+      1. If you created the workflow using Power Automate (formerly Microsoft Flow),
+      you can run it from within Power Apps or Power Automate.
+
+      2. Open Power Apps or Power Automate and navigate to the workflow you want to
+      run.
+
+      3. Click on the "Run" button to execute the workflow.
+
+
+      **Additional Tips**
+
+
+      * Make sure you have the necessary permissions to run the workflow.
+
+      * Check the security constraints defined by your organization to ensure you
+      can complete the steps.
+
+      * For troubleshooting information, see the GitHub Docs or the Microsoft documentation
+      for Power Apps and Power Automate.'
+    context_size: 2
+    tool_results:
+      web-search-tool:
+        tool: web-search-tool
+        query: Run workflow
+        count: 5
+        results:
+        - title: 'Execute a workflow | Workflows | Google Cloud Browse and add workflows
+            in Microsoft Teams I do not find the button **Run workflow** to run it
+            manually. GitHub Actions: how can I run a workflow created on a non ...
+            Code sample Microsoft Dataverse real-time workflows - Power Apps Manually
+            running a workflow - GitHub Docs Browse and add workflows in Microsoft
+            Teams Microsoft Dataverse real-time workflows - Power Apps GitHub Actions:
+            how can I run a workflow created on a non-''master GitHub Actions: how
+            can I run a workflow created on a non-''master Manually running a workflow
+            - GitHub Docs Power Automate: How to Run a Flow - Process Street'
+          href: https://cloud.google.com/workflows/docs/executing-workflow
+          body: "Security constraints defined by your organization might prevent you\
+            \ from completing the following steps. For troubleshooting information,\
+            \ see Develop applications in a constrained Google Cloud environment.\
+            \ 1. If a workflow accesses other Google Cloud resources, make sure it\
+            \ isassociated with a service account that has the correct permissions\
+            \ to do ... See full list on cloud.google.com You can execute a workflow\
+            \ in the following ways: 1. In the Google Cloud console 2. By using the\
+            \ Google Cloud CLI in either your terminal or Cloud Shell 3. By sending\
+            \ a direct request to the Workflows API You can also execute a workflow\
+            \ by using the Cloud Client Libraries. For moreinformation, seeExecute\
+            \ a workflow using the Cloud Client Libraries. See full list on cloud.google.com\
+            \ There are several commands to help you check the status of a workflowexecution.\
+            \ 1. To retrieve a list of a workflow 's execution attempts and their\
+            \ IDs, enterthe following command:gcloudworkflowsexecutionslistWORKFLOW_NAMEReplace\
+            \ WORKFLOW_NAME with the name of the workflow .The command returns a NAME\
+            \ value that is similar to the following:projects/PR... See full list\
+            \ on cloud.google.com You can apply filters to the list of workflow executions\
+            \ returned by theworkflows.executions.list method. You can filter on the\
+            \ following fields: 1. createTime 2. disableOverflowBuffering 3. duration\
+            \ 4. endTime 5. executionId 6. label 7. startTime 8. state 9. stepName\
+            \ 10. workflowRevisionId For example, to filter on a label (labels.\"\
+            fruit\":\"apple\")... See full list on cloud.google.com You can use execution\
+            \ backlogging to avoid client-side retries, remove executiondelays, and\
+            \ maximize throughput. Backlogged executions automatically run as soonas\
+            \ execution concurrency quota becomes available. There is a maximum number\
+            \ of active workflowexecutions that can run concurrently. Once this quota\
+            \ is exhausted, and ifexecution backlogging ... See full list on cloud.google.com\
+            \ See full list on cloud.google.com Workflows let you automate repetitive\
+            \ tasks or processes that connect one or more apps to Teams. In short,\
+            \ they can save you time and effort. Here, we\u2019ll walk you through\
+            \ how to add, run , and manage your workflows . How can workflows help\
+            \ you? Take a moment to ask yourself the following questions. Jun 14,\
+            \ 2023 \xB7 I just figured out, if you try to create manual workflow from\
+            \ any branches other than master/main, it won't show workflow in left\
+            \ panel nor it will show \" Run workflow \" button to trigger. Aug 11,\
+            \ 2020 \xB7 To run a workflow on a branch other than the repository's\
+            \ default branch, use the --ref flag. To list valid workflow names, use\
+            \ gh workflow list. To add input parameters, run it like this: Sign up\
+            \ to request clarification or add additional context in comments. See\
+            \ more on stackoverflow Jul 12, 2024 \xB7 Workflows automate business\
+            \ processes without a user interface. People usually use workflow processes\
+            \ to initiate automation that doesn\u2019t require any user interaction.\
+            \ How do I run a workflow? To see the Run workflow button, your workflow\
+            \ file must use the workflow_dispatch event trigger. Only workflow files\
+            \ that use the workflow_dispatch event trigger will have the option to\
+            \ run the workflow manually using the Run workflow button. For more information\
+            \ about configuring the workflow_dispatch event, see Events that trigger\
+            \ workflows. Does a workflow run automatically? Your workflow will run\
+            \ automatically . An \"automatic\" requires no further action from you\
+            \ once you've added it. Each workflow has a trigger, and when the trigger\
+            \ occurs, an action or series of actions happen automatically. Here are\
+            \ two examples: A Planner task on a board (specified when you set up the\
+            \ workflow) changes status. Why do people use workflow processes? People\
+            \ usually use workflow processes to initiate automation that doesn\u2019\
+            t require any user interaction . There are two types of workflows: Background\
+            \ workflows. Background workflows run when the system has resource availability\
+            \ (asynchronously). Go to the Power Automate documentation for more details\
+            \ about background workflows. Real-time workflows. How do I run a workflow\
+            \ on a Github Branch? You can run a workflow that is still in development\
+            \ in a branch branch-name from the command line, with the GitHub CLI.\
+            \ The documentation says: To run a workflow on a branch other than the\
+            \ repository's default branch, use the --ref flag . To list valid workflow\
+            \ names, use gh workflow list. To add input parameters, run it like this:\
+            \ Does workflow_dispatch work if a workflow has been run once? Specifically\
+            \ for workflow_dispatch this won't work until the workflow has run once\
+            \ before. You can add a push event hook and then it will be activated\
+            \ after running once. Using gh workflow list you can see the job in the\
+            \ list once it has run once. Hmm I didn't know that gh exists. Thanks.\
+            \ Sadly as @Dustin wrote. How do I run a workflow on a different branch?\
+            \ To run a workflow on a branch other than the repository's default branch,\
+            \ use the --ref flag . To view the progress of the workflow run, use the\
+            \ run watch subcommand and select the run from the interactive list. When\
+            \ using the REST API, you configure the inputs and ref as request body\
+            \ parameters. This section will cover the various ways in which you can\
+            \ run a flow in Power Automate . From manually triggering it to setting\
+            \ up automatic executions, we will explore the different options available\
+            \ to make your workflows more efficient."
+        - title: 'GitHub Actions: how can I run a workflow created on a non ... Code
+            sample'
+          href: https://stackoverflow.com/questions/63362126/github-actions-how-can-i-run-a-workflow-created-on-a-non-master-branch-from-t
+          body: "Aug 11, 2020 \xB7 To run a workflow on a branch other than the repository's\
+            \ default branch, use the --ref flag. To list valid workflow names, use\
+            \ gh workflow list. To add input parameters, run it like this: Sign up\
+            \ to request clarification or add additional context in comments. See\
+            \ more on stackoverflow"
+        - title: GitHub Manually running a workflow
+          href: https://docs.github.com/actions/managing-workflow-runs/manually-running-a-workflow
+          body: To run a workflow, use the workflow run subcommand . Replace the workflow
+            parameter with either the name, ID, or file name of the workflow you want
+            to run. For example, "Link Checker", 1234567, or "link-check-test.yml".
+        - title: GitHub Triggering a workflow - GitHub Docs
+          href: https://docs.github.com/actions/using-workflows/triggering-a-workflow
+          body: For example, the following workflow uses a personal access token (stored
+            as a secret called MY_TOKEN) to add a label to an issue via GitHub CLI.
+            Any workflows that run when a label is added will run once this step is
+            performed.
+        - title: Google Cloud Execute a Cloud Run job using Workflows | Google Cloud
+          href: https://cloud.google.com/workflows/docs/tutorials/execute-cloud-run-jobs
+          body: To create a Cloud Run job, use the google_cloud_run_v2_job resource
+            and modify your main.tf file as shown in the following sample. Note that
+            in a typical Terraform workflow, you apply the entire plan at once. However,
+            for the purposes of this tutorial, you can target a specific resource.
+    tools_used:
+    - Web Search
+  analysis-node:
+    agent_id: researcher-agent
+    agent_name: Research Agent
+    agent_type: react
+    task: Based on the research findings, analyze the key features and use cases
+    llm_response: '**Research Agent''s Analysis**
+
+
+      Based on the web search results, I have identified the key features and use
+      cases of case studies, which are a crucial component of research methodology.
+
+
+      **Key Features of Case Studies:**
+
+
+      1. **Clear Objective**: A well-defined research question or objective is essential
+      for conducting a case study. This objective should be specific, measurable,
+      achievable, relevant, and time-bound (SMART).
+
+      2. **Data Requirements**: Case studies require a comprehensive collection of
+      data, including both qualitative and quantitative information. This data should
+      be relevant to the research objective and support analysis.
+
+      3. **Stakeholders**: Identifying the stakeholders involved in data collection
+      and decision-making is critical. This includes individuals or organizations
+      that have a vested interest in the research findings.
+
+      4. **Relevant Data**: Selecting data that is relevant to the research question
+      and objective is essential. This involves identifying the most critical variables
+      and indicators that will support analysis.
+
+      5. **Methodology**: Case studies involve a structured approach, including data
+      collection, analysis, and interpretation. This may involve multiple methods,
+      such as interviews, observations, and document analysis.
+
+
+      **Use Cases of Case Studies:**
+
+
+      1. **Exploratory Research**: Case studies are often used to explore a new topic
+      or research question. This involves collecting data and analyzing it to gain
+      a deeper understanding of the phenomenon.
+
+      2. **In-Depth Analysis**: Case studies provide a comprehensive and in-depth
+      analysis of a specific phenomenon or organization. This involves collecting
+      and analyzing data to identify key features and patterns.
+
+      3. **Theory Development**: Case studies can be used to develop or test theory.
+      This involves collecting data and analyzing it to identify patterns and relationships
+      that support or challenge existing theory.
+
+      4. **Best Practices**: Case studies can be used to identify best practices or
+      successful strategies in a particular field or industry.
+
+      5. **Evaluation**: Case studies can be used to evaluate the effectiveness of
+      a particular program, policy, or intervention.
+
+
+      **Conclusion**
+
+
+      Case studies are a valuable research methodology that can provide in-depth and
+      comprehensive analysis of a specific phenomenon or organization. By identifying
+      the key features and use cases of case studies, researchers can design and conduct
+      effective studies that support their research objectives.
+
+
+      **Recommendations**
+
+
+      1. Clearly define the research objective and scope of the case study.
+
+      2. Identify the relevant stakeholders and data requirements.
+
+      3. Select data that is relevant to the research question and objective.
+
+      4. Use a structured approach to data collection, analysis, and interpretation.
+
+      5. Evaluate the effectiveness of the case study methodology and adjust as needed.
+
+
+      **Additional Resources**
+
+
+      For further reading on case study methodology, I recommend the following resources:
+
+
+      * Yin, R. K. (2018). Case Study Research: Design and Methods. Sage Publications.
+
+      * TBM Council. (n.d.). Use Cases. Retrieved from <https://www.tbmcouncil.org/use-cases/>
+
+      * CEOpedia. (n.d.). Case Study Methodology. Retrieved from <https://www.ceopediacentral.com/case-study-methodology/>'
+    context_size: 4
+    tool_results:
+      web-search-tool:
+        tool: web-search-tool
+        query: Based on the research findings, analyze the key features and use cases
+        count: 5
+        results:
+        - title: Use Cases - TBM Council
+          href: https://www.tbmcouncil.org/discover/hot-topics/use-cases/
+          body: Each use case consists of a clear objective, the data required to
+            support analysis, the stakeholders responsible for data and decision-making,
+            and ...
+        - title: "Read Download Analyzing A Case Study PDF \u2013 PDF Download"
+          href: https://bibleandbookcenter.com/read/analyzing-a-case-study/
+          body: "Yin\u2019s bestselling text Case Study Research offers comprehensive\
+            \ coverage of the design and use of the case study method as a valid research\
+            \ tool."
+        - title: Case study methodology - CEOpedia | Management online
+          href: https://ceopedia.org/index.php/Case_study_methodology
+          body: When conducting a case study, researchers must take care to identify
+            the key features of the case study and select data that are relevant to
+            the ...
+        - title: Case Study Answers - An Overview
+          href: https://buycasesolution97669.theblogfairy.com/28818722/case-study-answers-an-overview
+          body: They can provide useful insights into the case getting studied and
+            lead to the further understanding of the issues at hand.
+        - title: Case Analysis Google Case Study Solution | Case Analysis Google
+          href: https://casecheckout.com/case-analysis-google/
+          body: '... the unique technology that Google ... Google Adwords based on
+            keywords and ranking information, on the other hand, often brings in the
+            worst results.'
+    tools_used:
+    - Web Search
+meta:
+  communication_log:
+  - sender: research-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Run workflow
+      llm_response: 'Based on the web search results, it appears that the button "Run
+        workflow" might not be visible in Microsoft Teams, and instead, you can manually
+        run a workflow using specific commands or tools. Here are the steps to run
+        a workflow based on the search results:
+
+
+        **Option 1: Using GitHub Actions**
+
+
+        1. If you have created a workflow on a non-default branch (e.g., a feature
+        branch), you can use the `--ref` flag to run the workflow on that branch.
+        For example:
+
+        ```
+
+        gh workflow run --ref <branch-name> <workflow-name>
+
+        ```
+
+        Replace `<branch-name>` with the name of the branch you want to run the workflow
+        on, and `<workflow-name>` with the name of the workflow you want to run.
+
+
+        2. If you want to list valid workflow names, use the `gh workflow` command
+        with the `list` option:
+
+        ```
+
+        gh workflow list
+
+        ```
+
+        **Option 2: Using GitHub CLI**
+
+
+        1. To run a workflow, use the `workflow run` subcommand. Replace `<workflow-parameter>`
+        with the name, ID, or file name of the workflow you want to run:
+
+        ```
+
+        gh workflow run <workflow-parameter>
+
+        ```
+
+        **Option 3: Using GitHub Web Interface**
+
+
+        1. Log in to your GitHub account and navigate to the repository where you
+        created the workflow.
+
+        2. Click on the "Actions" tab.
+
+        3. Find the workflow you want to run and click on the three dots next to it.
+
+        4. Select "Run workflow" from the dropdown menu.
+
+
+        **Option 4: Using Power Apps or Power Automate**
+
+
+        1. If you created the workflow using Power Automate (formerly Microsoft Flow),
+        you can run it from within Power Apps or Power Automate.
+
+        2. Open Power Apps or Power Automate and navigate to the workflow you want
+        to run.
+
+        3. Click on the "Run" button to execute the workflow.
+
+
+        **Additional Tips**
+
+
+        * Make sure you have the necessary permissions to run the workflow.
+
+        * Check the security constraints defined by your organization to ensure you
+        can complete the steps.
+
+        * For troubleshooting information, see the GitHub Docs or the Microsoft documentation
+        for Power Apps and Power Automate.'
+      context_size: 2
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Run workflow
+          count: 5
+          results:
+          - title: 'Execute a workflow | Workflows | Google Cloud Browse and add workflows
+              in Microsoft Teams I do not find the button **Run workflow** to run
+              it manually. GitHub Actions: how can I run a workflow created on a non
+              ... Code sample Microsoft Dataverse real-time workflows - Power Apps
+              Manually running a workflow - GitHub Docs Browse and add workflows in
+              Microsoft Teams Microsoft Dataverse real-time workflows - Power Apps
+              GitHub Actions: how can I run a workflow created on a non-''master GitHub
+              Actions: how can I run a workflow created on a non-''master Manually
+              running a workflow - GitHub Docs Power Automate: How to Run a Flow -
+              Process Street'
+            href: https://cloud.google.com/workflows/docs/executing-workflow
+            body: "Security constraints defined by your organization might prevent\
+              \ you from completing the following steps. For troubleshooting information,\
+              \ see Develop applications in a constrained Google Cloud environment.\
+              \ 1. If a workflow accesses other Google Cloud resources, make sure\
+              \ it isassociated with a service account that has the correct permissions\
+              \ to do ... See full list on cloud.google.com You can execute a workflow\
+              \ in the following ways: 1. In the Google Cloud console 2. By using\
+              \ the Google Cloud CLI in either your terminal or Cloud Shell 3. By\
+              \ sending a direct request to the Workflows API You can also execute\
+              \ a workflow by using the Cloud Client Libraries. For moreinformation,\
+              \ seeExecute a workflow using the Cloud Client Libraries. See full list\
+              \ on cloud.google.com There are several commands to help you check the\
+              \ status of a workflowexecution. 1. To retrieve a list of a workflow\
+              \ 's execution attempts and their IDs, enterthe following command:gcloudworkflowsexecutionslistWORKFLOW_NAMEReplace\
+              \ WORKFLOW_NAME with the name of the workflow .The command returns a\
+              \ NAME value that is similar to the following:projects/PR... See full\
+              \ list on cloud.google.com You can apply filters to the list of workflow\
+              \ executions returned by theworkflows.executions.list method. You can\
+              \ filter on the following fields: 1. createTime 2. disableOverflowBuffering\
+              \ 3. duration 4. endTime 5. executionId 6. label 7. startTime 8. state\
+              \ 9. stepName 10. workflowRevisionId For example, to filter on a label\
+              \ (labels.\"fruit\":\"apple\")... See full list on cloud.google.com\
+              \ You can use execution backlogging to avoid client-side retries, remove\
+              \ executiondelays, and maximize throughput. Backlogged executions automatically\
+              \ run as soonas execution concurrency quota becomes available. There\
+              \ is a maximum number of active workflowexecutions that can run concurrently.\
+              \ Once this quota is exhausted, and ifexecution backlogging ... See\
+              \ full list on cloud.google.com See full list on cloud.google.com Workflows\
+              \ let you automate repetitive tasks or processes that connect one or\
+              \ more apps to Teams. In short, they can save you time and effort. Here,\
+              \ we\u2019ll walk you through how to add, run , and manage your workflows\
+              \ . How can workflows help you? Take a moment to ask yourself the following\
+              \ questions. Jun 14, 2023 \xB7 I just figured out, if you try to create\
+              \ manual workflow from any branches other than master/main, it won't\
+              \ show workflow in left panel nor it will show \" Run workflow \" button\
+              \ to trigger. Aug 11, 2020 \xB7 To run a workflow on a branch other\
+              \ than the repository's default branch, use the --ref flag. To list\
+              \ valid workflow names, use gh workflow list. To add input parameters,\
+              \ run it like this: Sign up to request clarification or add additional\
+              \ context in comments. See more on stackoverflow Jul 12, 2024 \xB7 Workflows\
+              \ automate business processes without a user interface. People usually\
+              \ use workflow processes to initiate automation that doesn\u2019t require\
+              \ any user interaction. How do I run a workflow? To see the Run workflow\
+              \ button, your workflow file must use the workflow_dispatch event trigger.\
+              \ Only workflow files that use the workflow_dispatch event trigger will\
+              \ have the option to run the workflow manually using the Run workflow\
+              \ button. For more information about configuring the workflow_dispatch\
+              \ event, see Events that trigger workflows. Does a workflow run automatically?\
+              \ Your workflow will run automatically . An \"automatic\" requires no\
+              \ further action from you once you've added it. Each workflow has a\
+              \ trigger, and when the trigger occurs, an action or series of actions\
+              \ happen automatically. Here are two examples: A Planner task on a board\
+              \ (specified when you set up the workflow) changes status. Why do people\
+              \ use workflow processes? People usually use workflow processes to initiate\
+              \ automation that doesn\u2019t require any user interaction . There\
+              \ are two types of workflows: Background workflows. Background workflows\
+              \ run when the system has resource availability (asynchronously). Go\
+              \ to the Power Automate documentation for more details about background\
+              \ workflows. Real-time workflows. How do I run a workflow on a Github\
+              \ Branch? You can run a workflow that is still in development in a branch\
+              \ branch-name from the command line, with the GitHub CLI. The documentation\
+              \ says: To run a workflow on a branch other than the repository's default\
+              \ branch, use the --ref flag . To list valid workflow names, use gh\
+              \ workflow list. To add input parameters, run it like this: Does workflow_dispatch\
+              \ work if a workflow has been run once? Specifically for workflow_dispatch\
+              \ this won't work until the workflow has run once before. You can add\
+              \ a push event hook and then it will be activated after running once.\
+              \ Using gh workflow list you can see the job in the list once it has\
+              \ run once. Hmm I didn't know that gh exists. Thanks. Sadly as @Dustin\
+              \ wrote. How do I run a workflow on a different branch? To run a workflow\
+              \ on a branch other than the repository's default branch, use the --ref\
+              \ flag . To view the progress of the workflow run, use the run watch\
+              \ subcommand and select the run from the interactive list. When using\
+              \ the REST API, you configure the inputs and ref as request body parameters.\
+              \ This section will cover the various ways in which you can run a flow\
+              \ in Power Automate . From manually triggering it to setting up automatic\
+              \ executions, we will explore the different options available to make\
+              \ your workflows more efficient."
+          - title: 'GitHub Actions: how can I run a workflow created on a non ...
+              Code sample'
+            href: https://stackoverflow.com/questions/63362126/github-actions-how-can-i-run-a-workflow-created-on-a-non-master-branch-from-t
+            body: "Aug 11, 2020 \xB7 To run a workflow on a branch other than the\
+              \ repository's default branch, use the --ref flag. To list valid workflow\
+              \ names, use gh workflow list. To add input parameters, run it like\
+              \ this: Sign up to request clarification or add additional context in\
+              \ comments. See more on stackoverflow"
+          - title: GitHub Manually running a workflow
+            href: https://docs.github.com/actions/managing-workflow-runs/manually-running-a-workflow
+            body: To run a workflow, use the workflow run subcommand . Replace the
+              workflow parameter with either the name, ID, or file name of the workflow
+              you want to run. For example, "Link Checker", 1234567, or "link-check-test.yml".
+          - title: GitHub Triggering a workflow - GitHub Docs
+            href: https://docs.github.com/actions/using-workflows/triggering-a-workflow
+            body: For example, the following workflow uses a personal access token
+              (stored as a secret called MY_TOKEN) to add a label to an issue via
+              GitHub CLI. Any workflows that run when a label is added will run once
+              this step is performed.
+          - title: Google Cloud Execute a Cloud Run job using Workflows | Google Cloud
+            href: https://cloud.google.com/workflows/docs/tutorials/execute-cloud-run-jobs
+            body: To create a Cloud Run job, use the google_cloud_run_v2_job resource
+              and modify your main.tf file as shown in the following sample. Note
+              that in a typical Terraform workflow, you apply the entire plan at once.
+              However, for the purposes of this tutorial, you can target a specific
+              resource.
+      tools_used:
+      - Web Search
+    type: agent_result
+  - sender: analysis-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: '**Research Agent''s Analysis**
+
+
+        Based on the web search results, I have identified the key features and use
+        cases of case studies, which are a crucial component of research methodology.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **Clear Objective**: A well-defined research question or objective is essential
+        for conducting a case study. This objective should be specific, measurable,
+        achievable, relevant, and time-bound (SMART).
+
+        2. **Data Requirements**: Case studies require a comprehensive collection
+        of data, including both qualitative and quantitative information. This data
+        should be relevant to the research objective and support analysis.
+
+        3. **Stakeholders**: Identifying the stakeholders involved in data collection
+        and decision-making is critical. This includes individuals or organizations
+        that have a vested interest in the research findings.
+
+        4. **Relevant Data**: Selecting data that is relevant to the research question
+        and objective is essential. This involves identifying the most critical variables
+        and indicators that will support analysis.
+
+        5. **Methodology**: Case studies involve a structured approach, including
+        data collection, analysis, and interpretation. This may involve multiple methods,
+        such as interviews, observations, and document analysis.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Exploratory Research**: Case studies are often used to explore a new
+        topic or research question. This involves collecting data and analyzing it
+        to gain a deeper understanding of the phenomenon.
+
+        2. **In-Depth Analysis**: Case studies provide a comprehensive and in-depth
+        analysis of a specific phenomenon or organization. This involves collecting
+        and analyzing data to identify key features and patterns.
+
+        3. **Theory Development**: Case studies can be used to develop or test theory.
+        This involves collecting data and analyzing it to identify patterns and relationships
+        that support or challenge existing theory.
+
+        4. **Best Practices**: Case studies can be used to identify best practices
+        or successful strategies in a particular field or industry.
+
+        5. **Evaluation**: Case studies can be used to evaluate the effectiveness
+        of a particular program, policy, or intervention.
+
+
+        **Conclusion**
+
+
+        Case studies are a valuable research methodology that can provide in-depth
+        and comprehensive analysis of a specific phenomenon or organization. By identifying
+        the key features and use cases of case studies, researchers can design and
+        conduct effective studies that support their research objectives.
+
+
+        **Recommendations**
+
+
+        1. Clearly define the research objective and scope of the case study.
+
+        2. Identify the relevant stakeholders and data requirements.
+
+        3. Select data that is relevant to the research question and objective.
+
+        4. Use a structured approach to data collection, analysis, and interpretation.
+
+        5. Evaluate the effectiveness of the case study methodology and adjust as
+        needed.
+
+
+        **Additional Resources**
+
+
+        For further reading on case study methodology, I recommend the following resources:
+
+
+        * Yin, R. K. (2018). Case Study Research: Design and Methods. Sage Publications.
+
+        * TBM Council. (n.d.). Use Cases. Retrieved from <https://www.tbmcouncil.org/use-cases/>
+
+        * CEOpedia. (n.d.). Case Study Methodology. Retrieved from <https://www.ceopediacentral.com/case-study-methodology/>'
+      context_size: 4
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Use Cases - TBM Council
+            href: https://www.tbmcouncil.org/discover/hot-topics/use-cases/
+            body: Each use case consists of a clear objective, the data required to
+              support analysis, the stakeholders responsible for data and decision-making,
+              and ...
+          - title: "Read Download Analyzing A Case Study PDF \u2013 PDF Download"
+            href: https://bibleandbookcenter.com/read/analyzing-a-case-study/
+            body: "Yin\u2019s bestselling text Case Study Research offers comprehensive\
+              \ coverage of the design and use of the case study method as a valid\
+              \ research tool."
+          - title: Case study methodology - CEOpedia | Management online
+            href: https://ceopedia.org/index.php/Case_study_methodology
+            body: When conducting a case study, researchers must take care to identify
+              the key features of the case study and select data that are relevant
+              to the ...
+          - title: Case Study Answers - An Overview
+            href: https://buycasesolution97669.theblogfairy.com/28818722/case-study-answers-an-overview
+            body: They can provide useful insights into the case getting studied and
+              lead to the further understanding of the issues at hand.
+          - title: Case Analysis Google Case Study Solution | Case Analysis Google
+            href: https://casecheckout.com/case-analysis-google/
+            body: '... the unique technology that Google ... Google Adwords based
+              on keywords and ranking information, on the other hand, often brings
+              in the worst results.'
+      tools_used:
+      - Web Search
+    type: agent_result
+  shared_state:
+    research-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Run workflow
+      llm_response: 'Based on the web search results, it appears that the button "Run
+        workflow" might not be visible in Microsoft Teams, and instead, you can manually
+        run a workflow using specific commands or tools. Here are the steps to run
+        a workflow based on the search results:
+
+
+        **Option 1: Using GitHub Actions**
+
+
+        1. If you have created a workflow on a non-default branch (e.g., a feature
+        branch), you can use the `--ref` flag to run the workflow on that branch.
+        For example:
+
+        ```
+
+        gh workflow run --ref <branch-name> <workflow-name>
+
+        ```
+
+        Replace `<branch-name>` with the name of the branch you want to run the workflow
+        on, and `<workflow-name>` with the name of the workflow you want to run.
+
+
+        2. If you want to list valid workflow names, use the `gh workflow` command
+        with the `list` option:
+
+        ```
+
+        gh workflow list
+
+        ```
+
+        **Option 2: Using GitHub CLI**
+
+
+        1. To run a workflow, use the `workflow run` subcommand. Replace `<workflow-parameter>`
+        with the name, ID, or file name of the workflow you want to run:
+
+        ```
+
+        gh workflow run <workflow-parameter>
+
+        ```
+
+        **Option 3: Using GitHub Web Interface**
+
+
+        1. Log in to your GitHub account and navigate to the repository where you
+        created the workflow.
+
+        2. Click on the "Actions" tab.
+
+        3. Find the workflow you want to run and click on the three dots next to it.
+
+        4. Select "Run workflow" from the dropdown menu.
+
+
+        **Option 4: Using Power Apps or Power Automate**
+
+
+        1. If you created the workflow using Power Automate (formerly Microsoft Flow),
+        you can run it from within Power Apps or Power Automate.
+
+        2. Open Power Apps or Power Automate and navigate to the workflow you want
+        to run.
+
+        3. Click on the "Run" button to execute the workflow.
+
+
+        **Additional Tips**
+
+
+        * Make sure you have the necessary permissions to run the workflow.
+
+        * Check the security constraints defined by your organization to ensure you
+        can complete the steps.
+
+        * For troubleshooting information, see the GitHub Docs or the Microsoft documentation
+        for Power Apps and Power Automate.'
+      context_size: 2
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Run workflow
+          count: 5
+          results:
+          - title: 'Execute a workflow | Workflows | Google Cloud Browse and add workflows
+              in Microsoft Teams I do not find the button **Run workflow** to run
+              it manually. GitHub Actions: how can I run a workflow created on a non
+              ... Code sample Microsoft Dataverse real-time workflows - Power Apps
+              Manually running a workflow - GitHub Docs Browse and add workflows in
+              Microsoft Teams Microsoft Dataverse real-time workflows - Power Apps
+              GitHub Actions: how can I run a workflow created on a non-''master GitHub
+              Actions: how can I run a workflow created on a non-''master Manually
+              running a workflow - GitHub Docs Power Automate: How to Run a Flow -
+              Process Street'
+            href: https://cloud.google.com/workflows/docs/executing-workflow
+            body: "Security constraints defined by your organization might prevent\
+              \ you from completing the following steps. For troubleshooting information,\
+              \ see Develop applications in a constrained Google Cloud environment.\
+              \ 1. If a workflow accesses other Google Cloud resources, make sure\
+              \ it isassociated with a service account that has the correct permissions\
+              \ to do ... See full list on cloud.google.com You can execute a workflow\
+              \ in the following ways: 1. In the Google Cloud console 2. By using\
+              \ the Google Cloud CLI in either your terminal or Cloud Shell 3. By\
+              \ sending a direct request to the Workflows API You can also execute\
+              \ a workflow by using the Cloud Client Libraries. For moreinformation,\
+              \ seeExecute a workflow using the Cloud Client Libraries. See full list\
+              \ on cloud.google.com There are several commands to help you check the\
+              \ status of a workflowexecution. 1. To retrieve a list of a workflow\
+              \ 's execution attempts and their IDs, enterthe following command:gcloudworkflowsexecutionslistWORKFLOW_NAMEReplace\
+              \ WORKFLOW_NAME with the name of the workflow .The command returns a\
+              \ NAME value that is similar to the following:projects/PR... See full\
+              \ list on cloud.google.com You can apply filters to the list of workflow\
+              \ executions returned by theworkflows.executions.list method. You can\
+              \ filter on the following fields: 1. createTime 2. disableOverflowBuffering\
+              \ 3. duration 4. endTime 5. executionId 6. label 7. startTime 8. state\
+              \ 9. stepName 10. workflowRevisionId For example, to filter on a label\
+              \ (labels.\"fruit\":\"apple\")... See full list on cloud.google.com\
+              \ You can use execution backlogging to avoid client-side retries, remove\
+              \ executiondelays, and maximize throughput. Backlogged executions automatically\
+              \ run as soonas execution concurrency quota becomes available. There\
+              \ is a maximum number of active workflowexecutions that can run concurrently.\
+              \ Once this quota is exhausted, and ifexecution backlogging ... See\
+              \ full list on cloud.google.com See full list on cloud.google.com Workflows\
+              \ let you automate repetitive tasks or processes that connect one or\
+              \ more apps to Teams. In short, they can save you time and effort. Here,\
+              \ we\u2019ll walk you through how to add, run , and manage your workflows\
+              \ . How can workflows help you? Take a moment to ask yourself the following\
+              \ questions. Jun 14, 2023 \xB7 I just figured out, if you try to create\
+              \ manual workflow from any branches other than master/main, it won't\
+              \ show workflow in left panel nor it will show \" Run workflow \" button\
+              \ to trigger. Aug 11, 2020 \xB7 To run a workflow on a branch other\
+              \ than the repository's default branch, use the --ref flag. To list\
+              \ valid workflow names, use gh workflow list. To add input parameters,\
+              \ run it like this: Sign up to request clarification or add additional\
+              \ context in comments. See more on stackoverflow Jul 12, 2024 \xB7 Workflows\
+              \ automate business processes without a user interface. People usually\
+              \ use workflow processes to initiate automation that doesn\u2019t require\
+              \ any user interaction. How do I run a workflow? To see the Run workflow\
+              \ button, your workflow file must use the workflow_dispatch event trigger.\
+              \ Only workflow files that use the workflow_dispatch event trigger will\
+              \ have the option to run the workflow manually using the Run workflow\
+              \ button. For more information about configuring the workflow_dispatch\
+              \ event, see Events that trigger workflows. Does a workflow run automatically?\
+              \ Your workflow will run automatically . An \"automatic\" requires no\
+              \ further action from you once you've added it. Each workflow has a\
+              \ trigger, and when the trigger occurs, an action or series of actions\
+              \ happen automatically. Here are two examples: A Planner task on a board\
+              \ (specified when you set up the workflow) changes status. Why do people\
+              \ use workflow processes? People usually use workflow processes to initiate\
+              \ automation that doesn\u2019t require any user interaction . There\
+              \ are two types of workflows: Background workflows. Background workflows\
+              \ run when the system has resource availability (asynchronously). Go\
+              \ to the Power Automate documentation for more details about background\
+              \ workflows. Real-time workflows. How do I run a workflow on a Github\
+              \ Branch? You can run a workflow that is still in development in a branch\
+              \ branch-name from the command line, with the GitHub CLI. The documentation\
+              \ says: To run a workflow on a branch other than the repository's default\
+              \ branch, use the --ref flag . To list valid workflow names, use gh\
+              \ workflow list. To add input parameters, run it like this: Does workflow_dispatch\
+              \ work if a workflow has been run once? Specifically for workflow_dispatch\
+              \ this won't work until the workflow has run once before. You can add\
+              \ a push event hook and then it will be activated after running once.\
+              \ Using gh workflow list you can see the job in the list once it has\
+              \ run once. Hmm I didn't know that gh exists. Thanks. Sadly as @Dustin\
+              \ wrote. How do I run a workflow on a different branch? To run a workflow\
+              \ on a branch other than the repository's default branch, use the --ref\
+              \ flag . To view the progress of the workflow run, use the run watch\
+              \ subcommand and select the run from the interactive list. When using\
+              \ the REST API, you configure the inputs and ref as request body parameters.\
+              \ This section will cover the various ways in which you can run a flow\
+              \ in Power Automate . From manually triggering it to setting up automatic\
+              \ executions, we will explore the different options available to make\
+              \ your workflows more efficient."
+          - title: 'GitHub Actions: how can I run a workflow created on a non ...
+              Code sample'
+            href: https://stackoverflow.com/questions/63362126/github-actions-how-can-i-run-a-workflow-created-on-a-non-master-branch-from-t
+            body: "Aug 11, 2020 \xB7 To run a workflow on a branch other than the\
+              \ repository's default branch, use the --ref flag. To list valid workflow\
+              \ names, use gh workflow list. To add input parameters, run it like\
+              \ this: Sign up to request clarification or add additional context in\
+              \ comments. See more on stackoverflow"
+          - title: GitHub Manually running a workflow
+            href: https://docs.github.com/actions/managing-workflow-runs/manually-running-a-workflow
+            body: To run a workflow, use the workflow run subcommand . Replace the
+              workflow parameter with either the name, ID, or file name of the workflow
+              you want to run. For example, "Link Checker", 1234567, or "link-check-test.yml".
+          - title: GitHub Triggering a workflow - GitHub Docs
+            href: https://docs.github.com/actions/using-workflows/triggering-a-workflow
+            body: For example, the following workflow uses a personal access token
+              (stored as a secret called MY_TOKEN) to add a label to an issue via
+              GitHub CLI. Any workflows that run when a label is added will run once
+              this step is performed.
+          - title: Google Cloud Execute a Cloud Run job using Workflows | Google Cloud
+            href: https://cloud.google.com/workflows/docs/tutorials/execute-cloud-run-jobs
+            body: To create a Cloud Run job, use the google_cloud_run_v2_job resource
+              and modify your main.tf file as shown in the following sample. Note
+              that in a typical Terraform workflow, you apply the entire plan at once.
+              However, for the purposes of this tutorial, you can target a specific
+              resource.
+      tools_used:
+      - Web Search
+    analysis-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: '**Research Agent''s Analysis**
+
+
+        Based on the web search results, I have identified the key features and use
+        cases of case studies, which are a crucial component of research methodology.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **Clear Objective**: A well-defined research question or objective is essential
+        for conducting a case study. This objective should be specific, measurable,
+        achievable, relevant, and time-bound (SMART).
+
+        2. **Data Requirements**: Case studies require a comprehensive collection
+        of data, including both qualitative and quantitative information. This data
+        should be relevant to the research objective and support analysis.
+
+        3. **Stakeholders**: Identifying the stakeholders involved in data collection
+        and decision-making is critical. This includes individuals or organizations
+        that have a vested interest in the research findings.
+
+        4. **Relevant Data**: Selecting data that is relevant to the research question
+        and objective is essential. This involves identifying the most critical variables
+        and indicators that will support analysis.
+
+        5. **Methodology**: Case studies involve a structured approach, including
+        data collection, analysis, and interpretation. This may involve multiple methods,
+        such as interviews, observations, and document analysis.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Exploratory Research**: Case studies are often used to explore a new
+        topic or research question. This involves collecting data and analyzing it
+        to gain a deeper understanding of the phenomenon.
+
+        2. **In-Depth Analysis**: Case studies provide a comprehensive and in-depth
+        analysis of a specific phenomenon or organization. This involves collecting
+        and analyzing data to identify key features and patterns.
+
+        3. **Theory Development**: Case studies can be used to develop or test theory.
+        This involves collecting data and analyzing it to identify patterns and relationships
+        that support or challenge existing theory.
+
+        4. **Best Practices**: Case studies can be used to identify best practices
+        or successful strategies in a particular field or industry.
+
+        5. **Evaluation**: Case studies can be used to evaluate the effectiveness
+        of a particular program, policy, or intervention.
+
+
+        **Conclusion**
+
+
+        Case studies are a valuable research methodology that can provide in-depth
+        and comprehensive analysis of a specific phenomenon or organization. By identifying
+        the key features and use cases of case studies, researchers can design and
+        conduct effective studies that support their research objectives.
+
+
+        **Recommendations**
+
+
+        1. Clearly define the research objective and scope of the case study.
+
+        2. Identify the relevant stakeholders and data requirements.
+
+        3. Select data that is relevant to the research question and objective.
+
+        4. Use a structured approach to data collection, analysis, and interpretation.
+
+        5. Evaluate the effectiveness of the case study methodology and adjust as
+        needed.
+
+
+        **Additional Resources**
+
+
+        For further reading on case study methodology, I recommend the following resources:
+
+
+        * Yin, R. K. (2018). Case Study Research: Design and Methods. Sage Publications.
+
+        * TBM Council. (n.d.). Use Cases. Retrieved from <https://www.tbmcouncil.org/use-cases/>
+
+        * CEOpedia. (n.d.). Case Study Methodology. Retrieved from <https://www.ceopediacentral.com/case-study-methodology/>'
+      context_size: 4
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Use Cases - TBM Council
+            href: https://www.tbmcouncil.org/discover/hot-topics/use-cases/
+            body: Each use case consists of a clear objective, the data required to
+              support analysis, the stakeholders responsible for data and decision-making,
+              and ...
+          - title: "Read Download Analyzing A Case Study PDF \u2013 PDF Download"
+            href: https://bibleandbookcenter.com/read/analyzing-a-case-study/
+            body: "Yin\u2019s bestselling text Case Study Research offers comprehensive\
+              \ coverage of the design and use of the case study method as a valid\
+              \ research tool."
+          - title: Case study methodology - CEOpedia | Management online
+            href: https://ceopedia.org/index.php/Case_study_methodology
+            body: When conducting a case study, researchers must take care to identify
+              the key features of the case study and select data that are relevant
+              to the ...
+          - title: Case Study Answers - An Overview
+            href: https://buycasesolution97669.theblogfairy.com/28818722/case-study-answers-an-overview
+            body: They can provide useful insights into the case getting studied and
+              lead to the further understanding of the issues at hand.
+          - title: Case Analysis Google Case Study Solution | Case Analysis Google
+            href: https://casecheckout.com/case-analysis-google/
+            body: '... the unique technology that Google ... Google Adwords based
+              on keywords and ranking information, on the other hand, often brings
+              in the worst results.'
+      tools_used:
+      - Web Search
+  agents_used:
+  - researcher-agent
+  total_messages: 2
+  final_step: analysis-node
+error: null
+state:
+  messages:
+  - sender: research-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Run workflow
+      llm_response: 'Based on the web search results, it appears that the button "Run
+        workflow" might not be visible in Microsoft Teams, and instead, you can manually
+        run a workflow using specific commands or tools. Here are the steps to run
+        a workflow based on the search results:
+
+
+        **Option 1: Using GitHub Actions**
+
+
+        1. If you have created a workflow on a non-default branch (e.g., a feature
+        branch), you can use the `--ref` flag to run the workflow on that branch.
+        For example:
+
+        ```
+
+        gh workflow run --ref <branch-name> <workflow-name>
+
+        ```
+
+        Replace `<branch-name>` with the name of the branch you want to run the workflow
+        on, and `<workflow-name>` with the name of the workflow you want to run.
+
+
+        2. If you want to list valid workflow names, use the `gh workflow` command
+        with the `list` option:
+
+        ```
+
+        gh workflow list
+
+        ```
+
+        **Option 2: Using GitHub CLI**
+
+
+        1. To run a workflow, use the `workflow run` subcommand. Replace `<workflow-parameter>`
+        with the name, ID, or file name of the workflow you want to run:
+
+        ```
+
+        gh workflow run <workflow-parameter>
+
+        ```
+
+        **Option 3: Using GitHub Web Interface**
+
+
+        1. Log in to your GitHub account and navigate to the repository where you
+        created the workflow.
+
+        2. Click on the "Actions" tab.
+
+        3. Find the workflow you want to run and click on the three dots next to it.
+
+        4. Select "Run workflow" from the dropdown menu.
+
+
+        **Option 4: Using Power Apps or Power Automate**
+
+
+        1. If you created the workflow using Power Automate (formerly Microsoft Flow),
+        you can run it from within Power Apps or Power Automate.
+
+        2. Open Power Apps or Power Automate and navigate to the workflow you want
+        to run.
+
+        3. Click on the "Run" button to execute the workflow.
+
+
+        **Additional Tips**
+
+
+        * Make sure you have the necessary permissions to run the workflow.
+
+        * Check the security constraints defined by your organization to ensure you
+        can complete the steps.
+
+        * For troubleshooting information, see the GitHub Docs or the Microsoft documentation
+        for Power Apps and Power Automate.'
+      context_size: 2
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Run workflow
+          count: 5
+          results:
+          - title: 'Execute a workflow | Workflows | Google Cloud Browse and add workflows
+              in Microsoft Teams I do not find the button **Run workflow** to run
+              it manually. GitHub Actions: how can I run a workflow created on a non
+              ... Code sample Microsoft Dataverse real-time workflows - Power Apps
+              Manually running a workflow - GitHub Docs Browse and add workflows in
+              Microsoft Teams Microsoft Dataverse real-time workflows - Power Apps
+              GitHub Actions: how can I run a workflow created on a non-''master GitHub
+              Actions: how can I run a workflow created on a non-''master Manually
+              running a workflow - GitHub Docs Power Automate: How to Run a Flow -
+              Process Street'
+            href: https://cloud.google.com/workflows/docs/executing-workflow
+            body: "Security constraints defined by your organization might prevent\
+              \ you from completing the following steps. For troubleshooting information,\
+              \ see Develop applications in a constrained Google Cloud environment.\
+              \ 1. If a workflow accesses other Google Cloud resources, make sure\
+              \ it isassociated with a service account that has the correct permissions\
+              \ to do ... See full list on cloud.google.com You can execute a workflow\
+              \ in the following ways: 1. In the Google Cloud console 2. By using\
+              \ the Google Cloud CLI in either your terminal or Cloud Shell 3. By\
+              \ sending a direct request to the Workflows API You can also execute\
+              \ a workflow by using the Cloud Client Libraries. For moreinformation,\
+              \ seeExecute a workflow using the Cloud Client Libraries. See full list\
+              \ on cloud.google.com There are several commands to help you check the\
+              \ status of a workflowexecution. 1. To retrieve a list of a workflow\
+              \ 's execution attempts and their IDs, enterthe following command:gcloudworkflowsexecutionslistWORKFLOW_NAMEReplace\
+              \ WORKFLOW_NAME with the name of the workflow .The command returns a\
+              \ NAME value that is similar to the following:projects/PR... See full\
+              \ list on cloud.google.com You can apply filters to the list of workflow\
+              \ executions returned by theworkflows.executions.list method. You can\
+              \ filter on the following fields: 1. createTime 2. disableOverflowBuffering\
+              \ 3. duration 4. endTime 5. executionId 6. label 7. startTime 8. state\
+              \ 9. stepName 10. workflowRevisionId For example, to filter on a label\
+              \ (labels.\"fruit\":\"apple\")... See full list on cloud.google.com\
+              \ You can use execution backlogging to avoid client-side retries, remove\
+              \ executiondelays, and maximize throughput. Backlogged executions automatically\
+              \ run as soonas execution concurrency quota becomes available. There\
+              \ is a maximum number of active workflowexecutions that can run concurrently.\
+              \ Once this quota is exhausted, and ifexecution backlogging ... See\
+              \ full list on cloud.google.com See full list on cloud.google.com Workflows\
+              \ let you automate repetitive tasks or processes that connect one or\
+              \ more apps to Teams. In short, they can save you time and effort. Here,\
+              \ we\u2019ll walk you through how to add, run , and manage your workflows\
+              \ . How can workflows help you? Take a moment to ask yourself the following\
+              \ questions. Jun 14, 2023 \xB7 I just figured out, if you try to create\
+              \ manual workflow from any branches other than master/main, it won't\
+              \ show workflow in left panel nor it will show \" Run workflow \" button\
+              \ to trigger. Aug 11, 2020 \xB7 To run a workflow on a branch other\
+              \ than the repository's default branch, use the --ref flag. To list\
+              \ valid workflow names, use gh workflow list. To add input parameters,\
+              \ run it like this: Sign up to request clarification or add additional\
+              \ context in comments. See more on stackoverflow Jul 12, 2024 \xB7 Workflows\
+              \ automate business processes without a user interface. People usually\
+              \ use workflow processes to initiate automation that doesn\u2019t require\
+              \ any user interaction. How do I run a workflow? To see the Run workflow\
+              \ button, your workflow file must use the workflow_dispatch event trigger.\
+              \ Only workflow files that use the workflow_dispatch event trigger will\
+              \ have the option to run the workflow manually using the Run workflow\
+              \ button. For more information about configuring the workflow_dispatch\
+              \ event, see Events that trigger workflows. Does a workflow run automatically?\
+              \ Your workflow will run automatically . An \"automatic\" requires no\
+              \ further action from you once you've added it. Each workflow has a\
+              \ trigger, and when the trigger occurs, an action or series of actions\
+              \ happen automatically. Here are two examples: A Planner task on a board\
+              \ (specified when you set up the workflow) changes status. Why do people\
+              \ use workflow processes? People usually use workflow processes to initiate\
+              \ automation that doesn\u2019t require any user interaction . There\
+              \ are two types of workflows: Background workflows. Background workflows\
+              \ run when the system has resource availability (asynchronously). Go\
+              \ to the Power Automate documentation for more details about background\
+              \ workflows. Real-time workflows. How do I run a workflow on a Github\
+              \ Branch? You can run a workflow that is still in development in a branch\
+              \ branch-name from the command line, with the GitHub CLI. The documentation\
+              \ says: To run a workflow on a branch other than the repository's default\
+              \ branch, use the --ref flag . To list valid workflow names, use gh\
+              \ workflow list. To add input parameters, run it like this: Does workflow_dispatch\
+              \ work if a workflow has been run once? Specifically for workflow_dispatch\
+              \ this won't work until the workflow has run once before. You can add\
+              \ a push event hook and then it will be activated after running once.\
+              \ Using gh workflow list you can see the job in the list once it has\
+              \ run once. Hmm I didn't know that gh exists. Thanks. Sadly as @Dustin\
+              \ wrote. How do I run a workflow on a different branch? To run a workflow\
+              \ on a branch other than the repository's default branch, use the --ref\
+              \ flag . To view the progress of the workflow run, use the run watch\
+              \ subcommand and select the run from the interactive list. When using\
+              \ the REST API, you configure the inputs and ref as request body parameters.\
+              \ This section will cover the various ways in which you can run a flow\
+              \ in Power Automate . From manually triggering it to setting up automatic\
+              \ executions, we will explore the different options available to make\
+              \ your workflows more efficient."
+          - title: 'GitHub Actions: how can I run a workflow created on a non ...
+              Code sample'
+            href: https://stackoverflow.com/questions/63362126/github-actions-how-can-i-run-a-workflow-created-on-a-non-master-branch-from-t
+            body: "Aug 11, 2020 \xB7 To run a workflow on a branch other than the\
+              \ repository's default branch, use the --ref flag. To list valid workflow\
+              \ names, use gh workflow list. To add input parameters, run it like\
+              \ this: Sign up to request clarification or add additional context in\
+              \ comments. See more on stackoverflow"
+          - title: GitHub Manually running a workflow
+            href: https://docs.github.com/actions/managing-workflow-runs/manually-running-a-workflow
+            body: To run a workflow, use the workflow run subcommand . Replace the
+              workflow parameter with either the name, ID, or file name of the workflow
+              you want to run. For example, "Link Checker", 1234567, or "link-check-test.yml".
+          - title: GitHub Triggering a workflow - GitHub Docs
+            href: https://docs.github.com/actions/using-workflows/triggering-a-workflow
+            body: For example, the following workflow uses a personal access token
+              (stored as a secret called MY_TOKEN) to add a label to an issue via
+              GitHub CLI. Any workflows that run when a label is added will run once
+              this step is performed.
+          - title: Google Cloud Execute a Cloud Run job using Workflows | Google Cloud
+            href: https://cloud.google.com/workflows/docs/tutorials/execute-cloud-run-jobs
+            body: To create a Cloud Run job, use the google_cloud_run_v2_job resource
+              and modify your main.tf file as shown in the following sample. Note
+              that in a typical Terraform workflow, you apply the entire plan at once.
+              However, for the purposes of this tutorial, you can target a specific
+              resource.
+      tools_used:
+      - Web Search
+    type: agent_result
+  - sender: analysis-node
+    agent: researcher-agent
+    content:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: '**Research Agent''s Analysis**
+
+
+        Based on the web search results, I have identified the key features and use
+        cases of case studies, which are a crucial component of research methodology.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **Clear Objective**: A well-defined research question or objective is essential
+        for conducting a case study. This objective should be specific, measurable,
+        achievable, relevant, and time-bound (SMART).
+
+        2. **Data Requirements**: Case studies require a comprehensive collection
+        of data, including both qualitative and quantitative information. This data
+        should be relevant to the research objective and support analysis.
+
+        3. **Stakeholders**: Identifying the stakeholders involved in data collection
+        and decision-making is critical. This includes individuals or organizations
+        that have a vested interest in the research findings.
+
+        4. **Relevant Data**: Selecting data that is relevant to the research question
+        and objective is essential. This involves identifying the most critical variables
+        and indicators that will support analysis.
+
+        5. **Methodology**: Case studies involve a structured approach, including
+        data collection, analysis, and interpretation. This may involve multiple methods,
+        such as interviews, observations, and document analysis.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Exploratory Research**: Case studies are often used to explore a new
+        topic or research question. This involves collecting data and analyzing it
+        to gain a deeper understanding of the phenomenon.
+
+        2. **In-Depth Analysis**: Case studies provide a comprehensive and in-depth
+        analysis of a specific phenomenon or organization. This involves collecting
+        and analyzing data to identify key features and patterns.
+
+        3. **Theory Development**: Case studies can be used to develop or test theory.
+        This involves collecting data and analyzing it to identify patterns and relationships
+        that support or challenge existing theory.
+
+        4. **Best Practices**: Case studies can be used to identify best practices
+        or successful strategies in a particular field or industry.
+
+        5. **Evaluation**: Case studies can be used to evaluate the effectiveness
+        of a particular program, policy, or intervention.
+
+
+        **Conclusion**
+
+
+        Case studies are a valuable research methodology that can provide in-depth
+        and comprehensive analysis of a specific phenomenon or organization. By identifying
+        the key features and use cases of case studies, researchers can design and
+        conduct effective studies that support their research objectives.
+
+
+        **Recommendations**
+
+
+        1. Clearly define the research objective and scope of the case study.
+
+        2. Identify the relevant stakeholders and data requirements.
+
+        3. Select data that is relevant to the research question and objective.
+
+        4. Use a structured approach to data collection, analysis, and interpretation.
+
+        5. Evaluate the effectiveness of the case study methodology and adjust as
+        needed.
+
+
+        **Additional Resources**
+
+
+        For further reading on case study methodology, I recommend the following resources:
+
+
+        * Yin, R. K. (2018). Case Study Research: Design and Methods. Sage Publications.
+
+        * TBM Council. (n.d.). Use Cases. Retrieved from <https://www.tbmcouncil.org/use-cases/>
+
+        * CEOpedia. (n.d.). Case Study Methodology. Retrieved from <https://www.ceopediacentral.com/case-study-methodology/>'
+      context_size: 4
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Use Cases - TBM Council
+            href: https://www.tbmcouncil.org/discover/hot-topics/use-cases/
+            body: Each use case consists of a clear objective, the data required to
+              support analysis, the stakeholders responsible for data and decision-making,
+              and ...
+          - title: "Read Download Analyzing A Case Study PDF \u2013 PDF Download"
+            href: https://bibleandbookcenter.com/read/analyzing-a-case-study/
+            body: "Yin\u2019s bestselling text Case Study Research offers comprehensive\
+              \ coverage of the design and use of the case study method as a valid\
+              \ research tool."
+          - title: Case study methodology - CEOpedia | Management online
+            href: https://ceopedia.org/index.php/Case_study_methodology
+            body: When conducting a case study, researchers must take care to identify
+              the key features of the case study and select data that are relevant
+              to the ...
+          - title: Case Study Answers - An Overview
+            href: https://buycasesolution97669.theblogfairy.com/28818722/case-study-answers-an-overview
+            body: They can provide useful insights into the case getting studied and
+              lead to the further understanding of the issues at hand.
+          - title: Case Analysis Google Case Study Solution | Case Analysis Google
+            href: https://casecheckout.com/case-analysis-google/
+            body: '... the unique technology that Google ... Google Adwords based
+              on keywords and ranking information, on the other hand, often brings
+              in the worst results.'
+      tools_used:
+      - Web Search
+    type: agent_result
+  shared_data:
+    research-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Run workflow
+      llm_response: 'Based on the web search results, it appears that the button "Run
+        workflow" might not be visible in Microsoft Teams, and instead, you can manually
+        run a workflow using specific commands or tools. Here are the steps to run
+        a workflow based on the search results:
+
+
+        **Option 1: Using GitHub Actions**
+
+
+        1. If you have created a workflow on a non-default branch (e.g., a feature
+        branch), you can use the `--ref` flag to run the workflow on that branch.
+        For example:
+
+        ```
+
+        gh workflow run --ref <branch-name> <workflow-name>
+
+        ```
+
+        Replace `<branch-name>` with the name of the branch you want to run the workflow
+        on, and `<workflow-name>` with the name of the workflow you want to run.
+
+
+        2. If you want to list valid workflow names, use the `gh workflow` command
+        with the `list` option:
+
+        ```
+
+        gh workflow list
+
+        ```
+
+        **Option 2: Using GitHub CLI**
+
+
+        1. To run a workflow, use the `workflow run` subcommand. Replace `<workflow-parameter>`
+        with the name, ID, or file name of the workflow you want to run:
+
+        ```
+
+        gh workflow run <workflow-parameter>
+
+        ```
+
+        **Option 3: Using GitHub Web Interface**
+
+
+        1. Log in to your GitHub account and navigate to the repository where you
+        created the workflow.
+
+        2. Click on the "Actions" tab.
+
+        3. Find the workflow you want to run and click on the three dots next to it.
+
+        4. Select "Run workflow" from the dropdown menu.
+
+
+        **Option 4: Using Power Apps or Power Automate**
+
+
+        1. If you created the workflow using Power Automate (formerly Microsoft Flow),
+        you can run it from within Power Apps or Power Automate.
+
+        2. Open Power Apps or Power Automate and navigate to the workflow you want
+        to run.
+
+        3. Click on the "Run" button to execute the workflow.
+
+
+        **Additional Tips**
+
+
+        * Make sure you have the necessary permissions to run the workflow.
+
+        * Check the security constraints defined by your organization to ensure you
+        can complete the steps.
+
+        * For troubleshooting information, see the GitHub Docs or the Microsoft documentation
+        for Power Apps and Power Automate.'
+      context_size: 2
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Run workflow
+          count: 5
+          results:
+          - title: 'Execute a workflow | Workflows | Google Cloud Browse and add workflows
+              in Microsoft Teams I do not find the button **Run workflow** to run
+              it manually. GitHub Actions: how can I run a workflow created on a non
+              ... Code sample Microsoft Dataverse real-time workflows - Power Apps
+              Manually running a workflow - GitHub Docs Browse and add workflows in
+              Microsoft Teams Microsoft Dataverse real-time workflows - Power Apps
+              GitHub Actions: how can I run a workflow created on a non-''master GitHub
+              Actions: how can I run a workflow created on a non-''master Manually
+              running a workflow - GitHub Docs Power Automate: How to Run a Flow -
+              Process Street'
+            href: https://cloud.google.com/workflows/docs/executing-workflow
+            body: "Security constraints defined by your organization might prevent\
+              \ you from completing the following steps. For troubleshooting information,\
+              \ see Develop applications in a constrained Google Cloud environment.\
+              \ 1. If a workflow accesses other Google Cloud resources, make sure\
+              \ it isassociated with a service account that has the correct permissions\
+              \ to do ... See full list on cloud.google.com You can execute a workflow\
+              \ in the following ways: 1. In the Google Cloud console 2. By using\
+              \ the Google Cloud CLI in either your terminal or Cloud Shell 3. By\
+              \ sending a direct request to the Workflows API You can also execute\
+              \ a workflow by using the Cloud Client Libraries. For moreinformation,\
+              \ seeExecute a workflow using the Cloud Client Libraries. See full list\
+              \ on cloud.google.com There are several commands to help you check the\
+              \ status of a workflowexecution. 1. To retrieve a list of a workflow\
+              \ 's execution attempts and their IDs, enterthe following command:gcloudworkflowsexecutionslistWORKFLOW_NAMEReplace\
+              \ WORKFLOW_NAME with the name of the workflow .The command returns a\
+              \ NAME value that is similar to the following:projects/PR... See full\
+              \ list on cloud.google.com You can apply filters to the list of workflow\
+              \ executions returned by theworkflows.executions.list method. You can\
+              \ filter on the following fields: 1. createTime 2. disableOverflowBuffering\
+              \ 3. duration 4. endTime 5. executionId 6. label 7. startTime 8. state\
+              \ 9. stepName 10. workflowRevisionId For example, to filter on a label\
+              \ (labels.\"fruit\":\"apple\")... See full list on cloud.google.com\
+              \ You can use execution backlogging to avoid client-side retries, remove\
+              \ executiondelays, and maximize throughput. Backlogged executions automatically\
+              \ run as soonas execution concurrency quota becomes available. There\
+              \ is a maximum number of active workflowexecutions that can run concurrently.\
+              \ Once this quota is exhausted, and ifexecution backlogging ... See\
+              \ full list on cloud.google.com See full list on cloud.google.com Workflows\
+              \ let you automate repetitive tasks or processes that connect one or\
+              \ more apps to Teams. In short, they can save you time and effort. Here,\
+              \ we\u2019ll walk you through how to add, run , and manage your workflows\
+              \ . How can workflows help you? Take a moment to ask yourself the following\
+              \ questions. Jun 14, 2023 \xB7 I just figured out, if you try to create\
+              \ manual workflow from any branches other than master/main, it won't\
+              \ show workflow in left panel nor it will show \" Run workflow \" button\
+              \ to trigger. Aug 11, 2020 \xB7 To run a workflow on a branch other\
+              \ than the repository's default branch, use the --ref flag. To list\
+              \ valid workflow names, use gh workflow list. To add input parameters,\
+              \ run it like this: Sign up to request clarification or add additional\
+              \ context in comments. See more on stackoverflow Jul 12, 2024 \xB7 Workflows\
+              \ automate business processes without a user interface. People usually\
+              \ use workflow processes to initiate automation that doesn\u2019t require\
+              \ any user interaction. How do I run a workflow? To see the Run workflow\
+              \ button, your workflow file must use the workflow_dispatch event trigger.\
+              \ Only workflow files that use the workflow_dispatch event trigger will\
+              \ have the option to run the workflow manually using the Run workflow\
+              \ button. For more information about configuring the workflow_dispatch\
+              \ event, see Events that trigger workflows. Does a workflow run automatically?\
+              \ Your workflow will run automatically . An \"automatic\" requires no\
+              \ further action from you once you've added it. Each workflow has a\
+              \ trigger, and when the trigger occurs, an action or series of actions\
+              \ happen automatically. Here are two examples: A Planner task on a board\
+              \ (specified when you set up the workflow) changes status. Why do people\
+              \ use workflow processes? People usually use workflow processes to initiate\
+              \ automation that doesn\u2019t require any user interaction . There\
+              \ are two types of workflows: Background workflows. Background workflows\
+              \ run when the system has resource availability (asynchronously). Go\
+              \ to the Power Automate documentation for more details about background\
+              \ workflows. Real-time workflows. How do I run a workflow on a Github\
+              \ Branch? You can run a workflow that is still in development in a branch\
+              \ branch-name from the command line, with the GitHub CLI. The documentation\
+              \ says: To run a workflow on a branch other than the repository's default\
+              \ branch, use the --ref flag . To list valid workflow names, use gh\
+              \ workflow list. To add input parameters, run it like this: Does workflow_dispatch\
+              \ work if a workflow has been run once? Specifically for workflow_dispatch\
+              \ this won't work until the workflow has run once before. You can add\
+              \ a push event hook and then it will be activated after running once.\
+              \ Using gh workflow list you can see the job in the list once it has\
+              \ run once. Hmm I didn't know that gh exists. Thanks. Sadly as @Dustin\
+              \ wrote. How do I run a workflow on a different branch? To run a workflow\
+              \ on a branch other than the repository's default branch, use the --ref\
+              \ flag . To view the progress of the workflow run, use the run watch\
+              \ subcommand and select the run from the interactive list. When using\
+              \ the REST API, you configure the inputs and ref as request body parameters.\
+              \ This section will cover the various ways in which you can run a flow\
+              \ in Power Automate . From manually triggering it to setting up automatic\
+              \ executions, we will explore the different options available to make\
+              \ your workflows more efficient."
+          - title: 'GitHub Actions: how can I run a workflow created on a non ...
+              Code sample'
+            href: https://stackoverflow.com/questions/63362126/github-actions-how-can-i-run-a-workflow-created-on-a-non-master-branch-from-t
+            body: "Aug 11, 2020 \xB7 To run a workflow on a branch other than the\
+              \ repository's default branch, use the --ref flag. To list valid workflow\
+              \ names, use gh workflow list. To add input parameters, run it like\
+              \ this: Sign up to request clarification or add additional context in\
+              \ comments. See more on stackoverflow"
+          - title: GitHub Manually running a workflow
+            href: https://docs.github.com/actions/managing-workflow-runs/manually-running-a-workflow
+            body: To run a workflow, use the workflow run subcommand . Replace the
+              workflow parameter with either the name, ID, or file name of the workflow
+              you want to run. For example, "Link Checker", 1234567, or "link-check-test.yml".
+          - title: GitHub Triggering a workflow - GitHub Docs
+            href: https://docs.github.com/actions/using-workflows/triggering-a-workflow
+            body: For example, the following workflow uses a personal access token
+              (stored as a secret called MY_TOKEN) to add a label to an issue via
+              GitHub CLI. Any workflows that run when a label is added will run once
+              this step is performed.
+          - title: Google Cloud Execute a Cloud Run job using Workflows | Google Cloud
+            href: https://cloud.google.com/workflows/docs/tutorials/execute-cloud-run-jobs
+            body: To create a Cloud Run job, use the google_cloud_run_v2_job resource
+              and modify your main.tf file as shown in the following sample. Note
+              that in a typical Terraform workflow, you apply the entire plan at once.
+              However, for the purposes of this tutorial, you can target a specific
+              resource.
+      tools_used:
+      - Web Search
+    analysis-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: '**Research Agent''s Analysis**
+
+
+        Based on the web search results, I have identified the key features and use
+        cases of case studies, which are a crucial component of research methodology.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **Clear Objective**: A well-defined research question or objective is essential
+        for conducting a case study. This objective should be specific, measurable,
+        achievable, relevant, and time-bound (SMART).
+
+        2. **Data Requirements**: Case studies require a comprehensive collection
+        of data, including both qualitative and quantitative information. This data
+        should be relevant to the research objective and support analysis.
+
+        3. **Stakeholders**: Identifying the stakeholders involved in data collection
+        and decision-making is critical. This includes individuals or organizations
+        that have a vested interest in the research findings.
+
+        4. **Relevant Data**: Selecting data that is relevant to the research question
+        and objective is essential. This involves identifying the most critical variables
+        and indicators that will support analysis.
+
+        5. **Methodology**: Case studies involve a structured approach, including
+        data collection, analysis, and interpretation. This may involve multiple methods,
+        such as interviews, observations, and document analysis.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Exploratory Research**: Case studies are often used to explore a new
+        topic or research question. This involves collecting data and analyzing it
+        to gain a deeper understanding of the phenomenon.
+
+        2. **In-Depth Analysis**: Case studies provide a comprehensive and in-depth
+        analysis of a specific phenomenon or organization. This involves collecting
+        and analyzing data to identify key features and patterns.
+
+        3. **Theory Development**: Case studies can be used to develop or test theory.
+        This involves collecting data and analyzing it to identify patterns and relationships
+        that support or challenge existing theory.
+
+        4. **Best Practices**: Case studies can be used to identify best practices
+        or successful strategies in a particular field or industry.
+
+        5. **Evaluation**: Case studies can be used to evaluate the effectiveness
+        of a particular program, policy, or intervention.
+
+
+        **Conclusion**
+
+
+        Case studies are a valuable research methodology that can provide in-depth
+        and comprehensive analysis of a specific phenomenon or organization. By identifying
+        the key features and use cases of case studies, researchers can design and
+        conduct effective studies that support their research objectives.
+
+
+        **Recommendations**
+
+
+        1. Clearly define the research objective and scope of the case study.
+
+        2. Identify the relevant stakeholders and data requirements.
+
+        3. Select data that is relevant to the research question and objective.
+
+        4. Use a structured approach to data collection, analysis, and interpretation.
+
+        5. Evaluate the effectiveness of the case study methodology and adjust as
+        needed.
+
+
+        **Additional Resources**
+
+
+        For further reading on case study methodology, I recommend the following resources:
+
+
+        * Yin, R. K. (2018). Case Study Research: Design and Methods. Sage Publications.
+
+        * TBM Council. (n.d.). Use Cases. Retrieved from <https://www.tbmcouncil.org/use-cases/>
+
+        * CEOpedia. (n.d.). Case Study Methodology. Retrieved from <https://www.ceopediacentral.com/case-study-methodology/>'
+      context_size: 4
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Use Cases - TBM Council
+            href: https://www.tbmcouncil.org/discover/hot-topics/use-cases/
+            body: Each use case consists of a clear objective, the data required to
+              support analysis, the stakeholders responsible for data and decision-making,
+              and ...
+          - title: "Read Download Analyzing A Case Study PDF \u2013 PDF Download"
+            href: https://bibleandbookcenter.com/read/analyzing-a-case-study/
+            body: "Yin\u2019s bestselling text Case Study Research offers comprehensive\
+              \ coverage of the design and use of the case study method as a valid\
+              \ research tool."
+          - title: Case study methodology - CEOpedia | Management online
+            href: https://ceopedia.org/index.php/Case_study_methodology
+            body: When conducting a case study, researchers must take care to identify
+              the key features of the case study and select data that are relevant
+              to the ...
+          - title: Case Study Answers - An Overview
+            href: https://buycasesolution97669.theblogfairy.com/28818722/case-study-answers-an-overview
+            body: They can provide useful insights into the case getting studied and
+              lead to the further understanding of the issues at hand.
+          - title: Case Analysis Google Case Study Solution | Case Analysis Google
+            href: https://casecheckout.com/case-analysis-google/
+            body: '... the unique technology that Google ... Google Adwords based
+              on keywords and ranking information, on the other hand, often brings
+              in the worst results.'
+      tools_used:
+      - Web Search
+  agents_used:
+  - researcher-agent
+  current_step: analysis-node
+  results:
+    research-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Run workflow
+      llm_response: 'Based on the web search results, it appears that the button "Run
+        workflow" might not be visible in Microsoft Teams, and instead, you can manually
+        run a workflow using specific commands or tools. Here are the steps to run
+        a workflow based on the search results:
+
+
+        **Option 1: Using GitHub Actions**
+
+
+        1. If you have created a workflow on a non-default branch (e.g., a feature
+        branch), you can use the `--ref` flag to run the workflow on that branch.
+        For example:
+
+        ```
+
+        gh workflow run --ref <branch-name> <workflow-name>
+
+        ```
+
+        Replace `<branch-name>` with the name of the branch you want to run the workflow
+        on, and `<workflow-name>` with the name of the workflow you want to run.
+
+
+        2. If you want to list valid workflow names, use the `gh workflow` command
+        with the `list` option:
+
+        ```
+
+        gh workflow list
+
+        ```
+
+        **Option 2: Using GitHub CLI**
+
+
+        1. To run a workflow, use the `workflow run` subcommand. Replace `<workflow-parameter>`
+        with the name, ID, or file name of the workflow you want to run:
+
+        ```
+
+        gh workflow run <workflow-parameter>
+
+        ```
+
+        **Option 3: Using GitHub Web Interface**
+
+
+        1. Log in to your GitHub account and navigate to the repository where you
+        created the workflow.
+
+        2. Click on the "Actions" tab.
+
+        3. Find the workflow you want to run and click on the three dots next to it.
+
+        4. Select "Run workflow" from the dropdown menu.
+
+
+        **Option 4: Using Power Apps or Power Automate**
+
+
+        1. If you created the workflow using Power Automate (formerly Microsoft Flow),
+        you can run it from within Power Apps or Power Automate.
+
+        2. Open Power Apps or Power Automate and navigate to the workflow you want
+        to run.
+
+        3. Click on the "Run" button to execute the workflow.
+
+
+        **Additional Tips**
+
+
+        * Make sure you have the necessary permissions to run the workflow.
+
+        * Check the security constraints defined by your organization to ensure you
+        can complete the steps.
+
+        * For troubleshooting information, see the GitHub Docs or the Microsoft documentation
+        for Power Apps and Power Automate.'
+      context_size: 2
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Run workflow
+          count: 5
+          results:
+          - title: 'Execute a workflow | Workflows | Google Cloud Browse and add workflows
+              in Microsoft Teams I do not find the button **Run workflow** to run
+              it manually. GitHub Actions: how can I run a workflow created on a non
+              ... Code sample Microsoft Dataverse real-time workflows - Power Apps
+              Manually running a workflow - GitHub Docs Browse and add workflows in
+              Microsoft Teams Microsoft Dataverse real-time workflows - Power Apps
+              GitHub Actions: how can I run a workflow created on a non-''master GitHub
+              Actions: how can I run a workflow created on a non-''master Manually
+              running a workflow - GitHub Docs Power Automate: How to Run a Flow -
+              Process Street'
+            href: https://cloud.google.com/workflows/docs/executing-workflow
+            body: "Security constraints defined by your organization might prevent\
+              \ you from completing the following steps. For troubleshooting information,\
+              \ see Develop applications in a constrained Google Cloud environment.\
+              \ 1. If a workflow accesses other Google Cloud resources, make sure\
+              \ it isassociated with a service account that has the correct permissions\
+              \ to do ... See full list on cloud.google.com You can execute a workflow\
+              \ in the following ways: 1. In the Google Cloud console 2. By using\
+              \ the Google Cloud CLI in either your terminal or Cloud Shell 3. By\
+              \ sending a direct request to the Workflows API You can also execute\
+              \ a workflow by using the Cloud Client Libraries. For moreinformation,\
+              \ seeExecute a workflow using the Cloud Client Libraries. See full list\
+              \ on cloud.google.com There are several commands to help you check the\
+              \ status of a workflowexecution. 1. To retrieve a list of a workflow\
+              \ 's execution attempts and their IDs, enterthe following command:gcloudworkflowsexecutionslistWORKFLOW_NAMEReplace\
+              \ WORKFLOW_NAME with the name of the workflow .The command returns a\
+              \ NAME value that is similar to the following:projects/PR... See full\
+              \ list on cloud.google.com You can apply filters to the list of workflow\
+              \ executions returned by theworkflows.executions.list method. You can\
+              \ filter on the following fields: 1. createTime 2. disableOverflowBuffering\
+              \ 3. duration 4. endTime 5. executionId 6. label 7. startTime 8. state\
+              \ 9. stepName 10. workflowRevisionId For example, to filter on a label\
+              \ (labels.\"fruit\":\"apple\")... See full list on cloud.google.com\
+              \ You can use execution backlogging to avoid client-side retries, remove\
+              \ executiondelays, and maximize throughput. Backlogged executions automatically\
+              \ run as soonas execution concurrency quota becomes available. There\
+              \ is a maximum number of active workflowexecutions that can run concurrently.\
+              \ Once this quota is exhausted, and ifexecution backlogging ... See\
+              \ full list on cloud.google.com See full list on cloud.google.com Workflows\
+              \ let you automate repetitive tasks or processes that connect one or\
+              \ more apps to Teams. In short, they can save you time and effort. Here,\
+              \ we\u2019ll walk you through how to add, run , and manage your workflows\
+              \ . How can workflows help you? Take a moment to ask yourself the following\
+              \ questions. Jun 14, 2023 \xB7 I just figured out, if you try to create\
+              \ manual workflow from any branches other than master/main, it won't\
+              \ show workflow in left panel nor it will show \" Run workflow \" button\
+              \ to trigger. Aug 11, 2020 \xB7 To run a workflow on a branch other\
+              \ than the repository's default branch, use the --ref flag. To list\
+              \ valid workflow names, use gh workflow list. To add input parameters,\
+              \ run it like this: Sign up to request clarification or add additional\
+              \ context in comments. See more on stackoverflow Jul 12, 2024 \xB7 Workflows\
+              \ automate business processes without a user interface. People usually\
+              \ use workflow processes to initiate automation that doesn\u2019t require\
+              \ any user interaction. How do I run a workflow? To see the Run workflow\
+              \ button, your workflow file must use the workflow_dispatch event trigger.\
+              \ Only workflow files that use the workflow_dispatch event trigger will\
+              \ have the option to run the workflow manually using the Run workflow\
+              \ button. For more information about configuring the workflow_dispatch\
+              \ event, see Events that trigger workflows. Does a workflow run automatically?\
+              \ Your workflow will run automatically . An \"automatic\" requires no\
+              \ further action from you once you've added it. Each workflow has a\
+              \ trigger, and when the trigger occurs, an action or series of actions\
+              \ happen automatically. Here are two examples: A Planner task on a board\
+              \ (specified when you set up the workflow) changes status. Why do people\
+              \ use workflow processes? People usually use workflow processes to initiate\
+              \ automation that doesn\u2019t require any user interaction . There\
+              \ are two types of workflows: Background workflows. Background workflows\
+              \ run when the system has resource availability (asynchronously). Go\
+              \ to the Power Automate documentation for more details about background\
+              \ workflows. Real-time workflows. How do I run a workflow on a Github\
+              \ Branch? You can run a workflow that is still in development in a branch\
+              \ branch-name from the command line, with the GitHub CLI. The documentation\
+              \ says: To run a workflow on a branch other than the repository's default\
+              \ branch, use the --ref flag . To list valid workflow names, use gh\
+              \ workflow list. To add input parameters, run it like this: Does workflow_dispatch\
+              \ work if a workflow has been run once? Specifically for workflow_dispatch\
+              \ this won't work until the workflow has run once before. You can add\
+              \ a push event hook and then it will be activated after running once.\
+              \ Using gh workflow list you can see the job in the list once it has\
+              \ run once. Hmm I didn't know that gh exists. Thanks. Sadly as @Dustin\
+              \ wrote. How do I run a workflow on a different branch? To run a workflow\
+              \ on a branch other than the repository's default branch, use the --ref\
+              \ flag . To view the progress of the workflow run, use the run watch\
+              \ subcommand and select the run from the interactive list. When using\
+              \ the REST API, you configure the inputs and ref as request body parameters.\
+              \ This section will cover the various ways in which you can run a flow\
+              \ in Power Automate . From manually triggering it to setting up automatic\
+              \ executions, we will explore the different options available to make\
+              \ your workflows more efficient."
+          - title: 'GitHub Actions: how can I run a workflow created on a non ...
+              Code sample'
+            href: https://stackoverflow.com/questions/63362126/github-actions-how-can-i-run-a-workflow-created-on-a-non-master-branch-from-t
+            body: "Aug 11, 2020 \xB7 To run a workflow on a branch other than the\
+              \ repository's default branch, use the --ref flag. To list valid workflow\
+              \ names, use gh workflow list. To add input parameters, run it like\
+              \ this: Sign up to request clarification or add additional context in\
+              \ comments. See more on stackoverflow"
+          - title: GitHub Manually running a workflow
+            href: https://docs.github.com/actions/managing-workflow-runs/manually-running-a-workflow
+            body: To run a workflow, use the workflow run subcommand . Replace the
+              workflow parameter with either the name, ID, or file name of the workflow
+              you want to run. For example, "Link Checker", 1234567, or "link-check-test.yml".
+          - title: GitHub Triggering a workflow - GitHub Docs
+            href: https://docs.github.com/actions/using-workflows/triggering-a-workflow
+            body: For example, the following workflow uses a personal access token
+              (stored as a secret called MY_TOKEN) to add a label to an issue via
+              GitHub CLI. Any workflows that run when a label is added will run once
+              this step is performed.
+          - title: Google Cloud Execute a Cloud Run job using Workflows | Google Cloud
+            href: https://cloud.google.com/workflows/docs/tutorials/execute-cloud-run-jobs
+            body: To create a Cloud Run job, use the google_cloud_run_v2_job resource
+              and modify your main.tf file as shown in the following sample. Note
+              that in a typical Terraform workflow, you apply the entire plan at once.
+              However, for the purposes of this tutorial, you can target a specific
+              resource.
+      tools_used:
+      - Web Search
+    analysis-node:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Based on the research findings, analyze the key features and use cases
+      llm_response: '**Research Agent''s Analysis**
+
+
+        Based on the web search results, I have identified the key features and use
+        cases of case studies, which are a crucial component of research methodology.
+
+
+        **Key Features of Case Studies:**
+
+
+        1. **Clear Objective**: A well-defined research question or objective is essential
+        for conducting a case study. This objective should be specific, measurable,
+        achievable, relevant, and time-bound (SMART).
+
+        2. **Data Requirements**: Case studies require a comprehensive collection
+        of data, including both qualitative and quantitative information. This data
+        should be relevant to the research objective and support analysis.
+
+        3. **Stakeholders**: Identifying the stakeholders involved in data collection
+        and decision-making is critical. This includes individuals or organizations
+        that have a vested interest in the research findings.
+
+        4. **Relevant Data**: Selecting data that is relevant to the research question
+        and objective is essential. This involves identifying the most critical variables
+        and indicators that will support analysis.
+
+        5. **Methodology**: Case studies involve a structured approach, including
+        data collection, analysis, and interpretation. This may involve multiple methods,
+        such as interviews, observations, and document analysis.
+
+
+        **Use Cases of Case Studies:**
+
+
+        1. **Exploratory Research**: Case studies are often used to explore a new
+        topic or research question. This involves collecting data and analyzing it
+        to gain a deeper understanding of the phenomenon.
+
+        2. **In-Depth Analysis**: Case studies provide a comprehensive and in-depth
+        analysis of a specific phenomenon or organization. This involves collecting
+        and analyzing data to identify key features and patterns.
+
+        3. **Theory Development**: Case studies can be used to develop or test theory.
+        This involves collecting data and analyzing it to identify patterns and relationships
+        that support or challenge existing theory.
+
+        4. **Best Practices**: Case studies can be used to identify best practices
+        or successful strategies in a particular field or industry.
+
+        5. **Evaluation**: Case studies can be used to evaluate the effectiveness
+        of a particular program, policy, or intervention.
+
+
+        **Conclusion**
+
+
+        Case studies are a valuable research methodology that can provide in-depth
+        and comprehensive analysis of a specific phenomenon or organization. By identifying
+        the key features and use cases of case studies, researchers can design and
+        conduct effective studies that support their research objectives.
+
+
+        **Recommendations**
+
+
+        1. Clearly define the research objective and scope of the case study.
+
+        2. Identify the relevant stakeholders and data requirements.
+
+        3. Select data that is relevant to the research question and objective.
+
+        4. Use a structured approach to data collection, analysis, and interpretation.
+
+        5. Evaluate the effectiveness of the case study methodology and adjust as
+        needed.
+
+
+        **Additional Resources**
+
+
+        For further reading on case study methodology, I recommend the following resources:
+
+
+        * Yin, R. K. (2018). Case Study Research: Design and Methods. Sage Publications.
+
+        * TBM Council. (n.d.). Use Cases. Retrieved from <https://www.tbmcouncil.org/use-cases/>
+
+        * CEOpedia. (n.d.). Case Study Methodology. Retrieved from <https://www.ceopediacentral.com/case-study-methodology/>'
+      context_size: 4
+      tool_results:
+        web-search-tool:
+          tool: web-search-tool
+          query: Based on the research findings, analyze the key features and use
+            cases
+          count: 5
+          results:
+          - title: Use Cases - TBM Council
+            href: https://www.tbmcouncil.org/discover/hot-topics/use-cases/
+            body: Each use case consists of a clear objective, the data required to
+              support analysis, the stakeholders responsible for data and decision-making,
+              and ...
+          - title: "Read Download Analyzing A Case Study PDF \u2013 PDF Download"
+            href: https://bibleandbookcenter.com/read/analyzing-a-case-study/
+            body: "Yin\u2019s bestselling text Case Study Research offers comprehensive\
+              \ coverage of the design and use of the case study method as a valid\
+              \ research tool."
+          - title: Case study methodology - CEOpedia | Management online
+            href: https://ceopedia.org/index.php/Case_study_methodology
+            body: When conducting a case study, researchers must take care to identify
+              the key features of the case study and select data that are relevant
+              to the ...
+          - title: Case Study Answers - An Overview
+            href: https://buycasesolution97669.theblogfairy.com/28818722/case-study-answers-an-overview
+            body: They can provide useful insights into the case getting studied and
+              lead to the further understanding of the issues at hand.
+          - title: Case Analysis Google Case Study Solution | Case Analysis Google
+            href: https://casecheckout.com/case-analysis-google/
+            body: '... the unique technology that Google ... Google Adwords based
+              on keywords and ranking information, on the other hand, often brings
+              in the worst results.'
+      tools_used:
+      - Web Search
+  error: null

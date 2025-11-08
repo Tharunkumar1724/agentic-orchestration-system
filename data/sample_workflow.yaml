@@ -1,0 +1,41 @@
+id: sample1
+name: "Sample Orchestration: seq+parallel+router"
+entrypoint:
+  id: root
+  type: sequence
+  children:
+    - id: step1
+      type: agent
+      ref: a_sample
+      inputs:
+        prompt: "Summarize latest news about AI"
+    - id: step2
+      type: parallel
+      children:
+        - id: p1
+          type: tool
+          ref: t_search
+          inputs:
+            q: "AI latest news"
+        - id: p2
+          type: tool
+          ref: t_code
+          inputs:
+            code: "analyze_text('sample')"
+    - id: router1
+      type: router
+      inputs:
+        value: "route-A"
+      children:
+        - id: routeA
+          type: tool
+          ref: t_search
+          inputs:
+            cond: "route-A"
+            q: "AI research"
+        - id: routeB
+          type: tool
+          ref: t_code
+          inputs:
+            cond: "route-B"
+            code: "print('no-op')"

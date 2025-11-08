@@ -1,0 +1,16 @@
+id: groq_researcher
+name: Groq Research Agent
+type: react
+llm_config:
+  provider: groq
+  model: llama-3.1-8b-instant
+  temperature: 0.7
+  max_tokens: 1024
+tools:
+  - duckduckgo_search
+use_kag: false
+communication:
+  can_receive: true
+  can_send: true
+  message_format: json
+version: v1

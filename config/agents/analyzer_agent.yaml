@@ -1,0 +1,12 @@
+id: analyzer_agent
+name: Analyzer Agent
+type: react
+llm_config:
+  provider: groq
+  model: llama-3.1-8b-instant
+  temperature: 0.5
+tools:
+  - code_tool
+use_kag: false
+version: v1
+description: Agent specialized in data analysis and code execution

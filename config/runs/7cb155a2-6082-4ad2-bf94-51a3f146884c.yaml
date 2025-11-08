@@ -1,0 +1,182 @@
+workflow_id: ai_research_workflow
+run_id: 7cb155a2-6082-4ad2-bf94-51a3f146884c
+status: success
+result:
+  research:
+    agent_id: groq_researcher
+    agent_type: react
+    task: Search for latest developments in artificial intelligence and LangGraph
+    llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+    context_size: 5
+    tool_results:
+      duckduckgo_search:
+        tool: duckduckgo_search
+        error: "DuckDuckGo search failed: https://www.bing.com/search RuntimeError:\
+          \ error sending request for url (https://www.bing.com/search?q=Search+for+latest+developments+in+artificial+intelligence+and+LangGraph):\
+          \ client error (Connect)\n\nCaused by:\n    0: client error (Connect)\n\
+          \    1: dns error: No such host is known. (os error 11001)\n    2: No such\
+          \ host is known. (os error 11001)"
+        query: Search for latest developments in artificial intelligence and LangGraph
+  analyze:
+    agent_id: analyzer_agent
+    agent_type: react
+    task: Analyze the research findings received and provide key insights
+    llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+    context_size: 2
+    tool_results:
+      code_tool:
+        executed: true
+        output: 'Code executed: print(''Hello from code tool'')'
+meta:
+  communication_log:
+  - sender: research
+    agent: groq_researcher
+    content:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Search for latest developments in artificial intelligence and LangGraph
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 5
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          error: "DuckDuckGo search failed: https://www.bing.com/search RuntimeError:\
+            \ error sending request for url (https://www.bing.com/search?q=Search+for+latest+developments+in+artificial+intelligence+and+LangGraph):\
+            \ client error (Connect)\n\nCaused by:\n    0: client error (Connect)\n\
+            \    1: dns error: No such host is known. (os error 11001)\n    2: No\
+            \ such host is known. (os error 11001)"
+          query: Search for latest developments in artificial intelligence and LangGraph
+    type: agent_result
+  - sender: analyze
+    agent: analyzer_agent
+    content:
+      agent_id: analyzer_agent
+      agent_type: react
+      task: Analyze the research findings received and provide key insights
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 2
+      tool_results:
+        code_tool:
+          executed: true
+          output: 'Code executed: print(''Hello from code tool'')'
+    type: agent_result
+  shared_state:
+    research:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Search for latest developments in artificial intelligence and LangGraph
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 5
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          error: "DuckDuckGo search failed: https://www.bing.com/search RuntimeError:\
+            \ error sending request for url (https://www.bing.com/search?q=Search+for+latest+developments+in+artificial+intelligence+and+LangGraph):\
+            \ client error (Connect)\n\nCaused by:\n    0: client error (Connect)\n\
+            \    1: dns error: No such host is known. (os error 11001)\n    2: No\
+            \ such host is known. (os error 11001)"
+          query: Search for latest developments in artificial intelligence and LangGraph
+    analyze:
+      agent_id: analyzer_agent
+      agent_type: react
+      task: Analyze the research findings received and provide key insights
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 2
+      tool_results:
+        code_tool:
+          executed: true
+          output: 'Code executed: print(''Hello from code tool'')'
+  agents_used:
+  - analyzer_agent
+  total_messages: 2
+  final_step: analyze
+error: null
+state:
+  messages:
+  - sender: research
+    agent: groq_researcher
+    content:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Search for latest developments in artificial intelligence and LangGraph
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 5
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          error: "DuckDuckGo search failed: https://www.bing.com/search RuntimeError:\
+            \ error sending request for url (https://www.bing.com/search?q=Search+for+latest+developments+in+artificial+intelligence+and+LangGraph):\
+            \ client error (Connect)\n\nCaused by:\n    0: client error (Connect)\n\
+            \    1: dns error: No such host is known. (os error 11001)\n    2: No\
+            \ such host is known. (os error 11001)"
+          query: Search for latest developments in artificial intelligence and LangGraph
+    type: agent_result
+  - sender: analyze
+    agent: analyzer_agent
+    content:
+      agent_id: analyzer_agent
+      agent_type: react
+      task: Analyze the research findings received and provide key insights
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 2
+      tool_results:
+        code_tool:
+          executed: true
+          output: 'Code executed: print(''Hello from code tool'')'
+    type: agent_result
+  shared_data:
+    research:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Search for latest developments in artificial intelligence and LangGraph
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 5
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          error: "DuckDuckGo search failed: https://www.bing.com/search RuntimeError:\
+            \ error sending request for url (https://www.bing.com/search?q=Search+for+latest+developments+in+artificial+intelligence+and+LangGraph):\
+            \ client error (Connect)\n\nCaused by:\n    0: client error (Connect)\n\
+            \    1: dns error: No such host is known. (os error 11001)\n    2: No\
+            \ such host is known. (os error 11001)"
+          query: Search for latest developments in artificial intelligence and LangGraph
+    analyze:
+      agent_id: analyzer_agent
+      agent_type: react
+      task: Analyze the research findings received and provide key insights
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 2
+      tool_results:
+        code_tool:
+          executed: true
+          output: 'Code executed: print(''Hello from code tool'')'
+  agents_used:
+  - analyzer_agent
+  current_step: analyze
+  results:
+    research:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Search for latest developments in artificial intelligence and LangGraph
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 5
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          error: "DuckDuckGo search failed: https://www.bing.com/search RuntimeError:\
+            \ error sending request for url (https://www.bing.com/search?q=Search+for+latest+developments+in+artificial+intelligence+and+LangGraph):\
+            \ client error (Connect)\n\nCaused by:\n    0: client error (Connect)\n\
+            \    1: dns error: No such host is known. (os error 11001)\n    2: No\
+            \ such host is known. (os error 11001)"
+          query: Search for latest developments in artificial intelligence and LangGraph
+    analyze:
+      agent_id: analyzer_agent
+      agent_type: react
+      task: Analyze the research findings received and provide key insights
+      llm_response: '[groq-error: [Errno 11001] getaddrinfo failed]'
+      context_size: 2
+      tool_results:
+        code_tool:
+          executed: true
+          output: 'Code executed: print(''Hello from code tool'')'
+  error: null

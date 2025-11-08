@@ -1,0 +1,16 @@
+id: research
+name: Research
+description: ''
+type: dag
+nodes:
+- id: node_1762574744812
+  agent_ref: researcher-agent
+  task: Enter task description...
+  receives_from: []
+  sends_to: []
+- id: node_1762574759267
+  agent_ref: researcher-agent
+  task: Enter task description...
+  receives_from: []
+  sends_to: []
+version: v1

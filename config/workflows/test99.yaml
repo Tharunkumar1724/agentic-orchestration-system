@@ -1,0 +1,14 @@
+id: test99
+name: test99
+description: ''
+type: sequence
+nodes:
+- id: node_1762576332813
+  agent_ref: researcher_agent
+  task: Enter task description...
+  tools:
+  - duckduckgo_web_search
+  dependencies: []
+  receives_from: []
+  sends_to: []
+version: v1

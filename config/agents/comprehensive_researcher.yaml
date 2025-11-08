@@ -1,0 +1,14 @@
+id: comprehensive_researcher
+name: Comprehensive Web Researcher
+type: react
+llm_config:
+  provider: groq
+  model: llama-3.1-70b-versatile
+  temperature: 0.3
+  max_tokens: 2000
+tools:
+  - web_search_general
+  - news_search_recent
+  - academic_search_tool
+description: "Agent with access to multiple search tools for comprehensive research"
+version: v1

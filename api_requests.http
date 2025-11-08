@@ -1,0 +1,296 @@
+### YAML-Only Tool Orchestration - API Examples
+### No Python code needed - just execute these HTTP requests!
+
+@baseUrl = http://localhost:8000
+
+### ===================================================================
+### READY-TO-USE WORKFLOWS (Just click Send!)
+### ===================================================================
+
+### 1. Simple Web Search
+POST {{baseUrl}}/workflows/simple_web_search_workflow/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "artificial intelligence"
+  }
+}
+
+### 2. Multi-Source Research (Web → News → Academic)
+POST {{baseUrl}}/workflows/multi_source_research/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "climate change solutions"
+  }
+}
+
+### 3. Parallel Regional Search (US + UK)
+POST {{baseUrl}}/workflows/parallel_region_search/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "technology trends 2025"
+  }
+}
+
+### ===================================================================
+### CREATE YOUR OWN (Via API)
+### ===================================================================
+
+### Create a Custom Search Tool
+POST {{baseUrl}}/tools/
+Content-Type: application/json
+
+{
+  "id": "my_news_search",
+  "name": "My News Search",
+  "type": "websearch",
+  "config": {
+    "engine": "duckduckgo",
+    "max_results": 8,
+    "region": "us-en",
+    "safesearch": "moderate",
+    "timelimit": "d"
+  },
+  "version": "v1"
+}
+
+### Create an Agent Using Your Tool
+POST {{baseUrl}}/agents/
+Content-Type: application/json
+
+{
+  "id": "my_news_agent",
+  "name": "My News Agent",
+  "type": "react",
+  "llm_config": {
+    "provider": "groq",
+    "model": "llama-3.1-70b-versatile",
+    "temperature": 0.3
+  },
+  "tools": ["my_news_search"],
+  "version": "v1"
+}
+
+### Create a Workflow Using Your Agent
+POST {{baseUrl}}/workflows/
+Content-Type: application/json
+
+{
+  "id": "my_news_workflow",
+  "name": "My News Workflow",
+  "type": "sequence",
+  "nodes": [
+    {
+      "id": "search_news",
+      "agent_ref": "my_news_agent",
+      "task": "Find news about ${parameters.topic}"
+    }
+  ],
+  "version": "v1"
+}
+
+### Execute Your Custom Workflow
+POST {{baseUrl}}/workflows/my_news_workflow/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "renewable energy"
+  }
+}
+
+### ===================================================================
+### INSPECT EXISTING CONFIGURATIONS
+### ===================================================================
+
+### List All Tools
+GET {{baseUrl}}/tools/
+
+### Get Specific Tool
+GET {{baseUrl}}/tools/web_search_general
+
+### List All Agents
+GET {{baseUrl}}/agents/
+
+### Get Specific Agent
+GET {{baseUrl}}/agents/comprehensive_researcher
+
+### List All Workflows
+GET {{baseUrl}}/workflows/
+
+### Get Specific Workflow
+GET {{baseUrl}}/workflows/multi_source_research
+
+### ===================================================================
+### ADVANCED EXAMPLES
+### ===================================================================
+
+### Create Multi-Regional Search Suite
+POST {{baseUrl}}/tools/
+Content-Type: application/json
+
+{
+  "id": "search_germany",
+  "name": "Germany Search",
+  "type": "websearch",
+  "config": {
+    "engine": "duckduckgo",
+    "max_results": 5,
+    "region": "de-de",
+    "safesearch": "moderate"
+  }
+}
+
+### Create Time-Based News Tool (Last Week)
+POST {{baseUrl}}/tools/
+Content-Type: application/json
+
+{
+  "id": "news_last_week",
+  "name": "Last Week News",
+  "type": "websearch",
+  "config": {
+    "engine": "duckduckgo",
+    "max_results": 10,
+    "region": "wt-wt",
+    "safesearch": "moderate",
+    "timelimit": "w"
+  }
+}
+
+### Create Academic Search Tool
+POST {{baseUrl}}/tools/
+Content-Type: application/json
+
+{
+  "id": "strict_academic",
+  "name": "Strict Academic Search",
+  "type": "websearch",
+  "config": {
+    "engine": "duckduckgo",
+    "max_results": 20,
+    "region": "wt-wt",
+    "safesearch": "strict",
+    "timelimit": null
+  }
+}
+
+### Create Parallel Multi-Regional Workflow
+POST {{baseUrl}}/workflows/
+Content-Type: application/json
+
+{
+  "id": "global_search",
+  "name": "Global Multi-Regional Search",
+  "type": "parallel",
+  "nodes": [
+    {
+      "id": "us_search",
+      "agent_ref": "comprehensive_researcher",
+      "task": "Search US for ${parameters.topic}"
+    },
+    {
+      "id": "uk_search",
+      "agent_ref": "comprehensive_researcher",
+      "task": "Search UK for ${parameters.topic}"
+    },
+    {
+      "id": "de_search",
+      "agent_ref": "comprehensive_researcher",
+      "task": "Search Germany for ${parameters.topic}"
+    }
+  ]
+}
+
+### Execute Global Search
+POST {{baseUrl}}/workflows/global_search/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "electric vehicles"
+  }
+}
+
+### ===================================================================
+### EXAMPLE RESEARCH SCENARIOS
+### ===================================================================
+
+### Research AI Developments
+POST {{baseUrl}}/workflows/multi_source_research/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "GPT-4 and transformer models"
+  }
+}
+
+### Research Medical Breakthroughs
+POST {{baseUrl}}/workflows/multi_source_research/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "CRISPR gene editing 2025"
+  }
+}
+
+### Research Tech Companies
+POST {{baseUrl}}/workflows/parallel_region_search/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "OpenAI latest developments"
+  }
+}
+
+### Research Environmental Topics
+POST {{baseUrl}}/workflows/multi_source_research/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "carbon capture technology"
+  }
+}
+
+### ===================================================================
+### QUICK SINGLE SEARCHES
+### ===================================================================
+
+### Quick Search: Python Programming
+POST {{baseUrl}}/workflows/simple_web_search_workflow/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "Python best practices 2025"
+  }
+}
+
+### Quick Search: Machine Learning
+POST {{baseUrl}}/workflows/simple_web_search_workflow/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "machine learning algorithms"
+  }
+}
+
+### Quick Search: Web Development
+POST {{baseUrl}}/workflows/simple_web_search_workflow/execute
+Content-Type: application/json
+
+{
+  "parameters": {
+    "topic": "React vs Vue comparison"
+  }
+}

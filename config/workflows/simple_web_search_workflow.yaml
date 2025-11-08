@@ -1,0 +1,9 @@
+id: simple_web_search_workflow
+name: Simple Web Search Workflow
+description: "Execute a single web search task"
+type: sequence
+nodes:
+  - id: search_step
+    agent_ref: comprehensive_researcher
+    task: "Search for information about ${parameters.topic}"
+version: v1

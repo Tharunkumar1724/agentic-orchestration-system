@@ -1,0 +1,8 @@
+workflow_id: ai_research_workflow
+run_id: c9197868-4c55-4604-9c04-3b4913b59cd6
+status: failed
+error: '''str'' object has no attribute ''get'''
+result: {}
+meta:
+  communication_log: []
+  error_details: '''str'' object has no attribute ''get'''

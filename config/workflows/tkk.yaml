@@ -1,0 +1,26 @@
+id: tkk
+name: tkk
+description: ''
+type: parallel
+nodes:
+- id: node_1762413764505
+  agent_ref: exec_agent
+  task: Enter task description...
+  receives_from: []
+  sends_to: []
+- id: node_1762414035462
+  agent_ref: groq_researcher
+  task: Enter task description...
+  receives_from: []
+  sends_to: []
+- id: node_1762414038907
+  agent_ref: groq_researcher
+  task: Enter task description...
+  receives_from: []
+  sends_to: []
+- id: node_1762414063776
+  agent_ref: groq_researcher
+  task: Enter task description...
+  receives_from: []
+  sends_to: []
+version: v1

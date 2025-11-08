@@ -1,0 +1,8 @@
+id: web-search-tool
+name: Web Search
+type: websearch
+config:
+  max_results: 5
+  region: wt-wt
+  safesearch: moderate
+description: Search the web using DuckDuckGo

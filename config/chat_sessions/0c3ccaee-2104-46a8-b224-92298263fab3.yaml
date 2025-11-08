@@ -1,0 +1,28 @@
+session_id: 0c3ccaee-2104-46a8-b224-92298263fab3
+workflow_id: ai_research_workflow
+created_at: '2025-11-05T13:03:10.655771'
+updated_at: '2025-11-05T13:03:12.809078'
+messages:
+- role: user
+  content: Test
+  timestamp: '2025-11-05T13:03:10.655771'
+  metadata: {}
+- role: assistant
+  content: '{''research'': {''agent_id'': ''groq_researcher'', ''agent_type'': ''react'',
+    ''task'': ''Search for latest developments in artificial intelligence and LangGraph'',
+    ''llm_response'': "[groq-error: Client error ''429 Too Many Requests'' for url
+    ''https://api.groq.com/openai/v1/chat/completions''\nFor m]", ''context_size'':
+    20, ''tool_results'': {''duckduckgo_search'': {''tool'': ''duckduckgo_search'',
+    ''query'': ''Search for latest developments in artificial intelligence and LangGraph'',
+    ''count'': 0, ''results'': []}}}, ''analyze'': {''agent_id'': ''analyzer_agent'',
+    ''agent_type'': ''react'', ''task'': ''Analyze the research findings received
+    and provide key insights'', ''llm_response'': "[groq-error: Client error ''429
+    Too Many Requests'' for url ''https://api.groq.com/openai/v1/chat/completions''\nFor
+    m]", ''context_size'': 20, ''tool_results'': {''code_tool'': {''executed'': True,
+    ''output'': "Code executed: print(''Hello from code tool'')"}}}}'
+  timestamp: '2025-11-05T13:03:12.809055'
+  metadata:
+    run_id: f16f9ea5-4d81-4942-bbe8-a04635f3052c
+    status: success
+state: {}
+metadata: {}

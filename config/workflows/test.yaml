@@ -1,0 +1,11 @@
+id: test
+name: test
+description: ''
+type: sequence
+nodes:
+- id: node_1762356676843
+  agent_ref: groq_researcher
+  task: Enter task description...
+  receives_from: []
+  sends_to: []
+version: v1

@@ -1,0 +1,193 @@
+# ============================================================================
+# DuckDuckGo Web Search Tool - Production Ready
+# ============================================================================
+# Complete implementation with frontend/backend API integration
+# ============================================================================
+
+id: duckduckgo_web_search
+name: "DuckDuckGo Web Search"
+type: websearch
+description: "Advanced web search using DuckDuckGo with full API integration"
+version: v1
+
+# --------------------- METADATA ---------------------
+metadata:
+  created_at: "2025-11-07T00:00:00Z"
+  updated_at: "2025-11-07T00:00:00Z"
+  author: "System"
+  category: websearch
+  tags: [search, web, duckduckgo, research]
+  status: active
+  stability: stable
+
+# --------------------- CONFIGURATION ---------------------
+config:
+  search:
+    engine: duckduckgo
+    max_results: 10
+    region: wt-wt
+    language: en
+    safesearch: moderate
+    timelimit: null
+    
+  performance:
+    timeout: 30
+    retry_attempts: 3
+    retry_delay: 1.0
+    cache_enabled: true
+    cache_ttl: 3600
+  
+  rate_limiting:
+    requests_per_minute: 60
+    requests_per_hour: 1000
+
+# --------------------- INPUT SCHEMA ---------------------
+input_schema:
+  type: object
+  properties:
+    query:
+      type: string
+      description: "Search query"
+      minLength: 1
+      maxLength: 500
+    
+    max_results:
+      type: integer
+      description: "Maximum results to return"
+      minimum: 1
+      maximum: 100
+      default: 10
+    
+    region:
+      type: string
+      description: "Region for localized results"
+      enum: [wt-wt, us-en, uk-en, ca-en, au-en, de-de, fr-fr, es-es]
+      default: wt-wt
+    
+    safesearch:
+      type: string
+      description: "Safe search filter"
+      enum: [strict, moderate, off]
+      default: moderate
+    
+    timelimit:
+      type: string
+      description: "Time filter"
+      enum: [d, w, m, y, null]
+      default: null
+  
+  required: [query]
+
+# --------------------- OUTPUT SCHEMA ---------------------
+output_schema:
+  type: object
+  properties:
+    success:
+      type: boolean
+    
+    data:
+      type: object
+      properties:
+        query:
+          type: string
+        
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              url:
+                type: string
+              snippet:
+                type: string
+              position:
+                type: integer
+        
+        total_results:
+          type: integer
+        has_more:
+          type: boolean
+    
+    metadata:
+      type: object
+      properties:
+        execution_time_ms:
+          type: integer
+        timestamp:
+          type: string
+        cache_hit:
+          type: boolean
+
+# --------------------- API INTEGRATION ---------------------
+api_integration:
+  backend:
+    base_url: "http://localhost:8000"
+    endpoints:
+      create:
+        path: "/tools"
+        method: POST
+      get:
+        path: "/tools/{tool_id}"
+        method: GET
+      list:
+        path: "/tools"
+        method: GET
+      update:
+        path: "/tools/{tool_id}"
+        method: PUT
+      delete:
+        path: "/tools/{tool_id}"
+        method: DELETE
+  
+  frontend:
+    service_functions:
+      - name: "searchWeb"
+        endpoint: "/tools/duckduckgo_web_search/execute"
+        method: "POST"
+        parameters: ["query", "options"]
+
+# --------------------- ERROR HANDLING ---------------------
+error_handling:
+  retry:
+    enabled: true
+    max_attempts: 3
+    strategy: exponential_backoff
+  
+  validation:
+    validate_input: true
+    validate_output: true
+  
+  fallback:
+    on_error: return_error
+    use_cache_on_error: true
+
+# --------------------- EXECUTION ---------------------
+execution:
+  async_enabled: true
+  cache:
+    enabled: true
+    ttl_seconds: 3600
+  monitoring:
+    enabled: true
+    collect_metrics: true
+  logging:
+    enabled: true
+    log_level: INFO
+
+# --------------------- EXAMPLES ---------------------
+examples:
+  - name: "Simple Search"
+    input:
+      query: "python programming"
+    expected_output:
+      success: true
+      data:
+        results: []
+  
+  - name: "Recent News"
+    input:
+      query: "artificial intelligence news"
+      timelimit: d
+      max_results: 20

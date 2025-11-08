@@ -1,0 +1,82 @@
+# Comprehensive YAML Orchestration Example
+# This demonstrates sequential, parallel, and router patterns with agents and tools
+
+id: comprehensive_example
+name: "Full Orchestration Demo"
+version: "v1"
+
+# Entrypoint: a sequence of steps showing all patterns
+entrypoint:
+  id: root
+  type: sequence
+  children:
+    # Step 1: Single agent with KAG
+    - id: step1_agent
+      type: agent
+      ref: research_agent
+      inputs:
+        prompt: "What are the latest trends in AI?"
+    
+    # Step 2: Parallel execution of multiple tools
+    - id: step2_parallel
+      type: parallel
+      children:
+        - id: parallel_search
+          type: tool
+          ref: websearch_tool
+          inputs:
+            q: "AI research papers 2025"
+        - id: parallel_code
+          type: tool
+          ref: code_tool
+          inputs:
+            code: "import json; print(json.dumps({'status': 'ok'}))"
+        - id: parallel_api
+          type: tool
+          ref: api_tool
+          inputs:
+            endpoint: "/health"
+    
+    # Step 3: Router-based conditional execution
+    - id: step3_router
+      type: router
+      inputs:
+        value: "route_A"  # This determines which branch executes
+      children:
+        - id: route_A_branch
+          type: agent
+          ref: summary_agent
+          inputs:
+            cond: "route_A"
+            prompt: "Summarize findings"
+        - id: route_B_branch
+          type: tool
+          ref: websearch_tool
+          inputs:
+            cond: "route_B"
+            q: "alternative query"
+    
+    # Step 4: Nested sequence within main flow
+    - id: step4_nested
+      type: sequence
+      children:
+        - id: nested_tool
+          type: tool
+          ref: code_tool
+          inputs:
+            code: "print('Processing results...')"
+        - id: nested_agent
+          type: agent
+          ref: final_agent
+          inputs:
+            prompt: "Generate final report"
+
+# Referenced agents (should be created via API first)
+# - research_agent (type: react, use_kag: true, tools: [websearch_tool])
+# - summary_agent (type: zero_shot)
+# - final_agent (type: react, tools: [code_tool])
+
+# Referenced tools (should be created via API first)
+# - websearch_tool (type: websearch)
+# - code_tool (type: code)
+# - api_tool (type: api, config: {url: "https://api.example.com"})

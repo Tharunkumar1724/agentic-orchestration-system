@@ -1,0 +1,194 @@
+workflow_id: test
+run_id: 19174d5f-efe9-4c00-aaf4-1ce493c00231
+status: success
+result:
+  node_1762356676843:
+    agent_id: groq_researcher
+    agent_type: react
+    task: Enter task description...
+    llm_response: 'To perform a search using duckduckgo, I''ll need a task description.
+      Here are some examples:
+
+
+      1. Search for the latest developments in LangGraph.
+
+      2. Find recent research papers on graph-based language models.
+
+      3. Identify popular tools and frameworks for LangGraph.
+
+      4. Discover the latest advancements in graph neural networks.
+
+      5. Search for tutorials on implementing LangGraph models.
+
+
+      Please provide a task description, and I''ll use duckduckgo_search to find relevant
+      information.'
+    context_size: 8
+    tool_results:
+      duckduckgo_search:
+        tool: duckduckgo_search
+        query: Enter task description...
+        count: 0
+        results: []
+meta:
+  communication_log:
+  - sender: node_1762356676843
+    agent: groq_researcher
+    content:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To perform a search using duckduckgo, I''ll need a task description.
+        Here are some examples:
+
+
+        1. Search for the latest developments in LangGraph.
+
+        2. Find recent research papers on graph-based language models.
+
+        3. Identify popular tools and frameworks for LangGraph.
+
+        4. Discover the latest advancements in graph neural networks.
+
+        5. Search for tutorials on implementing LangGraph models.
+
+
+        Please provide a task description, and I''ll use duckduckgo_search to find
+        relevant information.'
+      context_size: 8
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 0
+          results: []
+    type: agent_result
+  shared_state:
+    node_1762356676843:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To perform a search using duckduckgo, I''ll need a task description.
+        Here are some examples:
+
+
+        1. Search for the latest developments in LangGraph.
+
+        2. Find recent research papers on graph-based language models.
+
+        3. Identify popular tools and frameworks for LangGraph.
+
+        4. Discover the latest advancements in graph neural networks.
+
+        5. Search for tutorials on implementing LangGraph models.
+
+
+        Please provide a task description, and I''ll use duckduckgo_search to find
+        relevant information.'
+      context_size: 8
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 0
+          results: []
+  agents_used:
+  - groq_researcher
+  total_messages: 1
+  final_step: node_1762356676843
+error: null
+state:
+  messages:
+  - sender: node_1762356676843
+    agent: groq_researcher
+    content:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To perform a search using duckduckgo, I''ll need a task description.
+        Here are some examples:
+
+
+        1. Search for the latest developments in LangGraph.
+
+        2. Find recent research papers on graph-based language models.
+
+        3. Identify popular tools and frameworks for LangGraph.
+
+        4. Discover the latest advancements in graph neural networks.
+
+        5. Search for tutorials on implementing LangGraph models.
+
+
+        Please provide a task description, and I''ll use duckduckgo_search to find
+        relevant information.'
+      context_size: 8
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 0
+          results: []
+    type: agent_result
+  shared_data:
+    node_1762356676843:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To perform a search using duckduckgo, I''ll need a task description.
+        Here are some examples:
+
+
+        1. Search for the latest developments in LangGraph.
+
+        2. Find recent research papers on graph-based language models.
+
+        3. Identify popular tools and frameworks for LangGraph.
+
+        4. Discover the latest advancements in graph neural networks.
+
+        5. Search for tutorials on implementing LangGraph models.
+
+
+        Please provide a task description, and I''ll use duckduckgo_search to find
+        relevant information.'
+      context_size: 8
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 0
+          results: []
+  agents_used:
+  - groq_researcher
+  current_step: node_1762356676843
+  results:
+    node_1762356676843:
+      agent_id: groq_researcher
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'To perform a search using duckduckgo, I''ll need a task description.
+        Here are some examples:
+
+
+        1. Search for the latest developments in LangGraph.
+
+        2. Find recent research papers on graph-based language models.
+
+        3. Identify popular tools and frameworks for LangGraph.
+
+        4. Discover the latest advancements in graph neural networks.
+
+        5. Search for tutorials on implementing LangGraph models.
+
+
+        Please provide a task description, and I''ll use duckduckgo_search to find
+        relevant information.'
+      context_size: 8
+      tool_results:
+        duckduckgo_search:
+          tool: duckduckgo_search
+          query: Enter task description...
+          count: 0
+          results: []
+  error: null
