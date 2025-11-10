@@ -1,0 +1,12 @@
+id: test_solution_001
+name: Test Solution
+description: A test solution to verify functionality
+workflows:
+- retest
+workflow_memory: {}
+communication_config: {}
+metadata:
+  test: true
+created_at: '2025-11-09T11:30:05.586471'
+updated_at: '2025-11-09T11:30:05.586471'
+version: v1

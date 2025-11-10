@@ -6,6 +6,8 @@ from operator import add
 from app.storage import load
 from app.services.llm_client import LLMClient
 from app.services.tool_orchestrator import tool_orchestrator, ToolExecutionStrategy
+from app.services.output_formatter import output_formatter
+from app.services.metrics_service import create_metrics_tracker, MetricsTracker
 from langchain_core.tools import Tool
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
@@ -29,6 +31,7 @@ class LangGraphOrchestrator:
     
     def __init__(self):
         self.agent_llms: Dict[str, LLMClient] = {}
+        self.current_metrics: MetricsTracker = None
     
     def get_agent_llm(self, agent_id: str) -> LLMClient:
         """Get or create LLM client for an agent."""
@@ -61,10 +64,20 @@ class LangGraphOrchestrator:
                     if not results:
                         return "No results found."
                     
-                    formatted = "\n\n".join([
-                        f"Title: {r.get('title', 'N/A')}\nURL: {r.get('href', 'N/A')}\nSnippet: {r.get('body', 'N/A')}"
-                        for r in results
-                    ])
+                    # Truncate each result to prevent payload too large errors
+                    formatted_results = []
+                    for r in results:
+                        title = r.get('title', 'N/A')[:200]  # Max 200 chars for title
+                        url = r.get('href', 'N/A')[:150]      # Max 150 chars for URL
+                        snippet = r.get('body', 'N/A')[:400]   # Max 400 chars for snippet
+                        formatted_results.append(f"Title: {title}\nURL: {url}\nSnippet: {snippet}")
+                    
+                    formatted = "\n\n".join(formatted_results)
+                    
+                    # Final safety check - limit total size
+                    if len(formatted) > 3000:
+                        formatted = formatted[:3000] + "\n\n[... additional results truncated ...]"
+                    
                     return formatted
                     
                 except Exception as e:
@@ -134,9 +147,26 @@ class LangGraphOrchestrator:
             # Use advanced tool orchestrator
             result = await tool_orchestrator.execute_tool(tool_def, inputs, {})
             
+            # Track metrics
+            if self.current_metrics:
+                self.current_metrics.add_tool_invocation(
+                    tool_id=tool_def.get("id", "unknown"),
+                    success=result.success,
+                    error=result.error if not result.success else None
+                )
+            
             return result.to_dict()
             
         except Exception as e:
+            # Track error
+            if self.current_metrics:
+                self.current_metrics.add_tool_invocation(
+                    tool_id=tool_def.get("id", "unknown"),
+                    success=False,
+                    error=str(e)
+                )
+                self.current_metrics.add_error(f"Tool execution failed: {str(e)}")
+            
             return {
                 "success": False,
                 "error": str(e),
@@ -150,6 +180,9 @@ class LangGraphOrchestrator:
         agent_name = agent_def.get("name", agent_id)
         agent_type = agent_def.get("type", "zero_shot")
         system_prompt = agent_def.get("system_prompt", "")
+        
+        # Track agent execution start
+        agent_success = True
         
         # Get dedicated LLM for this agent
         agent_llm = self.get_agent_llm(agent_id)
@@ -207,8 +240,8 @@ class LangGraphOrchestrator:
             orchestrated_results = await tool_orchestrator.execute_tools(
                 tools_to_execute,
                 tool_inputs,
-                execution_context,
-                strategy
+                strategy,
+                execution_context
             )
             
             # Process results and build context
@@ -220,22 +253,59 @@ class LangGraphOrchestrator:
                     # Add successful tool results to prompt context
                     if result.success and result.data:
                         tool_type = tools_to_execute[i].get("type")
+                        tool_name = tools_to_execute[i].get("name", tool_id)
                         
                         if tool_type == "websearch" and result.data.get("results"):
                             results_summary = "\n".join([
                                 f"- {r.get('title', 'N/A')}: {r.get('body', 'N/A')[:150]}..."
                                 for r in result.data.get("results", [])[:3]
                             ])
-                            prompt += f"\n\nWeb search results:\n{results_summary}"
-                        elif tool_type == "api" and result.data.get("body"):
-                            prompt += f"\n\nAPI response: {str(result.data.get('body'))[:200]}"
+                            prompt += f"\n\n=== {tool_name} Results ===\n{results_summary}"
+                        elif tool_type == "api":
+                            # Handle DuckDuckGo API format
+                            if result.data.get("json") or result.data.get("data"):
+                                api_data = result.data.get("json") or result.data.get("data")
+                                
+                                # DuckDuckGo specific formatting
+                                if isinstance(api_data, dict):
+                                    parts = []
+                                    if api_data.get("AbstractText"):
+                                        parts.append(f"Summary: {api_data['AbstractText'][:300]}")
+                                    if api_data.get("Answer"):
+                                        parts.append(f"Answer: {api_data['Answer']}")
+                                    if api_data.get("RelatedTopics"):
+                                        related = api_data["RelatedTopics"][:3]
+                                        for topic in related:
+                                            if isinstance(topic, dict) and topic.get("Text"):
+                                                parts.append(f"- {topic['Text'][:200]}")
+                                    
+                                    if parts:
+                                        prompt += f"\n\n=== {tool_name} Results ===\n" + "\n".join(parts)
+                                    else:
+                                        prompt += f"\n\n=== {tool_name} Results ===\nNo detailed information found."
+                                else:
+                                    prompt += f"\n\n=== {tool_name} Results ===\n{str(api_data)[:300]}"
+                            elif result.data.get("body"):
+                                prompt += f"\n\n=== {tool_name} Results ===\n{str(result.data.get('body'))[:300]}"
                         elif result.data.get("output"):
-                            prompt += f"\n\nTool output: {str(result.data.get('output'))[:200]}"
+                            prompt += f"\n\n=== {tool_name} Output ===\n{str(result.data.get('output'))[:300]}"
                         elif result.data.get("content"):
-                            prompt += f"\n\nTool result: {str(result.data.get('content'))[:200]}"
+                            prompt += f"\n\n=== {tool_name} Result ===\n{str(result.data.get('content'))[:300]}"
         
         # Call LLM with enriched context
         llm_response = await agent_llm.generate(prompt)
+        
+        # Track token usage from LLM response (estimate if not available)
+        if self.current_metrics:
+            # Rough token estimation: 1 token ≈ 4 characters
+            estimated_input_tokens = len(prompt) // 4
+            estimated_output_tokens = len(llm_response) // 4
+            self.current_metrics.add_token_usage(estimated_input_tokens, estimated_output_tokens)
+            self.current_metrics.add_agent_execution(
+                agent_id=agent_id,
+                success=agent_success,
+                tokens_used=estimated_input_tokens + estimated_output_tokens
+            )
         
         result = {
             "agent_id": agent_id,
@@ -267,8 +337,14 @@ class LangGraphOrchestrator:
             
             # Create node function for agent execution
             async def node_fn(state: WorkflowState, agent_id=agent_ref, node_task=task, nid=node_id, tools_override=node_tools):
+                # Track step execution
+                if self.current_metrics:
+                    self.current_metrics.add_step()
+                
                 agent = load("agents", agent_id)
                 if not agent:
+                    if self.current_metrics:
+                        self.current_metrics.add_error(f"Agent {agent_id} not found")
                     return {
                         "messages": [{"sender": nid, "content": f"Agent {agent_id} not found", "type": "error"}],
                         "results": {**state.get("results", {}), nid: {"error": f"Agent {agent_id} not found"}},
@@ -301,6 +377,10 @@ class LangGraphOrchestrator:
             for i in range(len(nodes) - 1):
                 graph.add_edge(nodes[i]["id"], nodes[i + 1]["id"])
             graph.add_edge(nodes[-1]["id"], END)
+            
+            # Track decision structure for metrics
+            if self.current_metrics:
+                self.current_metrics.add_decision(branches_available=1)  # Sequential = 1 branch
         
         elif workflow_type == "parallel" and nodes:
             # Parallel: all nodes run independently
@@ -315,6 +395,10 @@ class LangGraphOrchestrator:
             for node in nodes:
                 graph.add_edge("__start__", node["id"])
                 graph.add_edge(node["id"], END)
+            
+            # Track decision structure for metrics
+            if self.current_metrics:
+                self.current_metrics.add_decision(branches_available=len(nodes))  # Parallel = N branches
         
         elif nodes:
             # Default to sequence
@@ -322,19 +406,28 @@ class LangGraphOrchestrator:
             for i in range(len(nodes) - 1):
                 graph.add_edge(nodes[i]["id"], nodes[i + 1]["id"])
             graph.add_edge(nodes[-1]["id"], END)
+            
+            # Track decision structure for metrics
+            if self.current_metrics:
+                self.current_metrics.add_decision(branches_available=1)
         
         return graph.compile()
     
-    async def run_workflow(self, workflow_def: Dict[str, Any], run_id: str = None, initial_state: Dict[str, Any] = None) -> Dict[str, Any]:
+    async def run_workflow(self, workflow_def: Dict[str, Any], run_id: str = None, initial_state: Dict[str, Any] = None, format_output: bool = True) -> Dict[str, Any]:
         """Execute workflow using LangGraph.
         
         Args:
             workflow_def: Workflow definition
             run_id: Optional run ID
             initial_state: Optional initial state for resuming chat sessions
+            format_output: Whether to format the output (default: True)
         """
         run_id = run_id or str(uuid.uuid4())
         workflow_id = workflow_def.get("id", "unknown")
+        
+        # Initialize metrics tracker
+        self.current_metrics = create_metrics_tracker()
+        self.current_metrics.start()
         
         try:
             # Build LangGraph
@@ -363,7 +456,19 @@ class LangGraphOrchestrator:
             # Run the graph
             final_state = await compiled_graph.ainvoke(state)
             
-            return {
+            # End metrics tracking
+            self.current_metrics.end()
+            
+            # Calculate if task was completed successfully
+            task_completed = not final_state.get("error")
+            
+            # Calculate metrics
+            metrics = self.current_metrics.calculate_metrics(
+                task_completed=task_completed,
+                context_quality=None  # Could be enhanced with actual context analysis
+            )
+            
+            raw_result = {
                 "workflow_id": workflow_id,
                 "run_id": run_id,
                 "status": "success" if not final_state.get("error") else "failed",
@@ -375,12 +480,33 @@ class LangGraphOrchestrator:
                     "total_messages": len(final_state.get("messages", [])),
                     "final_step": final_state.get("current_step", "")
                 },
+                "metrics": metrics.model_dump(),  # Include comprehensive metrics
                 "error": final_state.get("error"),
                 "state": final_state  # Return full state for chat mode
             }
+            
+            # Format output if requested
+            if format_output:
+                formatted_result = output_formatter.format_workflow_result(raw_result)
+                # Keep raw data available
+                formatted_result["_raw"] = raw_result
+                # Ensure metrics are at top level
+                formatted_result["metrics"] = metrics.model_dump()
+                return formatted_result
+            
+            return raw_result
         
         except Exception as e:
-            return {
+            # End metrics tracking
+            if self.current_metrics:
+                self.current_metrics.end()
+                self.current_metrics.add_error(f"Workflow execution failed: {str(e)}")
+                metrics = self.current_metrics.calculate_metrics(task_completed=False)
+            else:
+                # Fallback metrics if tracker wasn't initialized
+                metrics = create_metrics_tracker().calculate_metrics(task_completed=False)
+            
+            raw_result = {
                 "workflow_id": workflow_id,
                 "run_id": run_id,
                 "status": "failed",
@@ -389,14 +515,23 @@ class LangGraphOrchestrator:
                 "meta": {
                     "communication_log": [],
                     "error_details": str(e)
-                }
+                },
+                "metrics": metrics.model_dump() if hasattr(metrics, 'model_dump') else {}
             }
+            
+            if format_output:
+                formatted_result = output_formatter.format_workflow_result(raw_result)
+                formatted_result["_raw"] = raw_result
+                formatted_result["metrics"] = metrics.model_dump() if hasattr(metrics, 'model_dump') else {}
+                return formatted_result
+            
+            return raw_result
 
 
 # Global orchestrator instance
 orchestrator = LangGraphOrchestrator()
 
 
-async def run_workflow(workflow_obj: Dict[str, Any], run_id: str = None) -> Dict[str, Any]:
-    """Convenience function to run workflow."""
-    return await orchestrator.run_workflow(workflow_obj, run_id)
+async def run_workflow(workflow_obj: Dict[str, Any], run_id: str = None, format_output: bool = True) -> Dict[str, Any]:
+    """Convenience function to run workflow with optional formatting."""
+    return await orchestrator.run_workflow(workflow_obj, run_id, initial_state=None, format_output=format_output)

@@ -1,0 +1,13 @@
+id: agent_1762582562387
+name: Tharun
+type: react
+llm_config:
+  provider: groq
+  model: llama-3.1-70b-versatile
+  temperature: 0.7
+  max_tokens: 1000
+tools:
+  - duckduckgo_web_search
+use_kag: false
+communication: {}
+version: v1

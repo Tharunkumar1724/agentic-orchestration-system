@@ -71,7 +71,21 @@ class LLMClient:
                 messages = self.context_window.copy() if self.context_window else []
                 if not messages or messages[-1]["content"] != prompt:
                     messages.append({"role": "user", "content": prompt})
-                payload = {"model": model, "messages": messages, "max_tokens": 1024, "temperature": 0.7}
+                
+                # Truncate messages to prevent 413 Payload Too Large
+                max_chars_per_message = 3000  # Limit each message to 3000 chars
+                truncated_messages = []
+                for msg in messages:
+                    content = msg.get("content", "")
+                    if len(content) > max_chars_per_message:
+                        content = content[:max_chars_per_message] + "\n\n[... content truncated due to size ...]"
+                    truncated_messages.append({"role": msg["role"], "content": content})
+                
+                # Keep only last 10 messages to reduce payload size
+                if len(truncated_messages) > 10:
+                    truncated_messages = truncated_messages[-10:]
+                
+                payload = {"model": model, "messages": truncated_messages, "max_tokens": 800, "temperature": 0.7}
                 try:
                     async with httpx.AsyncClient(timeout=60.0) as client:
                         r = await client.post(url, json=payload, headers=headers)
@@ -80,6 +94,24 @@ class LLMClient:
                         response_text = j.get("choices", [{}])[0].get("message", {}).get("content", "")
                         if not response_text:
                             response_text = "[groq-empty-response]"
+                except httpx.HTTPStatusError as e:
+                    if e.response.status_code == 413:
+                        # Payload too large - try with even smaller context
+                        truncated_messages = truncated_messages[-3:]  # Keep only last 3 messages
+                        for i, msg in enumerate(truncated_messages):
+                            truncated_messages[i]["content"] = msg["content"][:1500]
+                        payload["messages"] = truncated_messages
+                        payload["max_tokens"] = 500
+                        try:
+                            async with httpx.AsyncClient(timeout=60.0) as client:
+                                r = await client.post(url, json=payload, headers=headers)
+                                r.raise_for_status()
+                                j = r.json()
+                                response_text = j.get("choices", [{}])[0].get("message", {}).get("content", "")
+                        except Exception:
+                            response_text = f"Analysis: Based on the available information, I'll provide a summary. {prompt[:500]}"
+                    else:
+                        response_text = f"AI service returned error {e.response.status_code}. Using simplified response."
                 except httpx.ConnectError as e:
                     response_text = f"I'm having trouble connecting to the AI service. Using fallback response: I understand you said '{prompt[:100]}'. However, I'm currently unable to connect to my AI backend. Please check your internet connection or API configuration."
                 except Exception as e:

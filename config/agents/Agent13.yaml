@@ -1,0 +1,12 @@
+id: Agent13
+name: Unique_Agent
+type: react
+llm_config:
+  provider: groq
+  model: llama-3.1-8b-instant
+  temperature: 0.7
+  max_tokens: 1000
+tools: []
+use_kag: false
+communication: {}
+version: v1

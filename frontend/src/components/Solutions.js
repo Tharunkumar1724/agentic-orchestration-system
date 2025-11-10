@@ -6,6 +6,7 @@ import { FaLightbulb, FaTimes, FaCheckCircle, FaExclamationCircle, FaClock, FaCh
 import { solutionsAPI, workflowsAPI, agentsAPI } from '../services/api';
 import WorkflowBlueprint from './WorkflowBlueprint';
 import WorkflowChat from './WorkflowChat';
+import InteractiveSolutionChat from './InteractiveSolutionChat';
 
 // Animated Node for workflow visualization
 const AnimatedWorkflowNode = ({ data }) => {
@@ -430,43 +431,43 @@ const SolutionCard = ({ solution, onClick }) => {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.02 }}
-      className="card p-6 cursor-pointer"
+      whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(139, 92, 246, 0.2)" }}
+      className="bg-gray-900 border-2 border-gray-800 rounded-xl p-6 cursor-pointer transition-all hover:border-purple-500/50"
       onClick={onClick}
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="p-3 rounded-lg bg-gradient-to-br from-solution-primary to-solution-secondary">
-            <FaLightbulb className="text-2xl" />
+          <div className="p-3 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30">
+            <FaLightbulb className="text-2xl text-white" />
           </div>
           <div>
-            <h3 className="text-lg font-bold">{solution.workflow_id || 'Workflow'}</h3>
-            <p className="text-sm text-gray-400">{solution.run_id}</p>
+            <h3 className="text-lg font-bold text-white">{solution.workflow_id || 'Workflow'}</h3>
+            <p className="text-sm text-gray-500">{solution.run_id}</p>
           </div>
         </div>
-        <div className={`px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${getStatusColor(solution.status)}`}>
+        <div className={`px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${getStatusColor(solution.status)} shadow-md`}>
           {solution.status || 'unknown'}
         </div>
       </div>
 
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
-          <span className="text-gray-400">Created:</span>
-          <span className="font-medium">
+          <span className="text-gray-500">Created:</span>
+          <span className="font-medium text-gray-300">
             {solution.created_at ? new Date(solution.created_at).toLocaleDateString() : 'N/A'}
           </span>
         </div>
         {solution.steps && (
           <div className="flex justify-between">
-            <span className="text-gray-400">Steps:</span>
-            <span className="font-medium">{solution.steps.length}</span>
+            <span className="text-gray-500">Steps:</span>
+            <span className="font-medium text-gray-300">{solution.steps.length}</span>
           </div>
         )}
       </div>
 
       {solution.final_output && (
-        <div className="mt-4 pt-4 border-t border-dark-border">
-          <p className="text-xs text-gray-400 line-clamp-2">{solution.final_output}</p>
+        <div className="mt-4 pt-4 border-t border-gray-800">
+          <p className="text-xs text-gray-500 line-clamp-2">{solution.final_output}</p>
         </div>
       )}
     </motion.div>
@@ -487,6 +488,8 @@ const Solutions = () => {
   const [isExecuting, setIsExecuting] = useState(false);
   const [executionState, setExecutionState] = useState({});
   const [chatWorkflow, setChatWorkflow] = useState(null);
+  const [showInteractiveChat, setShowInteractiveChat] = useState(false);
+  const [interactiveSolutionId, setInteractiveSolutionId] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -596,30 +599,36 @@ const Solutions = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-4xl font-bold mb-2">Solutions</h1>
-          <p className="text-gray-400">Execute workflows and view results</p>
+          <h1 className="text-4xl font-bold mb-2 text-white">Solutions</h1>
+          <p className="text-gray-500">Execute workflows and view results</p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              filter === 'all' ? 'bg-solution-primary' : 'bg-dark-bg hover:bg-dark-hover'
+            className={`px-4 py-2 rounded-lg transition-all font-semibold ${
+              filter === 'all' 
+                ? 'bg-gradient-to-r from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30 text-white' 
+                : 'bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300'
             }`}
           >
             All
           </button>
           <button
             onClick={() => setFilter('completed')}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              filter === 'completed' ? 'bg-green-500' : 'bg-dark-bg hover:bg-dark-hover'
+            className={`px-4 py-2 rounded-lg transition-all font-semibold ${
+              filter === 'completed' 
+                ? 'bg-gradient-to-r from-green-600 to-green-700 shadow-lg shadow-green-500/30 text-white' 
+                : 'bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300'
             }`}
           >
             Completed
           </button>
           <button
             onClick={() => setFilter('failed')}
-            className={`px-4 py-2 rounded-lg transition-colors ${
-              filter === 'failed' ? 'bg-red-500' : 'bg-dark-bg hover:bg-dark-hover'
+            className={`px-4 py-2 rounded-lg transition-all font-semibold ${
+              filter === 'failed' 
+                ? 'bg-gradient-to-r from-red-600 to-red-700 shadow-lg shadow-red-500/30 text-white' 
+                : 'bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300'
             }`}
           >
             Failed
@@ -635,43 +644,43 @@ const Solutions = () => {
 
       {/* Available Workflows Section */}
       {workflows.length > 0 && (
-        <div className="card p-6">
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-            <FaPlay className="text-solution-primary" />
+        <div className="bg-gray-900 border-2 border-gray-800 rounded-xl p-6 shadow-xl">
+          <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+            <FaPlay className="text-purple-500" />
             Available Workflows - Execute or Chat
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {workflows.map((workflow) => (
               <motion.div
                 key={workflow.id}
-                whileHover={{ scale: 1.02 }}
-                className="p-4 bg-dark-bg border-2 border-workflow-primary rounded-lg transition-all"
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)" }}
+                className="p-4 bg-gray-950 border-2 border-blue-600/50 rounded-lg transition-all hover:border-blue-500"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 rounded-lg bg-gradient-to-br from-workflow-primary to-workflow-secondary">
+                  <div className="p-2 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 shadow-lg shadow-blue-500/30">
                     <FaProjectDiagram className="text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold">{workflow.name}</h3>
-                    <p className="text-xs text-gray-400">{workflow.nodes?.length || 0} nodes</p>
+                    <h3 className="font-bold text-white">{workflow.name}</h3>
+                    <p className="text-xs text-gray-500">{workflow.nodes?.length || 0} nodes</p>
                   </div>
                 </div>
                 {workflow.description && (
-                  <p className="text-xs text-gray-400 line-clamp-2 mb-3">{workflow.description}</p>
+                  <p className="text-xs text-gray-500 line-clamp-2 mb-3">{workflow.description}</p>
                 )}
                 
                 {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleExecuteWorkflow(workflow)}
-                    className="flex-1 px-3 py-2 rounded-lg bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 transition-all flex items-center justify-center gap-2 text-sm font-semibold"
+                    className="flex-1 px-3 py-2 rounded-lg bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 transition-all flex items-center justify-center gap-2 text-sm font-semibold text-white shadow-lg shadow-green-500/30"
                   >
                     <FaPlay className="text-xs" />
                     Run
                   </button>
                   <button
                     onClick={() => setChatWorkflow(workflow)}
-                    className="flex-1 px-3 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all flex items-center justify-center gap-2 text-sm font-semibold"
+                    className="flex-1 px-3 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all flex items-center justify-center gap-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30"
                   >
                     <FaComments className="text-xs" />
                     Chat
@@ -718,20 +727,23 @@ const Solutions = () => {
             <SolutionCard
               key={solution.run_id || solution.id}
               solution={solution}
-              onClick={() => setSelectedSolution(solution)}
+              onClick={() => {
+                setInteractiveSolutionId(solution.id);
+                setShowInteractiveChat(true);
+              }}
             />
           ))}
         </div>
       </div>
 
       {filteredSolutions.length === 0 && !error && (
-        <div className="card p-12 text-center">
-          <FaLightbulb className="text-6xl text-gray-600 mx-auto mb-4" />
-          <h3 className="text-xl font-bold mb-2">No workflow runs found</h3>
-          <p className="text-gray-400 mb-4">Execute a workflow to see results here</p>
-          <div className="text-sm text-gray-500 mt-4">
-            <p>To create a workflow run:</p>
-            <ol className="list-decimal list-inside mt-2 space-y-1">
+        <div className="bg-gray-900 border-2 border-gray-800 rounded-xl p-12 text-center shadow-xl">
+          <FaLightbulb className="text-6xl text-gray-700 mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2 text-white">No workflow runs found</h3>
+          <p className="text-gray-500 mb-4">Execute a workflow to see results here</p>
+          <div className="text-sm text-gray-600 mt-4">
+            <p className="text-gray-500">To create a workflow run:</p>
+            <ol className="list-decimal list-inside mt-2 space-y-1 text-gray-600">
               <li>Go to Workflows tab</li>
               <li>Create or select a workflow</li>
               <li>Click the Play ▶ button to execute it</li>
@@ -742,12 +754,6 @@ const Solutions = () => {
       )}
 
       <AnimatePresence>
-        {selectedSolution && (
-          <SolutionModal
-            solution={selectedSolution}
-            onClose={() => setSelectedSolution(null)}
-          />
-        )}
         {showBlueprint && blueprintWorkflow && (
           <WorkflowBlueprint
             workflow={blueprintWorkflow}
@@ -766,6 +772,15 @@ const Solutions = () => {
             workflow={chatWorkflow}
             agents={agents}
             onClose={() => setChatWorkflow(null)}
+          />
+        )}
+        {showInteractiveChat && interactiveSolutionId && (
+          <InteractiveSolutionChat
+            solutionId={interactiveSolutionId}
+            onClose={() => {
+              setShowInteractiveChat(false);
+              setInteractiveSolutionId(null);
+            }}
           />
         )}
       </AnimatePresence>

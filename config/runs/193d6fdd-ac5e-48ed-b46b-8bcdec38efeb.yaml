@@ -1,0 +1,8 @@
+workflow_id: retest
+run_id: 193d6fdd-ac5e-48ed-b46b-8bcdec38efeb
+status: failed
+error: '''ToolExecutionStrategy'' object does not support item assignment'
+result: {}
+meta:
+  communication_log: []
+  error_details: '''ToolExecutionStrategy'' object does not support item assignment'

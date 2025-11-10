@@ -156,84 +156,123 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
       
       console.log('Workflow response:', response.data);
       
-      // Process communication log from the workflow execution
-      const communicationLog = response.data?.meta?.communication_log || [];
       const workflowNodes = workflow.nodes || [];
       
-      if (communicationLog.length > 0) {
-        // Process each message in the communication log
-        for (let i = 0; i < communicationLog.length; i++) {
-          const logEntry = communicationLog[i];
+      // Check if we have new structured format
+      const isStructuredFormat = response.data?.summary && response.data?.results;
+      
+      if (isStructuredFormat) {
+        // NEW STRUCTURED FORMAT
+        console.log('Using new structured output format');
+        
+        // Show summary first
+        const summaryMsg = {
+          id: Date.now() + 1,
+          type: 'system',
+          content: `✓ ${response.data.summary}`,
+          timestamp: new Date().toLocaleTimeString(),
+        };
+        setMessages(prev => [...prev, summaryMsg]);
+        
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Process each node's results
+        const results = response.data.results || {};
+        let nodeIdx = 0;
+        
+        for (const [nodeId, nodeData] of Object.entries(results)) {
+          // Update active node
+          setActiveNodeIndex(nodeIdx);
+          updateNodeState(nodeIdx, 'active');
           
-          // Find which node this corresponds to
-          const nodeIndex = workflowNodes.findIndex(n => 
-            logEntry.from === n.agent_ref || logEntry.to === n.agent_ref
-          );
-          
-          if (nodeIndex >= 0) {
-            // Update active node
-            setActiveNodeIndex(nodeIndex);
-            updateNodeState(nodeIndex, 'active');
-            
-            // Update edges to show active connection
-            if (nodeIndex > 0) {
-              updateEdgeState(nodeIndex - 1, nodeIndex, 'completed');
-            }
-          }
-          
-          // Add message to chat
           await new Promise(resolve => setTimeout(resolve, 800));
           
-          // Safely extract content and convert to string if needed
-          let messageContent = logEntry.content || logEntry.message || logEntry.llm_response || 'Processing...';
-          if (typeof messageContent === 'object') {
-            messageContent = JSON.stringify(messageContent, null, 2);
-          }
-          
+          // Add agent response
           const agentMsg = {
-            id: Date.now() + i + 2,
+            id: Date.now() + nodeIdx + 2,
             type: 'agent',
-            agent: logEntry.from || logEntry.agent_name || workflowNodes[nodeIndex]?.agent_ref || 'Agent',
-            content: messageContent,
-            tools: logEntry.tools_used || [],
-            toolResults: logEntry.tool_results || {},
+            agent: nodeData.agent || 'Agent',
+            content: nodeData.response || 'No response',
+            tools: nodeData.tools_executed?.map(t => t.tool) || [],
+            toolResults: nodeData.tools_executed?.reduce((acc, tool) => {
+              acc[tool.tool] = tool.summary;
+              return acc;
+            }, {}) || {},
             timestamp: new Date().toLocaleTimeString(),
           };
           setMessages(prev => [...prev, agentMsg]);
           
           // Mark node as completed
-          if (nodeIndex >= 0) {
-            await new Promise(resolve => setTimeout(resolve, 600));
-            updateNodeState(nodeIndex, 'completed');
-          }
+          await new Promise(resolve => setTimeout(resolve, 600));
+          updateNodeState(nodeIdx, 'completed');
+          
+          nodeIdx++;
         }
+        
       } else {
-        // If no communication log, show the result directly
-        const resultMsg = {
-          id: Date.now() + 2,
-          type: 'agent',
-          agent: 'Workflow',
-          content: JSON.stringify(response.data?.result || response.data, null, 2),
-          tools: [],
-          toolResults: {},
-          timestamp: new Date().toLocaleTimeString(),
-        };
-        setMessages(prev => [...prev, resultMsg]);
-      }
-
-      // Add final result if available
-      const finalOutput = response.data?.result?.final_output || 
-                         response.data?.final_output || 
-                         response.data?.result;
-      
-      if (finalOutput && typeof finalOutput === 'string') {
-        const finalMsg = {
-          id: Date.now() + 999,
-          type: 'result',
-          content: finalOutput,
-          timestamp: new Date().toLocaleTimeString(),
-        };
-        setMessages(prev => [...prev, finalMsg]);
+        // OLD FORMAT - Process communication log
+        const communicationLog = response.data?.meta?.communication_log || [];
+        
+        if (communicationLog.length > 0) {
+          // Process each message in the communication log
+          for (let i = 0; i < communicationLog.length; i++) {
+            const logEntry = communicationLog[i];
+            
+            // Find which node this corresponds to
+            const nodeIndex = workflowNodes.findIndex(n => 
+              logEntry.from === n.agent_ref || logEntry.to === n.agent_ref
+            );
+            
+            if (nodeIndex >= 0) {
+              // Update active node
+              setActiveNodeIndex(nodeIndex);
+              updateNodeState(nodeIndex, 'active');
+              
+              // Update edges to show active connection
+              if (nodeIndex > 0) {
+                updateEdgeState(nodeIndex - 1, nodeIndex, 'completed');
+              }
+            }
+            
+            // Add message to chat
+            await new Promise(resolve => setTimeout(resolve, 800));
+            
+            // Safely extract content and convert to string if needed
+            let messageContent = logEntry.content || logEntry.message || logEntry.llm_response || 'Processing...';
+            if (typeof messageContent === 'object') {
+              messageContent = JSON.stringify(messageContent, null, 2);
+            }
+            
+            const agentMsg = {
+              id: Date.now() + i + 2,
+              type: 'agent',
+              agent: logEntry.from || logEntry.agent_name || workflowNodes[nodeIndex]?.agent_ref || 'Agent',
+              content: messageContent,
+              tools: logEntry.tools_used || [],
+              toolResults: logEntry.tool_results || {},
+              timestamp: new Date().toLocaleTimeString(),
+            };
+            setMessages(prev => [...prev, agentMsg]);
+            
+            // Mark node as completed
+            if (nodeIndex >= 0) {
+              await new Promise(resolve => setTimeout(resolve, 600));
+              updateNodeState(nodeIndex, 'completed');
+            }
+          }
+        } else {
+          // If no communication log, show the result directly
+          const resultMsg = {
+            id: Date.now() + 2,
+            type: 'agent',
+            agent: 'Workflow',
+            content: JSON.stringify(response.data?.result || response.data, null, 2),
+            tools: [],
+            toolResults: {},
+            timestamp: new Date().toLocaleTimeString(),
+          };
+          setMessages(prev => [...prev, resultMsg]);
+        }
       }
 
     } catch (error) {

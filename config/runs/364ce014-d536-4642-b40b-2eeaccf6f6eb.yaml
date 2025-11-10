@@ -1,0 +1,2408 @@
+workflow_id: retest
+run_id: 364ce014-d536-4642-b40b-2eeaccf6f6eb
+status: success
+timestamp: '2025-11-08T19:10:29.658640'
+summary: Workflow completed successfully. Executed 2 node(s).
+results:
+  node_1762581659768:
+    node_id: node_1762581659768
+    agent: Research Agent
+    task: Ai
+    response: 'Based on the web search results, here''s a comprehensive overview of
+      Artificial Intelligence (AI):
+
+
+      **Definition and Capabilities:**
+
+
+      Artificial Intelligence (AI) refers to the ability of computational systems
+      to perform tasks that are typically associated with human intelligence. According
+      to IBM, AI enables computers and machines to simulate human learning, comprehension,
+      problem-solving, and decision-making capabilities.
+
+
+      **Goals and Objectives:**
+
+
+      The primary goal of AI research is to create systems that can perform tasks
+      at a level comparable to human intelligence. OpenAI, a leading AI research organization,
+      aims to develop artificial general intelligence (AGI), which is a system that
+      can solve human-level problems.
+
+
+      **Key Features:**
+
+
+      Some key features of AI include:
+
+
+      1. **Learning and Adaptation:** AI systems can learn from data and adapt to
+      new situations, allowing them to improve their performance over time.
+
+      2. **Problem-Solving:** AI systems can analyze complex problems and de... (truncated)'
+    tools_executed:
+    - tool: web-search-tool
+      status: success
+      summary: API call completed successfully
+  node_1762581788623:
+    node_id: node_1762581788623
+    agent: Research Agent
+    task: Enter task description...
+    response: "It seems like our previous conversation was cut off. Based on the context,\
+      \ I'm going to assume you're looking for a comprehensive overview of Artificial\
+      \ Intelligence (AI). \n\nIf that's correct, I'd like to continue the conversation.\n\
+      \nHere's a continuation of the previous response:\n\n...l Intelligence (AI).\
+      \ Artificial Intelligence refers to the simulation of human intelligence in\
+      \ machines that are programmed to think and learn like humans. The term can\
+      \ also be applied to any machine that exhibits traits associated with a human\
+      \ mind such as learning and problem-solving.\n\nIt's a broad field that encompasses\
+      \ various disciplines like computer science, mathematics, and engineering. AI\
+      \ involves the development of intelligent machines that can perform tasks that\
+      \ typically require human intelligence, such as visual perception, speech recognition,\
+      \ decision-making, and language translation.\n\nThere are many types of AI,\
+      \ including:\n\n1. **Narrow or Weak AI**: Designed to perform a specific task,\
+      \ such ... (truncated)"
+    tools_executed:
+    - tool: duckduckgo_search
+      status: success
+      summary: API call completed successfully
+metadata:
+  total_nodes: 2
+  agents_used:
+  - researcher_agent
+  execution_steps: 2
+_raw:
+  workflow_id: retest
+  run_id: 364ce014-d536-4642-b40b-2eeaccf6f6eb
+  status: success
+  result:
+    node_1762581659768:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Ai
+      llm_response: 'Based on the web search results, here''s a comprehensive overview
+        of Artificial Intelligence (AI):
+
+
+        **Definition and Capabilities:**
+
+
+        Artificial Intelligence (AI) refers to the ability of computational systems
+        to perform tasks that are typically associated with human intelligence. According
+        to IBM, AI enables computers and machines to simulate human learning, comprehension,
+        problem-solving, and decision-making capabilities.
+
+
+        **Goals and Objectives:**
+
+
+        The primary goal of AI research is to create systems that can perform tasks
+        at a level comparable to human intelligence. OpenAI, a leading AI research
+        organization, aims to develop artificial general intelligence (AGI), which
+        is a system that can solve human-level problems.
+
+
+        **Key Features:**
+
+
+        Some key features of AI include:
+
+
+        1. **Learning and Adaptation:** AI systems can learn from data and adapt to
+        new situations, allowing them to improve their performance over time.
+
+        2. **Problem-Solving:** AI systems can analyze complex problems and develop
+        effective solutions.
+
+        3. **Decision-Making:** AI systems can make decisions based on data and logic,
+        often outperforming human decision-makers in certain domains.
+
+        4. **Natural Language Processing (NLP):** AI systems can understand and generate
+        human language, enabling applications such as chatbots, virtual assistants,
+        and language translation.
+
+
+        **Types of AI:**
+
+
+        There are several types of AI, including:
+
+
+        1. **Narrow or Weak AI:** Designed to perform a specific task, such as image
+        recognition or language translation.
+
+        2. **General or Strong AI:** A hypothetical AI system that possesses human-like
+        intelligence and can perform any intellectual task.
+
+        3. **Superintelligence:** An AI system that significantly surpasses human
+        intelligence, potentially leading to exponential growth in technological advancements.
+
+
+        **Applications and Implications:**
+
+
+        AI has numerous applications across industries, including:
+
+
+        1. **Healthcare:** AI can help diagnose diseases, develop personalized treatment
+        plans, and improve patient outcomes.
+
+        2. **Transportation:** AI can enhance driver safety, optimize traffic flow,
+        and develop self-driving cars.
+
+        3. **Education:** AI can create personalized learning experiences, automate
+        grading, and improve student outcomes.
+
+        4. **Security:** AI can detect and prevent cyber threats, identify potential
+        security vulnerabilities, and optimize security protocols.
+
+
+        However, AI also raises important questions and concerns, such as:
+
+
+        1. **Job displacement:** AI may automate jobs, potentially leading to widespread
+        unemployment.
+
+        2. **Bias and fairness:** AI systems can perpetuate biases and discriminate
+        against certain groups if not designed with fairness and equity in mind.
+
+        3. **Safety and security:** AI systems can pose safety and security risks
+        if not properly designed and deployed.
+
+
+        Overall, AI has the potential to revolutionize numerous aspects of our lives,
+        but it also requires careful consideration of its implications and limitations.'
+      context_size: 2
+      tool_results:
+        web-search-tool:
+          success: true
+          data:
+            query: Ai
+            count: 5
+            results:
+            - title: Artificial intelligence - Wikipedia
+              href: https://en.wikipedia.org/wiki/Artificial_intelligence
+              body: Artificial intelligence ( AI ) is the capability of computational
+                systems to perform tasks typically associated with human intelligence,
+                such as learning, reasoning, problem-solving, perception, and decision-making.
+                It is a field of research in computer science that develops and studies
+                methods and software that enable machines to perceive their environment
+                and use learning and intelligence to ...
+            - title: What is artificial intelligence (AI)? - IBM
+              href: https://www.ibm.com/think/topics/artificial-intelligence
+              body: Artificial intelligence ( AI ) is technology that enables computers
+                and machines to simulate human learning, comprehension, problem solving,
+                decision-making, creativity and autonomy.
+            - title: OpenAI
+              href: https://openai.com/
+              body: We believe our research will eventually lead to artificial general
+                intelligence, a system that can solve human-level problems. Building
+                safe and beneficial AGI is our mission.
+            - title: What is AI - DeepAI
+              href: https://deepai.org/chat/what-is-ai
+              body: What is AI , and how does it enable machines to perform tasks
+                requiring human intelligence, like speech recognition and decision-making?
+                AI learns and adapts through new data, integrating into daily life
+                via virtual assistants, recommendation algorithms, and self-driving
+                cars.
+            - title: Google AI - How we're making AI helpful for everyone
+              href: https://ai.google/
+              body: Discover how Google AI is committed to enriching knowledge, solving
+                complex challenges and helping people grow by building useful AI tools
+                and technologies.
+            metadata:
+              region: wt-wt
+              max_results: 5
+          error: null
+          metadata:
+            tool_id: web-search-tool
+            tool_name: Web Search
+            tool_type: websearch
+          execution_time: 3.912777
+          timestamp: '2025-11-08T19:10:22.773375'
+      tools_used:
+      - Web Search
+    node_1762581788623:
+      agent_id: researcher_agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Enter task description...
+      llm_response: "It seems like our previous conversation was cut off. Based on\
+        \ the context, I'm going to assume you're looking for a comprehensive overview\
+        \ of Artificial Intelligence (AI). \n\nIf that's correct, I'd like to continue\
+        \ the conversation.\n\nHere's a continuation of the previous response:\n\n\
+        ...l Intelligence (AI). Artificial Intelligence refers to the simulation of\
+        \ human intelligence in machines that are programmed to think and learn like\
+        \ humans. The term can also be applied to any machine that exhibits traits\
+        \ associated with a human mind such as learning and problem-solving.\n\nIt's\
+        \ a broad field that encompasses various disciplines like computer science,\
+        \ mathematics, and engineering. AI involves the development of intelligent\
+        \ machines that can perform tasks that typically require human intelligence,\
+        \ such as visual perception, speech recognition, decision-making, and language\
+        \ translation.\n\nThere are many types of AI, including:\n\n1. **Narrow or\
+        \ Weak AI**: Designed to perform a specific task, such as facial recognition\
+        \ or language translation.\n2. **General or Strong AI**: A hypothetical AI\
+        \ system that possesses the ability to understand, learn, and apply its intelligence\
+        \ across a wide range of tasks.\n3. **Superintelligence**: A hypothetical\
+        \ AI system that significantly surpasses human intelligence in multiple domains.\n\
+        \nThe applications of AI are vast and diverse, including:\n\n1. **Virtual\
+        \ Assistants**: AI-powered virtual assistants, such as Siri, Alexa, and Google\
+        \ Assistant, can perform tasks and answer questions.\n2. **Image and Speech\
+        \ Recognition**: AI can recognize images, speech, and objects, making it useful\
+        \ for applications like self-driving cars and voice-controlled interfaces.\n\
+        3. **Predictive Analytics**: AI can analyze data to make predictions and recommendations,\
+        \ which is useful in fields like finance, healthcare, and marketing.\n4. **Robotics**:\
+        \ AI can be used to control robots, making them more autonomous and efficient.\n\
+        \nWhat aspect of AI would you like to know more about?"
+      context_size: 2
+      tool_results:
+        duckduckgo_search:
+          success: true
+          data:
+            status_code: 200
+            headers:
+              server: nginx
+              date: Sat, 08 Nov 2025 13:40:27 GMT
+              content-type: application/x-javascript
+              transfer-encoding: chunked
+              connection: keep-alive
+              vary: Accept-Encoding
+              access-control-allow-origin: '*'
+              server-timing: total;dur=40;desc="Backend Total [n]"
+              x-detected-query-lang: en
+              x-duckduckgo-results: '1'
+              x-robots-tag: noindex
+              strict-transport-security: max-age=31536000
+              permissions-policy: interest-cohort=()
+              content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                data:  https://duck.ai https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                base-uri ''self'' ; block-all-mixed-content ;'
+              x-frame-options: SAMEORIGIN
+              x-xss-protection: 1;mode=block
+              x-content-type-options: nosniff
+              referrer-policy: origin
+              expect-ct: max-age=0
+              expires: Sat, 08 Nov 2025 13:40:28 GMT
+              cache-control: max-age=1
+              x-duckduckgo-locale: en_US
+              content-encoding: br
+            body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+              Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+              about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+              there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+            json:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+            data:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+          error: null
+          metadata:
+            tool_id: duckduckgo_search
+            tool_name: DuckDuckGo Search
+            tool_type: api
+          execution_time: 1.820314
+          timestamp: '2025-11-08T19:10:27.550719'
+      tools_used:
+      - DuckDuckGo Search
+  meta:
+    communication_log:
+    - sender: node_1762581659768
+      agent: researcher-agent
+      content:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Ai
+        llm_response: 'Based on the web search results, here''s a comprehensive overview
+          of Artificial Intelligence (AI):
+
+
+          **Definition and Capabilities:**
+
+
+          Artificial Intelligence (AI) refers to the ability of computational systems
+          to perform tasks that are typically associated with human intelligence.
+          According to IBM, AI enables computers and machines to simulate human learning,
+          comprehension, problem-solving, and decision-making capabilities.
+
+
+          **Goals and Objectives:**
+
+
+          The primary goal of AI research is to create systems that can perform tasks
+          at a level comparable to human intelligence. OpenAI, a leading AI research
+          organization, aims to develop artificial general intelligence (AGI), which
+          is a system that can solve human-level problems.
+
+
+          **Key Features:**
+
+
+          Some key features of AI include:
+
+
+          1. **Learning and Adaptation:** AI systems can learn from data and adapt
+          to new situations, allowing them to improve their performance over time.
+
+          2. **Problem-Solving:** AI systems can analyze complex problems and develop
+          effective solutions.
+
+          3. **Decision-Making:** AI systems can make decisions based on data and
+          logic, often outperforming human decision-makers in certain domains.
+
+          4. **Natural Language Processing (NLP):** AI systems can understand and
+          generate human language, enabling applications such as chatbots, virtual
+          assistants, and language translation.
+
+
+          **Types of AI:**
+
+
+          There are several types of AI, including:
+
+
+          1. **Narrow or Weak AI:** Designed to perform a specific task, such as image
+          recognition or language translation.
+
+          2. **General or Strong AI:** A hypothetical AI system that possesses human-like
+          intelligence and can perform any intellectual task.
+
+          3. **Superintelligence:** An AI system that significantly surpasses human
+          intelligence, potentially leading to exponential growth in technological
+          advancements.
+
+
+          **Applications and Implications:**
+
+
+          AI has numerous applications across industries, including:
+
+
+          1. **Healthcare:** AI can help diagnose diseases, develop personalized treatment
+          plans, and improve patient outcomes.
+
+          2. **Transportation:** AI can enhance driver safety, optimize traffic flow,
+          and develop self-driving cars.
+
+          3. **Education:** AI can create personalized learning experiences, automate
+          grading, and improve student outcomes.
+
+          4. **Security:** AI can detect and prevent cyber threats, identify potential
+          security vulnerabilities, and optimize security protocols.
+
+
+          However, AI also raises important questions and concerns, such as:
+
+
+          1. **Job displacement:** AI may automate jobs, potentially leading to widespread
+          unemployment.
+
+          2. **Bias and fairness:** AI systems can perpetuate biases and discriminate
+          against certain groups if not designed with fairness and equity in mind.
+
+          3. **Safety and security:** AI systems can pose safety and security risks
+          if not properly designed and deployed.
+
+
+          Overall, AI has the potential to revolutionize numerous aspects of our lives,
+          but it also requires careful consideration of its implications and limitations.'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Ai
+              count: 5
+              results:
+              - title: Artificial intelligence - Wikipedia
+                href: https://en.wikipedia.org/wiki/Artificial_intelligence
+                body: Artificial intelligence ( AI ) is the capability of computational
+                  systems to perform tasks typically associated with human intelligence,
+                  such as learning, reasoning, problem-solving, perception, and decision-making.
+                  It is a field of research in computer science that develops and
+                  studies methods and software that enable machines to perceive their
+                  environment and use learning and intelligence to ...
+              - title: What is artificial intelligence (AI)? - IBM
+                href: https://www.ibm.com/think/topics/artificial-intelligence
+                body: Artificial intelligence ( AI ) is technology that enables computers
+                  and machines to simulate human learning, comprehension, problem
+                  solving, decision-making, creativity and autonomy.
+              - title: OpenAI
+                href: https://openai.com/
+                body: We believe our research will eventually lead to artificial general
+                  intelligence, a system that can solve human-level problems. Building
+                  safe and beneficial AGI is our mission.
+              - title: What is AI - DeepAI
+                href: https://deepai.org/chat/what-is-ai
+                body: What is AI , and how does it enable machines to perform tasks
+                  requiring human intelligence, like speech recognition and decision-making?
+                  AI learns and adapts through new data, integrating into daily life
+                  via virtual assistants, recommendation algorithms, and self-driving
+                  cars.
+              - title: Google AI - How we're making AI helpful for everyone
+                href: https://ai.google/
+                body: Discover how Google AI is committed to enriching knowledge,
+                  solving complex challenges and helping people grow by building useful
+                  AI tools and technologies.
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 3.912777
+            timestamp: '2025-11-08T19:10:22.773375'
+        tools_used:
+        - Web Search
+      type: agent_result
+    - sender: node_1762581788623
+      agent: researcher_agent
+      content:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: "It seems like our previous conversation was cut off. Based\
+          \ on the context, I'm going to assume you're looking for a comprehensive\
+          \ overview of Artificial Intelligence (AI). \n\nIf that's correct, I'd like\
+          \ to continue the conversation.\n\nHere's a continuation of the previous\
+          \ response:\n\n...l Intelligence (AI). Artificial Intelligence refers to\
+          \ the simulation of human intelligence in machines that are programmed to\
+          \ think and learn like humans. The term can also be applied to any machine\
+          \ that exhibits traits associated with a human mind such as learning and\
+          \ problem-solving.\n\nIt's a broad field that encompasses various disciplines\
+          \ like computer science, mathematics, and engineering. AI involves the development\
+          \ of intelligent machines that can perform tasks that typically require\
+          \ human intelligence, such as visual perception, speech recognition, decision-making,\
+          \ and language translation.\n\nThere are many types of AI, including:\n\n\
+          1. **Narrow or Weak AI**: Designed to perform a specific task, such as facial\
+          \ recognition or language translation.\n2. **General or Strong AI**: A hypothetical\
+          \ AI system that possesses the ability to understand, learn, and apply its\
+          \ intelligence across a wide range of tasks.\n3. **Superintelligence**:\
+          \ A hypothetical AI system that significantly surpasses human intelligence\
+          \ in multiple domains.\n\nThe applications of AI are vast and diverse, including:\n\
+          \n1. **Virtual Assistants**: AI-powered virtual assistants, such as Siri,\
+          \ Alexa, and Google Assistant, can perform tasks and answer questions.\n\
+          2. **Image and Speech Recognition**: AI can recognize images, speech, and\
+          \ objects, making it useful for applications like self-driving cars and\
+          \ voice-controlled interfaces.\n3. **Predictive Analytics**: AI can analyze\
+          \ data to make predictions and recommendations, which is useful in fields\
+          \ like finance, healthcare, and marketing.\n4. **Robotics**: AI can be used\
+          \ to control robots, making them more autonomous and efficient.\n\nWhat\
+          \ aspect of AI would you like to know more about?"
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sat, 08 Nov 2025 13:40:27 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=40;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sat, 08 Nov 2025 13:40:28 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.820314
+            timestamp: '2025-11-08T19:10:27.550719'
+        tools_used:
+        - DuckDuckGo Search
+      type: agent_result
+    shared_state:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Ai
+        llm_response: 'Based on the web search results, here''s a comprehensive overview
+          of Artificial Intelligence (AI):
+
+
+          **Definition and Capabilities:**
+
+
+          Artificial Intelligence (AI) refers to the ability of computational systems
+          to perform tasks that are typically associated with human intelligence.
+          According to IBM, AI enables computers and machines to simulate human learning,
+          comprehension, problem-solving, and decision-making capabilities.
+
+
+          **Goals and Objectives:**
+
+
+          The primary goal of AI research is to create systems that can perform tasks
+          at a level comparable to human intelligence. OpenAI, a leading AI research
+          organization, aims to develop artificial general intelligence (AGI), which
+          is a system that can solve human-level problems.
+
+
+          **Key Features:**
+
+
+          Some key features of AI include:
+
+
+          1. **Learning and Adaptation:** AI systems can learn from data and adapt
+          to new situations, allowing them to improve their performance over time.
+
+          2. **Problem-Solving:** AI systems can analyze complex problems and develop
+          effective solutions.
+
+          3. **Decision-Making:** AI systems can make decisions based on data and
+          logic, often outperforming human decision-makers in certain domains.
+
+          4. **Natural Language Processing (NLP):** AI systems can understand and
+          generate human language, enabling applications such as chatbots, virtual
+          assistants, and language translation.
+
+
+          **Types of AI:**
+
+
+          There are several types of AI, including:
+
+
+          1. **Narrow or Weak AI:** Designed to perform a specific task, such as image
+          recognition or language translation.
+
+          2. **General or Strong AI:** A hypothetical AI system that possesses human-like
+          intelligence and can perform any intellectual task.
+
+          3. **Superintelligence:** An AI system that significantly surpasses human
+          intelligence, potentially leading to exponential growth in technological
+          advancements.
+
+
+          **Applications and Implications:**
+
+
+          AI has numerous applications across industries, including:
+
+
+          1. **Healthcare:** AI can help diagnose diseases, develop personalized treatment
+          plans, and improve patient outcomes.
+
+          2. **Transportation:** AI can enhance driver safety, optimize traffic flow,
+          and develop self-driving cars.
+
+          3. **Education:** AI can create personalized learning experiences, automate
+          grading, and improve student outcomes.
+
+          4. **Security:** AI can detect and prevent cyber threats, identify potential
+          security vulnerabilities, and optimize security protocols.
+
+
+          However, AI also raises important questions and concerns, such as:
+
+
+          1. **Job displacement:** AI may automate jobs, potentially leading to widespread
+          unemployment.
+
+          2. **Bias and fairness:** AI systems can perpetuate biases and discriminate
+          against certain groups if not designed with fairness and equity in mind.
+
+          3. **Safety and security:** AI systems can pose safety and security risks
+          if not properly designed and deployed.
+
+
+          Overall, AI has the potential to revolutionize numerous aspects of our lives,
+          but it also requires careful consideration of its implications and limitations.'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Ai
+              count: 5
+              results:
+              - title: Artificial intelligence - Wikipedia
+                href: https://en.wikipedia.org/wiki/Artificial_intelligence
+                body: Artificial intelligence ( AI ) is the capability of computational
+                  systems to perform tasks typically associated with human intelligence,
+                  such as learning, reasoning, problem-solving, perception, and decision-making.
+                  It is a field of research in computer science that develops and
+                  studies methods and software that enable machines to perceive their
+                  environment and use learning and intelligence to ...
+              - title: What is artificial intelligence (AI)? - IBM
+                href: https://www.ibm.com/think/topics/artificial-intelligence
+                body: Artificial intelligence ( AI ) is technology that enables computers
+                  and machines to simulate human learning, comprehension, problem
+                  solving, decision-making, creativity and autonomy.
+              - title: OpenAI
+                href: https://openai.com/
+                body: We believe our research will eventually lead to artificial general
+                  intelligence, a system that can solve human-level problems. Building
+                  safe and beneficial AGI is our mission.
+              - title: What is AI - DeepAI
+                href: https://deepai.org/chat/what-is-ai
+                body: What is AI , and how does it enable machines to perform tasks
+                  requiring human intelligence, like speech recognition and decision-making?
+                  AI learns and adapts through new data, integrating into daily life
+                  via virtual assistants, recommendation algorithms, and self-driving
+                  cars.
+              - title: Google AI - How we're making AI helpful for everyone
+                href: https://ai.google/
+                body: Discover how Google AI is committed to enriching knowledge,
+                  solving complex challenges and helping people grow by building useful
+                  AI tools and technologies.
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 3.912777
+            timestamp: '2025-11-08T19:10:22.773375'
+        tools_used:
+        - Web Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: "It seems like our previous conversation was cut off. Based\
+          \ on the context, I'm going to assume you're looking for a comprehensive\
+          \ overview of Artificial Intelligence (AI). \n\nIf that's correct, I'd like\
+          \ to continue the conversation.\n\nHere's a continuation of the previous\
+          \ response:\n\n...l Intelligence (AI). Artificial Intelligence refers to\
+          \ the simulation of human intelligence in machines that are programmed to\
+          \ think and learn like humans. The term can also be applied to any machine\
+          \ that exhibits traits associated with a human mind such as learning and\
+          \ problem-solving.\n\nIt's a broad field that encompasses various disciplines\
+          \ like computer science, mathematics, and engineering. AI involves the development\
+          \ of intelligent machines that can perform tasks that typically require\
+          \ human intelligence, such as visual perception, speech recognition, decision-making,\
+          \ and language translation.\n\nThere are many types of AI, including:\n\n\
+          1. **Narrow or Weak AI**: Designed to perform a specific task, such as facial\
+          \ recognition or language translation.\n2. **General or Strong AI**: A hypothetical\
+          \ AI system that possesses the ability to understand, learn, and apply its\
+          \ intelligence across a wide range of tasks.\n3. **Superintelligence**:\
+          \ A hypothetical AI system that significantly surpasses human intelligence\
+          \ in multiple domains.\n\nThe applications of AI are vast and diverse, including:\n\
+          \n1. **Virtual Assistants**: AI-powered virtual assistants, such as Siri,\
+          \ Alexa, and Google Assistant, can perform tasks and answer questions.\n\
+          2. **Image and Speech Recognition**: AI can recognize images, speech, and\
+          \ objects, making it useful for applications like self-driving cars and\
+          \ voice-controlled interfaces.\n3. **Predictive Analytics**: AI can analyze\
+          \ data to make predictions and recommendations, which is useful in fields\
+          \ like finance, healthcare, and marketing.\n4. **Robotics**: AI can be used\
+          \ to control robots, making them more autonomous and efficient.\n\nWhat\
+          \ aspect of AI would you like to know more about?"
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sat, 08 Nov 2025 13:40:27 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=40;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sat, 08 Nov 2025 13:40:28 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.820314
+            timestamp: '2025-11-08T19:10:27.550719'
+        tools_used:
+        - DuckDuckGo Search
+    agents_used:
+    - researcher_agent
+    total_messages: 2
+    final_step: node_1762581788623
+  error: null
+  state:
+    messages:
+    - sender: node_1762581659768
+      agent: researcher-agent
+      content:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Ai
+        llm_response: 'Based on the web search results, here''s a comprehensive overview
+          of Artificial Intelligence (AI):
+
+
+          **Definition and Capabilities:**
+
+
+          Artificial Intelligence (AI) refers to the ability of computational systems
+          to perform tasks that are typically associated with human intelligence.
+          According to IBM, AI enables computers and machines to simulate human learning,
+          comprehension, problem-solving, and decision-making capabilities.
+
+
+          **Goals and Objectives:**
+
+
+          The primary goal of AI research is to create systems that can perform tasks
+          at a level comparable to human intelligence. OpenAI, a leading AI research
+          organization, aims to develop artificial general intelligence (AGI), which
+          is a system that can solve human-level problems.
+
+
+          **Key Features:**
+
+
+          Some key features of AI include:
+
+
+          1. **Learning and Adaptation:** AI systems can learn from data and adapt
+          to new situations, allowing them to improve their performance over time.
+
+          2. **Problem-Solving:** AI systems can analyze complex problems and develop
+          effective solutions.
+
+          3. **Decision-Making:** AI systems can make decisions based on data and
+          logic, often outperforming human decision-makers in certain domains.
+
+          4. **Natural Language Processing (NLP):** AI systems can understand and
+          generate human language, enabling applications such as chatbots, virtual
+          assistants, and language translation.
+
+
+          **Types of AI:**
+
+
+          There are several types of AI, including:
+
+
+          1. **Narrow or Weak AI:** Designed to perform a specific task, such as image
+          recognition or language translation.
+
+          2. **General or Strong AI:** A hypothetical AI system that possesses human-like
+          intelligence and can perform any intellectual task.
+
+          3. **Superintelligence:** An AI system that significantly surpasses human
+          intelligence, potentially leading to exponential growth in technological
+          advancements.
+
+
+          **Applications and Implications:**
+
+
+          AI has numerous applications across industries, including:
+
+
+          1. **Healthcare:** AI can help diagnose diseases, develop personalized treatment
+          plans, and improve patient outcomes.
+
+          2. **Transportation:** AI can enhance driver safety, optimize traffic flow,
+          and develop self-driving cars.
+
+          3. **Education:** AI can create personalized learning experiences, automate
+          grading, and improve student outcomes.
+
+          4. **Security:** AI can detect and prevent cyber threats, identify potential
+          security vulnerabilities, and optimize security protocols.
+
+
+          However, AI also raises important questions and concerns, such as:
+
+
+          1. **Job displacement:** AI may automate jobs, potentially leading to widespread
+          unemployment.
+
+          2. **Bias and fairness:** AI systems can perpetuate biases and discriminate
+          against certain groups if not designed with fairness and equity in mind.
+
+          3. **Safety and security:** AI systems can pose safety and security risks
+          if not properly designed and deployed.
+
+
+          Overall, AI has the potential to revolutionize numerous aspects of our lives,
+          but it also requires careful consideration of its implications and limitations.'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Ai
+              count: 5
+              results:
+              - title: Artificial intelligence - Wikipedia
+                href: https://en.wikipedia.org/wiki/Artificial_intelligence
+                body: Artificial intelligence ( AI ) is the capability of computational
+                  systems to perform tasks typically associated with human intelligence,
+                  such as learning, reasoning, problem-solving, perception, and decision-making.
+                  It is a field of research in computer science that develops and
+                  studies methods and software that enable machines to perceive their
+                  environment and use learning and intelligence to ...
+              - title: What is artificial intelligence (AI)? - IBM
+                href: https://www.ibm.com/think/topics/artificial-intelligence
+                body: Artificial intelligence ( AI ) is technology that enables computers
+                  and machines to simulate human learning, comprehension, problem
+                  solving, decision-making, creativity and autonomy.
+              - title: OpenAI
+                href: https://openai.com/
+                body: We believe our research will eventually lead to artificial general
+                  intelligence, a system that can solve human-level problems. Building
+                  safe and beneficial AGI is our mission.
+              - title: What is AI - DeepAI
+                href: https://deepai.org/chat/what-is-ai
+                body: What is AI , and how does it enable machines to perform tasks
+                  requiring human intelligence, like speech recognition and decision-making?
+                  AI learns and adapts through new data, integrating into daily life
+                  via virtual assistants, recommendation algorithms, and self-driving
+                  cars.
+              - title: Google AI - How we're making AI helpful for everyone
+                href: https://ai.google/
+                body: Discover how Google AI is committed to enriching knowledge,
+                  solving complex challenges and helping people grow by building useful
+                  AI tools and technologies.
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 3.912777
+            timestamp: '2025-11-08T19:10:22.773375'
+        tools_used:
+        - Web Search
+      type: agent_result
+    - sender: node_1762581788623
+      agent: researcher_agent
+      content:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: "It seems like our previous conversation was cut off. Based\
+          \ on the context, I'm going to assume you're looking for a comprehensive\
+          \ overview of Artificial Intelligence (AI). \n\nIf that's correct, I'd like\
+          \ to continue the conversation.\n\nHere's a continuation of the previous\
+          \ response:\n\n...l Intelligence (AI). Artificial Intelligence refers to\
+          \ the simulation of human intelligence in machines that are programmed to\
+          \ think and learn like humans. The term can also be applied to any machine\
+          \ that exhibits traits associated with a human mind such as learning and\
+          \ problem-solving.\n\nIt's a broad field that encompasses various disciplines\
+          \ like computer science, mathematics, and engineering. AI involves the development\
+          \ of intelligent machines that can perform tasks that typically require\
+          \ human intelligence, such as visual perception, speech recognition, decision-making,\
+          \ and language translation.\n\nThere are many types of AI, including:\n\n\
+          1. **Narrow or Weak AI**: Designed to perform a specific task, such as facial\
+          \ recognition or language translation.\n2. **General or Strong AI**: A hypothetical\
+          \ AI system that possesses the ability to understand, learn, and apply its\
+          \ intelligence across a wide range of tasks.\n3. **Superintelligence**:\
+          \ A hypothetical AI system that significantly surpasses human intelligence\
+          \ in multiple domains.\n\nThe applications of AI are vast and diverse, including:\n\
+          \n1. **Virtual Assistants**: AI-powered virtual assistants, such as Siri,\
+          \ Alexa, and Google Assistant, can perform tasks and answer questions.\n\
+          2. **Image and Speech Recognition**: AI can recognize images, speech, and\
+          \ objects, making it useful for applications like self-driving cars and\
+          \ voice-controlled interfaces.\n3. **Predictive Analytics**: AI can analyze\
+          \ data to make predictions and recommendations, which is useful in fields\
+          \ like finance, healthcare, and marketing.\n4. **Robotics**: AI can be used\
+          \ to control robots, making them more autonomous and efficient.\n\nWhat\
+          \ aspect of AI would you like to know more about?"
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sat, 08 Nov 2025 13:40:27 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=40;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sat, 08 Nov 2025 13:40:28 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.820314
+            timestamp: '2025-11-08T19:10:27.550719'
+        tools_used:
+        - DuckDuckGo Search
+      type: agent_result
+    shared_data:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Ai
+        llm_response: 'Based on the web search results, here''s a comprehensive overview
+          of Artificial Intelligence (AI):
+
+
+          **Definition and Capabilities:**
+
+
+          Artificial Intelligence (AI) refers to the ability of computational systems
+          to perform tasks that are typically associated with human intelligence.
+          According to IBM, AI enables computers and machines to simulate human learning,
+          comprehension, problem-solving, and decision-making capabilities.
+
+
+          **Goals and Objectives:**
+
+
+          The primary goal of AI research is to create systems that can perform tasks
+          at a level comparable to human intelligence. OpenAI, a leading AI research
+          organization, aims to develop artificial general intelligence (AGI), which
+          is a system that can solve human-level problems.
+
+
+          **Key Features:**
+
+
+          Some key features of AI include:
+
+
+          1. **Learning and Adaptation:** AI systems can learn from data and adapt
+          to new situations, allowing them to improve their performance over time.
+
+          2. **Problem-Solving:** AI systems can analyze complex problems and develop
+          effective solutions.
+
+          3. **Decision-Making:** AI systems can make decisions based on data and
+          logic, often outperforming human decision-makers in certain domains.
+
+          4. **Natural Language Processing (NLP):** AI systems can understand and
+          generate human language, enabling applications such as chatbots, virtual
+          assistants, and language translation.
+
+
+          **Types of AI:**
+
+
+          There are several types of AI, including:
+
+
+          1. **Narrow or Weak AI:** Designed to perform a specific task, such as image
+          recognition or language translation.
+
+          2. **General or Strong AI:** A hypothetical AI system that possesses human-like
+          intelligence and can perform any intellectual task.
+
+          3. **Superintelligence:** An AI system that significantly surpasses human
+          intelligence, potentially leading to exponential growth in technological
+          advancements.
+
+
+          **Applications and Implications:**
+
+
+          AI has numerous applications across industries, including:
+
+
+          1. **Healthcare:** AI can help diagnose diseases, develop personalized treatment
+          plans, and improve patient outcomes.
+
+          2. **Transportation:** AI can enhance driver safety, optimize traffic flow,
+          and develop self-driving cars.
+
+          3. **Education:** AI can create personalized learning experiences, automate
+          grading, and improve student outcomes.
+
+          4. **Security:** AI can detect and prevent cyber threats, identify potential
+          security vulnerabilities, and optimize security protocols.
+
+
+          However, AI also raises important questions and concerns, such as:
+
+
+          1. **Job displacement:** AI may automate jobs, potentially leading to widespread
+          unemployment.
+
+          2. **Bias and fairness:** AI systems can perpetuate biases and discriminate
+          against certain groups if not designed with fairness and equity in mind.
+
+          3. **Safety and security:** AI systems can pose safety and security risks
+          if not properly designed and deployed.
+
+
+          Overall, AI has the potential to revolutionize numerous aspects of our lives,
+          but it also requires careful consideration of its implications and limitations.'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Ai
+              count: 5
+              results:
+              - title: Artificial intelligence - Wikipedia
+                href: https://en.wikipedia.org/wiki/Artificial_intelligence
+                body: Artificial intelligence ( AI ) is the capability of computational
+                  systems to perform tasks typically associated with human intelligence,
+                  such as learning, reasoning, problem-solving, perception, and decision-making.
+                  It is a field of research in computer science that develops and
+                  studies methods and software that enable machines to perceive their
+                  environment and use learning and intelligence to ...
+              - title: What is artificial intelligence (AI)? - IBM
+                href: https://www.ibm.com/think/topics/artificial-intelligence
+                body: Artificial intelligence ( AI ) is technology that enables computers
+                  and machines to simulate human learning, comprehension, problem
+                  solving, decision-making, creativity and autonomy.
+              - title: OpenAI
+                href: https://openai.com/
+                body: We believe our research will eventually lead to artificial general
+                  intelligence, a system that can solve human-level problems. Building
+                  safe and beneficial AGI is our mission.
+              - title: What is AI - DeepAI
+                href: https://deepai.org/chat/what-is-ai
+                body: What is AI , and how does it enable machines to perform tasks
+                  requiring human intelligence, like speech recognition and decision-making?
+                  AI learns and adapts through new data, integrating into daily life
+                  via virtual assistants, recommendation algorithms, and self-driving
+                  cars.
+              - title: Google AI - How we're making AI helpful for everyone
+                href: https://ai.google/
+                body: Discover how Google AI is committed to enriching knowledge,
+                  solving complex challenges and helping people grow by building useful
+                  AI tools and technologies.
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 3.912777
+            timestamp: '2025-11-08T19:10:22.773375'
+        tools_used:
+        - Web Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: "It seems like our previous conversation was cut off. Based\
+          \ on the context, I'm going to assume you're looking for a comprehensive\
+          \ overview of Artificial Intelligence (AI). \n\nIf that's correct, I'd like\
+          \ to continue the conversation.\n\nHere's a continuation of the previous\
+          \ response:\n\n...l Intelligence (AI). Artificial Intelligence refers to\
+          \ the simulation of human intelligence in machines that are programmed to\
+          \ think and learn like humans. The term can also be applied to any machine\
+          \ that exhibits traits associated with a human mind such as learning and\
+          \ problem-solving.\n\nIt's a broad field that encompasses various disciplines\
+          \ like computer science, mathematics, and engineering. AI involves the development\
+          \ of intelligent machines that can perform tasks that typically require\
+          \ human intelligence, such as visual perception, speech recognition, decision-making,\
+          \ and language translation.\n\nThere are many types of AI, including:\n\n\
+          1. **Narrow or Weak AI**: Designed to perform a specific task, such as facial\
+          \ recognition or language translation.\n2. **General or Strong AI**: A hypothetical\
+          \ AI system that possesses the ability to understand, learn, and apply its\
+          \ intelligence across a wide range of tasks.\n3. **Superintelligence**:\
+          \ A hypothetical AI system that significantly surpasses human intelligence\
+          \ in multiple domains.\n\nThe applications of AI are vast and diverse, including:\n\
+          \n1. **Virtual Assistants**: AI-powered virtual assistants, such as Siri,\
+          \ Alexa, and Google Assistant, can perform tasks and answer questions.\n\
+          2. **Image and Speech Recognition**: AI can recognize images, speech, and\
+          \ objects, making it useful for applications like self-driving cars and\
+          \ voice-controlled interfaces.\n3. **Predictive Analytics**: AI can analyze\
+          \ data to make predictions and recommendations, which is useful in fields\
+          \ like finance, healthcare, and marketing.\n4. **Robotics**: AI can be used\
+          \ to control robots, making them more autonomous and efficient.\n\nWhat\
+          \ aspect of AI would you like to know more about?"
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sat, 08 Nov 2025 13:40:27 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=40;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sat, 08 Nov 2025 13:40:28 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.820314
+            timestamp: '2025-11-08T19:10:27.550719'
+        tools_used:
+        - DuckDuckGo Search
+    agents_used:
+    - researcher_agent
+    current_step: node_1762581788623
+    results:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Ai
+        llm_response: 'Based on the web search results, here''s a comprehensive overview
+          of Artificial Intelligence (AI):
+
+
+          **Definition and Capabilities:**
+
+
+          Artificial Intelligence (AI) refers to the ability of computational systems
+          to perform tasks that are typically associated with human intelligence.
+          According to IBM, AI enables computers and machines to simulate human learning,
+          comprehension, problem-solving, and decision-making capabilities.
+
+
+          **Goals and Objectives:**
+
+
+          The primary goal of AI research is to create systems that can perform tasks
+          at a level comparable to human intelligence. OpenAI, a leading AI research
+          organization, aims to develop artificial general intelligence (AGI), which
+          is a system that can solve human-level problems.
+
+
+          **Key Features:**
+
+
+          Some key features of AI include:
+
+
+          1. **Learning and Adaptation:** AI systems can learn from data and adapt
+          to new situations, allowing them to improve their performance over time.
+
+          2. **Problem-Solving:** AI systems can analyze complex problems and develop
+          effective solutions.
+
+          3. **Decision-Making:** AI systems can make decisions based on data and
+          logic, often outperforming human decision-makers in certain domains.
+
+          4. **Natural Language Processing (NLP):** AI systems can understand and
+          generate human language, enabling applications such as chatbots, virtual
+          assistants, and language translation.
+
+
+          **Types of AI:**
+
+
+          There are several types of AI, including:
+
+
+          1. **Narrow or Weak AI:** Designed to perform a specific task, such as image
+          recognition or language translation.
+
+          2. **General or Strong AI:** A hypothetical AI system that possesses human-like
+          intelligence and can perform any intellectual task.
+
+          3. **Superintelligence:** An AI system that significantly surpasses human
+          intelligence, potentially leading to exponential growth in technological
+          advancements.
+
+
+          **Applications and Implications:**
+
+
+          AI has numerous applications across industries, including:
+
+
+          1. **Healthcare:** AI can help diagnose diseases, develop personalized treatment
+          plans, and improve patient outcomes.
+
+          2. **Transportation:** AI can enhance driver safety, optimize traffic flow,
+          and develop self-driving cars.
+
+          3. **Education:** AI can create personalized learning experiences, automate
+          grading, and improve student outcomes.
+
+          4. **Security:** AI can detect and prevent cyber threats, identify potential
+          security vulnerabilities, and optimize security protocols.
+
+
+          However, AI also raises important questions and concerns, such as:
+
+
+          1. **Job displacement:** AI may automate jobs, potentially leading to widespread
+          unemployment.
+
+          2. **Bias and fairness:** AI systems can perpetuate biases and discriminate
+          against certain groups if not designed with fairness and equity in mind.
+
+          3. **Safety and security:** AI systems can pose safety and security risks
+          if not properly designed and deployed.
+
+
+          Overall, AI has the potential to revolutionize numerous aspects of our lives,
+          but it also requires careful consideration of its implications and limitations.'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Ai
+              count: 5
+              results:
+              - title: Artificial intelligence - Wikipedia
+                href: https://en.wikipedia.org/wiki/Artificial_intelligence
+                body: Artificial intelligence ( AI ) is the capability of computational
+                  systems to perform tasks typically associated with human intelligence,
+                  such as learning, reasoning, problem-solving, perception, and decision-making.
+                  It is a field of research in computer science that develops and
+                  studies methods and software that enable machines to perceive their
+                  environment and use learning and intelligence to ...
+              - title: What is artificial intelligence (AI)? - IBM
+                href: https://www.ibm.com/think/topics/artificial-intelligence
+                body: Artificial intelligence ( AI ) is technology that enables computers
+                  and machines to simulate human learning, comprehension, problem
+                  solving, decision-making, creativity and autonomy.
+              - title: OpenAI
+                href: https://openai.com/
+                body: We believe our research will eventually lead to artificial general
+                  intelligence, a system that can solve human-level problems. Building
+                  safe and beneficial AGI is our mission.
+              - title: What is AI - DeepAI
+                href: https://deepai.org/chat/what-is-ai
+                body: What is AI , and how does it enable machines to perform tasks
+                  requiring human intelligence, like speech recognition and decision-making?
+                  AI learns and adapts through new data, integrating into daily life
+                  via virtual assistants, recommendation algorithms, and self-driving
+                  cars.
+              - title: Google AI - How we're making AI helpful for everyone
+                href: https://ai.google/
+                body: Discover how Google AI is committed to enriching knowledge,
+                  solving complex challenges and helping people grow by building useful
+                  AI tools and technologies.
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 3.912777
+            timestamp: '2025-11-08T19:10:22.773375'
+        tools_used:
+        - Web Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: "It seems like our previous conversation was cut off. Based\
+          \ on the context, I'm going to assume you're looking for a comprehensive\
+          \ overview of Artificial Intelligence (AI). \n\nIf that's correct, I'd like\
+          \ to continue the conversation.\n\nHere's a continuation of the previous\
+          \ response:\n\n...l Intelligence (AI). Artificial Intelligence refers to\
+          \ the simulation of human intelligence in machines that are programmed to\
+          \ think and learn like humans. The term can also be applied to any machine\
+          \ that exhibits traits associated with a human mind such as learning and\
+          \ problem-solving.\n\nIt's a broad field that encompasses various disciplines\
+          \ like computer science, mathematics, and engineering. AI involves the development\
+          \ of intelligent machines that can perform tasks that typically require\
+          \ human intelligence, such as visual perception, speech recognition, decision-making,\
+          \ and language translation.\n\nThere are many types of AI, including:\n\n\
+          1. **Narrow or Weak AI**: Designed to perform a specific task, such as facial\
+          \ recognition or language translation.\n2. **General or Strong AI**: A hypothetical\
+          \ AI system that possesses the ability to understand, learn, and apply its\
+          \ intelligence across a wide range of tasks.\n3. **Superintelligence**:\
+          \ A hypothetical AI system that significantly surpasses human intelligence\
+          \ in multiple domains.\n\nThe applications of AI are vast and diverse, including:\n\
+          \n1. **Virtual Assistants**: AI-powered virtual assistants, such as Siri,\
+          \ Alexa, and Google Assistant, can perform tasks and answer questions.\n\
+          2. **Image and Speech Recognition**: AI can recognize images, speech, and\
+          \ objects, making it useful for applications like self-driving cars and\
+          \ voice-controlled interfaces.\n3. **Predictive Analytics**: AI can analyze\
+          \ data to make predictions and recommendations, which is useful in fields\
+          \ like finance, healthcare, and marketing.\n4. **Robotics**: AI can be used\
+          \ to control robots, making them more autonomous and efficient.\n\nWhat\
+          \ aspect of AI would you like to know more about?"
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sat, 08 Nov 2025 13:40:27 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=40;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sat, 08 Nov 2025 13:40:28 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.820314
+            timestamp: '2025-11-08T19:10:27.550719'
+        tools_used:
+        - DuckDuckGo Search
+    error: null

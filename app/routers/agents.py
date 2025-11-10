@@ -8,8 +8,19 @@ router = APIRouter()
 
 @router.post("/", response_model=AgentDef)
 async def create_agent(agent: AgentDef):
-    if load("agents", agent.id):
-        raise HTTPException(status_code=400, detail="Agent already exists")
+    # Generate ID if not provided or empty
+    if not agent.id or agent.id.strip() == "":
+        import uuid
+        agent.id = f"agent_{uuid.uuid4().hex[:8]}"
+    
+    # Check if agent already exists
+    existing = load("agents", agent.id)
+    if existing:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Agent with ID '{agent.id}' already exists. Use PUT to update or choose a different ID."
+        )
+    
     save("agents", agent.id, agent.model_dump())
     return agent
 

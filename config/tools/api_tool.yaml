@@ -1,8 +1,0 @@
-id: api_tool
-name: API Call Tool
-type: api
-config:
-  description: Makes HTTP API calls
-  url: https://api.example.com/data
-  method: GET
-version: v1

@@ -1,0 +1,2581 @@
+workflow_id: retest
+run_id: 8be6757d-96ea-4253-9e4d-31eb6dcbf65b
+status: success
+timestamp: '2025-11-09T11:51:26.036984'
+summary: Workflow completed successfully. Executed 2 node(s).
+results:
+  node_1762581659768:
+    node_id: node_1762581659768
+    agent: Research Agent
+    task: Run workflow
+    response: 'Based on the provided web search results, I''ll provide a comprehensive
+      answer on how to run a workflow.
+
+
+      **Running Workflows**
+
+      --------------------
+
+
+      A workflow can be set up to run on a schedule or at a specific date and time.
+      The options for scheduling a workflow include:
+
+
+      * Daily
+
+      * Weekly
+
+      * Monthly
+
+      * Yearly
+
+      * A specific date and time
+
+
+      To run a workflow, you can use the following approaches:
+
+
+      ### 1. Scheduled Workflows
+
+
+      To set up a scheduled workflow, follow these steps:
+
+
+      * Go to the workflow editor
+
+      * Click on the "Run workflow" button
+
+      * Select the schedule option (daily, weekly, monthly, or yearly)
+
+      * Choose the specific date and time for the workflow to run
+
+      * Click "Save" to save the workflow
+
+
+      ### 2. Trigger Workflows
+
+
+      To run a workflow on a specific trigger, follow these steps:
+
+
+      * Go to the workflow editor
+
+      * Click on the "Run workflow" button
+
+      * Select the trigger option (e.g., push, pull request, etc.)
+
+      * Choose the specific conditions for the trigger (e.g., branch, tag, etc.)
+
+      * Clic... (truncated)'
+    tools_executed:
+    - tool: web-search-tool
+      status: success
+      summary: API call completed successfully
+  node_1762581788623:
+    node_id: node_1762581788623
+    agent: Research Agent
+    task: Enter task description...
+    response: 'It seems the previous conversation was cut off, but based on the given
+      information, it appears to be a conversation between a researcher and an AI
+      model (researcher-agent). The researcher asked the AI to ''Run workflow'' and
+      received a response indicating that no detailed information was found based
+      on a web search using DuckDuckGo.
+
+
+      To continue the conversation, I''ll start by asking for a clarification on the
+      task description:
+
+
+      "Can you please provide a more detailed description of the task you''d like
+      the workflow to accomplish? This will help me better understand your requirements
+      and provide a more accurate response."'
+    tools_executed:
+    - tool: duckduckgo_search
+      status: success
+      summary: API call completed successfully
+metadata:
+  total_nodes: 2
+  agents_used:
+  - researcher_agent
+  execution_steps: 2
+_raw:
+  workflow_id: retest
+  run_id: 8be6757d-96ea-4253-9e4d-31eb6dcbf65b
+  status: success
+  result:
+    node_1762581659768:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Run workflow
+      llm_response: 'Based on the provided web search results, I''ll provide a comprehensive
+        answer on how to run a workflow.
+
+
+        **Running Workflows**
+
+        --------------------
+
+
+        A workflow can be set up to run on a schedule or at a specific date and time.
+        The options for scheduling a workflow include:
+
+
+        * Daily
+
+        * Weekly
+
+        * Monthly
+
+        * Yearly
+
+        * A specific date and time
+
+
+        To run a workflow, you can use the following approaches:
+
+
+        ### 1. Scheduled Workflows
+
+
+        To set up a scheduled workflow, follow these steps:
+
+
+        * Go to the workflow editor
+
+        * Click on the "Run workflow" button
+
+        * Select the schedule option (daily, weekly, monthly, or yearly)
+
+        * Choose the specific date and time for the workflow to run
+
+        * Click "Save" to save the workflow
+
+
+        ### 2. Trigger Workflows
+
+
+        To run a workflow on a specific trigger, follow these steps:
+
+
+        * Go to the workflow editor
+
+        * Click on the "Run workflow" button
+
+        * Select the trigger option (e.g., push, pull request, etc.)
+
+        * Choose the specific conditions for the trigger (e.g., branch, tag, etc.)
+
+        * Click "Save" to save the workflow
+
+
+        **GitHub Actions Workflow Not Running**
+
+        --------------------------------------
+
+
+        If a GitHub Actions workflow is not running, it''s possible that the workflow
+        is not triggered or is not set up correctly. Based on the provided Stack Overflow
+        answer, here are some possible solutions:
+
+
+        * Make sure the workflow is triggered by a branch (e.g., main, dev, etc.)
+
+        * Make sure the workflow is set up to run on the correct schedule (e.g., daily,
+        weekly, etc.)
+
+        * Check the workflow logs to see if there are any errors or issues
+
+
+        **Running a Workflow Instance for a Specific Time**
+
+        ------------------------------------------------
+
+
+        To run a workflow instance for a specific time, you can use the following
+        approaches:
+
+
+        ### 1. Using Workflow Foundation
+
+
+        To run a workflow instance using Workflow Foundation, follow these steps:
+
+
+        * Create a new instance of the workflow
+
+        * Set the start time for the workflow instance
+
+        * Run the workflow instance
+
+
+        ### 2. Using a Schedule
+
+
+        To run a workflow instance using a schedule, follow these steps:
+
+
+        * Create a new schedule for the workflow
+
+        * Set the schedule to run at a specific time (e.g., 2 AM every day)
+
+        * Run the workflow instance using the schedule
+
+
+        **Setting Workflow Condition to Run at 2 AM every Day**
+
+        ---------------------------------------------------------
+
+
+        To set a workflow condition to run at 2 AM every day, follow these steps:
+
+
+        * Go to the workflow editor
+
+        * Click on the "Conditions" tab
+
+        * Add a new condition
+
+        * Set the condition to run at 2 AM every day (e.g., `cron(0 2 * * *)`)
+
+        * Save the condition
+
+
+        Note: The cron expression `0 2 * * *` means "run at 2 AM every day". You can
+        adjust this to fit your specific needs.
+
+
+        I hope this comprehensive answer helps you understand how to run a workflow
+        and troubleshoot common issues!'
+      context_size: 2
+      tool_results:
+        web-search-tool:
+          success: true
+          data:
+            query: Run workflow
+            count: 5
+            results:
+            - title: Running Workflows
+              href: https://www.process.st/help/docs/running-workflows/
+              body: You can set up workflow runs to be scheduled on a daily , weekly
+                , monthly , or yearly basis, or to run once at a given date or time.
+            - title: GitHub Action workflow not running - Stack Overflow
+              href: https://stackoverflow.com/questions/61989951/github-action-workflow-not-running
+              body: In my case what I needed to run a workflow in pylint branch but
+                it was not working until I added the same workflow in the main branch.In
+                the main ...
+            - title: Running a Workflow instance for a specific time using workflow
+              href: https://stackoverflow.com/questions/26055589/running-a-workflow-instance-for-a-specific-time-using-workflow-foundation
+              body: Running a Workflow instance for a specific time using workflow
+                foundation ... How to set workflow condition that runs 2AM everyday?
+            - title: Running Workflows - atomate2
+              href: https://materialsproject.github.io/atomate2/user/running-workflows.html
+              body: Running Workflows ... LOBSTER Workflow Tutorial (Using VASP for
+                DFT) ... remove_ workflow _files
+            - title: Cannot run my workflow - usegalaxy.org support - Galaxy
+              href: https://help.galaxyproject.org/t/cannot-run-my-workflow/2694
+              body: "After hitting \u201C RUN \u201D, I see a \u201C Workflow Invocation\
+                \ State\u201D notice and \u201Cstep ... Have not been able to run\
+                \ a workflow for the past 3 days."
+            metadata:
+              region: wt-wt
+              max_results: 5
+          error: null
+          metadata:
+            tool_id: web-search-tool
+            tool_name: Web Search
+            tool_type: websearch
+          execution_time: 4.597588
+          timestamp: '2025-11-09T11:51:16.271390'
+      tools_used:
+      - Web Search
+    node_1762581788623:
+      agent_id: researcher_agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Enter task description...
+      llm_response: 'It seems the previous conversation was cut off, but based on
+        the given information, it appears to be a conversation between a researcher
+        and an AI model (researcher-agent). The researcher asked the AI to ''Run workflow''
+        and received a response indicating that no detailed information was found
+        based on a web search using DuckDuckGo.
+
+
+        To continue the conversation, I''ll start by asking for a clarification on
+        the task description:
+
+
+        "Can you please provide a more detailed description of the task you''d like
+        the workflow to accomplish? This will help me better understand your requirements
+        and provide a more accurate response."'
+      context_size: 2
+      tool_results:
+        duckduckgo_search:
+          success: true
+          data:
+            status_code: 200
+            headers:
+              server: nginx
+              date: Sun, 09 Nov 2025 06:21:22 GMT
+              content-type: application/x-javascript
+              transfer-encoding: chunked
+              connection: keep-alive
+              vary: Accept-Encoding
+              access-control-allow-origin: '*'
+              server-timing: total;dur=41;desc="Backend Total [n]"
+              x-detected-query-lang: en
+              x-duckduckgo-results: '1'
+              x-robots-tag: noindex
+              strict-transport-security: max-age=31536000
+              permissions-policy: interest-cohort=()
+              content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                data:  https://duck.ai https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                base-uri ''self'' ; block-all-mixed-content ;'
+              x-frame-options: SAMEORIGIN
+              x-xss-protection: 1;mode=block
+              x-content-type-options: nosniff
+              referrer-policy: origin
+              expect-ct: max-age=0
+              expires: Sun, 09 Nov 2025 06:21:23 GMT
+              cache-control: max-age=1
+              x-duckduckgo-locale: en_US
+              content-encoding: br
+            body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+              Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+              about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+              there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+            json:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+            data:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+          error: null
+          metadata:
+            tool_id: duckduckgo_search
+            tool_name: DuckDuckGo Search
+            tool_type: api
+          execution_time: 3.338832
+          timestamp: '2025-11-09T11:51:22.870928'
+      tools_used:
+      - DuckDuckGo Search
+  meta:
+    communication_log:
+    - sender: node_1762581659768
+      agent: researcher-agent
+      content:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Based on the provided web search results, I''ll provide a comprehensive
+          answer on how to run a workflow.
+
+
+          **Running Workflows**
+
+          --------------------
+
+
+          A workflow can be set up to run on a schedule or at a specific date and
+          time. The options for scheduling a workflow include:
+
+
+          * Daily
+
+          * Weekly
+
+          * Monthly
+
+          * Yearly
+
+          * A specific date and time
+
+
+          To run a workflow, you can use the following approaches:
+
+
+          ### 1. Scheduled Workflows
+
+
+          To set up a scheduled workflow, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the schedule option (daily, weekly, monthly, or yearly)
+
+          * Choose the specific date and time for the workflow to run
+
+          * Click "Save" to save the workflow
+
+
+          ### 2. Trigger Workflows
+
+
+          To run a workflow on a specific trigger, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the trigger option (e.g., push, pull request, etc.)
+
+          * Choose the specific conditions for the trigger (e.g., branch, tag, etc.)
+
+          * Click "Save" to save the workflow
+
+
+          **GitHub Actions Workflow Not Running**
+
+          --------------------------------------
+
+
+          If a GitHub Actions workflow is not running, it''s possible that the workflow
+          is not triggered or is not set up correctly. Based on the provided Stack
+          Overflow answer, here are some possible solutions:
+
+
+          * Make sure the workflow is triggered by a branch (e.g., main, dev, etc.)
+
+          * Make sure the workflow is set up to run on the correct schedule (e.g.,
+          daily, weekly, etc.)
+
+          * Check the workflow logs to see if there are any errors or issues
+
+
+          **Running a Workflow Instance for a Specific Time**
+
+          ------------------------------------------------
+
+
+          To run a workflow instance for a specific time, you can use the following
+          approaches:
+
+
+          ### 1. Using Workflow Foundation
+
+
+          To run a workflow instance using Workflow Foundation, follow these steps:
+
+
+          * Create a new instance of the workflow
+
+          * Set the start time for the workflow instance
+
+          * Run the workflow instance
+
+
+          ### 2. Using a Schedule
+
+
+          To run a workflow instance using a schedule, follow these steps:
+
+
+          * Create a new schedule for the workflow
+
+          * Set the schedule to run at a specific time (e.g., 2 AM every day)
+
+          * Run the workflow instance using the schedule
+
+
+          **Setting Workflow Condition to Run at 2 AM every Day**
+
+          ---------------------------------------------------------
+
+
+          To set a workflow condition to run at 2 AM every day, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Conditions" tab
+
+          * Add a new condition
+
+          * Set the condition to run at 2 AM every day (e.g., `cron(0 2 * * *)`)
+
+          * Save the condition
+
+
+          Note: The cron expression `0 2 * * *` means "run at 2 AM every day". You
+          can adjust this to fit your specific needs.
+
+
+          I hope this comprehensive answer helps you understand how to run a workflow
+          and troubleshoot common issues!'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Run workflow
+              count: 5
+              results:
+              - title: Running Workflows
+                href: https://www.process.st/help/docs/running-workflows/
+                body: You can set up workflow runs to be scheduled on a daily , weekly
+                  , monthly , or yearly basis, or to run once at a given date or time.
+              - title: GitHub Action workflow not running - Stack Overflow
+                href: https://stackoverflow.com/questions/61989951/github-action-workflow-not-running
+                body: In my case what I needed to run a workflow in pylint branch
+                  but it was not working until I added the same workflow in the main
+                  branch.In the main ...
+              - title: Running a Workflow instance for a specific time using workflow
+                href: https://stackoverflow.com/questions/26055589/running-a-workflow-instance-for-a-specific-time-using-workflow-foundation
+                body: Running a Workflow instance for a specific time using workflow
+                  foundation ... How to set workflow condition that runs 2AM everyday?
+              - title: Running Workflows - atomate2
+                href: https://materialsproject.github.io/atomate2/user/running-workflows.html
+                body: Running Workflows ... LOBSTER Workflow Tutorial (Using VASP
+                  for DFT) ... remove_ workflow _files
+              - title: Cannot run my workflow - usegalaxy.org support - Galaxy
+                href: https://help.galaxyproject.org/t/cannot-run-my-workflow/2694
+                body: "After hitting \u201C RUN \u201D, I see a \u201C Workflow Invocation\
+                  \ State\u201D notice and \u201Cstep ... Have not been able to run\
+                  \ a workflow for the past 3 days."
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 4.597588
+            timestamp: '2025-11-09T11:51:16.271390'
+        tools_used:
+        - Web Search
+      type: agent_result
+    - sender: node_1762581788623
+      agent: researcher_agent
+      content:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: 'It seems the previous conversation was cut off, but based on
+          the given information, it appears to be a conversation between a researcher
+          and an AI model (researcher-agent). The researcher asked the AI to ''Run
+          workflow'' and received a response indicating that no detailed information
+          was found based on a web search using DuckDuckGo.
+
+
+          To continue the conversation, I''ll start by asking for a clarification
+          on the task description:
+
+
+          "Can you please provide a more detailed description of the task you''d like
+          the workflow to accomplish? This will help me better understand your requirements
+          and provide a more accurate response."'
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:21:22 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=41;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:21:23 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 3.338832
+            timestamp: '2025-11-09T11:51:22.870928'
+        tools_used:
+        - DuckDuckGo Search
+      type: agent_result
+    shared_state:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Based on the provided web search results, I''ll provide a comprehensive
+          answer on how to run a workflow.
+
+
+          **Running Workflows**
+
+          --------------------
+
+
+          A workflow can be set up to run on a schedule or at a specific date and
+          time. The options for scheduling a workflow include:
+
+
+          * Daily
+
+          * Weekly
+
+          * Monthly
+
+          * Yearly
+
+          * A specific date and time
+
+
+          To run a workflow, you can use the following approaches:
+
+
+          ### 1. Scheduled Workflows
+
+
+          To set up a scheduled workflow, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the schedule option (daily, weekly, monthly, or yearly)
+
+          * Choose the specific date and time for the workflow to run
+
+          * Click "Save" to save the workflow
+
+
+          ### 2. Trigger Workflows
+
+
+          To run a workflow on a specific trigger, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the trigger option (e.g., push, pull request, etc.)
+
+          * Choose the specific conditions for the trigger (e.g., branch, tag, etc.)
+
+          * Click "Save" to save the workflow
+
+
+          **GitHub Actions Workflow Not Running**
+
+          --------------------------------------
+
+
+          If a GitHub Actions workflow is not running, it''s possible that the workflow
+          is not triggered or is not set up correctly. Based on the provided Stack
+          Overflow answer, here are some possible solutions:
+
+
+          * Make sure the workflow is triggered by a branch (e.g., main, dev, etc.)
+
+          * Make sure the workflow is set up to run on the correct schedule (e.g.,
+          daily, weekly, etc.)
+
+          * Check the workflow logs to see if there are any errors or issues
+
+
+          **Running a Workflow Instance for a Specific Time**
+
+          ------------------------------------------------
+
+
+          To run a workflow instance for a specific time, you can use the following
+          approaches:
+
+
+          ### 1. Using Workflow Foundation
+
+
+          To run a workflow instance using Workflow Foundation, follow these steps:
+
+
+          * Create a new instance of the workflow
+
+          * Set the start time for the workflow instance
+
+          * Run the workflow instance
+
+
+          ### 2. Using a Schedule
+
+
+          To run a workflow instance using a schedule, follow these steps:
+
+
+          * Create a new schedule for the workflow
+
+          * Set the schedule to run at a specific time (e.g., 2 AM every day)
+
+          * Run the workflow instance using the schedule
+
+
+          **Setting Workflow Condition to Run at 2 AM every Day**
+
+          ---------------------------------------------------------
+
+
+          To set a workflow condition to run at 2 AM every day, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Conditions" tab
+
+          * Add a new condition
+
+          * Set the condition to run at 2 AM every day (e.g., `cron(0 2 * * *)`)
+
+          * Save the condition
+
+
+          Note: The cron expression `0 2 * * *` means "run at 2 AM every day". You
+          can adjust this to fit your specific needs.
+
+
+          I hope this comprehensive answer helps you understand how to run a workflow
+          and troubleshoot common issues!'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Run workflow
+              count: 5
+              results:
+              - title: Running Workflows
+                href: https://www.process.st/help/docs/running-workflows/
+                body: You can set up workflow runs to be scheduled on a daily , weekly
+                  , monthly , or yearly basis, or to run once at a given date or time.
+              - title: GitHub Action workflow not running - Stack Overflow
+                href: https://stackoverflow.com/questions/61989951/github-action-workflow-not-running
+                body: In my case what I needed to run a workflow in pylint branch
+                  but it was not working until I added the same workflow in the main
+                  branch.In the main ...
+              - title: Running a Workflow instance for a specific time using workflow
+                href: https://stackoverflow.com/questions/26055589/running-a-workflow-instance-for-a-specific-time-using-workflow-foundation
+                body: Running a Workflow instance for a specific time using workflow
+                  foundation ... How to set workflow condition that runs 2AM everyday?
+              - title: Running Workflows - atomate2
+                href: https://materialsproject.github.io/atomate2/user/running-workflows.html
+                body: Running Workflows ... LOBSTER Workflow Tutorial (Using VASP
+                  for DFT) ... remove_ workflow _files
+              - title: Cannot run my workflow - usegalaxy.org support - Galaxy
+                href: https://help.galaxyproject.org/t/cannot-run-my-workflow/2694
+                body: "After hitting \u201C RUN \u201D, I see a \u201C Workflow Invocation\
+                  \ State\u201D notice and \u201Cstep ... Have not been able to run\
+                  \ a workflow for the past 3 days."
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 4.597588
+            timestamp: '2025-11-09T11:51:16.271390'
+        tools_used:
+        - Web Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: 'It seems the previous conversation was cut off, but based on
+          the given information, it appears to be a conversation between a researcher
+          and an AI model (researcher-agent). The researcher asked the AI to ''Run
+          workflow'' and received a response indicating that no detailed information
+          was found based on a web search using DuckDuckGo.
+
+
+          To continue the conversation, I''ll start by asking for a clarification
+          on the task description:
+
+
+          "Can you please provide a more detailed description of the task you''d like
+          the workflow to accomplish? This will help me better understand your requirements
+          and provide a more accurate response."'
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:21:22 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=41;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:21:23 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 3.338832
+            timestamp: '2025-11-09T11:51:22.870928'
+        tools_used:
+        - DuckDuckGo Search
+    agents_used:
+    - researcher_agent
+    total_messages: 2
+    final_step: node_1762581788623
+  error: null
+  state:
+    messages:
+    - sender: node_1762581659768
+      agent: researcher-agent
+      content:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Based on the provided web search results, I''ll provide a comprehensive
+          answer on how to run a workflow.
+
+
+          **Running Workflows**
+
+          --------------------
+
+
+          A workflow can be set up to run on a schedule or at a specific date and
+          time. The options for scheduling a workflow include:
+
+
+          * Daily
+
+          * Weekly
+
+          * Monthly
+
+          * Yearly
+
+          * A specific date and time
+
+
+          To run a workflow, you can use the following approaches:
+
+
+          ### 1. Scheduled Workflows
+
+
+          To set up a scheduled workflow, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the schedule option (daily, weekly, monthly, or yearly)
+
+          * Choose the specific date and time for the workflow to run
+
+          * Click "Save" to save the workflow
+
+
+          ### 2. Trigger Workflows
+
+
+          To run a workflow on a specific trigger, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the trigger option (e.g., push, pull request, etc.)
+
+          * Choose the specific conditions for the trigger (e.g., branch, tag, etc.)
+
+          * Click "Save" to save the workflow
+
+
+          **GitHub Actions Workflow Not Running**
+
+          --------------------------------------
+
+
+          If a GitHub Actions workflow is not running, it''s possible that the workflow
+          is not triggered or is not set up correctly. Based on the provided Stack
+          Overflow answer, here are some possible solutions:
+
+
+          * Make sure the workflow is triggered by a branch (e.g., main, dev, etc.)
+
+          * Make sure the workflow is set up to run on the correct schedule (e.g.,
+          daily, weekly, etc.)
+
+          * Check the workflow logs to see if there are any errors or issues
+
+
+          **Running a Workflow Instance for a Specific Time**
+
+          ------------------------------------------------
+
+
+          To run a workflow instance for a specific time, you can use the following
+          approaches:
+
+
+          ### 1. Using Workflow Foundation
+
+
+          To run a workflow instance using Workflow Foundation, follow these steps:
+
+
+          * Create a new instance of the workflow
+
+          * Set the start time for the workflow instance
+
+          * Run the workflow instance
+
+
+          ### 2. Using a Schedule
+
+
+          To run a workflow instance using a schedule, follow these steps:
+
+
+          * Create a new schedule for the workflow
+
+          * Set the schedule to run at a specific time (e.g., 2 AM every day)
+
+          * Run the workflow instance using the schedule
+
+
+          **Setting Workflow Condition to Run at 2 AM every Day**
+
+          ---------------------------------------------------------
+
+
+          To set a workflow condition to run at 2 AM every day, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Conditions" tab
+
+          * Add a new condition
+
+          * Set the condition to run at 2 AM every day (e.g., `cron(0 2 * * *)`)
+
+          * Save the condition
+
+
+          Note: The cron expression `0 2 * * *` means "run at 2 AM every day". You
+          can adjust this to fit your specific needs.
+
+
+          I hope this comprehensive answer helps you understand how to run a workflow
+          and troubleshoot common issues!'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Run workflow
+              count: 5
+              results:
+              - title: Running Workflows
+                href: https://www.process.st/help/docs/running-workflows/
+                body: You can set up workflow runs to be scheduled on a daily , weekly
+                  , monthly , or yearly basis, or to run once at a given date or time.
+              - title: GitHub Action workflow not running - Stack Overflow
+                href: https://stackoverflow.com/questions/61989951/github-action-workflow-not-running
+                body: In my case what I needed to run a workflow in pylint branch
+                  but it was not working until I added the same workflow in the main
+                  branch.In the main ...
+              - title: Running a Workflow instance for a specific time using workflow
+                href: https://stackoverflow.com/questions/26055589/running-a-workflow-instance-for-a-specific-time-using-workflow-foundation
+                body: Running a Workflow instance for a specific time using workflow
+                  foundation ... How to set workflow condition that runs 2AM everyday?
+              - title: Running Workflows - atomate2
+                href: https://materialsproject.github.io/atomate2/user/running-workflows.html
+                body: Running Workflows ... LOBSTER Workflow Tutorial (Using VASP
+                  for DFT) ... remove_ workflow _files
+              - title: Cannot run my workflow - usegalaxy.org support - Galaxy
+                href: https://help.galaxyproject.org/t/cannot-run-my-workflow/2694
+                body: "After hitting \u201C RUN \u201D, I see a \u201C Workflow Invocation\
+                  \ State\u201D notice and \u201Cstep ... Have not been able to run\
+                  \ a workflow for the past 3 days."
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 4.597588
+            timestamp: '2025-11-09T11:51:16.271390'
+        tools_used:
+        - Web Search
+      type: agent_result
+    - sender: node_1762581788623
+      agent: researcher_agent
+      content:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: 'It seems the previous conversation was cut off, but based on
+          the given information, it appears to be a conversation between a researcher
+          and an AI model (researcher-agent). The researcher asked the AI to ''Run
+          workflow'' and received a response indicating that no detailed information
+          was found based on a web search using DuckDuckGo.
+
+
+          To continue the conversation, I''ll start by asking for a clarification
+          on the task description:
+
+
+          "Can you please provide a more detailed description of the task you''d like
+          the workflow to accomplish? This will help me better understand your requirements
+          and provide a more accurate response."'
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:21:22 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=41;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:21:23 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 3.338832
+            timestamp: '2025-11-09T11:51:22.870928'
+        tools_used:
+        - DuckDuckGo Search
+      type: agent_result
+    shared_data:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Based on the provided web search results, I''ll provide a comprehensive
+          answer on how to run a workflow.
+
+
+          **Running Workflows**
+
+          --------------------
+
+
+          A workflow can be set up to run on a schedule or at a specific date and
+          time. The options for scheduling a workflow include:
+
+
+          * Daily
+
+          * Weekly
+
+          * Monthly
+
+          * Yearly
+
+          * A specific date and time
+
+
+          To run a workflow, you can use the following approaches:
+
+
+          ### 1. Scheduled Workflows
+
+
+          To set up a scheduled workflow, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the schedule option (daily, weekly, monthly, or yearly)
+
+          * Choose the specific date and time for the workflow to run
+
+          * Click "Save" to save the workflow
+
+
+          ### 2. Trigger Workflows
+
+
+          To run a workflow on a specific trigger, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the trigger option (e.g., push, pull request, etc.)
+
+          * Choose the specific conditions for the trigger (e.g., branch, tag, etc.)
+
+          * Click "Save" to save the workflow
+
+
+          **GitHub Actions Workflow Not Running**
+
+          --------------------------------------
+
+
+          If a GitHub Actions workflow is not running, it''s possible that the workflow
+          is not triggered or is not set up correctly. Based on the provided Stack
+          Overflow answer, here are some possible solutions:
+
+
+          * Make sure the workflow is triggered by a branch (e.g., main, dev, etc.)
+
+          * Make sure the workflow is set up to run on the correct schedule (e.g.,
+          daily, weekly, etc.)
+
+          * Check the workflow logs to see if there are any errors or issues
+
+
+          **Running a Workflow Instance for a Specific Time**
+
+          ------------------------------------------------
+
+
+          To run a workflow instance for a specific time, you can use the following
+          approaches:
+
+
+          ### 1. Using Workflow Foundation
+
+
+          To run a workflow instance using Workflow Foundation, follow these steps:
+
+
+          * Create a new instance of the workflow
+
+          * Set the start time for the workflow instance
+
+          * Run the workflow instance
+
+
+          ### 2. Using a Schedule
+
+
+          To run a workflow instance using a schedule, follow these steps:
+
+
+          * Create a new schedule for the workflow
+
+          * Set the schedule to run at a specific time (e.g., 2 AM every day)
+
+          * Run the workflow instance using the schedule
+
+
+          **Setting Workflow Condition to Run at 2 AM every Day**
+
+          ---------------------------------------------------------
+
+
+          To set a workflow condition to run at 2 AM every day, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Conditions" tab
+
+          * Add a new condition
+
+          * Set the condition to run at 2 AM every day (e.g., `cron(0 2 * * *)`)
+
+          * Save the condition
+
+
+          Note: The cron expression `0 2 * * *` means "run at 2 AM every day". You
+          can adjust this to fit your specific needs.
+
+
+          I hope this comprehensive answer helps you understand how to run a workflow
+          and troubleshoot common issues!'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Run workflow
+              count: 5
+              results:
+              - title: Running Workflows
+                href: https://www.process.st/help/docs/running-workflows/
+                body: You can set up workflow runs to be scheduled on a daily , weekly
+                  , monthly , or yearly basis, or to run once at a given date or time.
+              - title: GitHub Action workflow not running - Stack Overflow
+                href: https://stackoverflow.com/questions/61989951/github-action-workflow-not-running
+                body: In my case what I needed to run a workflow in pylint branch
+                  but it was not working until I added the same workflow in the main
+                  branch.In the main ...
+              - title: Running a Workflow instance for a specific time using workflow
+                href: https://stackoverflow.com/questions/26055589/running-a-workflow-instance-for-a-specific-time-using-workflow-foundation
+                body: Running a Workflow instance for a specific time using workflow
+                  foundation ... How to set workflow condition that runs 2AM everyday?
+              - title: Running Workflows - atomate2
+                href: https://materialsproject.github.io/atomate2/user/running-workflows.html
+                body: Running Workflows ... LOBSTER Workflow Tutorial (Using VASP
+                  for DFT) ... remove_ workflow _files
+              - title: Cannot run my workflow - usegalaxy.org support - Galaxy
+                href: https://help.galaxyproject.org/t/cannot-run-my-workflow/2694
+                body: "After hitting \u201C RUN \u201D, I see a \u201C Workflow Invocation\
+                  \ State\u201D notice and \u201Cstep ... Have not been able to run\
+                  \ a workflow for the past 3 days."
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 4.597588
+            timestamp: '2025-11-09T11:51:16.271390'
+        tools_used:
+        - Web Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: 'It seems the previous conversation was cut off, but based on
+          the given information, it appears to be a conversation between a researcher
+          and an AI model (researcher-agent). The researcher asked the AI to ''Run
+          workflow'' and received a response indicating that no detailed information
+          was found based on a web search using DuckDuckGo.
+
+
+          To continue the conversation, I''ll start by asking for a clarification
+          on the task description:
+
+
+          "Can you please provide a more detailed description of the task you''d like
+          the workflow to accomplish? This will help me better understand your requirements
+          and provide a more accurate response."'
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:21:22 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=41;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:21:23 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 3.338832
+            timestamp: '2025-11-09T11:51:22.870928'
+        tools_used:
+        - DuckDuckGo Search
+    agents_used:
+    - researcher_agent
+    current_step: node_1762581788623
+    results:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Based on the provided web search results, I''ll provide a comprehensive
+          answer on how to run a workflow.
+
+
+          **Running Workflows**
+
+          --------------------
+
+
+          A workflow can be set up to run on a schedule or at a specific date and
+          time. The options for scheduling a workflow include:
+
+
+          * Daily
+
+          * Weekly
+
+          * Monthly
+
+          * Yearly
+
+          * A specific date and time
+
+
+          To run a workflow, you can use the following approaches:
+
+
+          ### 1. Scheduled Workflows
+
+
+          To set up a scheduled workflow, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the schedule option (daily, weekly, monthly, or yearly)
+
+          * Choose the specific date and time for the workflow to run
+
+          * Click "Save" to save the workflow
+
+
+          ### 2. Trigger Workflows
+
+
+          To run a workflow on a specific trigger, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Run workflow" button
+
+          * Select the trigger option (e.g., push, pull request, etc.)
+
+          * Choose the specific conditions for the trigger (e.g., branch, tag, etc.)
+
+          * Click "Save" to save the workflow
+
+
+          **GitHub Actions Workflow Not Running**
+
+          --------------------------------------
+
+
+          If a GitHub Actions workflow is not running, it''s possible that the workflow
+          is not triggered or is not set up correctly. Based on the provided Stack
+          Overflow answer, here are some possible solutions:
+
+
+          * Make sure the workflow is triggered by a branch (e.g., main, dev, etc.)
+
+          * Make sure the workflow is set up to run on the correct schedule (e.g.,
+          daily, weekly, etc.)
+
+          * Check the workflow logs to see if there are any errors or issues
+
+
+          **Running a Workflow Instance for a Specific Time**
+
+          ------------------------------------------------
+
+
+          To run a workflow instance for a specific time, you can use the following
+          approaches:
+
+
+          ### 1. Using Workflow Foundation
+
+
+          To run a workflow instance using Workflow Foundation, follow these steps:
+
+
+          * Create a new instance of the workflow
+
+          * Set the start time for the workflow instance
+
+          * Run the workflow instance
+
+
+          ### 2. Using a Schedule
+
+
+          To run a workflow instance using a schedule, follow these steps:
+
+
+          * Create a new schedule for the workflow
+
+          * Set the schedule to run at a specific time (e.g., 2 AM every day)
+
+          * Run the workflow instance using the schedule
+
+
+          **Setting Workflow Condition to Run at 2 AM every Day**
+
+          ---------------------------------------------------------
+
+
+          To set a workflow condition to run at 2 AM every day, follow these steps:
+
+
+          * Go to the workflow editor
+
+          * Click on the "Conditions" tab
+
+          * Add a new condition
+
+          * Set the condition to run at 2 AM every day (e.g., `cron(0 2 * * *)`)
+
+          * Save the condition
+
+
+          Note: The cron expression `0 2 * * *` means "run at 2 AM every day". You
+          can adjust this to fit your specific needs.
+
+
+          I hope this comprehensive answer helps you understand how to run a workflow
+          and troubleshoot common issues!'
+        context_size: 2
+        tool_results:
+          web-search-tool:
+            success: true
+            data:
+              query: Run workflow
+              count: 5
+              results:
+              - title: Running Workflows
+                href: https://www.process.st/help/docs/running-workflows/
+                body: You can set up workflow runs to be scheduled on a daily , weekly
+                  , monthly , or yearly basis, or to run once at a given date or time.
+              - title: GitHub Action workflow not running - Stack Overflow
+                href: https://stackoverflow.com/questions/61989951/github-action-workflow-not-running
+                body: In my case what I needed to run a workflow in pylint branch
+                  but it was not working until I added the same workflow in the main
+                  branch.In the main ...
+              - title: Running a Workflow instance for a specific time using workflow
+                href: https://stackoverflow.com/questions/26055589/running-a-workflow-instance-for-a-specific-time-using-workflow-foundation
+                body: Running a Workflow instance for a specific time using workflow
+                  foundation ... How to set workflow condition that runs 2AM everyday?
+              - title: Running Workflows - atomate2
+                href: https://materialsproject.github.io/atomate2/user/running-workflows.html
+                body: Running Workflows ... LOBSTER Workflow Tutorial (Using VASP
+                  for DFT) ... remove_ workflow _files
+              - title: Cannot run my workflow - usegalaxy.org support - Galaxy
+                href: https://help.galaxyproject.org/t/cannot-run-my-workflow/2694
+                body: "After hitting \u201C RUN \u201D, I see a \u201C Workflow Invocation\
+                  \ State\u201D notice and \u201Cstep ... Have not been able to run\
+                  \ a workflow for the past 3 days."
+              metadata:
+                region: wt-wt
+                max_results: 5
+            error: null
+            metadata:
+              tool_id: web-search-tool
+              tool_name: Web Search
+              tool_type: websearch
+            execution_time: 4.597588
+            timestamp: '2025-11-09T11:51:16.271390'
+        tools_used:
+        - Web Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Enter task description...
+        llm_response: 'It seems the previous conversation was cut off, but based on
+          the given information, it appears to be a conversation between a researcher
+          and an AI model (researcher-agent). The researcher asked the AI to ''Run
+          workflow'' and received a response indicating that no detailed information
+          was found based on a web search using DuckDuckGo.
+
+
+          To continue the conversation, I''ll start by asking for a clarification
+          on the task description:
+
+
+          "Can you please provide a more detailed description of the task you''d like
+          the workflow to accomplish? This will help me better understand your requirements
+          and provide a more accurate response."'
+        context_size: 2
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:21:22 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=41;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:21:23 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 3.338832
+            timestamp: '2025-11-09T11:51:22.870928'
+        tools_used:
+        - DuckDuckGo Search
+    error: null

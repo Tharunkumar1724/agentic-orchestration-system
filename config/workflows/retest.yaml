@@ -1,0 +1,24 @@
+id: retest
+name: Stock Analysis Workflow
+description: 'Analyze stock trends and predict future prices using market data and research'
+type: dag
+nodes:
+- id: node_1762581659768
+  agent_ref: researcher-agent
+  task: Research and analyze stock market trends and news
+  tools:
+  - duckduckgo_search
+  dependencies:
+  - node_1762581788623
+  receives_from: []
+  sends_to: []
+- id: node_1762581788623
+  agent_ref: researcher_agent
+  task: Fetch stock price data and analyze trends for prediction
+  tools:
+  - stock_prediction_tool
+  - duckduckgo_search
+  dependencies: []
+  receives_from: []
+  sends_to: []
+version: v1

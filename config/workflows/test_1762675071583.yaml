@@ -1,0 +1,14 @@
+id: test_1762675071583
+name: test
+description: ''
+type: sequence
+nodes:
+- id: node_1762675058618
+  agent_ref: researcher_agent
+  task: Enter task description...
+  tools:
+  - stock_prediction_tool
+  dependencies: []
+  receives_from: []
+  sends_to: []
+version: v1

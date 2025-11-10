@@ -140,7 +140,7 @@ const ToolCard = ({ tool, onEdit, onDelete }) => {
 const ToolModal = ({ tool, onSave, onClose }) => {
   const [formData, setFormData] = useState(
     tool || {
-      id: '',
+      id: `tool_${Date.now()}`,
       name: '',
       type: 'function',
       description: '',
@@ -151,7 +151,14 @@ const ToolModal = ({ tool, onSave, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
+    
+    // Ensure ID is unique and valid
+    const finalData = {
+      ...formData,
+      id: formData.id.trim() || `tool_${Date.now()}`,
+    };
+    
+    onSave(finalData);
   };
 
   return (
@@ -185,10 +192,12 @@ const ToolModal = ({ tool, onSave, onClose }) => {
                 className="input-field"
                 value={formData.id}
                 onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-                placeholder="unique_tool_id"
-                required
+                placeholder="auto-generated if empty"
                 disabled={!!tool}
               />
+              {!tool && (
+                <p className="text-xs text-gray-400 mt-1">Auto-generated if left empty</p>
+              )}
             </div>
 
             <div>

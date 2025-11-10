@@ -34,7 +34,7 @@ def _convert_enums(obj: Any) -> Any:
 
 
 def save(kind: str, id: str, obj: Any):
-    """Save object as YAML file and also JSON copy for workflows."""
+    """Save object as YAML file and also JSON copy for workflows, solutions, agents, and tools."""
     p = _path_for(kind, id)
     # Convert enums to strings before saving
     converted_obj = _convert_enums(obj)
@@ -43,8 +43,8 @@ def save(kind: str, id: str, obj: Any):
     with p.open("w", encoding="utf-8") as f:
         yaml.safe_dump(converted_obj, f, default_flow_style=False, sort_keys=False)
     
-    # Also save JSON copy for workflows in data folder
-    if kind == "workflows":
+    # Also save JSON copy in data folder for workflows, solutions, agents, and tools
+    if kind in ["workflows", "solutions", "agents", "tools"]:
         json_path = _data_path_for(kind, id)
         with json_path.open("w", encoding="utf-8") as f:
             json.dump(converted_obj, f, indent=2, default=str)
@@ -84,8 +84,8 @@ def delete(kind: str, id: str) -> bool:
         p.unlink()
         deleted = True
     
-    # Also delete JSON copy for workflows
-    if kind == "workflows":
+    # Also delete JSON copy for workflows, solutions, agents, and tools
+    if kind in ["workflows", "solutions", "agents", "tools"]:
         json_path = _data_path_for(kind, id)
         if json_path.exists():
             json_path.unlink()

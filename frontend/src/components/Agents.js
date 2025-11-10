@@ -74,7 +74,7 @@ const AgentCard = ({ agent, onEdit, onDelete }) => {
 const AgentModal = ({ agent, onSave, onClose, availableTools }) => {
   const [formData, setFormData] = useState(
     agent || {
-      id: '',
+      id: `agent_${Date.now()}`,
       name: '',
       type: 'react',
       llm_config: {
@@ -89,7 +89,14 @@ const AgentModal = ({ agent, onSave, onClose, availableTools }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
+    
+    // Ensure ID is unique and valid
+    const finalData = {
+      ...formData,
+      id: formData.id.trim() || `agent_${Date.now()}`,
+    };
+    
+    onSave(finalData);
   };
 
   const toggleTool = (toolId) => {
@@ -132,10 +139,12 @@ const AgentModal = ({ agent, onSave, onClose, availableTools }) => {
                 className="input-field"
                 value={formData.id}
                 onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-                placeholder="unique_agent_id"
-                required
+                placeholder="auto-generated if empty"
                 disabled={!!agent}
               />
+              {!agent && (
+                <p className="text-xs text-gray-400 mt-1">Auto-generated if left empty</p>
+              )}
             </div>
 
             <div>

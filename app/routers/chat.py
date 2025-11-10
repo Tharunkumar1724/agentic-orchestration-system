@@ -107,6 +107,7 @@ async def send_message(session_id: str, request: ChatMessageRequest):
     """Send a message to a chat session and get the workflow's response.
     
     This maintains context from previous messages in the session.
+    Returns comprehensive metrics for the message execution.
     """
     # Get session
     session = chat_manager.get_session(session_id)
@@ -147,6 +148,44 @@ async def send_message(session_id: str, request: ChatMessageRequest):
     # Run workflow with preserved state
     try:
         result = await orchestrator.run_workflow(workflow, initial_state=session.state)
+        
+        # Update session state
+        session.state = result.get("state", {})
+        
+        # Update solution memory if in solution context
+        if session.solution_id:
+            solution_service.update_shared_memory(
+                session.solution_id,
+                session.workflow_id,
+                {"conversation_context": session.conversation_memory}
+            )
+        
+        # Extract assistant response
+        assistant_content = str(result.get("result", {}))
+        
+        # Add assistant response with metrics
+        session = chat_manager.add_message(
+            session_id,
+            role="assistant",
+            content=assistant_content,
+            metadata={
+                "run_id": result.get("run_id"),
+                "status": result.get("status"),
+                "metrics": result.get("metrics", {})  # Include metrics in message metadata
+            }
+        )
+        
+        # Add metrics to session metadata for easy access
+        if result.get("metrics"):
+            if "last_message_metrics" not in session.metadata:
+                session.metadata["last_message_metrics"] = {}
+            session.metadata["last_message_metrics"] = result.get("metrics")
+            # Save updated session
+            chat_manager.sessions[session_id] = session
+            chat_manager._save_session(session)
+        
+        return session
+    
     except Exception as e:
         error_msg = str(e)
         if "getaddrinfo failed" in error_msg or "ConnectError" in error_msg:

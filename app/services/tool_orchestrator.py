@@ -311,30 +311,69 @@ class ToolOrchestrator:
     ) -> Any:
         """Handle API calls with proper HTTP methods"""
         config = tool_def.get("config", {})
-        url = config.get("url")
-        method = config.get("method", "GET").upper()
-        headers = config.get("headers", {})
-        timeout = config.get("timeout", 10.0)
+        
+        # Support both simple config.url and nested config.api structure
+        api_config = config.get("api", {})
+        if api_config:
+            # Nested structure (e.g., duckduckgo_search)
+            base_url = api_config.get("base_url", "")
+            endpoint = api_config.get("endpoint", "")
+            url = base_url + endpoint
+            method = api_config.get("method", "GET").upper()
+            headers = api_config.get("headers", {})
+            timeout = api_config.get("timeout", 10.0)
+            query_params = api_config.get("query_params", {})
+            
+            # Replace template variables in query_params
+            params = {}
+            for key, value in query_params.items():
+                if isinstance(value, str) and "{{" in value:
+                    # Extract variable name from {{input.query}}
+                    var_path = value.replace("{{", "").replace("}}", "").strip()
+                    if "." in var_path:
+                        parts = var_path.split(".")
+                        if parts[0] == "input" and len(parts) > 1:
+                            params[key] = inputs.get(parts[1], value)
+                        else:
+                            params[key] = value
+                    else:
+                        params[key] = inputs.get(var_path, value)
+                else:
+                    params[key] = value
+        else:
+            # Simple structure (e.g., config.url)
+            url = config.get("url")
+            method = config.get("method", "GET").upper()
+            headers = config.get("headers", {})
+            timeout = config.get("timeout", 10.0)
+            params = inputs
         
         async with httpx.AsyncClient(timeout=timeout) as client:
             if method == "GET":
-                response = await client.get(url, params=inputs, headers=headers)
+                response = await client.get(url, params=params, headers=headers)
             elif method == "POST":
                 response = await client.post(url, json=inputs, headers=headers)
             elif method == "PUT":
                 response = await client.put(url, json=inputs, headers=headers)
             elif method == "DELETE":
-                response = await client.delete(url, params=inputs, headers=headers)
+                response = await client.delete(url, params=params, headers=headers)
             elif method == "PATCH":
                 response = await client.patch(url, json=inputs, headers=headers)
             else:
                 raise ValueError(f"Unsupported HTTP method: {method}")
         
+        # Try to parse as JSON
+        try:
+            json_data = response.json()
+        except:
+            json_data = None
+        
         return {
             "status_code": response.status_code,
             "headers": dict(response.headers),
             "body": response.text,
-            "json": response.json() if response.headers.get("content-type", "").startswith("application/json") else None
+            "json": json_data,
+            "data": json_data  # Add 'data' field for consistency
         }
     
     async def _handle_http(

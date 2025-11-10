@@ -21,6 +21,7 @@ import {
   FaCheckCircle,
   FaClock
 } from 'react-icons/fa';
+import MetricsDisplay from './MetricsDisplay';
 
 // Read-only Blueprint Agent Node - Shows execution status
 const BlueprintAgentNode = ({ data }) => {
@@ -256,6 +257,17 @@ const WorkflowBlueprint = ({ workflow, agents, onClose, isExecuting, executionSt
             />
           </ReactFlow>
         </div>
+
+        {/* Metrics Display - Show after execution completes */}
+        {!isExecuting && executionState?._metrics && (
+          <div className="px-6 py-4 bg-gray-900 border-t border-gray-800 max-h-96 overflow-y-auto">
+            <MetricsDisplay 
+              metrics={executionState._metrics} 
+              title="Workflow Execution Metrics"
+              compact={false}
+            />
+          </div>
+        )}
 
         {/* Footer - Legend */}
         <div className="p-4 border-t border-gray-800 bg-gray-900 flex items-center justify-between">

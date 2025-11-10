@@ -1,9 +1,54 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ReactFlow, { Background, Controls, MarkerType, Position, Handle, useNodesState, useEdgesState } from 'reactflow';
+import 'reactflow/dist/style.css';
 import { chatAPI, solutionsAPI, workflowsAPI } from '../services/api';
 import { 
-  FaPaperPlane, FaProjectDiagram, FaExchangeAlt, FaSync,
-  FaCog, FaNetworkWired, FaCheckCircle, FaCircle
+  FaPaperPlane, FaProjectDiagram, FaExchangeAlt, FaSync, FaTimes,
+  FaCog, FaNetworkWired, FaCheckCircle, FaCircle, FaRobot, FaUser,
+  FaSpinner, FaBrain, FaArrowRight, FaPlay, FaStop
 } from 'react-icons/fa';
+
+// Animated Workflow Node
+const AnimatedWorkflowNode = React.memo(({ data, id }) => {
+  console.log('🎨 Rendering node:', id, data);
+  
+  const isActive = data?.isActive || false;
+  const isCompleted = data?.isCompleted || false;
+  
+  return (
+    <div
+      className={`px-6 py-4 rounded-xl shadow-2xl border-2 transition-all min-w-[220px] ${
+        isActive ? 'bg-gradient-to-br from-purple-600 to-blue-600 border-white shadow-lg shadow-purple-500/50' :
+        isCompleted ? 'bg-gradient-to-br from-green-600 to-green-700 border-green-400' :
+        'bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700'
+      }`}
+    >
+      <Handle type="target" position={Position.Top} className="w-3 h-3 !bg-purple-500 !border-2 !border-white" />
+      
+      <div className="flex items-start gap-3">
+        <div className={`p-2 rounded-lg ${isActive ? 'bg-white/20' : 'bg-purple-600'}`}>
+          <FaNetworkWired className={`text-lg text-white`} />
+        </div>
+        <div className="flex-1">
+          <div className="font-bold text-white text-sm">{data?.label || 'Workflow'}</div>
+          <div className="text-xs text-gray-200 mt-1">
+            {isActive && '⚡ Executing...'}
+            {isCompleted && '✓ Completed'}
+            {!isActive && !isCompleted && '⏳ Pending'}
+          </div>
+          {data?.facts && data.facts.length > 0 && (
+            <div className="mt-2 text-xs text-green-300">
+              📌 {data.facts.length} facts extracted
+            </div>
+          )}
+        </div>
+      </div>
+      
+      <Handle type="source" position={Position.Bottom} className="w-3 h-3 !bg-purple-500 !border-2 !border-white" />
+    </div>
+  );
+});
 
 function SolutionChat({ solutionId, onClose }) {
   const [session, setSession] = useState(null);
@@ -15,11 +60,33 @@ function SolutionChat({ solutionId, onClose }) {
   const [showWorkflowSelector, setShowWorkflowSelector] = useState(false);
   const [blueprint, setBlueprint] = useState(null);
   const [showBlueprint, setShowBlueprint] = useState(true);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [activeWorkflowIndex, setActiveWorkflowIndex] = useState(-1);
+  const [workflowStates, setWorkflowStates] = useState({});
   const messagesEndRef = useRef(null);
+  
+  // Solution execution state
+  const [ws, setWs] = useState(null);
+  const [executing, setExecuting] = useState(false);
+  const [executionMessages, setExecutionMessages] = useState([]);
+
+  const nodeTypes = React.useMemo(() => ({
+    workflowNode: AnimatedWorkflowNode,
+  }), []);
 
   useEffect(() => {
     initializeSession();
+    initializeWebSocket();
   }, [solutionId]);
+
+  useEffect(() => {
+    return () => {
+      if (ws) {
+        ws.close();
+      }
+    };
+  }, [ws]);
 
   useEffect(() => {
     if (session) {
@@ -27,6 +94,23 @@ function SolutionChat({ solutionId, onClose }) {
       loadBlueprint();
     }
   }, [session]);
+
+  useEffect(() => {
+    // Initialize visualization when solution is loaded
+    if (solution && solution.workflows && solution.workflows.length > 0) {
+      console.log('Solution loaded, initializing visualization...');
+      initializeWorkflowVisualization();
+    }
+  }, [solution]);
+
+  useEffect(() => {
+    console.log('🎨 Nodes state updated:', nodes.length, 'nodes');
+    console.log('🎨 Current nodes:', nodes);
+  }, [nodes]);
+
+  useEffect(() => {
+    console.log('🔗 Edges state updated:', edges.length, 'edges');
+  }, [edges]);
 
   useEffect(() => {
     scrollToBottom();
@@ -81,6 +165,70 @@ function SolutionChat({ solutionId, onClose }) {
       setBlueprint(response.data);
     } catch (err) {
       console.error('Error loading blueprint:', err);
+    }
+  };
+
+  const initializeWorkflowVisualization = async () => {
+    if (!solution || !solution.workflows) {
+      console.log('No solution or workflows to visualize');
+      return;
+    }
+
+    console.log('🔍 Initializing workflow visualization for:', solution.workflows);
+    console.log('🔍 Solution object:', solution);
+
+    try {
+      // Load all workflows
+      const workflowPromises = solution.workflows.map(wfId => workflowsAPI.getById(wfId));
+      const workflowsData = await Promise.all(workflowPromises);
+
+      console.log('✅ Loaded workflow data:', workflowsData);
+
+      const flowNodes = workflowsData.map((wf, index) => ({
+        id: wf.data.id,
+        type: 'default', // TEMPORARILY using default type to test ReactFlow
+        position: { x: 250, y: 100 + index * 220 },
+        data: {
+          label: wf.data.name || wf.data.id,
+          workflowId: wf.data.id,
+          isActive: false,
+          isCompleted: false,
+          facts: []
+        },
+        style: {
+          background: '#1f2937',
+          color: '#fff',
+          border: '2px solid #8b5cf6',
+          borderRadius: '12px',
+          padding: '10px',
+          width: 220
+        }
+      }));
+
+      const flowEdges = [];
+      for (let i = 0; i < flowNodes.length - 1; i++) {
+        flowEdges.push({
+          id: `e${i}-${i+1}`,
+          source: flowNodes[i].id,
+          target: flowNodes[i+1].id,
+          animated: true,
+          style: { stroke: '#8b5cf6', strokeWidth: 3 },
+          markerEnd: { type: MarkerType.ArrowClosed, color: '#8b5cf6', width: 20, height: 20 },
+          type: 'smoothstep',
+        });
+      }
+
+      console.log('📊 Created nodes:', JSON.stringify(flowNodes, null, 2));
+      console.log('🔗 Created edges:', JSON.stringify(flowEdges, null, 2));
+      console.log('💾 Setting nodes and edges in state...');
+
+      // Set nodes and edges immediately
+      setNodes(flowNodes);
+      setEdges(flowEdges);
+      
+      console.log('✨ Nodes and edges set! Count:', flowNodes.length, 'nodes,', flowEdges.length, 'edges');
+    } catch (err) {
+      console.error('❌ Error initializing workflow visualization:', err);
     }
   };
 
@@ -145,6 +293,156 @@ function SolutionChat({ solutionId, onClose }) {
     return current?.name || session.workflow_id;
   };
 
+  // WebSocket for solution execution
+  const initializeWebSocket = () => {
+    if (!solutionId) {
+      console.error('❌ Cannot initialize WebSocket: solutionId is missing!');
+      return;
+    }
+    
+    const wsUrl = `ws://localhost:8000/solutions/ws/${solutionId}`;
+    console.log('🔌 Connecting to WebSocket for solution:', solutionId);
+    console.log('🔌 WebSocket URL:', wsUrl);
+    
+    const websocket = new WebSocket(wsUrl);
+    
+    websocket.onopen = () => {
+      console.log('✅ Solution WebSocket connected!');
+      setWs(websocket);
+    };
+    
+    websocket.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        console.log('📨 Received WebSocket message:', data);
+        handleWebSocketMessage(data);
+      } catch (e) {
+        console.error('❌ WebSocket message error:', e);
+      }
+    };
+    
+    websocket.onerror = (error) => {
+      console.error('❌ WebSocket error:', error);
+      console.error('❌ WebSocket URL was:', wsUrl);
+      console.error('❌ Solution ID:', solutionId);
+      setExecutionMessages(prev => [...prev, { 
+        type: 'error', 
+        message: `WebSocket connection error. URL: ${wsUrl}` 
+      }]);
+    };
+    
+    websocket.onclose = (event) => {
+      console.log('🔌 Solution WebSocket disconnected');
+      console.log('🔌 Close code:', event.code, 'Reason:', event.reason);
+      setWs(null);
+    };
+  };
+
+  const handleWebSocketMessage = (message) => {
+    console.log('📥📥📥 WEBSOCKET MESSAGE RECEIVED! 📥📥📥');
+    console.log('📥 Processing message type:', message.type, message);
+    console.log('📥 Current executionMessages count:', executionMessages.length);
+    
+    // ALWAYS add to execution messages
+    setExecutionMessages(prev => {
+      const newMessages = [...prev, message];
+      console.log('📥 Updated executionMessages, new count:', newMessages.length);
+      return newMessages;
+    });
+
+    switch (message.type) {
+      case 'execution_started':
+        console.log('▶️ Execution started!');
+        setExecuting(true);
+        setWorkflowStates({});
+        break;
+
+      case 'workflow_started':
+        console.log('🔄 Workflow started:', message.workflow_name);
+        // Update node to active
+        setNodes(prevNodes => prevNodes.map((node, idx) => {
+          if (idx === message.position - 1) {
+            return {
+              ...node,
+              data: { ...node.data, isActive: true, isCompleted: false }
+            };
+          }
+          return node;
+        }));
+        break;
+
+      case 'workflow_completed':
+        console.log('✅ Workflow completed:', message.workflow_id);
+        // Update node to completed
+        setNodes(prevNodes => prevNodes.map((node, idx) => {
+          const workflowIndex = solution?.workflows?.indexOf(message.workflow_id);
+          if (idx === workflowIndex) {
+            return {
+              ...node,
+              data: { 
+                ...node.data, 
+                isActive: false, 
+                isCompleted: true,
+                facts: message.kag_analysis?.facts || []
+              }
+            };
+          }
+          return node;
+        }));
+        
+        setWorkflowStates(prev => ({
+          ...prev,
+          [message.workflow_id]: {
+            status: 'completed',
+            kag: message.kag_analysis,
+            output: message.output
+          }
+        }));
+        break;
+
+      case 'execution_completed':
+        console.log('🎉 Execution completed!');
+        setExecuting(false);
+        break;
+
+      case 'error':
+        console.error('❌ Error:', message.message);
+        setExecuting(false);
+        break;
+
+      default:
+        console.log('❓ Unknown message type:', message.type);
+    }
+  };
+
+  const startExecution = () => {
+    console.log('🚀🚀🚀 EXECUTE BUTTON CLICKED! 🚀🚀🚀');
+    console.log('🚀 Starting execution, ws state:', ws?.readyState);
+    console.log('🚀 WebSocket object:', ws);
+    console.log('🚀 Solution ID:', solutionId);
+    
+    // Show immediate feedback
+    setExecutionMessages([{ 
+      type: 'info', 
+      message: `Button clicked! Checking WebSocket... State: ${ws?.readyState}` 
+    }]);
+    
+    // WebSocket.OPEN = 1
+    if (ws && ws.readyState === 1) {
+      console.log('📤 Sending execute command for solution:', solutionId);
+      setExecutionMessages(prev => [...prev, { 
+        type: 'info', 
+        message: `Sending execute command to backend...` 
+      }]);
+      ws.send(JSON.stringify({ action: 'execute' }));
+    } else {
+      const errorMsg = !ws ? 'WebSocket not initialized' : `WebSocket not ready. State: ${ws.readyState} (need 1 for OPEN)`;
+      console.error('❌', errorMsg);
+      alert(`Cannot execute: ${errorMsg}. Please refresh the page.`);
+      setExecutionMessages(prev => [...prev, { type: 'error', message: errorMsg }]);
+    }
+  };
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg shadow-2xl w-full max-w-7xl h-[90vh] flex flex-col">
@@ -159,8 +457,46 @@ function SolutionChat({ solutionId, onClose }) {
               <p className="text-sm text-blue-100 mt-1">
                 Current Workflow: {getCurrentWorkflowName()}
               </p>
+              <p className="text-xs text-blue-200 mt-1 flex items-center gap-2">
+                WebSocket: {ws?.readyState === 1 ? (
+                  <span className="text-green-300">● Connected</span>
+                ) : ws?.readyState === 0 ? (
+                  <span className="text-yellow-300">● Connecting...</span>
+                ) : (
+                  <>
+                    <span className="text-red-300">● Disconnected</span>
+                    <button
+                      onClick={initializeWebSocket}
+                      className="ml-2 px-2 py-1 text-xs bg-blue-500 hover:bg-blue-600 rounded"
+                    >
+                      Reconnect
+                    </button>
+                  </>
+                )}
+              </p>
             </div>
             <div className="flex gap-2">
+              <button
+                onClick={startExecution}
+                disabled={executing || !ws}
+                className={`px-4 py-2 rounded-lg flex items-center gap-2 font-semibold transition-all ${
+                  executing 
+                    ? 'bg-yellow-600 text-white cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-lg'
+                }`}
+              >
+                {executing ? (
+                  <>
+                    <FaSpinner className="animate-spin" />
+                    Executing...
+                  </>
+                ) : (
+                  <>
+                    <FaPlay />
+                    Execute Solution
+                  </>
+                )}
+              </button>
               <button
                 onClick={() => setShowBlueprint(!showBlueprint)}
                 className="px-3 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-lg flex items-center gap-2"
@@ -228,6 +564,46 @@ function SolutionChat({ solutionId, onClose }) {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              {/* Execution Messages */}
+              {executionMessages.length > 0 && (
+                <div className="bg-purple-900/20 border-2 border-purple-500/50 rounded-lg p-4 mb-4">
+                  <h4 className="text-purple-300 font-bold mb-2 flex items-center gap-2">
+                    <FaBrain /> Solution Execution Log ({executionMessages.length} messages)
+                  </h4>
+                  <div className="space-y-2 max-h-60 overflow-y-auto">
+                    {executionMessages.map((msg, idx) => (
+                      <div key={idx} className="text-sm">
+                        {msg.type === 'execution_started' && (
+                          <div className="text-green-400">▶️ Execution started - {msg.total_workflows} workflows</div>
+                        )}
+                        {msg.type === 'workflow_started' && (
+                          <div className="text-blue-400">🔄 Workflow {msg.position}/{msg.total}: {msg.workflow_name}</div>
+                        )}
+                        {msg.type === 'workflow_completed' && (
+                          <div className="text-green-400">
+                            ✅ Completed: {msg.workflow_name}
+                            {msg.kag_analysis?.summary && (
+                              <div className="text-gray-400 text-xs ml-4 mt-1">
+                                Summary: {msg.kag_analysis.summary.substring(0, 100)}...
+                              </div>
+                            )}
+                          </div>
+                        )}
+                        {msg.type === 'handoff_prepared' && (
+                          <div className="text-yellow-400">🤝 Handoff: {msg.from_workflow} → {msg.to_workflow}</div>
+                        )}
+                        {msg.type === 'execution_completed' && (
+                          <div className="text-green-500 font-bold">🎉 Execution complete!</div>
+                        )}
+                        {msg.type === 'error' && (
+                          <div className="text-red-400">❌ Error: {msg.message}</div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
               {messages.length === 0 ? (
                 <div className="text-center text-gray-500 mt-8">
                   <FaProjectDiagram className="mx-auto mb-3" size={48} />
@@ -289,96 +665,116 @@ function SolutionChat({ solutionId, onClose }) {
             </div>
           </div>
 
-          {/* Blueprint Area */}
+          {/* Animated Workflow Visualization */}
           {showBlueprint && (
-            <div className="w-1/2 border-l border-gray-200 bg-gray-50 overflow-y-auto">
-              <div className="p-4">
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                  <FaNetworkWired /> Workflow Blueprint
+            <div className="w-1/2 border-l border-gray-200 bg-red-900 relative h-full">
+              {/* GIANT TEST BOX */}
+              <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
+                <div className="bg-yellow-500 text-black p-8 rounded-lg text-2xl font-bold">
+                  TEST: Can you see this yellow box?
+                  <div className="text-lg">Nodes: {nodes.length}</div>
+                  <div className="text-lg">showBlueprint: {showBlueprint ? 'true' : 'false'}</div>
+                </div>
+              </div>
+
+              <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-sm rounded-lg p-3 border border-purple-500/30">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                  <FaNetworkWired className="text-purple-400" /> 
+                  Live Workflow Chain
                 </h3>
-
-                {blueprint ? (
-                  <div className="space-y-6">
-                    {/* Current Workflow Info */}
-                    <div className="bg-white rounded-lg p-4 shadow">
-                      <h4 className="font-semibold mb-2">Current Workflow</h4>
-                      <div className="text-sm space-y-1">
-                        <p><span className="font-medium">Name:</span> {blueprint.workflow?.name}</p>
-                        <p><span className="font-medium">Type:</span> {blueprint.workflow?.type}</p>
-                        <p><span className="font-medium">Nodes:</span> {blueprint.workflow?.nodes?.length || 0}</p>
-                      </div>
-                    </div>
-
-                    {/* Workflow Nodes */}
-                    {blueprint.workflow?.nodes && blueprint.workflow.nodes.length > 0 && (
-                      <div className="bg-white rounded-lg p-4 shadow">
-                        <h4 className="font-semibold mb-3">Workflow Structure</h4>
-                        <div className="space-y-2">
-                          {blueprint.workflow.nodes.map((node, idx) => (
-                            <div key={node.id} className="border-l-4 border-blue-500 pl-3 py-2">
-                              <div className="font-medium text-sm">{node.id}</div>
-                              {node.agent_ref && (
-                                <div className="text-xs text-gray-600">Agent: {node.agent_ref}</div>
-                              )}
-                              {node.task && (
-                                <div className="text-xs text-gray-600 mt-1">{node.task}</div>
-                              )}
-                              {node.sends_to && node.sends_to.length > 0 && (
-                                <div className="text-xs text-gray-500 mt-1">
-                                  → Sends to: {node.sends_to.join(', ')}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Session State */}
-                    {blueprint.session_state && (
-                      <div className="bg-white rounded-lg p-4 shadow">
-                        <h4 className="font-semibold mb-2">Session State</h4>
-                        <div className="text-sm space-y-1">
-                          <p><span className="font-medium">Messages:</span> {blueprint.session_state.message_count}</p>
-                          {blueprint.session_state.agents_used && blueprint.session_state.agents_used.length > 0 && (
-                            <p><span className="font-medium">Agents Used:</span> {blueprint.session_state.agents_used.join(', ')}</p>
-                          )}
-                          {blueprint.session_state.current_step && (
-                            <p><span className="font-medium">Current Step:</span> {blueprint.session_state.current_step}</p>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Solution Context */}
-                    {blueprint.solution_context && (
-                      <div className="bg-white rounded-lg p-4 shadow">
-                        <h4 className="font-semibold mb-3">Solution Communications</h4>
-                        <div className="text-sm space-y-2">
-                          <p><span className="font-medium">Total Messages:</span> {blueprint.solution_context.total_messages || 0}</p>
-                          <p><span className="font-medium">Active Workflows:</span> {blueprint.solution_context.active_workflows?.length || 0}</p>
-                          
-                          {blueprint.solution_context.workflows && blueprint.solution_context.workflows.length > 0 && (
-                            <div className="mt-3">
-                              <p className="font-medium mb-2">Workflow Stats:</p>
-                              {blueprint.solution_context.workflows.map(wf => (
-                                <div key={wf.id} className="text-xs bg-gray-50 p-2 rounded mb-1">
-                                  <span className="font-medium">{wf.id}:</span> {wf.sent_messages} sent, {wf.received_messages} received
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="text-center text-gray-500 py-8">
-                    <FaNetworkWired className="mx-auto mb-3" size={48} />
-                    <p>Loading blueprint...</p>
-                  </div>
+                {solution && (
+                  <p className="text-sm text-gray-300 mt-1">
+                    {solution.workflows?.length || 0} Sequential Workflows
+                  </p>
+                )}
+                {nodes.length > 0 && (
+                  <p className="text-xs text-green-400 mt-1">
+                    ✓ {nodes.length} nodes loaded
+                  </p>
                 )}
               </div>
+
+              {nodes.length === 0 ? (
+                <div className="flex items-center justify-center h-full">
+                  <div className="text-center text-gray-400">
+                    <FaSpinner className="animate-spin text-4xl mx-auto mb-3 text-purple-400" />
+                    <p>Loading workflow visualization...</p>
+                    <p className="text-sm mt-2">Initializing {solution?.workflows?.length || 0} workflows</p>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* Debug Info */}
+                  <div className="absolute top-20 left-4 z-20 bg-black/80 text-white p-2 rounded text-xs max-w-xs">
+                    <div>Nodes: {nodes.length}</div>
+                    {nodes.map((node, i) => (
+                      <div key={i} className="text-green-400">
+                        {i+1}. {node.data.label} @ ({node.position.x}, {node.position.y})
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* TEST: Simple absolute positioned divs */}
+                  {nodes.map((node, i) => (
+                    <div 
+                      key={node.id}
+                      style={{
+                        position: 'absolute',
+                        left: node.position.x,
+                        top: node.position.y,
+                        zIndex: 5
+                      }}
+                      className="px-6 py-4 bg-purple-700 border-2 border-purple-400 rounded-xl text-white shadow-lg"
+                    >
+                      <div className="font-bold">{i+1}. {node.data.label}</div>
+                      <div className="text-xs text-gray-300 mt-1">⏳ Pending</div>
+                    </div>
+                  ))}
+
+                  <div className="h-full w-full" style={{ minHeight: '400px', position: 'relative' }}>
+                    <ReactFlow
+                      key={`reactflow-${nodes.length}`}
+                      nodes={nodes}
+                      edges={edges}
+                      onNodesChange={onNodesChange}
+                      onEdgesChange={onEdgesChange}
+                      nodeTypes={nodeTypes}
+                      fitView
+                      fitViewOptions={{ padding: 0.2, minZoom: 0.5, maxZoom: 1.5 }}
+                      className="bg-gray-900"
+                      proOptions={{ hideAttribution: true }}
+                      defaultViewport={{ x: 0, y: 0, zoom: 1 }}
+                      minZoom={0.1}
+                      maxZoom={2}
+                    >
+                      <Background color="#333" gap={16} />
+                      <Controls className="bg-gray-800 border-gray-700" />
+                    </ReactFlow>
+                  </div>
+                </>
+              )}
+
+              {/* Workflow Status Panel */}
+              {Object.keys(workflowStates).length > 0 && (
+                <div className="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur-sm rounded-lg p-4 border border-purple-500/30 max-h-48 overflow-y-auto">
+                  <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                    <FaBrain className="text-purple-400" />
+                    AI Analysis
+                  </h4>
+                  <div className="space-y-2 text-sm">
+                    {Object.entries(workflowStates).map(([wfId, state]) => (
+                      <div key={wfId} className="text-gray-300">
+                        <span className="text-white font-medium">{state.name}:</span>
+                        {state.facts && state.facts.length > 0 && (
+                          <span className="text-green-400 ml-2">
+                            ✓ {state.facts.length} facts
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

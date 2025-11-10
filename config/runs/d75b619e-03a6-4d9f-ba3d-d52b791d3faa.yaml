@@ -1,0 +1,3676 @@
+workflow_id: retest
+run_id: d75b619e-03a6-4d9f-ba3d-d52b791d3faa
+status: success
+timestamp: '2025-11-09T12:12:36.943200'
+summary: Workflow completed successfully. Executed 2 node(s).
+results:
+  node_1762581659768:
+    node_id: node_1762581659768
+    agent: Research Agent
+    task: Run workflow
+    response: 'Since the DuckDuckGo search results did not provide any detailed information,
+      I will provide a comprehensive answer on the topic of workflow.
+
+
+      **What is a Workflow?**
+
+      ----------------------
+
+
+      A workflow is a series of automated tasks that are triggered by specific events
+      or conditions. It is a well-defined process that outlines the steps required
+      to complete a task or achieve a specific goal. Workflows can be used in various
+      industries, including business, healthcare, finance, and government.
+
+
+      **Types of Workflows**
+
+      ------------------------
+
+
+      There are several types of workflows, including:
+
+
+      * **Linear Workflows**: These workflows involve a series of tasks that are executed
+      in a linear fashion, with each task building on the previous one.
+
+      * **Non-Linear Workflows**: These workflows involve tasks that can be executed
+      in parallel or in a non-linear fashion.
+
+      * **Dynamic Workflows**: These workflows involve tasks that can be modified
+      or changed based on specific conditions or events.
+
+      * **Con... (truncated)'
+    tools_executed:
+    - tool: duckduckgo_search
+      status: success
+      summary: API call completed successfully
+  node_1762581788623:
+    node_id: node_1762581788623
+    agent: Research Agent
+    task: Fetch stock price data and analyze trends for prediction
+    response: 'It appears the conversation has repeated again. However, I''ll ignore
+      the repeated task and focus on the new task of "Fetch stock price data and analyze
+      trends for prediction".
+
+
+      As the conversation was cut off, I''ll summarize the current state of the task:
+
+
+      * The task is to fetch stock price data and analyze trends for prediction.
+
+      * The Research Agent has been unable to find any relevant information using
+      the provided search results.
+
+      * Instead of using search results, the Research Agent can use a specific stock
+      market API or data source to fetch the stock price data.
+
+
+      To proceed with the task, I''ll ask the following question:
+
+
+      "Which stock(s) would you like to fetch price data for? Please provide the stock
+      ticker symbol(s) (e.g., AAPL, GOOGL, etc.) so I can assist the Research Agent
+      in fetching the data."'
+    tools_executed:
+    - tool: stock_prediction_tool
+      status: success
+      summary: API call completed successfully
+    - tool: duckduckgo_search
+      status: success
+      summary: API call completed successfully
+metadata:
+  total_nodes: 2
+  agents_used:
+  - researcher_agent
+  execution_steps: 2
+_raw:
+  workflow_id: retest
+  run_id: d75b619e-03a6-4d9f-ba3d-d52b791d3faa
+  status: success
+  result:
+    node_1762581659768:
+      agent_id: researcher-agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Run workflow
+      llm_response: 'Since the DuckDuckGo search results did not provide any detailed
+        information, I will provide a comprehensive answer on the topic of workflow.
+
+
+        **What is a Workflow?**
+
+        ----------------------
+
+
+        A workflow is a series of automated tasks that are triggered by specific events
+        or conditions. It is a well-defined process that outlines the steps required
+        to complete a task or achieve a specific goal. Workflows can be used in various
+        industries, including business, healthcare, finance, and government.
+
+
+        **Types of Workflows**
+
+        ------------------------
+
+
+        There are several types of workflows, including:
+
+
+        * **Linear Workflows**: These workflows involve a series of tasks that are
+        executed in a linear fashion, with each task building on the previous one.
+
+        * **Non-Linear Workflows**: These workflows involve tasks that can be executed
+        in parallel or in a non-linear fashion.
+
+        * **Dynamic Workflows**: These workflows involve tasks that can be modified
+        or changed based on specific conditions or events.
+
+        * **Conditional Workflows**: These workflows involve tasks that are executed
+        based on specific conditions or events.
+
+
+        **Benefits of Workflows**
+
+        ---------------------------
+
+
+        Workflows offer several benefits, including:
+
+
+        * **Improved Efficiency**: Workflows can automate tasks and reduce the time
+        required to complete them.
+
+        * **Increased Accuracy**: Workflows can reduce errors and improve the accuracy
+        of tasks.
+
+        * **Enhanced Collaboration**: Workflows can improve communication and collaboration
+        among team members.
+
+        * **Better Decision-Making**: Workflows can provide insights and data to support
+        decision-making.
+
+
+        **Workflow Management Tools**
+
+        -------------------------------
+
+
+        There are several workflow management tools available, including:
+
+
+        * **Apache Airflow**: A platform for programmatically defining, scheduling,
+        and monitoring workflows.
+
+        * **Microsoft Power Automate**: A cloud-based workflow management tool that
+        allows users to create and manage workflows.
+
+        * **Zapier**: A cloud-based workflow management tool that allows users to
+        create and manage workflows.
+
+        * **Nintex**: A workflow management tool that allows users to create and manage
+        workflows.
+
+
+        **Best Practices for Implementing Workflows**
+
+        ----------------------------------------------
+
+
+        Here are some best practices for implementing workflows:
+
+
+        * **Define clear goals and objectives**: Workflows should be designed to achieve
+        specific goals and objectives.
+
+        * **Identify and map workflows**: Workflows should be identified and mapped
+        to ensure that they are efficient and effective.
+
+        * **Implement automation**: Workflows can be automated to improve efficiency
+        and reduce errors.
+
+        * **Monitor and evaluate workflows**: Workflows should be regularly monitored
+        and evaluated to ensure that they are meeting their goals and objectives.
+
+
+        **Conclusion**
+
+        --------------
+
+
+        Workflows are an essential part of modern business and can help organizations
+        improve efficiency, accuracy, and collaboration. By understanding the different
+        types of workflows and implementing them effectively, organizations can achieve
+        their goals and objectives.'
+      context_size: 10
+      tool_results:
+        duckduckgo_search:
+          success: true
+          data:
+            status_code: 200
+            headers:
+              server: nginx
+              date: Sun, 09 Nov 2025 06:42:30 GMT
+              content-type: application/x-javascript
+              transfer-encoding: chunked
+              connection: keep-alive
+              vary: Accept-Encoding
+              access-control-allow-origin: '*'
+              server-timing: total;dur=38;desc="Backend Total [n]"
+              x-detected-query-lang: en
+              x-duckduckgo-results: '1'
+              x-robots-tag: noindex
+              strict-transport-security: max-age=31536000
+              permissions-policy: interest-cohort=()
+              content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                data:  https://duck.ai https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                base-uri ''self'' ; block-all-mixed-content ;'
+              x-frame-options: SAMEORIGIN
+              x-xss-protection: 1;mode=block
+              x-content-type-options: nosniff
+              referrer-policy: origin
+              expect-ct: max-age=0
+              expires: Sun, 09 Nov 2025 06:42:31 GMT
+              cache-control: max-age=1
+              x-duckduckgo-locale: en_US
+              content-encoding: br
+            body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+              Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+              about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+              there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+            json:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+            data:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+          error: null
+          metadata:
+            tool_id: duckduckgo_search
+            tool_name: DuckDuckGo Search
+            tool_type: api
+          execution_time: 1.466536
+          timestamp: '2025-11-09T12:12:31.298682'
+      tools_used:
+      - DuckDuckGo Search
+    node_1762581788623:
+      agent_id: researcher_agent
+      agent_name: Research Agent
+      agent_type: react
+      task: Fetch stock price data and analyze trends for prediction
+      llm_response: 'It appears the conversation has repeated again. However, I''ll
+        ignore the repeated task and focus on the new task of "Fetch stock price data
+        and analyze trends for prediction".
+
+
+        As the conversation was cut off, I''ll summarize the current state of the
+        task:
+
+
+        * The task is to fetch stock price data and analyze trends for prediction.
+
+        * The Research Agent has been unable to find any relevant information using
+        the provided search results.
+
+        * Instead of using search results, the Research Agent can use a specific stock
+        market API or data source to fetch the stock price data.
+
+
+        To proceed with the task, I''ll ask the following question:
+
+
+        "Which stock(s) would you like to fetch price data for? Please provide the
+        stock ticker symbol(s) (e.g., AAPL, GOOGL, etc.) so I can assist the Research
+        Agent in fetching the data."'
+      context_size: 10
+      tool_results:
+        stock_prediction_tool:
+          success: true
+          data:
+            status_code: 404
+            headers:
+              content-type: application/json;charset=utf-8
+              y-rid: 65mv4ulkh0duq
+              vary: Origin
+              content-length: '108'
+              x-envoy-upstream-service-time: '2'
+              date: Sun, 09 Nov 2025 06:42:34 GMT
+              server: ATS
+              x-envoy-decorator-operation: finance-chart-api--mtls-production-sg3.finance-k8s:4080/*
+              cache-control: max-age=0, private
+              expires: '-1'
+              age: '0'
+              strict-transport-security: max-age=31536000
+              referrer-policy: no-referrer-when-downgrade
+              x-content-type-options: nosniff
+              x-xss-protection: 1; mode=block
+              x-frame-options: SAMEORIGIN
+              connection: keep-alive
+            body: '{"chart":{"result":null,"error":{"code":"Not Found","description":"No
+              data found, symbol may be delisted"}}}'
+            json:
+              chart:
+                result: null
+                error:
+                  code: Not Found
+                  description: No data found, symbol may be delisted
+            data:
+              chart:
+                result: null
+                error:
+                  code: Not Found
+                  description: No data found, symbol may be delisted
+          error: null
+          metadata:
+            tool_id: stock_prediction_tool
+            tool_name: Stock Price Predictor
+            tool_type: api
+          execution_time: 0.840857
+          timestamp: '2025-11-09T12:12:34.758566'
+        duckduckgo_search:
+          success: true
+          data:
+            status_code: 200
+            headers:
+              server: nginx
+              date: Sun, 09 Nov 2025 06:42:35 GMT
+              content-type: application/x-javascript
+              transfer-encoding: chunked
+              connection: keep-alive
+              vary: Accept-Encoding
+              access-control-allow-origin: '*'
+              server-timing: total;dur=38;desc="Backend Total [n]"
+              x-detected-query-lang: en
+              x-duckduckgo-results: '1'
+              x-robots-tag: noindex
+              strict-transport-security: max-age=31536000
+              permissions-policy: interest-cohort=()
+              content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                data:  https://duck.ai https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                base-uri ''self'' ; block-all-mixed-content ;'
+              x-frame-options: SAMEORIGIN
+              x-xss-protection: 1;mode=block
+              x-content-type-options: nosniff
+              referrer-policy: origin
+              expect-ct: max-age=0
+              expires: Sun, 09 Nov 2025 06:42:36 GMT
+              cache-control: max-age=1
+              x-duckduckgo-locale: en_US
+              content-encoding: br
+            body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+              Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+              about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+              there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+            json:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+            data:
+              Abstract: ''
+              AbstractSource: ''
+              AbstractText: ''
+              AbstractURL: ''
+              Answer: ''
+              AnswerType: ''
+              Definition: ''
+              DefinitionSource: ''
+              DefinitionURL: ''
+              Entity: ''
+              Heading: ''
+              Image: ''
+              ImageHeight: ''
+              ImageIsLogo: ''
+              ImageWidth: ''
+              Infobox: ''
+              Redirect: ''
+              RelatedTopics: []
+              Results: []
+              Type: ''
+              meta:
+                attribution: null
+                blockgroup: null
+                created_date: '2021-03-24'
+                description: testing
+                designer: null
+                dev_date: '2021-03-24'
+                dev_milestone: development
+                developer:
+                - name: zt
+                  type: duck.co
+                  url: https://duck.co/user/zt
+                example_query: ''
+                id: just_another_test
+                is_stackexchange: 0
+                js_callback_name: another_test
+                live_date: null
+                maintainer:
+                  github: ''
+                name: Just Another Test
+                perl_module: DDG::Lontail::AnotherTest
+                producer: null
+                production_state: offline
+                repo: fathead
+                signal_from: just_another_test
+                src_domain: how about there
+                src_id: null
+                src_name: hi there
+                src_options:
+                  directory: ''
+                  is_fanon: 0
+                  is_mediawiki: 0
+                  is_wikipedia: 0
+                  language: ''
+                  min_abstract_length: null
+                  skip_abstract: 0
+                  skip_abstract_paren: 0
+                  skip_icon: 0
+                  skip_image_name: 0
+                  skip_qr: ''
+                  src_info: ''
+                  src_skip: ''
+                src_url: Hello there
+                status: null
+                tab: is this source
+                topic: []
+                unsafe: null
+          error: null
+          metadata:
+            tool_id: duckduckgo_search
+            tool_name: DuckDuckGo Search
+            tool_type: api
+          execution_time: 0.919902
+          timestamp: '2025-11-09T12:12:35.678498'
+      tools_used:
+      - Stock Price Predictor
+      - DuckDuckGo Search
+  meta:
+    communication_log:
+    - sender: node_1762581659768
+      agent: researcher-agent
+      content:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Since the DuckDuckGo search results did not provide any detailed
+          information, I will provide a comprehensive answer on the topic of workflow.
+
+
+          **What is a Workflow?**
+
+          ----------------------
+
+
+          A workflow is a series of automated tasks that are triggered by specific
+          events or conditions. It is a well-defined process that outlines the steps
+          required to complete a task or achieve a specific goal. Workflows can be
+          used in various industries, including business, healthcare, finance, and
+          government.
+
+
+          **Types of Workflows**
+
+          ------------------------
+
+
+          There are several types of workflows, including:
+
+
+          * **Linear Workflows**: These workflows involve a series of tasks that are
+          executed in a linear fashion, with each task building on the previous one.
+
+          * **Non-Linear Workflows**: These workflows involve tasks that can be executed
+          in parallel or in a non-linear fashion.
+
+          * **Dynamic Workflows**: These workflows involve tasks that can be modified
+          or changed based on specific conditions or events.
+
+          * **Conditional Workflows**: These workflows involve tasks that are executed
+          based on specific conditions or events.
+
+
+          **Benefits of Workflows**
+
+          ---------------------------
+
+
+          Workflows offer several benefits, including:
+
+
+          * **Improved Efficiency**: Workflows can automate tasks and reduce the time
+          required to complete them.
+
+          * **Increased Accuracy**: Workflows can reduce errors and improve the accuracy
+          of tasks.
+
+          * **Enhanced Collaboration**: Workflows can improve communication and collaboration
+          among team members.
+
+          * **Better Decision-Making**: Workflows can provide insights and data to
+          support decision-making.
+
+
+          **Workflow Management Tools**
+
+          -------------------------------
+
+
+          There are several workflow management tools available, including:
+
+
+          * **Apache Airflow**: A platform for programmatically defining, scheduling,
+          and monitoring workflows.
+
+          * **Microsoft Power Automate**: A cloud-based workflow management tool that
+          allows users to create and manage workflows.
+
+          * **Zapier**: A cloud-based workflow management tool that allows users to
+          create and manage workflows.
+
+          * **Nintex**: A workflow management tool that allows users to create and
+          manage workflows.
+
+
+          **Best Practices for Implementing Workflows**
+
+          ----------------------------------------------
+
+
+          Here are some best practices for implementing workflows:
+
+
+          * **Define clear goals and objectives**: Workflows should be designed to
+          achieve specific goals and objectives.
+
+          * **Identify and map workflows**: Workflows should be identified and mapped
+          to ensure that they are efficient and effective.
+
+          * **Implement automation**: Workflows can be automated to improve efficiency
+          and reduce errors.
+
+          * **Monitor and evaluate workflows**: Workflows should be regularly monitored
+          and evaluated to ensure that they are meeting their goals and objectives.
+
+
+          **Conclusion**
+
+          --------------
+
+
+          Workflows are an essential part of modern business and can help organizations
+          improve efficiency, accuracy, and collaboration. By understanding the different
+          types of workflows and implementing them effectively, organizations can
+          achieve their goals and objectives.'
+        context_size: 10
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:30 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:31 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.466536
+            timestamp: '2025-11-09T12:12:31.298682'
+        tools_used:
+        - DuckDuckGo Search
+      type: agent_result
+    - sender: node_1762581788623
+      agent: researcher_agent
+      content:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Fetch stock price data and analyze trends for prediction
+        llm_response: 'It appears the conversation has repeated again. However, I''ll
+          ignore the repeated task and focus on the new task of "Fetch stock price
+          data and analyze trends for prediction".
+
+
+          As the conversation was cut off, I''ll summarize the current state of the
+          task:
+
+
+          * The task is to fetch stock price data and analyze trends for prediction.
+
+          * The Research Agent has been unable to find any relevant information using
+          the provided search results.
+
+          * Instead of using search results, the Research Agent can use a specific
+          stock market API or data source to fetch the stock price data.
+
+
+          To proceed with the task, I''ll ask the following question:
+
+
+          "Which stock(s) would you like to fetch price data for? Please provide the
+          stock ticker symbol(s) (e.g., AAPL, GOOGL, etc.) so I can assist the Research
+          Agent in fetching the data."'
+        context_size: 10
+        tool_results:
+          stock_prediction_tool:
+            success: true
+            data:
+              status_code: 404
+              headers:
+                content-type: application/json;charset=utf-8
+                y-rid: 65mv4ulkh0duq
+                vary: Origin
+                content-length: '108'
+                x-envoy-upstream-service-time: '2'
+                date: Sun, 09 Nov 2025 06:42:34 GMT
+                server: ATS
+                x-envoy-decorator-operation: finance-chart-api--mtls-production-sg3.finance-k8s:4080/*
+                cache-control: max-age=0, private
+                expires: '-1'
+                age: '0'
+                strict-transport-security: max-age=31536000
+                referrer-policy: no-referrer-when-downgrade
+                x-content-type-options: nosniff
+                x-xss-protection: 1; mode=block
+                x-frame-options: SAMEORIGIN
+                connection: keep-alive
+              body: '{"chart":{"result":null,"error":{"code":"Not Found","description":"No
+                data found, symbol may be delisted"}}}'
+              json:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+              data:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+            error: null
+            metadata:
+              tool_id: stock_prediction_tool
+              tool_name: Stock Price Predictor
+              tool_type: api
+            execution_time: 0.840857
+            timestamp: '2025-11-09T12:12:34.758566'
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:35 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:36 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 0.919902
+            timestamp: '2025-11-09T12:12:35.678498'
+        tools_used:
+        - Stock Price Predictor
+        - DuckDuckGo Search
+      type: agent_result
+    shared_state:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Since the DuckDuckGo search results did not provide any detailed
+          information, I will provide a comprehensive answer on the topic of workflow.
+
+
+          **What is a Workflow?**
+
+          ----------------------
+
+
+          A workflow is a series of automated tasks that are triggered by specific
+          events or conditions. It is a well-defined process that outlines the steps
+          required to complete a task or achieve a specific goal. Workflows can be
+          used in various industries, including business, healthcare, finance, and
+          government.
+
+
+          **Types of Workflows**
+
+          ------------------------
+
+
+          There are several types of workflows, including:
+
+
+          * **Linear Workflows**: These workflows involve a series of tasks that are
+          executed in a linear fashion, with each task building on the previous one.
+
+          * **Non-Linear Workflows**: These workflows involve tasks that can be executed
+          in parallel or in a non-linear fashion.
+
+          * **Dynamic Workflows**: These workflows involve tasks that can be modified
+          or changed based on specific conditions or events.
+
+          * **Conditional Workflows**: These workflows involve tasks that are executed
+          based on specific conditions or events.
+
+
+          **Benefits of Workflows**
+
+          ---------------------------
+
+
+          Workflows offer several benefits, including:
+
+
+          * **Improved Efficiency**: Workflows can automate tasks and reduce the time
+          required to complete them.
+
+          * **Increased Accuracy**: Workflows can reduce errors and improve the accuracy
+          of tasks.
+
+          * **Enhanced Collaboration**: Workflows can improve communication and collaboration
+          among team members.
+
+          * **Better Decision-Making**: Workflows can provide insights and data to
+          support decision-making.
+
+
+          **Workflow Management Tools**
+
+          -------------------------------
+
+
+          There are several workflow management tools available, including:
+
+
+          * **Apache Airflow**: A platform for programmatically defining, scheduling,
+          and monitoring workflows.
+
+          * **Microsoft Power Automate**: A cloud-based workflow management tool that
+          allows users to create and manage workflows.
+
+          * **Zapier**: A cloud-based workflow management tool that allows users to
+          create and manage workflows.
+
+          * **Nintex**: A workflow management tool that allows users to create and
+          manage workflows.
+
+
+          **Best Practices for Implementing Workflows**
+
+          ----------------------------------------------
+
+
+          Here are some best practices for implementing workflows:
+
+
+          * **Define clear goals and objectives**: Workflows should be designed to
+          achieve specific goals and objectives.
+
+          * **Identify and map workflows**: Workflows should be identified and mapped
+          to ensure that they are efficient and effective.
+
+          * **Implement automation**: Workflows can be automated to improve efficiency
+          and reduce errors.
+
+          * **Monitor and evaluate workflows**: Workflows should be regularly monitored
+          and evaluated to ensure that they are meeting their goals and objectives.
+
+
+          **Conclusion**
+
+          --------------
+
+
+          Workflows are an essential part of modern business and can help organizations
+          improve efficiency, accuracy, and collaboration. By understanding the different
+          types of workflows and implementing them effectively, organizations can
+          achieve their goals and objectives.'
+        context_size: 10
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:30 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:31 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.466536
+            timestamp: '2025-11-09T12:12:31.298682'
+        tools_used:
+        - DuckDuckGo Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Fetch stock price data and analyze trends for prediction
+        llm_response: 'It appears the conversation has repeated again. However, I''ll
+          ignore the repeated task and focus on the new task of "Fetch stock price
+          data and analyze trends for prediction".
+
+
+          As the conversation was cut off, I''ll summarize the current state of the
+          task:
+
+
+          * The task is to fetch stock price data and analyze trends for prediction.
+
+          * The Research Agent has been unable to find any relevant information using
+          the provided search results.
+
+          * Instead of using search results, the Research Agent can use a specific
+          stock market API or data source to fetch the stock price data.
+
+
+          To proceed with the task, I''ll ask the following question:
+
+
+          "Which stock(s) would you like to fetch price data for? Please provide the
+          stock ticker symbol(s) (e.g., AAPL, GOOGL, etc.) so I can assist the Research
+          Agent in fetching the data."'
+        context_size: 10
+        tool_results:
+          stock_prediction_tool:
+            success: true
+            data:
+              status_code: 404
+              headers:
+                content-type: application/json;charset=utf-8
+                y-rid: 65mv4ulkh0duq
+                vary: Origin
+                content-length: '108'
+                x-envoy-upstream-service-time: '2'
+                date: Sun, 09 Nov 2025 06:42:34 GMT
+                server: ATS
+                x-envoy-decorator-operation: finance-chart-api--mtls-production-sg3.finance-k8s:4080/*
+                cache-control: max-age=0, private
+                expires: '-1'
+                age: '0'
+                strict-transport-security: max-age=31536000
+                referrer-policy: no-referrer-when-downgrade
+                x-content-type-options: nosniff
+                x-xss-protection: 1; mode=block
+                x-frame-options: SAMEORIGIN
+                connection: keep-alive
+              body: '{"chart":{"result":null,"error":{"code":"Not Found","description":"No
+                data found, symbol may be delisted"}}}'
+              json:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+              data:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+            error: null
+            metadata:
+              tool_id: stock_prediction_tool
+              tool_name: Stock Price Predictor
+              tool_type: api
+            execution_time: 0.840857
+            timestamp: '2025-11-09T12:12:34.758566'
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:35 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:36 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 0.919902
+            timestamp: '2025-11-09T12:12:35.678498'
+        tools_used:
+        - Stock Price Predictor
+        - DuckDuckGo Search
+    agents_used:
+    - researcher_agent
+    total_messages: 2
+    final_step: node_1762581788623
+  error: null
+  state:
+    messages:
+    - sender: node_1762581659768
+      agent: researcher-agent
+      content:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Since the DuckDuckGo search results did not provide any detailed
+          information, I will provide a comprehensive answer on the topic of workflow.
+
+
+          **What is a Workflow?**
+
+          ----------------------
+
+
+          A workflow is a series of automated tasks that are triggered by specific
+          events or conditions. It is a well-defined process that outlines the steps
+          required to complete a task or achieve a specific goal. Workflows can be
+          used in various industries, including business, healthcare, finance, and
+          government.
+
+
+          **Types of Workflows**
+
+          ------------------------
+
+
+          There are several types of workflows, including:
+
+
+          * **Linear Workflows**: These workflows involve a series of tasks that are
+          executed in a linear fashion, with each task building on the previous one.
+
+          * **Non-Linear Workflows**: These workflows involve tasks that can be executed
+          in parallel or in a non-linear fashion.
+
+          * **Dynamic Workflows**: These workflows involve tasks that can be modified
+          or changed based on specific conditions or events.
+
+          * **Conditional Workflows**: These workflows involve tasks that are executed
+          based on specific conditions or events.
+
+
+          **Benefits of Workflows**
+
+          ---------------------------
+
+
+          Workflows offer several benefits, including:
+
+
+          * **Improved Efficiency**: Workflows can automate tasks and reduce the time
+          required to complete them.
+
+          * **Increased Accuracy**: Workflows can reduce errors and improve the accuracy
+          of tasks.
+
+          * **Enhanced Collaboration**: Workflows can improve communication and collaboration
+          among team members.
+
+          * **Better Decision-Making**: Workflows can provide insights and data to
+          support decision-making.
+
+
+          **Workflow Management Tools**
+
+          -------------------------------
+
+
+          There are several workflow management tools available, including:
+
+
+          * **Apache Airflow**: A platform for programmatically defining, scheduling,
+          and monitoring workflows.
+
+          * **Microsoft Power Automate**: A cloud-based workflow management tool that
+          allows users to create and manage workflows.
+
+          * **Zapier**: A cloud-based workflow management tool that allows users to
+          create and manage workflows.
+
+          * **Nintex**: A workflow management tool that allows users to create and
+          manage workflows.
+
+
+          **Best Practices for Implementing Workflows**
+
+          ----------------------------------------------
+
+
+          Here are some best practices for implementing workflows:
+
+
+          * **Define clear goals and objectives**: Workflows should be designed to
+          achieve specific goals and objectives.
+
+          * **Identify and map workflows**: Workflows should be identified and mapped
+          to ensure that they are efficient and effective.
+
+          * **Implement automation**: Workflows can be automated to improve efficiency
+          and reduce errors.
+
+          * **Monitor and evaluate workflows**: Workflows should be regularly monitored
+          and evaluated to ensure that they are meeting their goals and objectives.
+
+
+          **Conclusion**
+
+          --------------
+
+
+          Workflows are an essential part of modern business and can help organizations
+          improve efficiency, accuracy, and collaboration. By understanding the different
+          types of workflows and implementing them effectively, organizations can
+          achieve their goals and objectives.'
+        context_size: 10
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:30 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:31 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.466536
+            timestamp: '2025-11-09T12:12:31.298682'
+        tools_used:
+        - DuckDuckGo Search
+      type: agent_result
+    - sender: node_1762581788623
+      agent: researcher_agent
+      content:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Fetch stock price data and analyze trends for prediction
+        llm_response: 'It appears the conversation has repeated again. However, I''ll
+          ignore the repeated task and focus on the new task of "Fetch stock price
+          data and analyze trends for prediction".
+
+
+          As the conversation was cut off, I''ll summarize the current state of the
+          task:
+
+
+          * The task is to fetch stock price data and analyze trends for prediction.
+
+          * The Research Agent has been unable to find any relevant information using
+          the provided search results.
+
+          * Instead of using search results, the Research Agent can use a specific
+          stock market API or data source to fetch the stock price data.
+
+
+          To proceed with the task, I''ll ask the following question:
+
+
+          "Which stock(s) would you like to fetch price data for? Please provide the
+          stock ticker symbol(s) (e.g., AAPL, GOOGL, etc.) so I can assist the Research
+          Agent in fetching the data."'
+        context_size: 10
+        tool_results:
+          stock_prediction_tool:
+            success: true
+            data:
+              status_code: 404
+              headers:
+                content-type: application/json;charset=utf-8
+                y-rid: 65mv4ulkh0duq
+                vary: Origin
+                content-length: '108'
+                x-envoy-upstream-service-time: '2'
+                date: Sun, 09 Nov 2025 06:42:34 GMT
+                server: ATS
+                x-envoy-decorator-operation: finance-chart-api--mtls-production-sg3.finance-k8s:4080/*
+                cache-control: max-age=0, private
+                expires: '-1'
+                age: '0'
+                strict-transport-security: max-age=31536000
+                referrer-policy: no-referrer-when-downgrade
+                x-content-type-options: nosniff
+                x-xss-protection: 1; mode=block
+                x-frame-options: SAMEORIGIN
+                connection: keep-alive
+              body: '{"chart":{"result":null,"error":{"code":"Not Found","description":"No
+                data found, symbol may be delisted"}}}'
+              json:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+              data:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+            error: null
+            metadata:
+              tool_id: stock_prediction_tool
+              tool_name: Stock Price Predictor
+              tool_type: api
+            execution_time: 0.840857
+            timestamp: '2025-11-09T12:12:34.758566'
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:35 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:36 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 0.919902
+            timestamp: '2025-11-09T12:12:35.678498'
+        tools_used:
+        - Stock Price Predictor
+        - DuckDuckGo Search
+      type: agent_result
+    shared_data:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Since the DuckDuckGo search results did not provide any detailed
+          information, I will provide a comprehensive answer on the topic of workflow.
+
+
+          **What is a Workflow?**
+
+          ----------------------
+
+
+          A workflow is a series of automated tasks that are triggered by specific
+          events or conditions. It is a well-defined process that outlines the steps
+          required to complete a task or achieve a specific goal. Workflows can be
+          used in various industries, including business, healthcare, finance, and
+          government.
+
+
+          **Types of Workflows**
+
+          ------------------------
+
+
+          There are several types of workflows, including:
+
+
+          * **Linear Workflows**: These workflows involve a series of tasks that are
+          executed in a linear fashion, with each task building on the previous one.
+
+          * **Non-Linear Workflows**: These workflows involve tasks that can be executed
+          in parallel or in a non-linear fashion.
+
+          * **Dynamic Workflows**: These workflows involve tasks that can be modified
+          or changed based on specific conditions or events.
+
+          * **Conditional Workflows**: These workflows involve tasks that are executed
+          based on specific conditions or events.
+
+
+          **Benefits of Workflows**
+
+          ---------------------------
+
+
+          Workflows offer several benefits, including:
+
+
+          * **Improved Efficiency**: Workflows can automate tasks and reduce the time
+          required to complete them.
+
+          * **Increased Accuracy**: Workflows can reduce errors and improve the accuracy
+          of tasks.
+
+          * **Enhanced Collaboration**: Workflows can improve communication and collaboration
+          among team members.
+
+          * **Better Decision-Making**: Workflows can provide insights and data to
+          support decision-making.
+
+
+          **Workflow Management Tools**
+
+          -------------------------------
+
+
+          There are several workflow management tools available, including:
+
+
+          * **Apache Airflow**: A platform for programmatically defining, scheduling,
+          and monitoring workflows.
+
+          * **Microsoft Power Automate**: A cloud-based workflow management tool that
+          allows users to create and manage workflows.
+
+          * **Zapier**: A cloud-based workflow management tool that allows users to
+          create and manage workflows.
+
+          * **Nintex**: A workflow management tool that allows users to create and
+          manage workflows.
+
+
+          **Best Practices for Implementing Workflows**
+
+          ----------------------------------------------
+
+
+          Here are some best practices for implementing workflows:
+
+
+          * **Define clear goals and objectives**: Workflows should be designed to
+          achieve specific goals and objectives.
+
+          * **Identify and map workflows**: Workflows should be identified and mapped
+          to ensure that they are efficient and effective.
+
+          * **Implement automation**: Workflows can be automated to improve efficiency
+          and reduce errors.
+
+          * **Monitor and evaluate workflows**: Workflows should be regularly monitored
+          and evaluated to ensure that they are meeting their goals and objectives.
+
+
+          **Conclusion**
+
+          --------------
+
+
+          Workflows are an essential part of modern business and can help organizations
+          improve efficiency, accuracy, and collaboration. By understanding the different
+          types of workflows and implementing them effectively, organizations can
+          achieve their goals and objectives.'
+        context_size: 10
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:30 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:31 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.466536
+            timestamp: '2025-11-09T12:12:31.298682'
+        tools_used:
+        - DuckDuckGo Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Fetch stock price data and analyze trends for prediction
+        llm_response: 'It appears the conversation has repeated again. However, I''ll
+          ignore the repeated task and focus on the new task of "Fetch stock price
+          data and analyze trends for prediction".
+
+
+          As the conversation was cut off, I''ll summarize the current state of the
+          task:
+
+
+          * The task is to fetch stock price data and analyze trends for prediction.
+
+          * The Research Agent has been unable to find any relevant information using
+          the provided search results.
+
+          * Instead of using search results, the Research Agent can use a specific
+          stock market API or data source to fetch the stock price data.
+
+
+          To proceed with the task, I''ll ask the following question:
+
+
+          "Which stock(s) would you like to fetch price data for? Please provide the
+          stock ticker symbol(s) (e.g., AAPL, GOOGL, etc.) so I can assist the Research
+          Agent in fetching the data."'
+        context_size: 10
+        tool_results:
+          stock_prediction_tool:
+            success: true
+            data:
+              status_code: 404
+              headers:
+                content-type: application/json;charset=utf-8
+                y-rid: 65mv4ulkh0duq
+                vary: Origin
+                content-length: '108'
+                x-envoy-upstream-service-time: '2'
+                date: Sun, 09 Nov 2025 06:42:34 GMT
+                server: ATS
+                x-envoy-decorator-operation: finance-chart-api--mtls-production-sg3.finance-k8s:4080/*
+                cache-control: max-age=0, private
+                expires: '-1'
+                age: '0'
+                strict-transport-security: max-age=31536000
+                referrer-policy: no-referrer-when-downgrade
+                x-content-type-options: nosniff
+                x-xss-protection: 1; mode=block
+                x-frame-options: SAMEORIGIN
+                connection: keep-alive
+              body: '{"chart":{"result":null,"error":{"code":"Not Found","description":"No
+                data found, symbol may be delisted"}}}'
+              json:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+              data:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+            error: null
+            metadata:
+              tool_id: stock_prediction_tool
+              tool_name: Stock Price Predictor
+              tool_type: api
+            execution_time: 0.840857
+            timestamp: '2025-11-09T12:12:34.758566'
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:35 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:36 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 0.919902
+            timestamp: '2025-11-09T12:12:35.678498'
+        tools_used:
+        - Stock Price Predictor
+        - DuckDuckGo Search
+    agents_used:
+    - researcher_agent
+    current_step: node_1762581788623
+    results:
+      node_1762581659768:
+        agent_id: researcher-agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Run workflow
+        llm_response: 'Since the DuckDuckGo search results did not provide any detailed
+          information, I will provide a comprehensive answer on the topic of workflow.
+
+
+          **What is a Workflow?**
+
+          ----------------------
+
+
+          A workflow is a series of automated tasks that are triggered by specific
+          events or conditions. It is a well-defined process that outlines the steps
+          required to complete a task or achieve a specific goal. Workflows can be
+          used in various industries, including business, healthcare, finance, and
+          government.
+
+
+          **Types of Workflows**
+
+          ------------------------
+
+
+          There are several types of workflows, including:
+
+
+          * **Linear Workflows**: These workflows involve a series of tasks that are
+          executed in a linear fashion, with each task building on the previous one.
+
+          * **Non-Linear Workflows**: These workflows involve tasks that can be executed
+          in parallel or in a non-linear fashion.
+
+          * **Dynamic Workflows**: These workflows involve tasks that can be modified
+          or changed based on specific conditions or events.
+
+          * **Conditional Workflows**: These workflows involve tasks that are executed
+          based on specific conditions or events.
+
+
+          **Benefits of Workflows**
+
+          ---------------------------
+
+
+          Workflows offer several benefits, including:
+
+
+          * **Improved Efficiency**: Workflows can automate tasks and reduce the time
+          required to complete them.
+
+          * **Increased Accuracy**: Workflows can reduce errors and improve the accuracy
+          of tasks.
+
+          * **Enhanced Collaboration**: Workflows can improve communication and collaboration
+          among team members.
+
+          * **Better Decision-Making**: Workflows can provide insights and data to
+          support decision-making.
+
+
+          **Workflow Management Tools**
+
+          -------------------------------
+
+
+          There are several workflow management tools available, including:
+
+
+          * **Apache Airflow**: A platform for programmatically defining, scheduling,
+          and monitoring workflows.
+
+          * **Microsoft Power Automate**: A cloud-based workflow management tool that
+          allows users to create and manage workflows.
+
+          * **Zapier**: A cloud-based workflow management tool that allows users to
+          create and manage workflows.
+
+          * **Nintex**: A workflow management tool that allows users to create and
+          manage workflows.
+
+
+          **Best Practices for Implementing Workflows**
+
+          ----------------------------------------------
+
+
+          Here are some best practices for implementing workflows:
+
+
+          * **Define clear goals and objectives**: Workflows should be designed to
+          achieve specific goals and objectives.
+
+          * **Identify and map workflows**: Workflows should be identified and mapped
+          to ensure that they are efficient and effective.
+
+          * **Implement automation**: Workflows can be automated to improve efficiency
+          and reduce errors.
+
+          * **Monitor and evaluate workflows**: Workflows should be regularly monitored
+          and evaluated to ensure that they are meeting their goals and objectives.
+
+
+          **Conclusion**
+
+          --------------
+
+
+          Workflows are an essential part of modern business and can help organizations
+          improve efficiency, accuracy, and collaboration. By understanding the different
+          types of workflows and implementing them effectively, organizations can
+          achieve their goals and objectives.'
+        context_size: 10
+        tool_results:
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:30 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:31 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 1.466536
+            timestamp: '2025-11-09T12:12:31.298682'
+        tools_used:
+        - DuckDuckGo Search
+      node_1762581788623:
+        agent_id: researcher_agent
+        agent_name: Research Agent
+        agent_type: react
+        task: Fetch stock price data and analyze trends for prediction
+        llm_response: 'It appears the conversation has repeated again. However, I''ll
+          ignore the repeated task and focus on the new task of "Fetch stock price
+          data and analyze trends for prediction".
+
+
+          As the conversation was cut off, I''ll summarize the current state of the
+          task:
+
+
+          * The task is to fetch stock price data and analyze trends for prediction.
+
+          * The Research Agent has been unable to find any relevant information using
+          the provided search results.
+
+          * Instead of using search results, the Research Agent can use a specific
+          stock market API or data source to fetch the stock price data.
+
+
+          To proceed with the task, I''ll ask the following question:
+
+
+          "Which stock(s) would you like to fetch price data for? Please provide the
+          stock ticker symbol(s) (e.g., AAPL, GOOGL, etc.) so I can assist the Research
+          Agent in fetching the data."'
+        context_size: 10
+        tool_results:
+          stock_prediction_tool:
+            success: true
+            data:
+              status_code: 404
+              headers:
+                content-type: application/json;charset=utf-8
+                y-rid: 65mv4ulkh0duq
+                vary: Origin
+                content-length: '108'
+                x-envoy-upstream-service-time: '2'
+                date: Sun, 09 Nov 2025 06:42:34 GMT
+                server: ATS
+                x-envoy-decorator-operation: finance-chart-api--mtls-production-sg3.finance-k8s:4080/*
+                cache-control: max-age=0, private
+                expires: '-1'
+                age: '0'
+                strict-transport-security: max-age=31536000
+                referrer-policy: no-referrer-when-downgrade
+                x-content-type-options: nosniff
+                x-xss-protection: 1; mode=block
+                x-frame-options: SAMEORIGIN
+                connection: keep-alive
+              body: '{"chart":{"result":null,"error":{"code":"Not Found","description":"No
+                data found, symbol may be delisted"}}}'
+              json:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+              data:
+                chart:
+                  result: null
+                  error:
+                    code: Not Found
+                    description: No data found, symbol may be delisted
+            error: null
+            metadata:
+              tool_id: stock_prediction_tool
+              tool_name: Stock Price Predictor
+              tool_type: api
+            execution_time: 0.840857
+            timestamp: '2025-11-09T12:12:34.758566'
+          duckduckgo_search:
+            success: true
+            data:
+              status_code: 200
+              headers:
+                server: nginx
+                date: Sun, 09 Nov 2025 06:42:35 GMT
+                content-type: application/x-javascript
+                transfer-encoding: chunked
+                connection: keep-alive
+                vary: Accept-Encoding
+                access-control-allow-origin: '*'
+                server-timing: total;dur=38;desc="Backend Total [n]"
+                x-detected-query-lang: en
+                x-duckduckgo-results: '1'
+                x-robots-tag: noindex
+                strict-transport-security: max-age=31536000
+                permissions-policy: interest-cohort=()
+                content-security-policy: 'default-src ''none'' ; connect-src  https://duck.ai
+                  https://*.duck.ai https://duckduckgo.com https://*.duckduckgo.com
+                  https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; manifest-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; media-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; script-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ''unsafe-eval'' ; font-src
+                  data:  https://duck.ai https://*.duck.ai https://duckduckgo.com
+                  https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; img-src data:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; style-src  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ''unsafe-inline'' ; object-src ''none''
+                  ; worker-src blob: ; child-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-src blob:  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; form-action  https://duck.ai https://*.duck.ai
+                  https://duckduckgo.com https://*.duckduckgo.com https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/
+                  https://spreadprivacy.com ; frame-ancestors ''self'' https://html.duckduckgo.com;
+                  base-uri ''self'' ; block-all-mixed-content ;'
+                x-frame-options: SAMEORIGIN
+                x-xss-protection: 1;mode=block
+                x-content-type-options: nosniff
+                referrer-policy: origin
+                expect-ct: max-age=0
+                expires: Sun, 09 Nov 2025 06:42:36 GMT
+                cache-control: max-age=1
+                x-duckduckgo-locale: en_US
+                content-encoding: br
+              body: '{"Abstract":"","AbstractSource":"","AbstractText":"","AbstractURL":"","Answer":"","AnswerType":"","Definition":"","DefinitionSource":"","DefinitionURL":"","Entity":"","Heading":"","Image":"","ImageHeight":"","ImageIsLogo":"","ImageWidth":"","Infobox":"","Redirect":"","RelatedTopics":[],"Results":[],"Type":"","meta":{"attribution":null,"blockgroup":null,"created_date":"2021-03-24","description":"testing","designer":null,"dev_date":"2021-03-24","dev_milestone":"development","developer":[{"name":"zt","type":"duck.co","url":"https://duck.co/user/zt"}],"example_query":"","id":"just_another_test","is_stackexchange":0,"js_callback_name":"another_test","live_date":null,"maintainer":{"github":""},"name":"Just
+                Another Test","perl_module":"DDG::Lontail::AnotherTest","producer":null,"production_state":"offline","repo":"fathead","signal_from":"just_another_test","src_domain":"how
+                about there","src_id":null,"src_name":"hi there","src_options":{"directory":"","is_fanon":0,"is_mediawiki":0,"is_wikipedia":0,"language":"","min_abstract_length":null,"skip_abstract":0,"skip_abstract_paren":0,"skip_icon":0,"skip_image_name":0,"skip_qr":"","src_info":"","src_skip":""},"src_url":"Hello
+                there","status":null,"tab":"is this source","topic":[],"unsafe":null}}'
+              json:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+              data:
+                Abstract: ''
+                AbstractSource: ''
+                AbstractText: ''
+                AbstractURL: ''
+                Answer: ''
+                AnswerType: ''
+                Definition: ''
+                DefinitionSource: ''
+                DefinitionURL: ''
+                Entity: ''
+                Heading: ''
+                Image: ''
+                ImageHeight: ''
+                ImageIsLogo: ''
+                ImageWidth: ''
+                Infobox: ''
+                Redirect: ''
+                RelatedTopics: []
+                Results: []
+                Type: ''
+                meta:
+                  attribution: null
+                  blockgroup: null
+                  created_date: '2021-03-24'
+                  description: testing
+                  designer: null
+                  dev_date: '2021-03-24'
+                  dev_milestone: development
+                  developer:
+                  - name: zt
+                    type: duck.co
+                    url: https://duck.co/user/zt
+                  example_query: ''
+                  id: just_another_test
+                  is_stackexchange: 0
+                  js_callback_name: another_test
+                  live_date: null
+                  maintainer:
+                    github: ''
+                  name: Just Another Test
+                  perl_module: DDG::Lontail::AnotherTest
+                  producer: null
+                  production_state: offline
+                  repo: fathead
+                  signal_from: just_another_test
+                  src_domain: how about there
+                  src_id: null
+                  src_name: hi there
+                  src_options:
+                    directory: ''
+                    is_fanon: 0
+                    is_mediawiki: 0
+                    is_wikipedia: 0
+                    language: ''
+                    min_abstract_length: null
+                    skip_abstract: 0
+                    skip_abstract_paren: 0
+                    skip_icon: 0
+                    skip_image_name: 0
+                    skip_qr: ''
+                    src_info: ''
+                    src_skip: ''
+                  src_url: Hello there
+                  status: null
+                  tab: is this source
+                  topic: []
+                  unsafe: null
+            error: null
+            metadata:
+              tool_id: duckduckgo_search
+              tool_name: DuckDuckGo Search
+              tool_type: api
+            execution_time: 0.919902
+            timestamp: '2025-11-09T12:12:35.678498'
+        tools_used:
+        - Stock Price Predictor
+        - DuckDuckGo Search
+    error: null

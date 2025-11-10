@@ -1,7 +1,0 @@
-id: code_tool
-name: Code Execution Tool
-type: code
-config:
-  description: Executes Python code snippets
-  snippet: print('Hello from code tool')
-version: v1

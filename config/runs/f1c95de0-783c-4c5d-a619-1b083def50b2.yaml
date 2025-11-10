@@ -1,0 +1,8 @@
+workflow_id: tk_1762582603618
+run_id: f1c95de0-783c-4c5d-a619-1b083def50b2
+status: failed
+error: '''ToolExecutionStrategy'' object does not support item assignment'
+result: {}
+meta:
+  communication_log: []
+  error_details: '''ToolExecutionStrategy'' object does not support item assignment'

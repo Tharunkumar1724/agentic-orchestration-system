@@ -419,7 +419,7 @@ const WorkflowCanvas = ({ workflow, agents, tools, onSave, onClose }) => {
     const workflowType = dependencyMap && Object.keys(dependencyMap).length > 0 ? 'dag' : 'sequence';
 
     const workflowData = {
-      id: workflow?.id || workflowName.toLowerCase().replace(/\s+/g, '_'),
+      id: workflow?.id || `${workflowName.toLowerCase().replace(/\s+/g, '_')}_${Date.now()}`,
       name: workflowName,
       description: workflowDescription,
       type: workflowType,
@@ -778,6 +778,9 @@ const Workflows = ({ onViewSolution }) => {
       // Execute workflow
       const response = await workflowsAPI.run(workflow.id, { query: 'Run workflow' });
       
+      console.log('Workflow execution response:', response.data);
+      console.log('Metrics:', response.data?.metrics);
+      
       // Process execution to update blueprint in real-time
       const communicationLog = response.data?.meta?.communication_log || [];
       const nodes = workflow.nodes || [];
@@ -794,12 +797,23 @@ const Workflows = ({ onViewSolution }) => {
         
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-        // Mark as completed
+        // Mark as completed with result data
         setExecutionState(prev => ({
           ...prev,
-          [node.id]: { isActive: false, isCompleted: true }
+          [node.id]: { 
+            isActive: false, 
+            isCompleted: true,
+            result: response.data?.results?.[node.id]
+          }
         }));
       }
+      
+      // Store metrics in execution state for display
+      setExecutionState(prev => ({
+        ...prev,
+        _metrics: response.data?.metrics,  // Store metrics
+        _result: response.data  // Store full result
+      }));
       
     } catch (error) {
       console.error('Workflow execution error:', error);

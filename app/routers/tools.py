@@ -51,8 +51,19 @@ class BatchToolCreateRequest(BaseModel):
 @router.post("/", response_model=ToolDef)
 async def create_tool(tool: ToolDef):
     """Create a tool from a complete ToolDef"""
-    if load("tools", tool.id):
-        raise HTTPException(status_code=400, detail="Tool already exists")
+    # Generate ID if not provided or empty
+    if not tool.id or tool.id.strip() == "":
+        import uuid
+        tool.id = f"tool_{uuid.uuid4().hex[:8]}"
+    
+    # Check if tool already exists
+    existing = load("tools", tool.id)
+    if existing:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Tool with ID '{tool.id}' already exists. Use PUT to update or choose a different ID."
+        )
+    
     save("tools", tool.id, tool.model_dump())
     return tool
 

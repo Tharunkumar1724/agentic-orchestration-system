@@ -54,6 +54,11 @@ export const solutionsAPI = {
   sendCommunication: (solutionId, data) => api.post(`/solutions/${solutionId}/communicate`, data),
   getCommunications: (solutionId) => api.get(`/solutions/${solutionId}/communications`),
   
+  // New: Workflow communication endpoints
+  getSummary: (solutionId) => api.get(`/workflows/solution/${solutionId}/summary`),
+  clearMemory: (solutionId) => api.delete(`/workflows/solution/${solutionId}/memory`),
+  communicate: (data) => api.post('/workflows/communicate', data),
+  
   // Legacy runs endpoint
   getRuns: () => api.get('/workflows/runs'),
   getRunById: (id) => api.get(`/workflows/runs/${id}`),

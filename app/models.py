@@ -99,8 +99,15 @@ class RunResult(BaseModel):
     workflow_id: str
     run_id: str
     status: str
-    result: Any
-    meta: Dict[str, Any] = Field(default_factory=dict)
+    result: Optional[Any] = None  # Old format (optional for backward compatibility)
+    summary: Optional[str] = None  # New structured format
+    results: Optional[Dict[str, Any]] = None  # New structured format
+    metadata: Optional[Dict[str, Any]] = None  # New structured format
+    metrics: Optional[Dict[str, Any]] = None  # Comprehensive execution metrics
+    timestamp: Optional[str] = None
+    error: Optional[str] = None
+    meta: Dict[str, Any] = Field(default_factory=dict)  # Legacy field
+    _raw: Optional[Dict[str, Any]] = None  # Raw unformatted data
 
 
 class ChatMessage(BaseModel):

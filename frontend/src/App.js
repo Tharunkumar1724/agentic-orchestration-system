@@ -5,6 +5,7 @@ import Tools from './components/Tools';
 import Workflows from './components/Workflows';
 import Solutions from './components/Solutions';
 import SolutionsManagement from './components/SolutionsManagement';
+import SolutionsExecutor from './components/SolutionsExecutor';
 import Chat from './components/Chat';
 import Sidebar from './components/Sidebar';
 
@@ -27,7 +28,7 @@ function App() {
         {view === 'agents' && <Agents />}
         {view === 'tools' && <Tools />}
         {view === 'workflows' && <Workflows onViewSolution={handleViewSolution} />}
-        {view === 'solutions' && <SolutionsManagement />}
+        {view === 'solutions' && <SolutionsExecutor />}
         {view === 'runs' && <Solutions />}
         {view === 'chat' && <Chat />}
       </main>
