@@ -1,11 +1,13 @@
 """
-Knowledge-Aided Generation (KAG) Service
+Knowledge-Aided Generation (KAG) Service with LangGraph
 Orchestrates fact extraction, reasoning, and memory management for workflow communication
 """
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, TypedDict, Annotated
 from datetime import datetime
 import json
+import operator
 
+from langgraph.graph import StateGraph, END
 from .gemini_client import get_gemini_client, GeminiResponse
 
 
@@ -68,12 +70,134 @@ def get_conversation_memory() -> ConversationMemory:
     return _conversation_memory
 
 
+# LangGraph State Definition
+class KAGState(TypedDict):
+    """State for KAG LangGraph workflow"""
+    workflow_output: str
+    workflow_name: str
+    solution_id: str
+    workflow_id: str
+    context: str
+    previous_context: str
+    facts: List[str]
+    summary: str
+    reasoning: str
+    memory_stored: bool
+    error: Optional[str]
+
+
 class KAGService:
-    """Knowledge-Aided Generation Service for workflow intelligence"""
+    """Knowledge-Aided Generation Service using LangGraph for workflow intelligence"""
     
     def __init__(self):
         self.gemini_client = get_gemini_client()
         self.memory = get_conversation_memory()
+        self.graph = self._build_kag_graph()
+    
+    def _build_kag_graph(self) -> StateGraph:
+        """Build the LangGraph workflow for KAG processing"""
+        
+        workflow = StateGraph(KAGState)
+        
+        # Define nodes
+        workflow.add_node("retrieve_context", self._retrieve_context_node)
+        workflow.add_node("extract_facts", self._extract_facts_node)
+        workflow.add_node("generate_summary", self._generate_summary_node)
+        workflow.add_node("store_memory", self._store_memory_node)
+        
+        # Define edges
+        workflow.set_entry_point("retrieve_context")
+        workflow.add_edge("retrieve_context", "extract_facts")
+        workflow.add_edge("extract_facts", "generate_summary")
+        workflow.add_edge("generate_summary", "store_memory")
+        workflow.add_edge("store_memory", END)
+        
+        return workflow.compile()
+    
+    def _retrieve_context_node(self, state: KAGState) -> Dict[str, Any]:
+        """Node 1: Retrieve previous context from memory"""
+        try:
+            previous_context = self.memory.get_solution_context(state["solution_id"])
+            
+            # Build full context
+            full_context = state.get("context", "")
+            if previous_context:
+                full_context = f"{full_context}\n\nPrevious workflows:\n{previous_context}"
+            
+            return {
+                "previous_context": previous_context,
+                "context": full_context
+            }
+        except Exception as e:
+            return {"error": f"Context retrieval failed: {str(e)}"}
+    
+    def _extract_facts_node(self, state: KAGState) -> Dict[str, Any]:
+        """Node 2: Extract facts using Gemini"""
+        if state.get("error"):
+            return {}
+        
+        try:
+            result: GeminiResponse = self.gemini_client.extract_facts(
+                state["workflow_output"], 
+                state["context"]
+            )
+            
+            return {
+                "facts": result.facts,
+                "reasoning": result.reasoning
+            }
+        except Exception as e:
+            return {"error": f"Fact extraction failed: {str(e)}"}
+    
+    def _generate_summary_node(self, state: KAGState) -> Dict[str, Any]:
+        """Node 3: Generate summary from facts"""
+        if state.get("error"):
+            return {}
+        
+        try:
+            # Use Gemini to generate summary
+            summary_prompt = f"""Based on the following facts and workflow output, generate a concise summary:
+
+Workflow: {state['workflow_name']}
+Facts: {', '.join(state.get('facts', []))}
+Output: {state['workflow_output'][:500]}
+
+Generate a 2-3 sentence summary."""
+            
+            result = self.gemini_client.generate_content(summary_prompt)
+            
+            return {"summary": result.content}
+        except Exception as e:
+            # Fallback summary
+            return {"summary": f"Workflow {state['workflow_name']} completed processing"}
+    
+    def _store_memory_node(self, state: KAGState) -> Dict[str, Any]:
+        """Node 4: Store results in memory"""
+        if state.get("error"):
+            return {"memory_stored": False}
+        
+        try:
+            memory_entry = {
+                "workflow_id": state["workflow_id"],
+                "workflow_name": state["workflow_name"],
+                "summary": state.get("summary", ""),
+                "facts": state.get("facts", []),
+                "reasoning": state.get("reasoning", ""),
+                "raw_output": state["workflow_output"][:500]
+            }
+            
+            self.memory.add_memory(
+                state["solution_id"], 
+                state["workflow_id"], 
+                memory_entry
+            )
+            
+            return {"memory_stored": True}
+        except Exception as e:
+            return {
+                "memory_stored": False,
+                "error": f"Memory storage failed: {str(e)}"
+            }
     
     def invoke_kag(self, 
                    workflow_output: str,
@@ -82,7 +206,7 @@ class KAGService:
                    workflow_id: str,
                    context: str = "") -> Dict[str, Any]:
         """
-        Main KAG invocation: Extract facts, generate summary, and store in memory
+        Main KAG invocation using LangGraph: Extract facts, generate summary, and store in memory
         
         Args:
             workflow_output: Raw output from workflow execution
@@ -94,33 +218,41 @@ class KAGService:
         Returns:
             Dict with summary, facts, reasoning, and memory reference
         """
-        # Get previous context from solution
-        previous_context = self.memory.get_solution_context(solution_id)
-        
-        # Build full context
-        full_context = f"{context}\n\nPrevious workflows in this solution:\n{previous_context}" if previous_context else context
-        
-        # Extract facts and reasoning using Gemini
-        result: GeminiResponse = self.gemini_client.extract_facts(workflow_output, full_context)
-        
-        # Store in conversation memory
-        memory_entry = {
-            "workflow_id": workflow_id,
+        # Initialize state
+        initial_state: KAGState = {
+            "workflow_output": workflow_output,
             "workflow_name": workflow_name,
-            "summary": result.summary,
-            "facts": result.facts,
-            "reasoning": result.reasoning,
-            "raw_output": workflow_output[:500]  # Store truncated raw output
+            "solution_id": solution_id,
+            "workflow_id": workflow_id,
+            "context": context,
+            "previous_context": "",
+            "facts": [],
+            "summary": "",
+            "reasoning": "",
+            "memory_stored": False,
+            "error": None
         }
         
-        self.memory.add_memory(solution_id, workflow_id, memory_entry)
+        # Execute LangGraph workflow
+        final_state = self.graph.invoke(initial_state)
+        
+        # Handle errors
+        if final_state.get("error"):
+            return {
+                "summary": f"Error in KAG processing: {final_state['error']}",
+                "facts": [],
+                "reasoning": "",
+                "memory_stored": False,
+                "context_available": False,
+                "error": final_state["error"]
+            }
         
         return {
-            "summary": result.summary,
-            "facts": result.facts,
-            "reasoning": result.reasoning,
-            "memory_stored": True,
-            "context_available": bool(previous_context)
+            "summary": final_state.get("summary", ""),
+            "facts": final_state.get("facts", []),
+            "reasoning": final_state.get("reasoning", ""),
+            "memory_stored": final_state.get("memory_stored", False),
+            "context_available": bool(final_state.get("previous_context"))
         }
     
     def prepare_handoff(self,

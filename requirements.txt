@@ -17,3 +17,6 @@ pytest-asyncio>=0.20
 python-dotenv>=1.0.0
 httpx>=0.24.0
 duckduckgo-search>=6.0.0
+neo4j>=5.14.0
+langchain-neo4j>=0.0.1
+
