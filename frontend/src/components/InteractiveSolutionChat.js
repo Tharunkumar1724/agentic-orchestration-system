@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaPaperPlane, FaPlay, FaCheckCircle, FaSpinner, FaBrain, FaNetworkWired, FaPlus, FaArrowRight, FaTimes } from 'react-icons/fa';
 import { chatAPI, solutionsAPI, workflowsAPI } from '../services/api';
+import ComprehensiveMetricsDisplay from './ComprehensiveMetricsDisplay';
 
 function InteractiveSolutionChat({ solutionId, onClose }) {
   const [solution, setSolution] = useState(null);
@@ -92,13 +93,16 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
           ...prev,
           [msg.workflow_id]: {
             kag: msg.kag_analysis,
-            output: msg.output
+            output: msg.output,
+            metrics: msg.metrics
           }
         }));
         
         addMessage('workflow_completed', `✅ ${msg.workflow_name} completed!`, {
           workflowId: msg.workflow_id,
-          kag: msg.kag_analysis
+          kag: msg.kag_analysis,
+          output: msg.output,
+          metrics: msg.metrics
         });
         break;
         
@@ -111,7 +115,13 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
       case 'execution_completed':
         setExecuting(false);
         setCurrentWorkflowIndex(-1);
-        addMessage('system', `🎉 All workflows completed! ${msg.summary?.combined_facts?.length || 0} facts collected.`);
+        
+        // Display comprehensive summary with metrics
+        addMessage('execution_summary', '🎉 All workflows completed!', {
+          summary: msg.summary,
+          workflowOutputs: msg.all_workflow_outputs,
+          overallMetrics: msg.overall_metrics
+        });
         break;
         
       case 'error':
@@ -227,17 +237,19 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
                   {msg.type === 'workflow_completed' && (
                     <div className="max-w-[80%] bg-gradient-to-r from-green-900/30 to-green-800/20 border border-green-500/50 text-white rounded-lg p-4">
                       <p className="font-semibold mb-2">{msg.content}</p>
+                      
+                      {/* AI Summary */}
                       {msg.metadata?.kag && (
                         <div className="mt-3 space-y-2">
                           <div className="bg-black/40 rounded p-3">
-                            <p className="text-xs text-gray-400 mb-1">AI Summary:</p>
+                            <p className="text-xs text-gray-400 mb-1">🤖 AI Summary:</p>
                             <p className="text-sm text-green-200">{msg.metadata.kag.summary}</p>
                           </div>
                           {msg.metadata.kag.facts && msg.metadata.kag.facts.length > 0 && (
                             <div className="bg-black/40 rounded p-3">
-                              <p className="text-xs text-gray-400 mb-2">Facts Extracted:</p>
-                              <ul className="space-y-1">
-                                {msg.metadata.kag.facts.slice(0, 3).map((fact, i) => (
+                              <p className="text-xs text-gray-400 mb-2">📊 Facts Extracted ({msg.metadata.kag.facts.length}):</p>
+                              <ul className="space-y-1 max-h-40 overflow-y-auto">
+                                {msg.metadata.kag.facts.map((fact, i) => (
                                   <li key={i} className="text-xs text-green-300 flex items-start gap-2">
                                     <span className="text-green-500">•</span>
                                     <span>{fact}</span>
@@ -246,6 +258,24 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
                               </ul>
                             </div>
                           )}
+                        </div>
+                      )}
+                      
+                      {/* Full Workflow Output */}
+                      {msg.metadata?.output && (
+                        <div className="mt-3 bg-black/40 rounded p-3">
+                          <p className="text-xs text-gray-400 mb-2">📄 Full Output:</p>
+                          <div className="text-xs text-gray-300 max-h-60 overflow-y-auto whitespace-pre-wrap font-mono">
+                            {typeof msg.metadata.output === 'string' ? msg.metadata.output : JSON.stringify(msg.metadata.output, null, 2)}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Metrics */}
+                      {msg.metadata?.metrics && Object.keys(msg.metadata.metrics).length > 0 && (
+                        <div className="mt-3 bg-black/40 rounded p-3">
+                          <p className="text-xs text-gray-400 mb-2">📈 Comprehensive Metrics:</p>
+                          <ComprehensiveMetricsDisplay metrics={msg.metadata.metrics} compact={true} />
                         </div>
                       )}
                     </div>
@@ -265,6 +295,84 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
                   {msg.type === 'error' && (
                     <div className="max-w-[80%] bg-red-900/20 border border-red-500 text-red-300 rounded-lg p-4">
                       <p>{msg.content}</p>
+                    </div>
+                  )}
+                  
+                  {msg.type === 'execution_summary' && (
+                    <div className="max-w-[95%] bg-gradient-to-r from-purple-900/40 to-blue-900/40 border-2 border-purple-500 text-white rounded-lg p-6">
+                      <p className="font-bold text-2xl mb-4">{msg.content}</p>
+                      
+                      {/* Overall Metrics */}
+                      {msg.metadata?.overallMetrics && (
+                        <div className="mb-6 bg-black/40 rounded-lg p-4">
+                          <p className="text-lg font-semibold mb-3 text-purple-300">📊 Overall Solution Metrics</p>
+                          <ComprehensiveMetricsDisplay metrics={msg.metadata.overallMetrics} />
+                        </div>
+                      )}
+                      
+                      {/* Combined AI Summary */}
+                      {msg.metadata?.summary && (
+                        <div className="mb-6 bg-black/40 rounded-lg p-4">
+                          <p className="text-lg font-semibold mb-3 text-green-300">🤖 Combined AI Summary</p>
+                          <p className="text-gray-200 mb-3">{msg.metadata.summary.final_summary}</p>
+                          
+                          {msg.metadata.summary.combined_facts && msg.metadata.summary.combined_facts.length > 0 && (
+                            <div className="mt-4">
+                              <p className="text-sm font-semibold text-green-300 mb-2">
+                                📌 All Facts Collected ({msg.metadata.summary.combined_facts.length}):
+                              </p>
+                              <ul className="space-y-1 max-h-60 overflow-y-auto">
+                                {msg.metadata.summary.combined_facts.map((fact, i) => (
+                                  <li key={i} className="text-sm text-green-200 flex items-start gap-2">
+                                    <span className="text-green-400">•</span>
+                                    <span>{fact}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                      
+                      {/* All Workflow Outputs */}
+                      {msg.metadata?.workflowOutputs && msg.metadata.workflowOutputs.length > 0 && (
+                        <div className="bg-black/40 rounded-lg p-4">
+                          <p className="text-lg font-semibold mb-3 text-blue-300">📄 Complete Workflow Outputs</p>
+                          <div className="space-y-4 max-h-96 overflow-y-auto">
+                            {msg.metadata.workflowOutputs.map((wf, i) => (
+                              <div key={i} className="bg-gray-900/50 rounded p-4 border border-gray-700">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <div className="w-6 h-6 rounded-full bg-blue-500 text-white text-xs flex items-center justify-center font-bold">
+                                    {i + 1}
+                                  </div>
+                                  <p className="font-semibold text-blue-200">{wf.workflow_name}</p>
+                                </div>
+                                
+                                {/* Workflow AI Analysis */}
+                                {wf.kag_analysis && (
+                                  <div className="mb-3 bg-black/40 rounded p-2">
+                                    <p className="text-xs text-gray-400 mb-1">AI Analysis:</p>
+                                    <p className="text-sm text-gray-300">{wf.kag_analysis.summary}</p>
+                                    {wf.kag_analysis.facts && wf.kag_analysis.facts.length > 0 && (
+                                      <p className="text-xs text-green-300 mt-1">
+                                        {wf.kag_analysis.facts.length} facts extracted
+                                      </p>
+                                    )}
+                                  </div>
+                                )}
+                                
+                                {/* Workflow Output */}
+                                <div className="bg-black/60 rounded p-3">
+                                  <p className="text-xs text-gray-400 mb-2">Output:</p>
+                                  <div className="text-xs text-gray-300 max-h-40 overflow-y-auto whitespace-pre-wrap font-mono">
+                                    {typeof wf.output === 'string' ? wf.output : JSON.stringify(wf.output, null, 2)}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
                   
@@ -348,13 +456,23 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
                         </div>
                         
                         {isCompleted && workflowResults[workflowId]?.kag && (
-                          <div className="mt-3 bg-black/40 rounded p-3 text-xs">
-                            <p className="text-green-400 font-semibold mb-1">AI Analysis:</p>
-                            <p className="text-gray-300">{workflowResults[workflowId].kag.summary?.substring(0, 100)}...</p>
-                            {workflowResults[workflowId].kag.facts && (
-                              <p className="text-green-300 mt-2">
-                                📌 {workflowResults[workflowId].kag.facts.length} facts extracted
-                              </p>
+                          <div className="mt-3 space-y-2">
+                            <div className="bg-black/40 rounded p-3 text-xs">
+                              <p className="text-green-400 font-semibold mb-1">🤖 AI Analysis:</p>
+                              <p className="text-gray-300">{workflowResults[workflowId].kag.summary?.substring(0, 100)}...</p>
+                              {workflowResults[workflowId].kag.facts && (
+                                <p className="text-green-300 mt-2">
+                                  📌 {workflowResults[workflowId].kag.facts.length} facts extracted
+                                </p>
+                              )}
+                            </div>
+                            
+                            {/* Metrics in right panel */}
+                            {workflowResults[workflowId]?.metrics && Object.keys(workflowResults[workflowId].metrics).length > 0 && (
+                              <div className="bg-black/40 rounded p-3 text-xs">
+                                <p className="text-blue-400 font-semibold mb-2">📊 Full Metrics:</p>
+                                <ComprehensiveMetricsDisplay metrics={workflowResults[workflowId].metrics} compact={true} />
+                              </div>
                             )}
                           </div>
                         )}

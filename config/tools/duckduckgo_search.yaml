@@ -1,233 +1,176 @@
-# ============================================================================
-# DUCKDUCKGO SEARCH TOOL - Complete Implementation
-# ============================================================================
-# Production-ready DuckDuckGo Instant Answer API integration
-# Based on Perfect Tool Architecture Template
-# ============================================================================
-
-# --------------------- BASIC IDENTIFICATION ---------------------
 id: duckduckgo_search
-name: "DuckDuckGo Search"
+name: DuckDuckGo Search
 type: api
-description: "Performs DuckDuckGo Instant Answer searches and returns structured JSON data including abstracts, related topics, and instant answers"
+description: Performs DuckDuckGo Instant Answer searches and returns structured JSON
+  data including abstracts, related topics, and instant answers
 version: v1
-
-# --------------------- METADATA & DOCUMENTATION ---------------------
 metadata:
-  created_at: "2025-11-08T00:00:00Z"
-  updated_at: "2025-11-08T00:00:00Z"
-  author: "System"
-  maintainer: "API Team"
+  created_at: '2025-11-08T00:00:00Z'
+  updated_at: '2025-11-08T00:00:00Z'
+  author: System
+  maintainer: API Team
   category: search
   tags:
-    - search
-    - web
-    - instant-answer
-    - duckduckgo
+  - search
+  - web
+  - instant-answer
+  - duckduckgo
   status: active
   stability: stable
   usage_count: 0
   last_used: null
-  documentation_url: "https://duckduckgo.com/api"
+  documentation_url: https://duckduckgo.com/api
   avg_execution_time_ms: 200
   success_rate: 0.98
   error_rate: 0.02
-
-# --------------------- CORE CONFIGURATION ---------------------
 config:
   api:
-    base_url: "https://api.duckduckgo.com"
-    endpoint: "/"
+    base_url: https://api.duckduckgo.com
+    endpoint: /
     method: GET
-    
-    # No authentication required for DuckDuckGo API
     auth:
       type: none
-    
     headers:
-      Accept: "application/json"
-      User-Agent: "AgenticApp/1.0"
-    
-    # Special handling for DuckDuckGo API
+      Accept: application/json
+      User-Agent: AgenticApp/1.0
     response:
-      status_codes: [200, 202]  # DuckDuckGo returns 202
-      content_type: "application/x-javascript"  # Not standard JSON
-      ignore_content_type: true  # Parse as JSON anyway
-    
-    # Query parameters template
+      status_codes:
+      - 200
+      - 202
+      content_type: application/x-javascript
+      ignore_content_type: true
     query_params:
-      q: "{{input.query}}"           # Search query
-      format: "json"                  # Response format
-      no_html: "1"                    # Remove HTML from responses
-      no_redirect: "1"                # Skip HTTP redirects
-      skip_disambig: "0"              # Include disambiguation
-    
+      q: '{{input.query}}'
+      format: json
+      no_html: '1'
+      no_redirect: '1'
+      skip_disambig: '0'
     timeout: 15
     retry_attempts: 3
     retry_delay: 1.0
     retry_strategy: exponential_backoff
-    
     rate_limit:
       requests_per_second: 2
       requests_per_minute: 30
       requests_per_hour: 500
-
-# --------------------- INPUT SCHEMA ---------------------
 input_schema:
   type: object
-  
   properties:
     query:
       type: string
-      description: "The search query text - can be keywords, questions, or phrases"
+      description: The search query text - can be keywords, questions, or phrases
       minLength: 1
       maxLength: 500
       examples:
-        - "Python programming"
-        - "What is artificial intelligence?"
-        - "weather in New York"
-        - "Albert Einstein"
-    
-    # Optional parameters for advanced control
+      - Python programming
+      - What is artificial intelligence?
+      - weather in New York
+      - Albert Einstein
     skip_disambig:
       type: string
-      description: "Skip disambiguation (0=include, 1=skip)"
-      enum: ["0", "1"]
-      default: "0"
-    
+      description: Skip disambiguation (0=include, 1=skip)
+      enum:
+      - '0'
+      - '1'
+      default: '0'
     no_redirect:
       type: string
-      description: "Skip HTTP redirects (0=allow, 1=skip)"
-      enum: ["0", "1"]
-      default: "1"
-  
+      description: Skip HTTP redirects (0=allow, 1=skip)
+      enum:
+      - '0'
+      - '1'
+      default: '1'
   required:
-    - query
-  
+  - query
   additionalProperties: false
-
-# --------------------- OUTPUT SCHEMA ---------------------
 output_schema:
   type: object
-  
   properties:
     success:
       type: boolean
-      description: "Whether the search was successful"
-    
+      description: Whether the search was successful
     status_code:
       type: integer
-      description: "HTTP status code"
-    
+      description: HTTP status code
     data:
       type: object
-      description: "DuckDuckGo API response"
+      description: DuckDuckGo API response
       properties:
-        # Primary instant answer
         AbstractText:
           type: string
-          description: "Summary/abstract of the topic"
-        
+          description: Summary/abstract of the topic
         AbstractSource:
           type: string
-          description: "Source of the abstract (e.g., Wikipedia)"
-        
+          description: Source of the abstract (e.g., Wikipedia)
         AbstractURL:
           type: string
-          description: "URL to the full article/source"
-        
-        # Heading and answer
+          description: URL to the full article/source
         Heading:
           type: string
-          description: "Topic heading"
-        
+          description: Topic heading
         Answer:
           type: string
-          description: "Instant answer if available"
-        
+          description: Instant answer if available
         AnswerType:
           type: string
-          description: "Type of answer (e.g., calc, conversion)"
-        
-        # Image
+          description: Type of answer (e.g., calc, conversion)
         Image:
           type: string
-          description: "URL to related image"
-        
+          description: URL to related image
         ImageWidth:
           type: integer
-          description: "Image width in pixels"
-        
+          description: Image width in pixels
         ImageHeight:
           type: integer
-          description: "Image height in pixels"
-        
+          description: Image height in pixels
         ImageIsLogo:
           type: integer
-          description: "Whether image is a logo (0 or 1)"
-        
-        # Related topics and results
+          description: Whether image is a logo (0 or 1)
         RelatedTopics:
           type: array
-          description: "Related topics and search results"
+          description: Related topics and search results
           items:
             type: object
             properties:
               Text:
                 type: string
-                description: "Topic text/description"
-              
+                description: Topic text/description
               FirstURL:
                 type: string
-                description: "URL to the topic"
-              
+                description: URL to the topic
               Icon:
                 type: object
-                description: "Topic icon information"
-              
+                description: Topic icon information
               Result:
                 type: string
-                description: "HTML result (if available)"
-        
-        # Results array
+                description: HTML result (if available)
         Results:
           type: array
-          description: "Direct results"
+          description: Direct results
           items:
             type: object
-        
-        # Definition
         Definition:
           type: string
-          description: "Definition if query is a word"
-        
+          description: Definition if query is a word
         DefinitionSource:
           type: string
-          description: "Source of definition"
-        
+          description: Source of definition
         DefinitionURL:
           type: string
-          description: "URL to full definition"
-        
-        # Entity information
+          description: URL to full definition
         Entity:
           type: string
-          description: "Entity name if applicable"
-        
-        # Metadata
+          description: Entity name if applicable
         Type:
           type: string
-          description: "Result type (A=article, D=disambiguation, etc.)"
-        
+          description: Result type (A=article, D=disambiguation, etc.)
         Redirect:
           type: string
-          description: "Redirect URL if applicable"
-      
+          description: Redirect URL if applicable
       additionalProperties: true
-    
     metadata:
       type: object
-      description: "Request metadata"
+      description: Request metadata
       properties:
         execution_time_ms:
           type: integer
@@ -238,10 +181,9 @@ output_schema:
           type: string
         cache_hit:
           type: boolean
-    
     error:
       type: object
-      description: "Error information if success=false"
+      description: Error information if success=false
       properties:
         code:
           type: string
@@ -249,42 +191,34 @@ output_schema:
           type: string
         details:
           type: object
-  
   required:
-    - success
-    - data
-
-# --------------------- API INTEGRATION ---------------------
+  - success
+  - data
 api_integration:
   backend:
-    base_url: "http://localhost:8000"
-    
+    base_url: http://localhost:8000
     endpoints:
       create:
-        path: "/tools"
+        path: /tools
         method: POST
-      
       get:
-        path: "/tools/duckduckgo_search"
+        path: /tools/duckduckgo_search
         method: GET
-      
       execute:
-        path: "/tools/duckduckgo_search/execute"
+        path: /tools/duckduckgo_search/execute
         method: POST
         request_body:
           parameters:
             query: string
-  
   frontend:
     service_functions:
-      - name: "searchDuckDuckGo"
-        description: "Execute DuckDuckGo search"
-        endpoint: "/tools/duckduckgo_search/execute"
-        method: "POST"
-        parameters: ["query"]
-        returns: "SearchResult"
-
-# --------------------- ERROR HANDLING ---------------------
+    - name: searchDuckDuckGo
+      description: Execute DuckDuckGo search
+      endpoint: /tools/duckduckgo_search/execute
+      method: POST
+      parameters:
+      - query
+      returns: SearchResult
 error_handling:
   retry:
     enabled: true
@@ -292,22 +226,18 @@ error_handling:
     strategy: exponential_backoff
     base_delay: 1.0
     max_delay: 10.0
-    
     retry_on:
-      - connection_timeout
-      - connection_refused
-      - temporary_failure
-      - service_unavailable
-    
+    - connection_timeout
+    - connection_refused
+    - temporary_failure
+    - service_unavailable
     no_retry_on:
-      - invalid_request
-      - not_found
-  
+    - invalid_request
+    - not_found
   validation:
     validate_input: true
     validate_output: true
     strict_mode: false
-  
   fallback:
     on_error: return_error
     return_partial_results: true
@@ -315,267 +245,199 @@ error_handling:
     default_value:
       success: false
       data:
-        AbstractText: ""
+        AbstractText: ''
         RelatedTopics: []
-  
   logging:
     log_errors: true
     log_level: ERROR
     include_stack_trace: true
-  
   error_codes:
-    4000: "Invalid Query"
-    4001: "Missing Required Parameter: query"
-    4002: "Query Too Long (max 500 chars)"
-    5000: "DuckDuckGo API Error"
-    5002: "Request Timeout"
-    5003: "Connection Error"
-
-# --------------------- EXECUTION CONFIGURATION ---------------------
+    4000: Invalid Query
+    4001: 'Missing Required Parameter: query'
+    4002: Query Too Long (max 500 chars)
+    5000: DuckDuckGo API Error
+    5002: Request Timeout
+    5003: Connection Error
 execution:
   async_enabled: true
   parallel_execution: false
-  
   limits:
     max_memory_mb: 128
     max_execution_time_seconds: 15
     max_retries: 3
-  
   cache:
     enabled: true
-    ttl_seconds: 1800  # 30 minutes
+    ttl_seconds: 1800
     max_size_mb: 50
     strategy: lru
-    cache_key_format: "duckduckgo:{query}"
-  
+    cache_key_format: duckduckgo:{query}
   monitoring:
     enabled: true
     collect_metrics: true
     metrics:
-      - execution_time
-      - success_rate
-      - error_rate
-      - cache_hit_rate
-  
+    - execution_time
+    - success_rate
+    - error_rate
+    - cache_hit_rate
   logging:
     enabled: true
     log_level: INFO
     log_format: json
-  
   post_processing:
     enabled: true
     steps:
-      - validate_output
-      - format_response
-      - add_metadata
-      - cache_result
-
-# --------------------- SECURITY & PERMISSIONS ---------------------
+    - validate_output
+    - format_response
+    - add_metadata
+    - cache_result
 security:
   authentication:
     required: false
-  
   authorization:
     required: false
-    roles: [admin, user, viewer]
+    roles:
+    - admin
+    - user
+    - viewer
     permissions:
-      admin: [create, read, update, delete, execute]
-      user: [read, execute]
-      viewer: [read]
-  
+      admin:
+      - create
+      - read
+      - update
+      - delete
+      - execute
+      user:
+      - read
+      - execute
+      viewer:
+      - read
   data_security:
     encrypt_sensitive_data: false
     sanitize_input: true
     sanitize_output: false
-  
   rate_limiting:
     enabled: true
     per_user: 30
     per_ip: 100
     window_seconds: 60
-
-# --------------------- EXAMPLES & USAGE ---------------------
 examples:
-  - name: "Simple Keyword Search"
-    description: "Search for a topic"
-    input:
-      query: "Python programming language"
-    expected_output:
-      success: true
-      data:
-        AbstractText: "Python is a high-level, general-purpose programming language..."
-        AbstractSource: "Wikipedia"
-        Heading: "Python (programming language)"
-        RelatedTopics: []
-  
-  - name: "Question Query"
-    description: "Ask a question"
-    input:
-      query: "What is machine learning?"
-    expected_output:
-      success: true
-      data:
-        AbstractText: "Machine learning is a branch of artificial intelligence..."
-        RelatedTopics: []
-  
-  - name: "Calculation Query"
-    description: "Perform calculation"
-    input:
-      query: "2+2"
-    expected_output:
-      success: true
-      data:
-        Answer: "4"
-        AnswerType: "calc"
-  
-  - name: "Entity Search"
-    description: "Search for a person"
-    input:
-      query: "Albert Einstein"
-    expected_output:
-      success: true
-      data:
-        AbstractText: "Albert Einstein was a German-born theoretical physicist..."
-        AbstractSource: "Wikipedia"
-        Image: "https://..."
-
-# --------------------- INTEGRATION POINTS ---------------------
+- name: Simple Keyword Search
+  description: Search for a topic
+  input:
+    query: Python programming language
+  expected_output:
+    success: true
+    data:
+      AbstractText: Python is a high-level, general-purpose programming language...
+      AbstractSource: Wikipedia
+      Heading: Python (programming language)
+      RelatedTopics: []
+- name: Question Query
+  description: Ask a question
+  input:
+    query: What is machine learning?
+  expected_output:
+    success: true
+    data:
+      AbstractText: Machine learning is a branch of artificial intelligence...
+      RelatedTopics: []
+- name: Calculation Query
+  description: Perform calculation
+  input:
+    query: 2+2
+  expected_output:
+    success: true
+    data:
+      Answer: '4'
+      AnswerType: calc
+- name: Entity Search
+  description: Search for a person
+  input:
+    query: Albert Einstein
+  expected_output:
+    success: true
+    data:
+      AbstractText: Albert Einstein was a German-born theoretical physicist...
+      AbstractSource: Wikipedia
+      Image: https://...
 integrations:
   llm:
     enabled: true
     provider: groq
     model: llama-3.1-70b-versatile
     use_cases:
-      - summarize_results
-      - extract_key_points
-      - answer_questions
-  
+    - summarize_results
+    - extract_key_points
+    - answer_questions
   storage:
     enabled: true
     save_results: true
     save_format: json
-    storage_path: "data/tools/duckduckgo/"
-  
+    storage_path: data/tools/duckduckgo/
   analytics:
     enabled: true
     track_usage: true
     track_performance: true
-
-# --------------------- FRONTEND USAGE ---------------------
 frontend_integration:
-  react_example: |
-    import { toolsAPI } from './services/api';
-    
-    // Execute DuckDuckGo search
-    const searchDuckDuckGo = async (query) => {
-      try {
-        const result = await toolsAPI.execute('duckduckgo_search', {
-          parameters: { query }
-        });
-        
-        if (result.data.success) {
-          const data = result.data.data;
-          console.log('Abstract:', data.AbstractText);
-          console.log('Source:', data.AbstractSource);
-          console.log('Related:', data.RelatedTopics);
-          return data;
-        }
-      } catch (error) {
-        console.error('Search failed:', error);
-      }
-    };
-    
-    // Usage
-    await searchDuckDuckGo('artificial intelligence');
-  
-  state_example: |
-    const [query, setQuery] = useState('');
-    const [results, setResults] = useState(null);
-    const [loading, setLoading] = useState(false);
-    
-    const handleSearch = async () => {
-      setLoading(true);
-      try {
-        const result = await toolsAPI.execute('duckduckgo_search', {
-          parameters: { query }
-        });
-        setResults(result.data.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-# --------------------- BACKEND USAGE ---------------------
+  react_example: "import { toolsAPI } from './services/api';\n\n// Execute DuckDuckGo\
+    \ search\nconst searchDuckDuckGo = async (query) => {\n  try {\n    const result\
+    \ = await toolsAPI.execute('duckduckgo_search', {\n      parameters: { query }\n\
+    \    });\n    \n    if (result.data.success) {\n      const data = result.data.data;\n\
+    \      console.log('Abstract:', data.AbstractText);\n      console.log('Source:',\
+    \ data.AbstractSource);\n      console.log('Related:', data.RelatedTopics);\n\
+    \      return data;\n    }\n  } catch (error) {\n    console.error('Search failed:',\
+    \ error);\n  }\n};\n\n// Usage\nawait searchDuckDuckGo('artificial intelligence');\n"
+  state_example: "const [query, setQuery] = useState('');\nconst [results, setResults]\
+    \ = useState(null);\nconst [loading, setLoading] = useState(false);\n\nconst handleSearch\
+    \ = async () => {\n  setLoading(true);\n  try {\n    const result = await toolsAPI.execute('duckduckgo_search',\
+    \ {\n      parameters: { query }\n    });\n    setResults(result.data.data);\n\
+    \  } catch (error) {\n    console.error(error);\n  } finally {\n    setLoading(false);\n\
+    \  }\n};\n"
 backend_integration:
-  python_example: |
-    import aiohttp
-    from app.models import ToolDef
-    
-    async def execute_duckduckgo_search(query: str):
-        async with aiohttp.ClientSession() as session:
-            params = {
-                'q': query,
-                'format': 'json',
-                'no_html': '1',
-                'no_redirect': '1'
-            }
-            
-            async with session.get(
-                'https://api.duckduckgo.com/',
-                params=params,
-                timeout=15
-            ) as response:
-                data = await response.json()
-                
-                return {
-                    'success': True,
-                    'status_code': response.status,
-                    'data': data,
-                    'metadata': {
-                        'timestamp': datetime.utcnow().isoformat()
-                    }
-                }
-
-# --------------------- TESTING ---------------------
+  python_example: "import aiohttp\nfrom app.models import ToolDef\n\nasync def execute_duckduckgo_search(query:\
+    \ str):\n    async with aiohttp.ClientSession() as session:\n        params =\
+    \ {\n            'q': query,\n            'format': 'json',\n            'no_html':\
+    \ '1',\n            'no_redirect': '1'\n        }\n        \n        async with\
+    \ session.get(\n            'https://api.duckduckgo.com/',\n            params=params,\n\
+    \            timeout=15\n        ) as response:\n            data = await response.json()\n\
+    \            \n            return {\n                'success': True,\n      \
+    \          'status_code': response.status,\n                'data': data,\n  \
+    \              'metadata': {\n                    'timestamp': datetime.utcnow().isoformat()\n\
+    \                }\n            }\n"
 testing:
   unit_tests:
-    - name: "test_simple_query"
-      input: { query: "Python" }
-      expected: { success: true }
-    
-    - name: "test_question_query"
-      input: { query: "What is AI?" }
-      expected: { success: true }
-    
-    - name: "test_empty_query"
-      input: { query: "" }
-      expected: { success: false }
-  
+  - name: test_simple_query
+    input:
+      query: Python
+    expected:
+      success: true
+  - name: test_question_query
+    input:
+      query: What is AI?
+    expected:
+      success: true
+  - name: test_empty_query
+    input:
+      query: ''
+    expected:
+      success: false
   integration_tests:
-    - name: "test_api_response_format"
-      description: "Verify API returns expected JSON structure"
-    
-    - name: "test_rate_limiting"
-      description: "Verify rate limiting works correctly"
-  
+  - name: test_api_response_format
+    description: Verify API returns expected JSON structure
+  - name: test_rate_limiting
+    description: Verify rate limiting works correctly
   performance_tests:
-    - name: "test_response_time"
-      threshold_ms: 500
-    
-    - name: "test_cache_effectiveness"
-      cache_hit_rate_min: 0.5
-
-# --------------------- VERSIONING ---------------------
+  - name: test_response_time
+    threshold_ms: 500
+  - name: test_cache_effectiveness
+    cache_hit_rate_min: 0.5
 versioning:
   current_version: v1
-  schema_version: "1.0.0"
-  
+  schema_version: 1.0.0
   changelog:
-    - version: v1
-      date: "2025-11-08"
-      changes:
-        - "Initial DuckDuckGo search tool implementation"
-        - "Complete API integration with error handling"
-        - "Caching and rate limiting support"
+  - version: v1
+    date: '2025-11-08'
+    changes:
+    - Initial DuckDuckGo search tool implementation
+    - Complete API integration with error handling
+    - Caching and rate limiting support

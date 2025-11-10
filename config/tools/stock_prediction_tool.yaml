@@ -9,6 +9,7 @@ config:
   params:
     range: 1mo
     interval: 1d
-  description: Fetch real-time stock data and analyze trends for price prediction. Use stock symbol (e.g., AAPL, GOOGL, MSFT)
+  description: Fetch real-time stock data and analyze trends for price prediction.
+    Use stock symbol (e.g., AAPL, GOOGL, MSFT)
   response_format: json
 version: v1

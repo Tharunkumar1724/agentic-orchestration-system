@@ -84,10 +84,10 @@ class OutputFormatter:
         """Extract the main LLM response from node result."""
         llm_response = node_result.get("llm_response", "")
         
-        # Clean up the response - remove excessive technical details
+        # Clean up the response - keep full content
         if isinstance(llm_response, str):
-            # Limit length for summary
-            max_length = 1000
+            # Increased limit for better visibility
+            max_length = 10000  # Increased from 1000
             if len(llm_response) > max_length:
                 return llm_response[:max_length] + "... (truncated)"
             return llm_response
@@ -123,11 +123,11 @@ class OutputFormatter:
         if "data" in tool_result or "json" in tool_result:
             return "API call completed successfully"
         
-        # For general tools
+        # For general tools - show full output
         if "output" in tool_result:
             output = str(tool_result.get("output", ""))
-            if len(output) > 100:
-                return output[:100] + "..."
+            if len(output) > 5000:  # Increased from 100
+                return output[:5000] + "..."
             return output
         
         # For tool orchestrator format

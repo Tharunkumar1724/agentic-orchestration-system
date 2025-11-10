@@ -112,10 +112,10 @@ function WorkflowCommunicationVisualizer({
                 <div className="space-y-1">
                   <div className="flex items-center gap-1 text-xs text-blue-300">
                     <FaLightbulb size={10} />
-                    <span className="font-medium">Key Facts:</span>
+                    <span className="font-medium">Key Facts ({kag.facts.length}):</span>
                   </div>
                   <ul className="text-xs text-gray-400 space-y-1 ml-4">
-                    {kag.facts.slice(0, 3).map((fact, i) => (
+                    {kag.facts.map((fact, i) => (
                       <li key={i} className="list-disc">{fact}</li>
                     ))}
                   </ul>

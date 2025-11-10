@@ -2,10 +2,14 @@ from fastapi import APIRouter, HTTPException, Body
 from app.models import ToolDef
 from app.storage import save, load, list_all, delete
 from app.services.dynamic_tool_generator import dynamic_tool_generator, ToolTemplate, ToolRecipes
+from app.services.tool_orchestrator import ToolOrchestrator
 from typing import List, Dict, Any, Optional
 from pydantic import BaseModel
 
 router = APIRouter()
+
+# Initialize tool orchestrator
+tool_orchestrator = ToolOrchestrator()
 
 
 # ============= Request Models =============
@@ -46,6 +50,12 @@ class BatchToolCreateRequest(BaseModel):
     save_to_disk: bool = True
 
 
+class ToolExecuteRequest(BaseModel):
+    """Request to execute a tool"""
+    parameters: Dict[str, Any]
+    context: Optional[Dict[str, Any]] = None
+
+
 # ============= Original Endpoints =============
 
 @router.post("/", response_model=ToolDef)
@@ -75,6 +85,31 @@ async def get_tool(tool_id: str):
     if not data:
         raise HTTPException(status_code=404, detail="Tool not found")
     return data
+
+
+@router.post("/{tool_id}/execute")
+async def execute_tool(tool_id: str, request: ToolExecuteRequest):
+    """Execute a tool with given parameters"""
+    # Load tool definition
+    tool_def = load("tools", tool_id)
+    if not tool_def:
+        raise HTTPException(status_code=404, detail=f"Tool '{tool_id}' not found")
+    
+    try:
+        # Execute tool using orchestrator
+        result = await tool_orchestrator.execute_tool(
+            tool_def=tool_def,
+            inputs=request.parameters,
+            context=request.context or {}
+        )
+        
+        return result.to_dict()
+    
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Tool execution failed: {str(e)}"
+        )
 
 
 @router.get("/", response_model=List[ToolDef])

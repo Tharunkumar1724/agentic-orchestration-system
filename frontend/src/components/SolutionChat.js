@@ -9,6 +9,12 @@ import {
   FaSpinner, FaBrain, FaArrowRight, FaPlay, FaStop
 } from 'react-icons/fa';
 
+// VERSION MARKER - Check console for this!
+const SOLUTION_CHAT_VERSION = '2.0.0-ENHANCED-OUTPUT';
+console.log('🔥🔥🔥 SOLUTION CHAT VERSION:', SOLUTION_CHAT_VERSION, '🔥🔥🔥');
+console.log('🔥 If you see version 2.0.0-ENHANCED-OUTPUT, new code is loaded!');
+console.log('🔥 This version includes: Complete Workflow Output + Metrics sections');
+
 // Animated Workflow Node
 const AnimatedWorkflowNode = React.memo(({ data, id }) => {
   console.log('🎨 Rendering node:', id, data);
@@ -340,7 +346,29 @@ function SolutionChat({ solutionId, onClose }) {
 
   const handleWebSocketMessage = (message) => {
     console.log('📥📥📥 WEBSOCKET MESSAGE RECEIVED! 📥📥📥');
-    console.log('📥 Processing message type:', message.type, message);
+    console.log('📥 Message type:', message.type);
+    console.log('📥 Full message:', message);
+    
+    // Log specific fields for workflow_completed
+    if (message.type === 'workflow_completed') {
+      console.log('🔍 WORKFLOW COMPLETED DETAILS:');
+      console.log('  - Has output?', !!message.output);
+      console.log('  - Output length:', message.output?.length || 0);
+      console.log('  - Has metrics?', !!message.metrics);
+      console.log('  - Metrics:', message.metrics);
+      console.log('  - Has KAG?', !!message.kag_analysis);
+    }
+    
+    // Log specific fields for execution_completed
+    if (message.type === 'execution_completed') {
+      console.log('🎉 EXECUTION COMPLETED DETAILS:');
+      console.log('  - Has summary?', !!message.summary);
+      console.log('  - Has all_workflow_outputs?', !!message.all_workflow_outputs);
+      console.log('  - Workflow outputs count:', message.all_workflow_outputs?.length || 0);
+      console.log('  - Has overall_metrics?', !!message.overall_metrics);
+      console.log('  - Overall metrics:', message.overall_metrics);
+    }
+    
     console.log('📥 Current executionMessages count:', executionMessages.length);
     
     // ALWAYS add to execution messages
@@ -372,7 +400,11 @@ function SolutionChat({ solutionId, onClose }) {
         break;
 
       case 'workflow_completed':
-        console.log('✅ Workflow completed:', message.workflow_id);
+        console.log('✅ Workflow completed:', message.workflow_id, 'Output:', message.output);
+        console.log('✅ FULL MESSAGE:', JSON.stringify(message, null, 2));
+        console.log('✅ Output field exists?', 'output' in message);
+        console.log('✅ Output value:', message.output);
+        console.log('✅ Output length:', message.output?.length);
         // Update node to completed
         setNodes(prevNodes => prevNodes.map((node, idx) => {
           const workflowIndex = solution?.workflows?.indexOf(message.workflow_id);
@@ -383,7 +415,8 @@ function SolutionChat({ solutionId, onClose }) {
                 ...node.data, 
                 isActive: false, 
                 isCompleted: true,
-                facts: message.kag_analysis?.facts || []
+                facts: message.kag_analysis?.facts || [],
+                output: message.output  // Store the output
               }
             };
           }
@@ -395,13 +428,17 @@ function SolutionChat({ solutionId, onClose }) {
           [message.workflow_id]: {
             status: 'completed',
             kag: message.kag_analysis,
-            output: message.output
+            output: message.output,
+            metrics: message.metrics
           }
         }));
         break;
 
       case 'execution_completed':
-        console.log('🎉 Execution completed!');
+        console.log('🎉 Execution completed!', message);
+        console.log('📚 All workflow outputs:', message.all_workflow_outputs);
+        console.log('📋 Summary:', message.summary);
+        // Message already added at top of function, no need to add again
         setExecuting(false);
         break;
 
@@ -421,10 +458,10 @@ function SolutionChat({ solutionId, onClose }) {
     console.log('🚀 WebSocket object:', ws);
     console.log('🚀 Solution ID:', solutionId);
     
-    // Show immediate feedback
-    setExecutionMessages([{ 
+    // Show immediate feedback - APPEND to existing messages, don't replace!
+    setExecutionMessages(prev => [...prev, { 
       type: 'info', 
-      message: `Button clicked! Checking WebSocket... State: ${ws?.readyState}` 
+      message: `🚀 Starting new execution...` 
     }]);
     
     // WebSocket.OPEN = 1
@@ -432,7 +469,7 @@ function SolutionChat({ solutionId, onClose }) {
       console.log('📤 Sending execute command for solution:', solutionId);
       setExecutionMessages(prev => [...prev, { 
         type: 'info', 
-        message: `Sending execute command to backend...` 
+        message: `📤 Sending execute command to backend...` 
       }]);
       ws.send(JSON.stringify({ action: 'execute' }));
     } else {
@@ -570,7 +607,7 @@ function SolutionChat({ solutionId, onClose }) {
                   <h4 className="text-purple-300 font-bold mb-2 flex items-center gap-2">
                     <FaBrain /> Solution Execution Log ({executionMessages.length} messages)
                   </h4>
-                  <div className="space-y-2 max-h-60 overflow-y-auto">
+                  <div className="space-y-3 max-h-[600px] overflow-y-auto">
                     {executionMessages.map((msg, idx) => (
                       <div key={idx} className="text-sm">
                         {msg.type === 'execution_started' && (
@@ -580,11 +617,92 @@ function SolutionChat({ solutionId, onClose }) {
                           <div className="text-blue-400">🔄 Workflow {msg.position}/{msg.total}: {msg.workflow_name}</div>
                         )}
                         {msg.type === 'workflow_completed' && (
-                          <div className="text-green-400">
-                            ✅ Completed: {msg.workflow_name}
-                            {msg.kag_analysis?.summary && (
-                              <div className="text-gray-400 text-xs ml-4 mt-1">
-                                Summary: {msg.kag_analysis.summary.substring(0, 100)}...
+                          <div className="border-l-4 border-green-500 pl-3 py-2 bg-green-900/10 rounded">
+                            <div className="text-green-400 font-semibold mb-3 text-base">
+                              ✅ Completed: {msg.workflow_name}
+                            </div>
+                            
+                            {/* Workflow Output/Tool Results - ALWAYS SHOW */}
+                            <div className="mt-3 bg-gray-800/50 rounded p-3 border border-gray-700">
+                              <div className="text-blue-300 text-sm font-bold mb-2">📊 Complete Workflow Output:</div>
+                              {msg.output ? (
+                                <pre className="text-gray-300 text-xs whitespace-pre-wrap overflow-x-auto max-h-96 overflow-y-auto bg-black/30 p-3 rounded border border-gray-600">
+                                  {typeof msg.output === 'string' ? msg.output : JSON.stringify(msg.output, null, 2)}
+                                </pre>
+                              ) : (
+                                <div className="text-red-400 text-xs bg-red-900/20 p-2 rounded">
+                                  ⚠️ No output data received from backend
+                                </div>
+                              )}
+                            </div>
+                            
+                            {/* Metrics - Show if available */}
+                            {msg.metrics && Object.keys(msg.metrics).length > 0 && (
+                              <div className="mt-3 bg-blue-900/20 rounded p-3 border border-blue-700/30">
+                                <div className="text-blue-300 text-sm font-bold mb-2">� Workflow Metrics:</div>
+                                <div className="grid grid-cols-2 gap-2 text-xs">
+                                  {msg.metrics.execution_time && (
+                                    <div className="text-gray-300 bg-black/20 p-2 rounded">
+                                      <span className="font-semibold">⏱️ Execution Time:</span> {msg.metrics.execution_time.toFixed(2)}s
+                                    </div>
+                                  )}
+                                  {msg.metrics.total_tokens && (
+                                    <div className="text-gray-300 bg-black/20 p-2 rounded">
+                                      <span className="font-semibold">🔢 Tokens Used:</span> {msg.metrics.total_tokens}
+                                    </div>
+                                  )}
+                                  {msg.metrics.cost && (
+                                    <div className="text-gray-300 bg-black/20 p-2 rounded">
+                                      <span className="font-semibold">💰 Cost:</span> ${msg.metrics.cost.toFixed(4)}
+                                    </div>
+                                  )}
+                                  {msg.metrics.model && (
+                                    <div className="text-gray-300 bg-black/20 p-2 rounded">
+                                      <span className="font-semibold">🤖 Model:</span> {msg.metrics.model}
+                                    </div>
+                                  )}
+                                </div>
+                                {/* Show all metrics as JSON if there are more */}
+                                <details className="mt-2">
+                                  <summary className="text-xs text-gray-400 cursor-pointer hover:text-gray-300">
+                                    View all metrics (JSON)
+                                  </summary>
+                                  <pre className="text-xs text-gray-400 mt-2 bg-black/30 p-2 rounded overflow-auto max-h-40">
+                                    {JSON.stringify(msg.metrics, null, 2)}
+                                  </pre>
+                                </details>
+                              </div>
+                            )}
+                            
+                            {/* KAG Analysis */}
+                            {msg.kag_analysis && (
+                              <div className="mt-3 space-y-2">
+                                {msg.kag_analysis.summary && (
+                                  <div className="bg-purple-900/20 rounded p-3 border border-purple-700/30">
+                                    <div className="text-purple-300 text-sm font-semibold mb-2">🤖 AI Summary:</div>
+                                    <div className="text-gray-300 text-sm">{msg.kag_analysis.summary}</div>
+                                  </div>
+                                )}
+                                
+                                {msg.kag_analysis.facts && msg.kag_analysis.facts.length > 0 && (
+                                  <div className="bg-green-900/20 rounded p-3 border border-green-700/30">
+                                    <div className="text-green-300 text-sm font-semibold mb-2">
+                                      📌 Facts Extracted ({msg.kag_analysis.facts.length}):
+                                    </div>
+                                    <ul className="list-disc list-inside text-gray-300 text-sm space-y-1">
+                                      {msg.kag_analysis.facts.map((fact, i) => (
+                                        <li key={i}>{fact}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                                
+                                {msg.kag_analysis.reasoning && (
+                                  <div className="bg-blue-900/20 rounded p-3 border border-blue-700/30">
+                                    <div className="text-blue-300 text-sm font-semibold mb-2">💭 AI Reasoning:</div>
+                                    <div className="text-gray-300 text-sm italic">{msg.kag_analysis.reasoning}</div>
+                                  </div>
+                                )}
                               </div>
                             )}
                           </div>
@@ -593,10 +711,143 @@ function SolutionChat({ solutionId, onClose }) {
                           <div className="text-yellow-400">🤝 Handoff: {msg.from_workflow} → {msg.to_workflow}</div>
                         )}
                         {msg.type === 'execution_completed' && (
-                          <div className="text-green-500 font-bold">🎉 Execution complete!</div>
+                          <div className="border-l-4 border-green-500 pl-3 py-2 bg-green-900/10 rounded">
+                            <div className="text-green-400 font-bold text-lg mb-3">
+                              🎉 Execution Complete!
+                            </div>
+                            
+                            {/* Debug info */}
+                            <div className="text-xs text-gray-500 mb-2">
+                              DEBUG: Has summary: {msg.summary ? 'YES' : 'NO'} | 
+                              Has all_workflow_outputs: {msg.all_workflow_outputs ? 'YES' : 'NO'} | 
+                              Outputs count: {msg.all_workflow_outputs?.length || 0}
+                            </div>
+                            
+                            {/* Overall Summary */}
+                            {msg.summary && (
+                              <div className="mt-3 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-lg p-4">
+                                <div className="text-purple-300 text-lg font-bold mb-3 flex items-center">
+                                  📋 Overall Solution Summary
+                                </div>
+                                <div className="text-gray-200 text-base whitespace-pre-wrap leading-relaxed">
+                                  {msg.summary}
+                                </div>
+                              </div>
+                            )}
+                            
+                            {/* All Workflow Outputs */}
+                            {msg.all_workflow_outputs && msg.all_workflow_outputs.length > 0 && (
+                              <div className="mt-4 space-y-3">
+                                <div className="text-cyan-300 text-lg font-bold mb-2">
+                                  📚 Complete Workflow Results ({msg.all_workflow_outputs.length} workflows)
+                                </div>
+                                {msg.all_workflow_outputs.map((workflow, idx) => (
+                                  <div key={idx} className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                                    <div className="text-yellow-300 font-semibold mb-2">
+                                      {idx + 1}. {workflow.workflow_name}
+                                    </div>
+                                    
+                                    {/* Workflow Output */}
+                                    {workflow.output && (
+                                      <div className="mt-2 bg-black/30 rounded p-3">
+                                        <div className="text-blue-300 text-sm font-semibold mb-1">Tool Results:</div>
+                                        <pre className="text-gray-300 text-xs whitespace-pre-wrap overflow-x-auto max-h-64 overflow-y-auto">
+                                          {typeof workflow.output === 'string' ? workflow.output : JSON.stringify(workflow.output, null, 2)}
+                                        </pre>
+                                      </div>
+                                    )}
+                                    
+                                    {/* KAG Analysis for this workflow */}
+                                    {workflow.kag_analysis && (
+                                      <div className="mt-2 space-y-2">
+                                        {workflow.kag_analysis.summary && (
+                                          <div className="bg-purple-900/20 rounded p-2">
+                                            <div className="text-purple-300 text-xs font-semibold mb-1">KAG Summary:</div>
+                                            <div className="text-gray-300 text-xs">{workflow.kag_analysis.summary}</div>
+                                          </div>
+                                        )}
+                                        {workflow.kag_analysis.facts && workflow.kag_analysis.facts.length > 0 && (
+                                          <div className="bg-green-900/20 rounded p-2">
+                                            <div className="text-green-300 text-xs font-semibold mb-1">
+                                              Facts ({workflow.kag_analysis.facts.length}):
+                                            </div>
+                                            <ul className="list-disc list-inside text-gray-300 text-xs">
+                                              {workflow.kag_analysis.facts.map((fact, i) => (
+                                                <li key={i}>{fact}</li>
+                                              ))}
+                                            </ul>
+                                          </div>
+                                        )}
+                                      </div>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                            
+                            {/* Overall Metrics */}
+                            {msg.overall_metrics && Object.keys(msg.overall_metrics).length > 0 && (
+                              <div className="mt-3 bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-lg p-4 border border-blue-500/30">
+                                <div className="text-cyan-300 text-base font-bold mb-3">📊 Overall Performance Metrics</div>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                  {msg.overall_metrics.execution_time !== undefined && (
+                                    <div className="bg-black/30 rounded p-3">
+                                      <div className="text-gray-400 text-xs mb-1">⏱️ Execution Time</div>
+                                      <div className="text-white font-bold text-lg">{msg.overall_metrics.execution_time.toFixed(2)}s</div>
+                                    </div>
+                                  )}
+                                  {msg.overall_metrics.total_tokens !== undefined && (
+                                    <div className="bg-black/30 rounded p-3">
+                                      <div className="text-gray-400 text-xs mb-1">🔢 Total Tokens</div>
+                                      <div className="text-white font-bold text-lg">{msg.overall_metrics.total_tokens}</div>
+                                    </div>
+                                  )}
+                                  {msg.overall_metrics.cost !== undefined && (
+                                    <div className="bg-black/30 rounded p-3">
+                                      <div className="text-gray-400 text-xs mb-1">💰 Total Cost</div>
+                                      <div className="text-white font-bold text-lg">${msg.overall_metrics.cost.toFixed(4)}</div>
+                                    </div>
+                                  )}
+                                  {msg.overall_metrics.task_completed !== undefined && (
+                                    <div className="bg-black/30 rounded p-3">
+                                      <div className="text-gray-400 text-xs mb-1">✅ Status</div>
+                                      <div className="text-white font-bold text-lg">{msg.overall_metrics.task_completed ? 'Success' : 'Failed'}</div>
+                                    </div>
+                                  )}
+                                </div>
+                                <details className="mt-3">
+                                  <summary className="text-xs text-gray-400 cursor-pointer hover:text-gray-300">
+                                    View complete metrics (JSON)
+                                  </summary>
+                                  <pre className="text-xs text-gray-400 mt-2 bg-black/30 p-3 rounded overflow-auto max-h-48">
+                                    {JSON.stringify(msg.overall_metrics, null, 2)}
+                                  </pre>
+                                </details>
+                              </div>
+                            )}
+                            
+                            {/* Fallback: Show raw message if nothing is displaying */}
+                            {!msg.summary && !msg.all_workflow_outputs && (
+                              <div className="mt-3 bg-red-900/20 rounded p-3">
+                                <div className="text-red-300 text-sm font-semibold mb-2">⚠️ Raw Message Data:</div>
+                                <pre className="text-gray-300 text-xs whitespace-pre-wrap overflow-x-auto max-h-64 overflow-y-auto">
+                                  {JSON.stringify(msg, null, 2)}
+                                </pre>
+                              </div>
+                            )}
+                          </div>
                         )}
                         {msg.type === 'error' && (
                           <div className="text-red-400">❌ Error: {msg.message}</div>
+                        )}
+                        {msg.type === 'info' && (
+                          <div className="text-yellow-400 text-xs">{msg.message}</div>
+                        )}
+                        {!['execution_started', 'workflow_started', 'workflow_completed', 'handoff_prepared', 'execution_completed', 'error', 'info'].includes(msg.type) && (
+                          <div className="bg-orange-900/20 rounded p-2">
+                            <div className="text-orange-300 text-xs font-semibold">Unknown message type: {msg.type}</div>
+                            <pre className="text-gray-300 text-xs mt-1">{JSON.stringify(msg, null, 2)}</pre>
+                          </div>
                         )}
                       </div>
                     ))}

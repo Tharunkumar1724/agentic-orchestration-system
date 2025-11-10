@@ -7,7 +7,7 @@ llm_config:
   temperature: 0.7
   max_tokens: 1024
 tools:
-  - duckduckgo_search
+- duckduckgo_search
 use_kag: false
 communication:
   can_receive: true

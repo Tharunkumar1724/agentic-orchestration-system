@@ -12,6 +12,7 @@ import {
   FaProjectDiagram 
 } from 'react-icons/fa';
 import { workflowsAPI } from '../services/api';
+import ComprehensiveMetricsDisplay from './ComprehensiveMetricsDisplay';
 
 // Animated Agent Node for real-time workflow visualization
 const LiveAgentNode = ({ data }) => {
@@ -76,6 +77,7 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [activeNodeIndex, setActiveNodeIndex] = useState(-1);
+  const [workflowMetrics, setWorkflowMetrics] = useState(null);
   const messagesEndRef = useRef(null);
 
   // Initialize workflow visualization
@@ -156,6 +158,11 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
       
       console.log('Workflow response:', response.data);
       
+      // Store metrics if available
+      if (response.data?.metrics) {
+        setWorkflowMetrics(response.data.metrics);
+      }
+      
       const workflowNodes = workflow.nodes || [];
       
       // Check if we have new structured format
@@ -187,6 +194,10 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
           
           await new Promise(resolve => setTimeout(resolve, 800));
           
+          // Debug: Log tool execution data
+          console.log('🔍 Node data:', nodeData);
+          console.log('🔍 Tools executed:', nodeData.tools_executed);
+          
           // Add agent response
           const agentMsg = {
             id: Date.now() + nodeIdx + 2,
@@ -195,7 +206,8 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
             content: nodeData.response || 'No response',
             tools: nodeData.tools_executed?.map(t => t.tool) || [],
             toolResults: nodeData.tools_executed?.reduce((acc, tool) => {
-              acc[tool.tool] = tool.summary;
+              // Use full output instead of just summary
+              acc[tool.tool] = tool.output || tool.summary || tool.result || 'No output';
               return acc;
             }, {}) || {},
             timestamp: new Date().toLocaleTimeString(),
@@ -273,6 +285,18 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
           };
           setMessages(prev => [...prev, resultMsg]);
         }
+      }
+      
+      // Add metrics message if available
+      if (response.data?.metrics) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+        const metricsMsg = {
+          id: Date.now() + 3000,
+          type: 'metrics',
+          metrics: response.data.metrics,
+          timestamp: new Date().toLocaleTimeString(),
+        };
+        setMessages(prev => [...prev, metricsMsg]);
       }
 
     } catch (error) {
@@ -424,12 +448,25 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
                 <p className="text-xs text-gray-400">Ask questions and see results</p>
               </div>
             </div>
-            <button
-              onClick={onClose}
-              className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors border border-gray-700"
-            >
-              <FaTimes className="text-sm" />
-            </button>
+            <div className="flex items-center gap-2">
+              {/* Metrics Badge */}
+              {workflowMetrics && (
+                <div className="flex gap-2 mr-2">
+                  <span className="text-[10px] px-2 py-1 rounded-full bg-blue-900/50 text-blue-300 border border-blue-500/30">
+                    {workflowMetrics.token_usage_count || 0} tokens
+                  </span>
+                  <span className="text-[10px] px-2 py-1 rounded-full bg-purple-900/50 text-purple-300 border border-purple-500/30">
+                    {(workflowMetrics.latency_ms || 0).toFixed(0)}ms
+                  </span>
+                </div>
+              )}
+              <button
+                onClick={onClose}
+                className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors border border-gray-700"
+              >
+                <FaTimes className="text-sm" />
+              </button>
+            </div>
           </div>
 
           {/* Messages Area */}
@@ -477,11 +514,14 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
                             : msg.content}
                         </p>
                         {msg.toolResults && Object.keys(msg.toolResults).length > 0 && (
-                          <div className="mt-2 p-2 bg-gray-900/50 rounded border border-gray-700">
-                            <p className="text-[9px] text-gray-400 mb-1">Tool Results:</p>
+                          <div className="mt-2 p-2 bg-gray-900/50 rounded border border-gray-700 max-h-96 overflow-y-auto">
+                            <p className="text-[9px] text-gray-400 mb-1 font-semibold">📊 Tool Results:</p>
                             {Object.entries(msg.toolResults).map(([tool, result], idx) => (
-                              <div key={idx} className="text-[9px] text-green-400 font-mono truncate">
-                                {tool}: {typeof result === 'string' ? result.substring(0, 60) : JSON.stringify(result).substring(0, 60)}...
+                              <div key={idx} className="mt-2 p-2 bg-black/30 rounded">
+                                <div className="text-[10px] text-blue-300 font-semibold mb-1">🔧 {tool}:</div>
+                                <pre className="text-[9px] text-green-400 font-mono whitespace-pre-wrap">
+                                  {typeof result === 'string' ? result : JSON.stringify(result, null, 2)}
+                                </pre>
                               </div>
                             ))}
                           </div>
@@ -510,6 +550,19 @@ const WorkflowChat = ({ workflow, agents, onClose }) => {
                             : msg.content}
                         </p>
                         <span className="text-[9px] text-gray-500 mt-1 block">{msg.timestamp}</span>
+                      </div>
+                    </div>
+                  ) : msg.type === 'metrics' ? (
+                    <div className="w-full">
+                      <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 rounded-lg p-4 border border-purple-700/50">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="p-1 rounded bg-purple-600">
+                            <FaRobot className="text-white text-[9px]" />
+                          </div>
+                          <span className="text-sm font-bold text-purple-300">📊 Comprehensive Workflow Metrics</span>
+                        </div>
+                        <ComprehensiveMetricsDisplay metrics={msg.metrics} />
+                        <span className="text-[9px] text-gray-500 mt-2 block">{msg.timestamp}</span>
                       </div>
                     </div>
                   ) : (

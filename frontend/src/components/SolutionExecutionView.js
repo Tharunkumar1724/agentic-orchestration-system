@@ -348,9 +348,9 @@ function SolutionExecutionView({ solution, onClose }) {
                                 )}
                                 {handoffs[index].data?.facts && handoffs[index].data.facts.length > 0 && (
                                   <div>
-                                    <span className="text-gray-300 text-sm font-semibold block mb-1">📌 Key Facts:</span>
+                                    <span className="text-gray-300 text-sm font-semibold block mb-1">📌 Key Facts ({handoffs[index].data.facts.length}):</span>
                                     <ul className="space-y-1">
-                                      {handoffs[index].data.facts.slice(0, 3).map((fact, i) => (
+                                      {handoffs[index].data.facts.map((fact, i) => (
                                         <li key={i} className="text-green-300 text-xs flex items-start gap-2">
                                           <span className="text-green-500">•</span>
                                           <span>{fact}</span>

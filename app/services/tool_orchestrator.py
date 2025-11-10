@@ -342,11 +342,26 @@ class ToolOrchestrator:
                     params[key] = value
         else:
             # Simple structure (e.g., config.url)
-            url = config.get("url")
+            url = config.get("url", "")
             method = config.get("method", "GET").upper()
             headers = config.get("headers", {})
             timeout = config.get("timeout", 10.0)
-            params = inputs
+            
+            # Handle URL template variables like {symbol}, {id}, etc.
+            if "{" in url and "}" in url:
+                # Replace all {variable} placeholders with values from inputs
+                import re
+                placeholders = re.findall(r'\{(\w+)\}', url)
+                for placeholder in placeholders:
+                    if placeholder in inputs:
+                        url = url.replace(f"{{{placeholder}}}", str(inputs[placeholder]))
+                        # Remove used parameter from inputs so it's not sent as query param
+                        inputs = {k: v for k, v in inputs.items() if k != placeholder}
+            
+            # Get additional params from config
+            config_params = config.get("params", {})
+            # Merge config params with remaining inputs
+            params = {**config_params, **inputs}
         
         async with httpx.AsyncClient(timeout=timeout) as client:
             if method == "GET":

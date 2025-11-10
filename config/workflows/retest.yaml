@@ -1,6 +1,7 @@
 id: retest
 name: Stock Analysis Workflow
-description: 'Analyze stock trends and predict future prices using market data and research'
+description: Analyze stock trends and predict future prices using market data and
+  research
 type: dag
 nodes:
 - id: node_1762581659768

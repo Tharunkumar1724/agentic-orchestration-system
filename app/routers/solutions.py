@@ -349,6 +349,9 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                 })
                 print(f"📤 Sent execution_started")
                 
+                # Collect all workflow results for final summary
+                all_workflow_outputs = []
+                
                 # Execute workflows and stream updates
                 for i, workflow_id in enumerate(solution["workflows"]):
                     print(f"\n🔄 Processing workflow {i+1}/{len(solution['workflows'])}: {workflow_id}")
@@ -409,6 +412,9 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                         
                         # Extract output
                         workflow_output = json.dumps(result.get("results", result.get("result", "")))
+                        print(f"🔍 DEBUG - Workflow result keys: {result.keys()}")
+                        print(f"🔍 DEBUG - Workflow output length: {len(workflow_output)} chars")
+                        print(f"🔍 DEBUG - Workflow output preview: {workflow_output[:500]}")
                         
                     except Exception as e:
                         workflow_output = f"Error executing workflow: {str(e)}"
@@ -423,13 +429,31 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                         context=f"Workflow {i+1} of {len(solution['workflows'])}"
                     )
                     
-                    await websocket.send_json({
+                    # Prepare message to send
+                    workflow_message = {
                         "type": "workflow_completed",
                         "workflow_id": workflow_id,
                         "workflow_name": workflow.get("name", workflow_id),
                         "kag_analysis": kag_result,
                         "output": workflow_output,
-                        "metrics": result.get("metrics", {}) if 'result' in locals() else {}  # Include metrics
+                        "metrics": result.get("metrics", {}) if 'result' in locals() else {}
+                    }
+                    
+                    print(f"📤 Sending workflow_completed message:")
+                    print(f"   - Output length: {len(workflow_output)} chars")
+                    print(f"   - Has KAG analysis: {bool(kag_result)}")
+                    print(f"   - Has metrics: {bool(workflow_message['metrics'])}")
+                    print(f"   - Metrics keys: {list(workflow_message['metrics'].keys()) if workflow_message['metrics'] else 'None'}")
+                    
+                    await websocket.send_json(workflow_message)
+                    print(f"✅ Successfully sent workflow_completed message")
+                    
+                    # Collect workflow output for final summary
+                    all_workflow_outputs.append({
+                        "workflow_name": workflow.get("name", workflow_id),
+                        "workflow_id": workflow_id,
+                        "output": workflow_output,
+                        "kag_analysis": kag_result
                     })
                 
                 # Send final summary
@@ -450,12 +474,23 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                 solution_tracker.end()
                 overall_metrics = solution_tracker.calculate_metrics(task_completed=True)
                 
-                await websocket.send_json({
+                # Prepare final message
+                final_message = {
                     "type": "execution_completed",
                     "solution_id": solution_id,
                     "summary": summary,
-                    "overall_metrics": overall_metrics.model_dump()  # Include aggregated metrics
-                })
+                    "all_workflow_outputs": all_workflow_outputs,
+                    "overall_metrics": overall_metrics.model_dump()
+                }
+                
+                print(f"📤 Sending execution_completed message:")
+                print(f"   - Summary length: {len(summary) if summary else 0} chars")
+                print(f"   - Workflow outputs count: {len(all_workflow_outputs)}")
+                print(f"   - Has overall metrics: {bool(overall_metrics)}")
+                print(f"   - Overall metrics keys: {list(final_message['overall_metrics'].keys())}")
+                
+                await websocket.send_json(final_message)
+                print(f"✅ Successfully sent execution_completed message")
                 
     except WebSocketDisconnect:
         print(f"WebSocket disconnected for solution {solution_id}")

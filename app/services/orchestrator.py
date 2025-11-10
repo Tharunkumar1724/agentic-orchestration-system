@@ -64,19 +64,19 @@ class LangGraphOrchestrator:
                     if not results:
                         return "No results found."
                     
-                    # Truncate each result to prevent payload too large errors
+                    # Format results with generous limits
                     formatted_results = []
                     for r in results:
-                        title = r.get('title', 'N/A')[:200]  # Max 200 chars for title
-                        url = r.get('href', 'N/A')[:150]      # Max 150 chars for URL
-                        snippet = r.get('body', 'N/A')[:400]   # Max 400 chars for snippet
+                        title = r.get('title', 'N/A')[:500]  # Increased from 200
+                        url = r.get('href', 'N/A')[:300]      # Increased from 150
+                        snippet = r.get('body', 'N/A')[:1000]   # Increased from 400
                         formatted_results.append(f"Title: {title}\nURL: {url}\nSnippet: {snippet}")
                     
                     formatted = "\n\n".join(formatted_results)
                     
                     # Final safety check - limit total size
-                    if len(formatted) > 3000:
-                        formatted = formatted[:3000] + "\n\n[... additional results truncated ...]"
+                    if len(formatted) > 15000:  # Increased from 3000
+                        formatted = formatted[:15000] + "\n\n[... additional results truncated ...]"
                     
                     return formatted
                     
@@ -249,6 +249,14 @@ class LangGraphOrchestrator:
                 if i < len(tools_to_execute):
                     tool_id = tools_to_execute[i].get("id", f"tool_{i}")
                     tool_results[tool_id] = result.to_dict()
+                    
+                    # Track tool invocation in workflow metrics
+                    if self.current_metrics:
+                        self.current_metrics.add_tool_invocation(
+                            tool_id=tool_id,
+                            success=result.success,
+                            error=result.error if not result.success else None
+                        )
                     
                     # Add successful tool results to prompt context
                     if result.success and result.data:

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cache Test</title>
+    <script>
+        // This will show a timestamp to verify cache is cleared
+        const buildTime = new Date().toISOString();
+        console.log('🔥 BUILD TIME:', buildTime);
+        console.log('🔥 If you see the same timestamp after hard refresh, cache is NOT cleared');
+        console.log('🔥 Expected: New timestamp each time you hard refresh');
+        
+        window.onload = function() {
+            document.getElementById('timestamp').innerText = buildTime;
+        };
+    </script>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: #fff;
+            font-family: monospace;
+            padding: 50px;
+            text-align: center;
+        }
+        .box {
+            background: #16213e;
+            border: 2px solid #0f3460;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .timestamp {
+            font-size: 24px;
+            color: #00ff00;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>🔥 Browser Cache Test</h1>
+        <p>This page shows if your browser cache is working correctly</p>
+        <div class="timestamp">
+            Build Time: <span id="timestamp"></span>
+        </div>
+        <hr>
+        <h2>Instructions:</h2>
+        <ol style="text-align: left;">
+            <li>Note the timestamp above</li>
+            <li>Press <code>Ctrl + Shift + R</code> (hard refresh)</li>
+            <li>The timestamp should CHANGE</li>
+            <li>If it stays the same, your cache is stuck</li>
+        </ol>
+        <hr>
+        <h3>How to REALLY clear cache:</h3>
+        <ol style="text-align: left;">
+            <li>Press <code>Ctrl + Shift + Delete</code></li>
+            <li>Select "Cached images and files"</li>
+            <li>Select "All time"</li>
+            <li>Click "Clear data"</li>
+            <li>Close ALL browser tabs</li>
+            <li>Reopen browser and go to localhost:3000</li>
+        </ol>
+    </div>
+</body>
+</html>
