@@ -80,21 +80,31 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
       case 'execution_started':
         setExecuting(true);
         setCurrentWorkflowIndex(0);
-        addMessage('system', `🚀 Starting execution of ${msg.total_workflows} workflows...`);
+        const strategyEmoji = msg.solution_type === 'research' ? '🔬' : '💡';
+        const strategyName = msg.communication_strategy || (msg.solution_type === 'research' ? 'Agentic RAG' : 'KAG+Buffer');
+        addMessage('system', `🚀 Starting execution of ${msg.total_workflows} workflows using ${strategyEmoji} ${strategyName}...`);
         break;
         
       case 'workflow_started':
         setCurrentWorkflowIndex(msg.position - 1);
         addMessage('workflow_started', `⚡ Executing: ${msg.workflow_name}`, { workflowId: msg.workflow_id });
         break;
+      
+      case 'agent_memory_initialized':
+        addMessage('system', `🧠 Agent memory initialized for ${msg.agent_node} with RAG context`, { 
+          memory: msg.memory,
+          workflowId: msg.workflow_id
+        });
+        break;
         
       case 'workflow_completed':
         setWorkflowResults(prev => ({
           ...prev,
           [msg.workflow_id]: {
-            kag: msg.kag_analysis,
+            kag: msg.storage_result,
             output: msg.output,
-            metrics: msg.metrics
+            metrics: msg.metrics,
+            agent_memory: msg.agent_memory
           }
         }));
         
@@ -186,10 +196,19 @@ function InteractiveSolutionChat({ solutionId, onClose }) {
         <div className="p-4 border-b border-gray-800 bg-gradient-to-r from-purple-900/40 to-blue-900/40">
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                <FaBrain className="text-purple-400" />
-                {solution?.name || 'Solution'}
-              </h2>
+              <div className="flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                  <FaBrain className="text-purple-400" />
+                  {solution?.name || 'Solution'}
+                </h2>
+                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  solution?.solution_type === 'research' 
+                    ? 'bg-purple-500/20 text-purple-400 border border-purple-500/50' 
+                    : 'bg-green-500/20 text-green-400 border border-green-500/50'
+                }`}>
+                  {solution?.solution_type === 'research' ? '🔬 Research Mode (Agentic RAG)' : '💡 Normal Mode (KAG+Buffer)'}
+                </span>
+              </div>
               <p className="text-sm text-gray-400 mt-1">
                 AI-Powered Workflow Orchestration • {activeWorkflows.length} Active Workflows
               </p>

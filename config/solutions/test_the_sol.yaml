@@ -1,0 +1,13 @@
+id: test_the_sol
+name: sol
+description: ''
+solution_type: research
+workflows:
+- retest
+- test_1762675071583
+workflow_memory: {}
+communication_config: {}
+metadata: {}
+created_at: '2025-11-11T10:47:19.406637'
+updated_at: '2025-11-11T10:47:19.406637'
+version: v1

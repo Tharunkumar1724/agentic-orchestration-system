@@ -57,6 +57,7 @@ class SolutionDef(BaseModel):
     id: str
     name: str
     description: Optional[str] = None
+    solution_type: str = Field(default="normal", description="Solution type: 'normal' (KAG+Buffer) or 'research' (Agentic RAG)")
     workflows: List[str] = Field(default_factory=list)  # Workflow IDs
     workflow_memory: Dict[str, Any] = Field(default_factory=dict)  # Shared memory across workflows
     communication_config: Dict[str, Any] = Field(default_factory=dict)  # Inter-workflow communication settings
@@ -71,6 +72,7 @@ class SolutionCreate(BaseModel):
     id: Optional[str] = None  # Auto-generated if not provided
     name: str
     description: Optional[str] = None
+    solution_type: str = Field(default="normal", description="Solution type: 'normal' (KAG+Buffer) or 'research' (Agentic RAG)")
     workflows: List[str] = Field(default_factory=list)
     communication_config: Dict[str, Any] = Field(default_factory=dict)
     metadata: Dict[str, Any] = Field(default_factory=dict)
@@ -80,6 +82,7 @@ class SolutionUpdate(BaseModel):
     """Request to update a solution."""
     name: Optional[str] = None
     description: Optional[str] = None
+    solution_type: Optional[str] = Field(default=None, description="Solution type: 'normal' or 'research'")
     workflows: Optional[List[str]] = None
     communication_config: Optional[Dict[str, Any]] = None
     metadata: Optional[Dict[str, Any]] = None

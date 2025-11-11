@@ -3,6 +3,7 @@ from typing import List, Dict, Any
 from app.models import SolutionDef, SolutionCreate, SolutionUpdate, WorkflowCommunication, WorkflowDef
 from app.storage import save, load, list_all, delete
 from app.services.kag_service import get_kag_service
+from app.services.agentic_rag_service import get_agentic_rag_service
 from app.services.orchestrator import run_workflow
 from datetime import datetime
 import uuid
@@ -31,6 +32,7 @@ async def create_solution(s: SolutionCreate):
         id=solution_id,
         name=s.name,
         description=s.description,
+        solution_type=s.solution_type,  # Store solution type
         workflows=s.workflows,
         workflow_memory={},
         communication_config=s.communication_config,
@@ -77,6 +79,8 @@ async def update_solution(solution_id: str, update: SolutionUpdate):
         existing["name"] = update.name
     if update.description is not None:
         existing["description"] = update.description
+    if update.solution_type is not None:
+        existing["solution_type"] = update.solution_type
     if update.workflows is not None:
         existing["workflows"] = update.workflows
     if update.communication_config is not None:
@@ -186,8 +190,12 @@ async def get_solution_communications(solution_id: str):
 @router.post("/{solution_id}/execute")
 async def execute_solution(solution_id: str, query: str = "Execute solution"):
     """
-    Execute all workflows in a solution sequentially with AI-powered communication.
-    Each workflow's output is analyzed by Gemini, facts are extracted, and context is passed to the next workflow.
+    Execute all workflows in a solution sequentially with intelligent communication.
+    
+    Uses different strategies based on solution_type:
+    - normal: KAG + Conversational Buffer (current implementation)
+    - research: Agentic RAG with memory initialization at agent nodes
+    
     Returns comprehensive metrics for the entire solution execution.
     """
     solution = load("solutions", solution_id)
@@ -197,7 +205,19 @@ async def execute_solution(solution_id: str, query: str = "Execute solution"):
     if not solution.get("workflows"):
         raise HTTPException(status_code=400, detail="Solution has no workflows")
     
-    kag_service = get_kag_service()
+    # Determine solution type (default to 'normal' for backward compatibility)
+    solution_type = solution.get("solution_type", "normal")
+    
+    # Get appropriate service based on solution type
+    if solution_type == "research":
+        communication_service = get_agentic_rag_service()
+        service_name = "Agentic RAG"
+    else:
+        communication_service = get_kag_service()
+        service_name = "KAG + Conversational Buffer"
+    
+    print(f"🚀 Executing {solution_type} solution using {service_name}")
+    
     execution_results = []
     
     # Aggregate metrics across all workflows
@@ -216,12 +236,36 @@ async def execute_solution(solution_id: str, query: str = "Execute solution"):
             handoff_context = None
             if i > 0:
                 previous_workflow_id = solution["workflows"][i - 1]
-                handoff_context = kag_service.prepare_handoff(
-                    source_workflow_id=previous_workflow_id,
-                    target_workflow_id=workflow_id,
-                    target_workflow_description=workflow.get("description", ""),
-                    solution_id=solution_id
-                )
+                
+                if solution_type == "research":
+                    # Agentic RAG: Prepare intelligent handoff
+                    handoff_context = communication_service.prepare_rag_handoff(
+                        solution_id=solution_id,
+                        source_workflow_id=previous_workflow_id,
+                        target_workflow_id=workflow_id,
+                        target_workflow_description=workflow.get("description", "")
+                    )
+                else:
+                    # KAG + Buffer: Traditional handoff
+                    handoff_context = communication_service.prepare_handoff(
+                        source_workflow_id=previous_workflow_id,
+                        target_workflow_id=workflow_id,
+                        target_workflow_description=workflow.get("description", ""),
+                        solution_id=solution_id
+                    )
+            
+            # For research mode: Initialize agent memory before execution
+            agent_memory = None
+            if solution_type == "research" and workflow.get("nodes"):
+                # Find first agent node
+                first_agent_node = next((node for node in workflow["nodes"] if node.get("type") == "agent"), None)
+                if first_agent_node:
+                    agent_memory = communication_service.initialize_agent_memory(
+                        solution_id=solution_id,
+                        workflow_id=workflow_id,
+                        agent_node_id=first_agent_node.get("id", ""),
+                        workflow_description=workflow.get("description", "")
+                    )
             
             # Execute workflow with actual orchestrator
             try:
@@ -243,22 +287,35 @@ async def execute_solution(solution_id: str, query: str = "Execute solution"):
                 workflow_output = f"Error executing workflow: {str(e)}"
                 solution_metrics.add_error(f"Workflow {workflow_id}: {str(e)}")
             
-            # Invoke KAG to extract facts and store in memory
-            kag_result = kag_service.invoke_kag(
-                workflow_output=workflow_output,
-                workflow_name=workflow.get("name", workflow_id),
-                solution_id=solution_id,
-                workflow_id=workflow_id,
-                context=f"Workflow {i+1} of {len(solution['workflows'])}"
-            )
+            # Store workflow output in appropriate service
+            if solution_type == "research":
+                # Agentic RAG: Store with intelligent indexing
+                storage_result = communication_service.store_workflow_output(
+                    solution_id=solution_id,
+                    workflow_id=workflow_id,
+                    workflow_name=workflow.get("name", workflow_id),
+                    workflow_output=workflow_output,
+                    metadata={"query": query, "position": i + 1}
+                )
+            else:
+                # KAG: Invoke KAG to extract facts
+                storage_result = communication_service.invoke_kag(
+                    workflow_output=workflow_output,
+                    workflow_name=workflow.get("name", workflow_id),
+                    solution_id=solution_id,
+                    workflow_id=workflow_id,
+                    context=f"Workflow {i+1} of {len(solution['workflows'])}"
+                )
             
             execution_results.append({
                 "workflow_id": workflow_id,
                 "workflow_name": workflow.get("name", workflow_id),
                 "position": i + 1,
                 "total": len(solution["workflows"]),
+                "communication_strategy": solution_type,
                 "handoff_received": handoff_context,
-                "kag_analysis": kag_result,
+                "agent_memory": agent_memory,  # Only populated for research mode
+                "storage_result": storage_result,
                 "output": workflow_output,
                 "metrics": result.get("metrics", {}) if 'result' in locals() else {}
             })
@@ -270,14 +327,16 @@ async def execute_solution(solution_id: str, query: str = "Execute solution"):
         )
         
         # Get solution summary
-        summary = kag_service.get_solution_summary(solution_id)
+        summary = communication_service.get_solution_summary(solution_id)
         
         return {
             "solution_id": solution_id,
             "solution_name": solution.get("name", ""),
+            "solution_type": solution_type,
+            "communication_strategy": service_name,
             "execution_results": execution_results,
             "summary": summary,
-            "metrics": aggregated_metrics.model_dump(),  # Include aggregated metrics
+            "metrics": aggregated_metrics.model_dump(),
             "success": True
         }
         
@@ -311,7 +370,8 @@ async def get_solution_summary(solution_id: str):
 @router.websocket("/ws/{solution_id}")
 async def solution_websocket(websocket: WebSocket, solution_id: str):
     """
-    WebSocket for real-time solution execution updates with workflow communication visualization
+    WebSocket for real-time solution execution updates with workflow communication visualization.
+    Supports both normal (KAG+Buffer) and research (Agentic RAG) modes.
     """
     print(f"🔌 WebSocket connection requested for solution: {solution_id}")
     await websocket.accept()
@@ -325,7 +385,17 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
         return
     
     print(f"📦 Loaded solution: {solution.get('name')}, workflows: {solution.get('workflows')}")
-    kag_service = get_kag_service()
+    
+    # Determine solution type and get appropriate service
+    solution_type = solution.get("solution_type", "normal")
+    if solution_type == "research":
+        communication_service = get_agentic_rag_service()
+        service_name = "Agentic RAG"
+    else:
+        communication_service = get_kag_service()
+        service_name = "KAG + Conversational Buffer"
+    
+    print(f"🧠 Using {service_name} for {solution_type} solution")
     
     try:
         while True:
@@ -344,6 +414,8 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                 await websocket.send_json({
                     "type": "execution_started",
                     "solution_id": solution_id,
+                    "solution_type": solution_type,
+                    "communication_strategy": service_name,
                     "total_workflows": len(solution["workflows"]),
                     "query": user_query
                 })
@@ -373,19 +445,50 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                     handoff_context = None
                     if i > 0:
                         previous_workflow_id = solution["workflows"][i - 1]
-                        handoff_context = kag_service.prepare_handoff(
-                            source_workflow_id=previous_workflow_id,
-                            target_workflow_id=workflow_id,
-                            target_workflow_description=workflow.get("description", ""),
-                            solution_id=solution_id
-                        )
+                        
+                        if solution_type == "research":
+                            # Agentic RAG handoff
+                            handoff_context = communication_service.prepare_rag_handoff(
+                                solution_id=solution_id,
+                                source_workflow_id=previous_workflow_id,
+                                target_workflow_id=workflow_id,
+                                target_workflow_description=workflow.get("description", "")
+                            )
+                        else:
+                            # KAG handoff
+                            handoff_context = communication_service.prepare_handoff(
+                                source_workflow_id=previous_workflow_id,
+                                target_workflow_id=workflow_id,
+                                target_workflow_description=workflow.get("description", ""),
+                                solution_id=solution_id
+                            )
                         
                         await websocket.send_json({
                             "type": "handoff_prepared",
                             "from_workflow": previous_workflow_id,
                             "to_workflow": workflow_id,
-                            "handoff_data": handoff_context
+                            "handoff_data": handoff_context,
+                            "communication_strategy": solution_type
                         })
+                    
+                    # For research mode: Initialize agent memory
+                    agent_memory = None
+                    if solution_type == "research" and workflow.get("nodes"):
+                        first_agent_node = next((node for node in workflow["nodes"] if node.get("type") == "agent"), None)
+                        if first_agent_node:
+                            agent_memory = communication_service.initialize_agent_memory(
+                                solution_id=solution_id,
+                                workflow_id=workflow_id,
+                                agent_node_id=first_agent_node.get("id", ""),
+                                workflow_description=workflow.get("description", "")
+                            )
+                            
+                            await websocket.send_json({
+                                "type": "agent_memory_initialized",
+                                "workflow_id": workflow_id,
+                                "agent_node": first_agent_node.get("id", ""),
+                                "memory": agent_memory
+                            })
                     
                     # Execute actual workflow
                     try:
@@ -393,15 +496,15 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                         
                         # Build task with user query
                         if user_query:
-                            # Use the actual user query as the task
                             task_input = f"{user_query}"
                             if handoff_context:
-                                task_input += f"\n\nContext from previous workflow:\n{handoff_context.get('handoff_data', '')}"
+                                handoff_data = handoff_context.get("handoff_data", "") if isinstance(handoff_context, dict) else str(handoff_context)
+                                task_input += f"\n\nContext from previous workflow:\n{handoff_data}"
                         else:
-                            # Fallback to generic task
                             task_input = f"Execute as part of solution: {solution.get('name', '')}"
                             if handoff_context:
-                                task_input += f"\n\nContext from previous workflow:\n{handoff_context.get('handoff_data', '')}"
+                                handoff_data = handoff_context.get("handoff_data", "") if isinstance(handoff_context, dict) else str(handoff_context)
+                                task_input += f"\n\nContext from previous workflow:\n{handoff_data}"
                         
                         # Set task in first node
                         if workflow.get("nodes") and len(workflow["nodes"]) > 0:
@@ -412,65 +515,58 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                         
                         # Extract output
                         workflow_output = json.dumps(result.get("results", result.get("result", "")))
-                        print(f"🔍 DEBUG - Workflow result keys: {result.keys()}")
-                        print(f"🔍 DEBUG - Workflow output length: {len(workflow_output)} chars")
-                        print(f"🔍 DEBUG - Workflow output preview: {workflow_output[:500]}")
                         
                     except Exception as e:
                         workflow_output = f"Error executing workflow: {str(e)}"
                         print(f"Workflow execution error: {e}")
                     
-                    # Invoke KAG
-                    kag_result = kag_service.invoke_kag(
-                        workflow_output=workflow_output,
-                        workflow_name=workflow.get("name", workflow_id),
-                        solution_id=solution_id,
-                        workflow_id=workflow_id,
-                        context=f"Workflow {i+1} of {len(solution['workflows'])}"
-                    )
+                    # Store output in appropriate service
+                    if solution_type == "research":
+                        storage_result = communication_service.store_workflow_output(
+                            solution_id=solution_id,
+                            workflow_id=workflow_id,
+                            workflow_name=workflow.get("name", workflow_id),
+                            workflow_output=workflow_output,
+                            metadata={"query": user_query, "position": i + 1}
+                        )
+                    else:
+                        storage_result = communication_service.invoke_kag(
+                            workflow_output=workflow_output,
+                            workflow_name=workflow.get("name", workflow_id),
+                            solution_id=solution_id,
+                            workflow_id=workflow_id,
+                            context=f"Workflow {i+1} of {len(solution['workflows'])}"
+                        )
                     
                     # Prepare message to send
                     workflow_message = {
                         "type": "workflow_completed",
                         "workflow_id": workflow_id,
                         "workflow_name": workflow.get("name", workflow_id),
-                        "kag_analysis": kag_result,
+                        "communication_strategy": solution_type,
+                        "storage_result": storage_result,
+                        "agent_memory": agent_memory,
                         "output": workflow_output,
                         "metrics": result.get("metrics", {}) if 'result' in locals() else {}
                     }
                     
-                    print(f"📤 Sending workflow_completed message:")
-                    print(f"   - Output length: {len(workflow_output)} chars")
-                    print(f"   - Has KAG analysis: {bool(kag_result)}")
-                    print(f"   - Has metrics: {bool(workflow_message['metrics'])}")
-                    print(f"   - Metrics keys: {list(workflow_message['metrics'].keys()) if workflow_message['metrics'] else 'None'}")
-                    
                     await websocket.send_json(workflow_message)
-                    print(f"✅ Successfully sent workflow_completed message")
                     
                     # Collect workflow output for final summary
                     all_workflow_outputs.append({
                         "workflow_name": workflow.get("name", workflow_id),
                         "workflow_id": workflow_id,
                         "output": workflow_output,
-                        "kag_analysis": kag_result
+                        "storage_result": storage_result
                     })
                 
                 # Send final summary
-                summary = kag_service.get_solution_summary(solution_id)
+                summary = communication_service.get_solution_summary(solution_id)
                 
                 # Calculate aggregated metrics
                 from app.services.metrics_service import create_metrics_tracker
                 solution_tracker = create_metrics_tracker()
                 solution_tracker.start()
-                
-                # Aggregate all workflow metrics
-                all_workflow_results = []
-                for i, wf_id in enumerate(solution["workflows"]):
-                    # Store workflow results for aggregation
-                    # Note: In real implementation, you'd collect these during execution
-                    pass
-                
                 solution_tracker.end()
                 overall_metrics = solution_tracker.calculate_metrics(task_completed=True)
                 
@@ -478,19 +574,14 @@ async def solution_websocket(websocket: WebSocket, solution_id: str):
                 final_message = {
                     "type": "execution_completed",
                     "solution_id": solution_id,
+                    "solution_type": solution_type,
+                    "communication_strategy": service_name,
                     "summary": summary,
                     "all_workflow_outputs": all_workflow_outputs,
                     "overall_metrics": overall_metrics.model_dump()
                 }
                 
-                print(f"📤 Sending execution_completed message:")
-                print(f"   - Summary length: {len(summary) if summary else 0} chars")
-                print(f"   - Workflow outputs count: {len(all_workflow_outputs)}")
-                print(f"   - Has overall metrics: {bool(overall_metrics)}")
-                print(f"   - Overall metrics keys: {list(final_message['overall_metrics'].keys())}")
-                
                 await websocket.send_json(final_message)
-                print(f"✅ Successfully sent execution_completed message")
                 
     except WebSocketDisconnect:
         print(f"WebSocket disconnected for solution {solution_id}")

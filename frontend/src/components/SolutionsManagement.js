@@ -57,6 +57,7 @@ function Solutions() {
       id: '',
       name: '',
       description: '',
+      solution_type: 'normal',  // Default to normal
       workflows: [],
       communication_config: {},
       metadata: {}
@@ -70,6 +71,7 @@ function Solutions() {
       id: solution.id,
       name: solution.name,
       description: solution.description || '',
+      solution_type: solution.solution_type || 'normal',
       workflows: solution.workflows || [],
       communication_config: solution.communication_config || {},
       metadata: solution.metadata || {}
@@ -86,6 +88,7 @@ function Solutions() {
         await solutionsAPI.update(selectedSolution.id, {
           name: formData.name,
           description: formData.description,
+          solution_type: formData.solution_type,
           workflows: formData.workflows,
           communication_config: formData.communication_config,
           metadata: formData.metadata
@@ -262,6 +265,82 @@ function Solutions() {
                     />
                   </div>
 
+                  {/* Solution Type */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-1">
+                      Solution Type *
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <label className={`relative flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                        formData.solution_type === 'normal' 
+                          ? 'border-green-500 bg-green-500/10' 
+                          : 'border-gray-700 bg-gray-800 hover:border-gray-600'
+                      }`}>
+                        <input
+                          type="radio"
+                          name="solution_type"
+                          value="normal"
+                          checked={formData.solution_type === 'normal'}
+                          onChange={(e) => setFormData({ ...formData, solution_type: e.target.value })}
+                          className="sr-only"
+                        />
+                        <div className="flex-1">
+                          <div className="font-semibold text-white mb-1">Normal</div>
+                          <div className="text-xs text-gray-400">
+                            KAG + Conversational Buffer Memory
+                          </div>
+                          <div className="text-xs text-gray-500 mt-1">
+                            LLM-powered fact extraction with intelligent reasoning
+                          </div>
+                        </div>
+                        {formData.solution_type === 'normal' && (
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                            </svg>
+                          </div>
+                        )}
+                      </label>
+                      
+                      <label className={`relative flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                        formData.solution_type === 'research' 
+                          ? 'border-purple-500 bg-purple-500/10' 
+                          : 'border-gray-700 bg-gray-800 hover:border-gray-600'
+                      }`}>
+                        <input
+                          type="radio"
+                          name="solution_type"
+                          value="research"
+                          checked={formData.solution_type === 'research'}
+                          onChange={(e) => setFormData({ ...formData, solution_type: e.target.value })}
+                          className="sr-only"
+                        />
+                        <div className="flex-1">
+                          <div className="font-semibold text-white mb-1">Research</div>
+                          <div className="text-xs text-gray-400">
+                            Agentic RAG with Embedding & Chunking
+                          </div>
+                          <div className="text-xs text-gray-500 mt-1">
+                            Full context to agent nodes via intelligent retrieval
+                          </div>
+                        </div>
+                        {formData.solution_type === 'research' && (
+                          <div className="absolute top-2 right-2 w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center">
+                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                            </svg>
+                          </div>
+                        )}
+                      </label>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2">
+                      {formData.solution_type === 'normal' 
+                        ? '💡 Normal mode: KAG extracts facts using Gemini LLM and maintains conversational buffer memory across workflows'
+                        : '🔬 Research mode: Full information chunked & embedded, delivered to agent nodes at startup via TF-IDF similarity search'
+                      }
+                    </p>
+                  </div>
+
                   {/* Workflows */}
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">
@@ -339,7 +418,16 @@ function Solutions() {
                   {/* Header */}
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-1">{solution.name}</h3>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h3 className="text-xl font-bold text-white">{solution.name}</h3>
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          solution.solution_type === 'research' 
+                            ? 'bg-purple-500/20 text-purple-400 border border-purple-500/50' 
+                            : 'bg-green-500/20 text-green-400 border border-green-500/50'
+                        }`}>
+                          {solution.solution_type === 'research' ? '🔬 Research (Agentic RAG)' : '💡 Normal (KAG+Buffer)'}
+                        </span>
+                      </div>
                       <p className="text-sm text-gray-500 mb-2">{solution.id}</p>
                       {solution.description && (
                         <p className="text-gray-400 mb-3">{solution.description}</p>
