@@ -1,0 +1,43 @@
+# Banking Customer Care Workflow 4: Customer Support Resolution
+name: "Customer Support Resolution"
+description: "Complete customer support case resolution workflow"
+
+agent_nodes:
+  - case_intake:
+      tools: ["account_verifier", "balance_inquiry"]
+      task: "Gather customer information and case details"
+      
+  - issue_analyzer:
+      tools: ["transaction_lookup", "fraud_detector"]
+      task: "Analyze the reported issue"
+      
+  - solution_provider:
+      tools: ["balance_inquiry", "transaction_lookup"]
+      task: "Provide solutions and resolutions"
+      
+  - follow_up_scheduler:
+      tools: ["account_verifier"]
+      task: "Schedule follow-up actions if needed"
+
+inputs:
+  customer_id:
+    type: "string"
+    description: "Customer ID"
+    example: "CUST-11111"
+    
+  issue_type:
+    type: "string"
+    description: "Type of issue"
+    options: ["balance_inquiry", "transaction_dispute", "card_lost", "account_access", "fee_inquiry"]
+    
+  issue_description:
+    type: "string"
+    description: "Detailed description of the issue"
+    example: "I see a charge I don't recognize on my account"
+
+outputs:
+  - case_summary
+  - issue_analysis
+  - resolution_provided
+  - follow_up_required
+  - customer_satisfaction_score

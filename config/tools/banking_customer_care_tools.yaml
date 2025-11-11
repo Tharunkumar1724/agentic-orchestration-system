@@ -1,0 +1,394 @@
+# Banking Customer Care Tools - Financial Services Support
+# Tools for account management, transactions, fraud detection, and customer support
+
+account_verifier:
+  name: "account_verifier"
+  description: "Verifies customer account information and authentication status"
+  parameters:
+    customer_id:
+      type: "string"
+      description: "Unique customer identifier"
+      required: true
+    verification_type:
+      type: "string"
+      description: "Type: identity, kyc, account_status, credit_score"
+      required: false
+      default: "account_status"
+  implementation: |
+    def account_verifier(customer_id, verification_type="account_status"):
+        """Verifies customer account details"""
+        import hashlib
+        import random
+        
+        # Simulate account lookup (in production, would query database)
+        account_hash = hashlib.md5(customer_id.encode()).hexdigest()
+        account_number = f"ACC-{account_hash[:8].upper()}"
+        
+        result = {
+            "customer_id": customer_id,
+            "account_number": account_number,
+            "verification_type": verification_type,
+            "verified": True,
+            "details": {}
+        }
+        
+        if verification_type == "identity":
+            result["details"] = {
+                "name_verified": True,
+                "dob_verified": True,
+                "address_verified": True,
+                "id_document_verified": True,
+                "biometric_verified": random.choice([True, False]),
+                "verification_score": random.randint(85, 100)
+            }
+            
+        elif verification_type == "kyc":
+            result["details"] = {
+                "kyc_status": "APPROVED",
+                "kyc_level": random.choice(["BASIC", "INTERMEDIATE", "ADVANCED"]),
+                "last_updated": "2025-10-15",
+                "documents_verified": ["ID Proof", "Address Proof", "Income Proof"],
+                "risk_rating": random.choice(["LOW", "MEDIUM"]),
+                "compliance_score": random.randint(90, 100)
+            }
+            
+        elif verification_type == "account_status":
+            result["details"] = {
+                "status": "ACTIVE",
+                "account_type": random.choice(["SAVINGS", "CHECKING", "PREMIUM"]),
+                "opened_date": "2023-06-12",
+                "branch": f"Branch {random.randint(100, 999)}",
+                "relationship_manager": f"RM-{random.randint(1000, 9999)}",
+                "account_tier": random.choice(["SILVER", "GOLD", "PLATINUM"])
+            }
+            
+        elif verification_type == "credit_score":
+            credit_score = random.randint(650, 850)
+            result["details"] = {
+                "credit_score": credit_score,
+                "rating": "EXCELLENT" if credit_score > 750 else "GOOD" if credit_score > 650 else "FAIR",
+                "credit_limit": random.randint(5000, 50000),
+                "utilization": f"{random.randint(20, 60)}%",
+                "payment_history": "EXCELLENT",
+                "last_updated": "2025-11-01"
+            }
+        
+        return result
+
+transaction_lookup:
+  name: "transaction_lookup"
+  description: "Retrieves transaction history and details for customer accounts"
+  parameters:
+    account_number:
+      type: "string"
+      description: "Customer account number"
+      required: true
+    days:
+      type: "number"
+      description: "Number of days to look back (default 30)"
+      required: false
+      default: 30
+    transaction_type:
+      type: "string"
+      description: "Filter by type: all, debit, credit, transfer"
+      required: false
+      default: "all"
+  implementation: |
+    def transaction_lookup(account_number, days=30, transaction_type="all"):
+        """Retrieves transaction history"""
+        import random
+        from datetime import datetime, timedelta
+        
+        transactions = []
+        num_transactions = random.randint(5, 20)
+        
+        categories = ["Groceries", "Utilities", "Entertainment", "Healthcare", "Transport", 
+                     "Shopping", "Dining", "Salary", "Refund", "Investment"]
+        
+        for i in range(num_transactions):
+            days_ago = random.randint(0, days)
+            transaction_date = (datetime.now() - timedelta(days=days_ago)).strftime("%Y-%m-%d")
+            
+            is_debit = random.choice([True, False])
+            amount = round(random.uniform(10, 5000), 2)
+            
+            transaction = {
+                "transaction_id": f"TXN{random.randint(100000, 999999)}",
+                "date": transaction_date,
+                "type": "DEBIT" if is_debit else "CREDIT",
+                "amount": amount,
+                "category": random.choice(categories),
+                "description": f"{'Payment to' if is_debit else 'Payment from'} {random.choice(['Vendor', 'Merchant', 'Company'])} #{random.randint(100, 999)}",
+                "balance_after": round(random.uniform(1000, 50000), 2),
+                "status": "COMPLETED"
+            }
+            
+            # Filter by type
+            if transaction_type == "all" or transaction["type"].lower() == transaction_type.lower():
+                transactions.append(transaction)
+        
+        # Sort by date (newest first)
+        transactions.sort(key=lambda x: x['date'], reverse=True)
+        
+        # Calculate summary
+        total_debit = sum(t['amount'] for t in transactions if t['type'] == 'DEBIT')
+        total_credit = sum(t['amount'] for t in transactions if t['type'] == 'CREDIT')
+        
+        result = {
+            "account_number": account_number,
+            "period_days": days,
+            "total_transactions": len(transactions),
+            "summary": {
+                "total_debit": round(total_debit, 2),
+                "total_credit": round(total_credit, 2),
+                "net_flow": round(total_credit - total_debit, 2)
+            },
+            "transactions": transactions[:10]  # Limit to 10 most recent
+        }
+        
+        return result
+
+fraud_detector:
+  name: "fraud_detector"
+  description: "Analyzes transactions for potential fraud patterns and suspicious activity"
+  parameters:
+    transaction_data:
+      type: "string"
+      description: "Transaction details to analyze (JSON string)"
+      required: true
+    sensitivity:
+      type: "string"
+      description: "Detection sensitivity: low, medium, high"
+      required: false
+      default: "medium"
+  implementation: |
+    def fraud_detector(transaction_data, sensitivity="medium"):
+        """Detects potential fraud in transactions"""
+        import json
+        import random
+        
+        # Parse transaction data
+        try:
+            transaction = json.loads(transaction_data) if isinstance(transaction_data, str) else transaction_data
+        except:
+            transaction = {"amount": random.uniform(100, 10000), "location": "Unknown"}
+        
+        fraud_score = 0
+        risk_factors = []
+        
+        # Factor 1: Unusual amount
+        amount = transaction.get("amount", 0)
+        if amount > 5000:
+            fraud_score += 25
+            risk_factors.append(f"High transaction amount: ${amount}")
+        elif amount > 2000:
+            fraud_score += 15
+            risk_factors.append(f"Elevated transaction amount: ${amount}")
+        
+        # Factor 2: Location analysis
+        location = transaction.get("location", "").upper()
+        unusual_locations = ["FOREIGN", "OVERSEAS", "INTERNATIONAL", "UNKNOWN"]
+        if any(loc in location for loc in unusual_locations):
+            fraud_score += 20
+            risk_factors.append(f"Unusual location: {location}")
+        
+        # Factor 3: Time of transaction
+        hour = transaction.get("hour", random.randint(0, 23))
+        if hour < 6 or hour > 22:
+            fraud_score += 10
+            risk_factors.append(f"Unusual time: {hour}:00 (off-hours)")
+        
+        # Factor 4: Velocity check (multiple transactions)
+        if transaction.get("recent_transaction_count", 0) > 5:
+            fraud_score += 20
+            risk_factors.append("High transaction velocity detected")
+        
+        # Factor 5: Merchant category
+        merchant_type = transaction.get("merchant_type", "").lower()
+        high_risk_merchants = ["gambling", "crypto", "wire transfer", "cash advance"]
+        if any(risky in merchant_type for risky in high_risk_merchants):
+            fraud_score += 15
+            risk_factors.append(f"High-risk merchant category: {merchant_type}")
+        
+        # Adjust based on sensitivity
+        if sensitivity == "high":
+            fraud_score = min(fraud_score * 1.3, 100)
+        elif sensitivity == "low":
+            fraud_score = fraud_score * 0.7
+        
+        # Determine risk level
+        if fraud_score >= 60:
+            risk_level = "HIGH"
+            action = "BLOCK_TRANSACTION"
+        elif fraud_score >= 35:
+            risk_level = "MEDIUM"
+            action = "REQUIRE_2FA"
+        else:
+            risk_level = "LOW"
+            action = "ALLOW"
+        
+        result = {
+            "fraud_score": round(fraud_score, 1),
+            "risk_level": risk_level,
+            "recommended_action": action,
+            "risk_factors": risk_factors,
+            "analysis": {
+                "sensitivity": sensitivity,
+                "factors_detected": len(risk_factors),
+                "requires_review": fraud_score >= 35
+            }
+        }
+        
+        return result
+
+balance_inquiry:
+  name: "balance_inquiry"
+  description: "Retrieves current balance and account summary information"
+  parameters:
+    account_number:
+      type: "string"
+      description: "Customer account number"
+      required: true
+    include_holds:
+      type: "boolean"
+      description: "Include pending holds and authorizations"
+      required: false
+      default: true
+  implementation: |
+    def balance_inquiry(account_number, include_holds=True):
+        """Retrieves account balance information"""
+        import random
+        
+        # Generate realistic balance
+        available_balance = round(random.uniform(500, 50000), 2)
+        pending_holds = round(random.uniform(0, 500), 2) if include_holds else 0
+        current_balance = available_balance + pending_holds
+        
+        result = {
+            "account_number": account_number,
+            "balances": {
+                "current_balance": current_balance,
+                "available_balance": available_balance,
+                "pending_holds": pending_holds,
+                "overdraft_limit": random.choice([0, 500, 1000, 2000]),
+                "currency": "USD"
+            },
+            "account_details": {
+                "interest_rate": f"{random.uniform(0.5, 3.5):.2f}%",
+                "minimum_balance": random.choice([0, 100, 500, 1000]),
+                "account_status": "ACTIVE",
+                "last_statement_date": "2025-10-31",
+                "next_statement_date": "2025-11-30"
+            },
+            "recent_activity": {
+                "last_debit": round(random.uniform(10, 200), 2),
+                "last_credit": round(random.uniform(100, 5000), 2),
+                "last_transaction_date": "2025-11-10"
+            }
+        }
+        
+        return result
+
+loan_eligibility_checker:
+  name: "loan_eligibility_checker"
+  description: "Checks customer eligibility for loans based on credit score and income"
+  parameters:
+    customer_id:
+      type: "string"
+      description: "Customer identifier"
+      required: true
+    loan_amount:
+      type: "number"
+      description: "Requested loan amount"
+      required: true
+    loan_type:
+      type: "string"
+      description: "Type: personal, home, auto, business"
+      required: false
+      default: "personal"
+  implementation: |
+    def loan_eligibility_checker(customer_id, loan_amount, loan_type="personal"):
+        """Checks loan eligibility"""
+        import random
+        
+        # Simulate credit check
+        credit_score = random.randint(600, 850)
+        monthly_income = random.randint(3000, 15000)
+        existing_debt = random.randint(0, 5000)
+        
+        # Calculate DTI (Debt-to-Income ratio)
+        dti_ratio = (existing_debt / monthly_income) * 100
+        
+        # Eligibility criteria
+        eligible = True
+        reasons = []
+        interest_rate = 0
+        
+        if loan_type == "personal":
+            min_credit_score = 650
+            max_dti = 40
+            base_rate = 8.5
+        elif loan_type == "home":
+            min_credit_score = 700
+            max_dti = 35
+            base_rate = 6.5
+        elif loan_type == "auto":
+            min_credit_score = 620
+            max_dti = 45
+            base_rate = 7.0
+        else:  # business
+            min_credit_score = 680
+            max_dti = 50
+            base_rate = 9.0
+        
+        # Check credit score
+        if credit_score < min_credit_score:
+            eligible = False
+            reasons.append(f"Credit score {credit_score} below minimum {min_credit_score}")
+        else:
+            reasons.append(f"✓ Credit score {credit_score} meets requirement")
+            # Better credit score = lower rate
+            interest_rate = base_rate - ((credit_score - min_credit_score) / 100)
+        
+        # Check DTI
+        if dti_ratio > max_dti:
+            eligible = False
+            reasons.append(f"DTI ratio {dti_ratio:.1f}% exceeds maximum {max_dti}%")
+        else:
+            reasons.append(f"✓ DTI ratio {dti_ratio:.1f}% within limit")
+        
+        # Check income adequacy
+        max_loan_amount = monthly_income * 60  # 5 years of income
+        if loan_amount > max_loan_amount:
+            eligible = False
+            reasons.append(f"Loan amount ${loan_amount} exceeds lending limit ${max_loan_amount}")
+        else:
+            reasons.append(f"✓ Loan amount within lending capacity")
+        
+        result = {
+            "customer_id": customer_id,
+            "loan_type": loan_type,
+            "requested_amount": loan_amount,
+            "eligible": eligible,
+            "decision": "APPROVED" if eligible else "DECLINED",
+            "assessment": {
+                "credit_score": credit_score,
+                "monthly_income": monthly_income,
+                "existing_debt": existing_debt,
+                "dti_ratio": round(dti_ratio, 2),
+                "interest_rate": round(interest_rate, 2) if eligible else None,
+                "max_loan_amount": max_loan_amount
+            },
+            "reasons": reasons,
+            "next_steps": [
+                "Submit income verification documents",
+                "Provide employment details",
+                "Complete loan application form"
+            ] if eligible else [
+                "Improve credit score",
+                "Reduce existing debt",
+                "Increase income or reduce loan amount"
+            ]
+        }
+        
+        return result

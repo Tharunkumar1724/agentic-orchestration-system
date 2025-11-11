@@ -1,0 +1,50 @@
+# Full Stack Engineer Workflow 1: Code Review and Bug Fix Pipeline
+name: "Code Review Pipeline"
+description: "Automated code review, bug detection, and fix recommendation workflow"
+
+# Agent nodes that will process this workflow
+agent_nodes:
+  - code_reviewer:
+      tools: ["code_analyzer"]
+      task: "Analyze submitted code for quality, security, and performance issues"
+      
+  - bug_hunter:
+      tools: ["debug_assistant"]
+      task: "Identify potential bugs and errors in the code"
+      
+  - test_engineer:
+      tools: ["test_generator"]
+      task: "Generate comprehensive unit tests for the code"
+      
+  - deployment_validator:
+      tools: ["deployment_checker"]
+      task: "Verify code is ready for deployment"
+
+# Input parameters for this workflow
+inputs:
+  code_submission:
+    type: "string"
+    description: "The source code to review"
+    example: |
+      def calculate_total(items):
+          total = 0
+          for item in items:
+              total += item['price']
+          return total
+      
+      def process_order(order_id):
+          order = db.get(order_id)
+          total = calculate_total(order['items'])
+          return total
+          
+  language:
+    type: "string"
+    description: "Programming language"
+    default: "python"
+
+# Expected outputs
+outputs:
+  - quality_report
+  - security_assessment
+  - test_suite
+  - deployment_readiness

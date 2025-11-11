@@ -1,0 +1,128 @@
+# Automobile Industry Demo Solution - Normal Mode (KAG + Conversational Buffer)
+name: "Automobile Operations Assistant - Normal Mode"
+description: "Intelligent manufacturing and service management with KAG-powered quality control"
+solution_type: "normal"  # Uses KAG + Conversational Buffer Memory
+
+# Workflows included in this solution
+workflows:
+  - name: "Quality Control Workflow"
+    file: "auto_quality_control_workflow.yaml"
+    priority: 1
+    description: "Comprehensive vehicle quality inspection"
+    
+  - name: "Service Management Workflow"
+    file: "auto_service_management_workflow.yaml"
+    priority: 2
+    description: "Complete vehicle service and maintenance"
+    
+  - name: "Supply Chain Optimization"
+    file: "auto_supply_chain_workflow.yaml"
+    priority: 3
+    description: "Monitor and optimize parts supply chain"
+    
+  - name: "Warranty Claims Workflow"
+    file: "auto_warranty_claims_workflow.yaml"
+    priority: 4
+    description: "Process and validate warranty claims"
+
+# Tools available to all workflows
+tools:
+  - inventory_manager
+  - quality_inspector
+  - service_tracker
+  - supply_chain_monitor
+  - warranty_validator
+
+# Solution configuration
+configuration:
+  intelligence_mode: "normal"
+  memory_type: "conversational_buffer"
+  llm_provider: "gemini"
+  fact_extraction: true
+  reasoning_enabled: true
+  defect_pattern_learning: true
+  
+# Use cases for this solution
+use_cases:
+  - "Pre-delivery vehicle quality inspection"
+  - "Manufacturing defect detection and analysis"
+  - "Service appointment scheduling and estimation"
+  - "Warranty claim validation"
+  - "Supply chain optimization"
+  - "Parts inventory management"
+  
+# Expected outcomes
+outcomes:
+  defect_detection_rate: "98% accuracy with LLM analysis"
+  quality_score_improvement: "15% improvement"
+  warranty_fraud_reduction: "30% reduction"
+  service_efficiency: "40% faster scheduling"
+
+# Demo scenario
+demo_scenario:
+  title: "Pre-Delivery Quality Inspection"
+  description: |
+    A newly manufactured vehicle undergoes final quality inspection before customer delivery.
+    
+    The solution will:
+    1. Verify all required parts are installed
+    2. Perform 12-point quality inspection (paint, panels, engine, etc.)
+    3. Identify and categorize any defects
+    4. Make approve/reject decision based on quality threshold
+    5. Generate detailed inspection report with recommendations
+    6. Learn from inspection patterns to improve future checks
+    
+    **Why Normal Mode?**
+    - LLM understands complex defect patterns and root causes
+    - Intelligent categorization of defect severity
+    - Context-aware recommendations for remediation
+    - Learns from previous inspections to improve accuracy
+    - Natural language inspection reports for technicians
+    
+  sample_input:
+    vehicle_vin: "1HGBH41JXMN109186"
+    inspection_type: "pre_delivery"
+    quality_threshold: 85
+    checklist: "Body paint quality, Panel alignment, Door operation, Window operation, Engine start, Transmission shift, Brake function, Suspension check, Lights operation, Interior finish, Instrument cluster, Climate control"
+
+# Performance expectations (Normal Mode)
+performance:
+  llm_calls_per_inspection: "6-10 calls"
+  inspection_time: "3-5 seconds"
+  cost_per_inspection: "~$0.10"
+  quality_score: "98% (Very high accuracy)"
+  
+# Client presentation talking points
+presentation_points:
+  - "**Intelligent Defect Analysis**: LLM identifies patterns and root causes"
+  - "**Quality Assurance**: Consistent 12-point inspection across all vehicles"
+  - "**Learning System**: Improves over time by learning from inspections"
+  - "**Warranty Management**: Validates claims and detects fraud"
+  - "**Supply Chain**: Optimizes parts procurement and inventory"
+  - "**Service Scheduling**: Estimates costs and reserves parts automatically"
+  - "**Compliance**: Maintains detailed audit trail for quality standards"
+
+# Quality metrics
+quality_metrics:
+  inspection_consistency: "99% consistent results across inspectors"
+  defect_catch_rate: "98% defect detection"
+  false_positive_rate: "<2%"
+  time_savings: "50% faster than manual inspection"
+  
+# ROI calculation
+roi_calculation:
+  cost_per_vehicle: "$0.10 per inspection"
+  time_saved: "30 minutes per vehicle"
+  labor_cost_saved: "$25 per vehicle"
+  defect_prevention_value: "$500+ per caught defect"
+  warranty_fraud_savings: "$2000+ per prevented fraud"
+  annual_roi: "25,000% for 10,000 vehicles/year"
+
+# Integration points
+integrations:
+  - "Manufacturing execution systems (MES)"
+  - "Enterprise resource planning (ERP)"
+  - "Dealer management systems (DMS)"
+  - "Parts inventory databases"
+  - "Customer relationship management (CRM)"
+  - "Warranty management systems"

@@ -1,0 +1,49 @@
+# Banking Customer Care Workflow 2: Loan Application Processing
+name: "Loan Application Workflow"
+description: "End-to-end loan application processing with eligibility checks"
+
+agent_nodes:
+  - application_receiver:
+      tools: ["account_verifier"]
+      task: "Verify customer account and identity"
+      
+  - credit_analyst:
+      tools: ["account_verifier", "loan_eligibility_checker"]
+      task: "Analyze credit score and debt-to-income ratio"
+      
+  - eligibility_evaluator:
+      tools: ["loan_eligibility_checker"]
+      task: "Evaluate loan eligibility based on criteria"
+      
+  - recommendation_generator:
+      tools: ["loan_eligibility_checker"]
+      task: "Generate loan terms and recommendations"
+
+inputs:
+  customer_id:
+    type: "string"
+    description: "Customer identifier"
+    example: "CUST-67890"
+    
+  loan_type:
+    type: "string"
+    description: "Type of loan requested"
+    default: "personal"
+    options: ["personal", "home", "auto", "business"]
+    
+  loan_amount:
+    type: "number"
+    description: "Requested loan amount"
+    example: 25000
+    
+  loan_term_years:
+    type: "number"
+    description: "Loan term in years"
+    default: 5
+
+outputs:
+  - customer_profile
+  - credit_assessment
+  - eligibility_decision
+  - loan_terms
+  - next_steps

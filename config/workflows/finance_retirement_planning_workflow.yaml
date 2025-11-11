@@ -1,0 +1,54 @@
+# Finance & Investment Workflow 3: Retirement Planning Analysis
+name: "Retirement Planning Workflow"
+description: "Comprehensive retirement planning with savings recommendations"
+
+agent_nodes:
+  - current_situation_analyzer:
+      tools: ["portfolio_analyzer"]
+      task: "Analyze current financial situation and portfolio"
+      
+  - retirement_calculator:
+      tools: ["investment_recommender", "risk_assessor"]
+      task: "Calculate retirement needs and savings requirements"
+      
+  - strategy_developer:
+      tools: ["investment_recommender"]
+      task: "Develop investment strategy for retirement goals"
+      
+  - optimization_specialist:
+      tools: ["portfolio_analyzer", "risk_assessor"]
+      task: "Optimize allocation and contribution strategy"
+
+inputs:
+  current_age:
+    type: "number"
+    description: "Current age"
+    example: 35
+    
+  retirement_age:
+    type: "number"
+    description: "Target retirement age"
+    default: 65
+    
+  current_savings:
+    type: "number"
+    description: "Current retirement savings"
+    example: 50000
+    
+  annual_income:
+    type: "number"
+    description: "Annual income"
+    example: 80000
+    
+  desired_retirement_income:
+    type: "number"
+    description: "Desired annual retirement income"
+    example: 60000
+
+outputs:
+  - current_portfolio_status
+  - retirement_gap_analysis
+  - savings_recommendations
+  - investment_strategy
+  - projected_outcomes
+  - action_plan

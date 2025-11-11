@@ -1,0 +1,48 @@
+# Full Stack Engineer Workflow 2: API Development and Documentation
+name: "API Development Workflow"
+description: "Complete API development cycle from code analysis to documentation generation"
+
+agent_nodes:
+  - api_architect:
+      tools: ["code_analyzer"]
+      task: "Analyze API code structure and design patterns"
+      
+  - doc_generator:
+      tools: ["api_documentation_generator"]
+      task: "Generate comprehensive API documentation"
+      
+  - security_auditor:
+      tools: ["code_analyzer"]
+      task: "Audit API for security vulnerabilities"
+      
+  - deployment_specialist:
+      tools: ["deployment_checker"]
+      task: "Ensure API is production-ready"
+
+inputs:
+  api_code:
+    type: "string"
+    description: "FastAPI/Flask API code"
+    example: |
+      from fastapi import FastAPI
+      
+      app = FastAPI()
+      
+      @app.get("/users/{user_id}")
+      def get_user(user_id: int):
+          return {"user_id": user_id}
+      
+      @app.post("/users")
+      def create_user(user: dict):
+          return {"status": "created"}
+          
+  framework:
+    type: "string"
+    description: "API framework used"
+    default: "fastapi"
+
+outputs:
+  - api_structure_analysis
+  - security_report
+  - api_documentation
+  - deployment_checklist

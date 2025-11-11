@@ -1,0 +1,49 @@
+# Finance & Investment Workflow 4: Market Monitoring and Alert System
+name: "Market Monitoring Workflow"
+description: "Real-time market monitoring with automated alerts and recommendations"
+
+agent_nodes:
+  - price_monitor:
+      tools: ["market_research"]
+      task: "Monitor real-time price movements and volume"
+      
+  - sentiment_analyzer:
+      tools: ["market_research"]
+      task: "Analyze market sentiment and news impact"
+      
+  - risk_monitor:
+      tools: ["risk_assessor", "market_research"]
+      task: "Monitor risk indicators and volatility"
+      
+  - alert_generator:
+      tools: ["market_research"]
+      task: "Generate alerts and action recommendations"
+
+inputs:
+  watchlist:
+    type: "array"
+    description: "List of symbols to monitor"
+    example: ["AAPL", "GOOGL", "MSFT", "TSLA"]
+    
+  alert_thresholds:
+    type: "object"
+    description: "Thresholds for generating alerts"
+    example: |
+      {
+        "price_change_percent": 5,
+        "volume_spike": 2,
+        "sentiment_shift": "major"
+      }
+      
+  monitoring_frequency:
+    type: "string"
+    description: "How often to check"
+    default: "hourly"
+    options: ["real-time", "hourly", "daily"]
+
+outputs:
+  - price_movements
+  - sentiment_summary
+  - risk_alerts
+  - recommended_actions
+  - market_opportunities

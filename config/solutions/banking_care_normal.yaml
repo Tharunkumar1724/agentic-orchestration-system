@@ -1,0 +1,126 @@
+# Banking Customer Care Demo Solution - Normal Mode (KAG + Conversational Buffer)
+name: "Banking Customer Care Assistant - Normal Mode"
+description: "Intelligent customer support with KAG-powered analysis and fraud detection"
+solution_type: "normal"  # Uses KAG + Conversational Buffer Memory
+
+# Workflows included in this solution
+workflows:
+  - name: "Account Investigation Workflow"
+    file: "banking_account_investigation_workflow.yaml"
+    priority: 1
+    description: "Complete customer account verification and investigation"
+    
+  - name: "Loan Application Workflow"
+    file: "banking_loan_processing_workflow.yaml"
+    priority: 2
+    description: "End-to-end loan application processing"
+    
+  - name: "Fraud Detection Workflow"
+    file: "banking_fraud_detection_workflow.yaml"
+    priority: 3
+    description: "Real-time fraud detection and risk assessment"
+    
+  - name: "Customer Support Resolution"
+    file: "banking_support_resolution_workflow.yaml"
+    priority: 4
+    description: "Complete customer support case resolution"
+
+# Tools available to all workflows
+tools:
+  - account_verifier
+  - transaction_lookup
+  - fraud_detector
+  - balance_inquiry
+  - loan_eligibility_checker
+
+# Solution configuration
+configuration:
+  intelligence_mode: "normal"
+  memory_type: "conversational_buffer"
+  llm_provider: "gemini"
+  fact_extraction: true
+  reasoning_enabled: true
+  customer_context_retention: true
+  
+# Use cases for this solution
+use_cases:
+  - "Customer identity verification and KYC"
+  - "Transaction dispute resolution"
+  - "Fraud detection and prevention"
+  - "Loan application processing"
+  - "Account balance and history inquiries"
+  - "Customer support case management"
+  
+# Expected outcomes
+outcomes:
+  case_resolution_time: "50% faster resolution"
+  fraud_detection_accuracy: "95%+ accuracy with LLM reasoning"
+  customer_satisfaction: "90%+ satisfaction score"
+  compliance: "100% regulatory compliance"
+
+# Demo scenario
+demo_scenario:
+  title: "Suspicious Transaction Investigation"
+  description: |
+    Customer calls about a suspicious $5,000 charge from an overseas merchant.
+    
+    The solution will:
+    1. Verify customer identity and KYC status
+    2. Review account status and balance
+    3. Analyze 30 days of transaction history
+    4. Detect fraud patterns (overseas, high amount, unusual time)
+    5. Assess risk and recommend action (BLOCK or REQUIRE_2FA)
+    6. Generate case summary with reasoning
+    
+    **Why Normal Mode?**
+    - LLM understands customer concerns and context
+    - Intelligent fraud pattern recognition
+    - Contextual recommendations based on customer history
+    - Natural language case summaries
+    - Learns from previous similar cases
+    
+  sample_input:
+    customer_id: "CUST-78901"
+    issue_type: "transaction_dispute"
+    transaction: |
+      {
+        "amount": 5000,
+        "merchant": "Online Electronics Store",
+        "location": "OVERSEAS",
+        "merchant_type": "retail",
+        "hour": 2,
+        "recent_transaction_count": 7
+      }
+    timeframe_days: 30
+
+# Performance expectations (Normal Mode)
+performance:
+  llm_calls_per_case: "5-8 calls"
+  average_handling_time: "2-4 seconds"
+  cost_per_case: "~$0.08"
+  quality_score: "98% (High accuracy with reasoning)"
+  
+# Client presentation talking points
+presentation_points:
+  - "**Intelligent Fraud Detection**: LLM analyzes complex fraud patterns and customer behavior"
+  - "**Regulatory Compliance**: Automatic KYC verification and compliance checks"
+  - "**Context-Aware Support**: Understands customer history across multiple interactions"
+  - "**Risk Assessment**: Real-time risk scoring with actionable recommendations"
+  - "**Natural Language Summaries**: Generate human-readable case summaries"
+  - "**Multi-Channel Support**: Handle phone, email, chat, and mobile app inquiries"
+  - "**Loan Processing**: Automated eligibility checks with DTI and credit score analysis"
+
+# Compliance and security
+compliance:
+  gdpr_compliant: true
+  pci_dss_ready: true
+  kyc_aml_enabled: true
+  audit_trail: "Complete transaction and decision audit trail"
+  
+# Integration points
+integrations:
+  - "Core banking system"
+  - "Credit bureau APIs"
+  - "Fraud detection databases"
+  - "CRM systems"
+  - "Communication platforms"

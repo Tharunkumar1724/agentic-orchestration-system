@@ -1,0 +1,137 @@
+# Banking Customer Care Demo Solution - Research Mode (Agentic RAG)
+name: "Banking Customer Care Assistant - Research Mode"
+description: "High-volume customer support with cost-effective RAG-based case processing"
+solution_type: "research"  # Uses Agentic RAG with TF-IDF embeddings
+
+# Workflows included in this solution
+workflows:
+  - name: "Account Investigation Workflow"
+    file: "banking_account_investigation_workflow.yaml"
+    priority: 1
+    description: "Fast customer verification with pattern matching"
+    
+  - name: "Loan Application Workflow"
+    file: "banking_loan_processing_workflow.yaml"
+    priority: 2
+    description: "High-throughput loan processing"
+    
+  - name: "Fraud Detection Workflow"
+    file: "banking_fraud_detection_workflow.yaml"
+    priority: 3
+    description: "Real-time fraud detection with zero LLM costs"
+    
+  - name: "Customer Support Resolution"
+    file: "banking_support_resolution_workflow.yaml"
+    priority: 4
+    description: "Efficient case resolution at scale"
+
+# Tools available to all workflows
+tools:
+  - account_verifier
+  - transaction_lookup
+  - fraud_detector
+  - balance_inquiry
+  - loan_eligibility_checker
+
+# Solution configuration
+configuration:
+  intelligence_mode: "research"
+  memory_type: "agentic_rag"
+  embedding_type: "tfidf"
+  chunking_strategy: "transaction_based"
+  chunk_size: 200
+  similarity_threshold: 0.1
+  llm_calls: "zero_for_retrieval"
+  
+# Use cases for this solution
+use_cases:
+  - "High-volume call centers (1000+ cases/day)"
+  - "Cost-sensitive operations"
+  - "Pattern-based fraud detection"
+  - "Batch loan processing"
+  - "Automated tier-1 support"
+  - "Transaction pattern analysis"
+  
+# Expected outcomes
+outcomes:
+  processing_speed: "40x faster than Normal mode"
+  cost_reduction: "100% savings on retrieval operations"
+  throughput: "10,000+ cases per day"
+  data_efficiency: "95% reduction in data transfer"
+
+# Demo scenario
+demo_scenario:
+  title: "High-Volume Fraud Detection at Scale"
+  description: |
+    A bank processes 10,000+ transactions daily and needs real-time fraud detection.
+    
+    The solution will:
+    1. Chunk historical fraud cases into 200-word segments
+    2. Create TF-IDF vectors for fraud pattern recognition
+    3. Match incoming transactions against known patterns
+    4. Provide agents with top 3 similar fraud cases (200 bytes vs 50 KB)
+    5. Make instant decisions (<100ms)
+    6. Process thousands of transactions with zero LLM costs
+    
+    **Why Research Mode?**
+    - Zero cost for transaction pattern matching
+    - Instant fraud detection (<100ms)
+    - Scales to millions of transactions
+    - Pattern-based detection sufficient for most fraud
+    - Perfect for automated tier-1 screening
+    
+  sample_input:
+    customer_id: "CUST-78901"
+    transaction: |
+      {
+        "amount": 5000,
+        "merchant": "Online Electronics Store",
+        "location": "OVERSEAS",
+        "merchant_type": "retail",
+        "hour": 2,
+        "recent_transaction_count": 7
+      }
+    historical_cases: "5000 previous fraud cases (10 MB)"
+
+# Performance expectations (Research Mode)
+performance:
+  llm_calls_per_case: "0 for retrieval"
+  average_handling_time: "<100ms"
+  cost_per_case: "$0.00"
+  quality_score: "92% (Excellent pattern matching)"
+  throughput: "10,000+ cases/day per instance"
+  data_transferred: "200 bytes vs 50 KB (99.6% reduction)"
+  
+# Cost savings calculation
+cost_savings:
+  normal_mode_10k_cases: "$800/day (10K × $0.08)"
+  research_mode_10k_cases: "$0/day"
+  daily_savings: "$800"
+  monthly_savings: "$24,000"
+  annual_savings: "$288,000"
+  
+# Client presentation talking points
+presentation_points:
+  - "**Zero Cost at Scale**: Process unlimited transactions with no LLM charges"
+  - "**Real-Time Detection**: <100ms fraud detection for instant decisions"
+  - "**Enterprise Scale**: Handle millions of transactions daily"
+  - "**Pattern Recognition**: TF-IDF vectors match fraud signatures efficiently"
+  - "**Cost Example**: $288K annual savings vs Normal mode for high-volume bank"
+  - "**Smart Chunking**: Transaction data chunked for optimal pattern matching"
+  - "**Automated Tier-1**: Handle 80% of cases automatically, escalate complex ones"
+  - "**Data Efficiency**: Agents receive only relevant fraud patterns (99.6% reduction)"
+
+# Hybrid deployment strategy
+hybrid_approach:
+  tier_1_research: "Use Research mode for automated screening (80% of cases)"
+  tier_2_normal: "Use Normal mode for complex cases requiring reasoning (20%)"
+  cost_optimization: "Combine both for optimal cost/quality balance"
+  blended_savings: "~$230K annual savings with hybrid approach"
+
+# Integration points
+integrations:
+  - "Real-time transaction streams"
+  - "Fraud pattern databases"
+  - "Account management systems"
+  - "Automated decisioning engines"
+  - "Alert and notification systems"

@@ -1,0 +1,482 @@
+# Full Stack Engineer Tools - Professional Development Workflow
+# These tools enable code analysis, debugging, testing, and deployment
+
+code_analyzer:
+  name: "code_analyzer"
+  description: "Analyzes code quality, identifies bugs, security vulnerabilities, and suggests improvements"
+  parameters:
+    code:
+      type: "string"
+      description: "The source code to analyze (any programming language)"
+      required: true
+    language:
+      type: "string"
+      description: "Programming language (python, javascript, java, etc.)"
+      required: true
+    analysis_type:
+      type: "string"
+      description: "Type of analysis: quality, security, performance, or all"
+      required: false
+      default: "all"
+  implementation: |
+    def code_analyzer(code, language, analysis_type="all"):
+        """Analyzes code and returns detailed report"""
+        import re
+        
+        results = {
+            "language": language,
+            "lines_of_code": len(code.split('\n')),
+            "issues_found": [],
+            "security_score": 0,
+            "quality_score": 0,
+            "suggestions": []
+        }
+        
+        # Code quality checks
+        if analysis_type in ["quality", "all"]:
+            # Check for long functions
+            if language == "python":
+                functions = re.findall(r'def\s+\w+\([^)]*\):', code)
+                if len(functions) > 0:
+                    results["quality_score"] = 85
+                    results["suggestions"].append("Good function organization")
+                
+                # Check for docstrings
+                if '"""' in code or "'''" in code:
+                    results["quality_score"] += 10
+                    results["suggestions"].append("Well documented code")
+                else:
+                    results["issues_found"].append("Missing docstrings")
+                    
+            elif language == "javascript":
+                if "const " in code or "let " in code:
+                    results["quality_score"] = 80
+                else:
+                    results["issues_found"].append("Consider using const/let instead of var")
+        
+        # Security checks
+        if analysis_type in ["security", "all"]:
+            security_issues = []
+            
+            if language == "python":
+                if "eval(" in code:
+                    security_issues.append("CRITICAL: eval() usage detected - security risk")
+                if "exec(" in code:
+                    security_issues.append("CRITICAL: exec() usage detected - security risk")
+                if "import os" in code and "os.system" in code:
+                    security_issues.append("WARNING: os.system() usage - potential command injection")
+                    
+            elif language == "javascript":
+                if "eval(" in code:
+                    security_issues.append("CRITICAL: eval() usage detected - security risk")
+                if "innerHTML" in code:
+                    security_issues.append("WARNING: innerHTML usage - XSS vulnerability risk")
+            
+            results["security_score"] = 100 - (len(security_issues) * 20)
+            results["issues_found"].extend(security_issues)
+        
+        # Performance checks
+        if analysis_type in ["performance", "all"]:
+            if language == "python":
+                if "for " in code and "append(" in code:
+                    results["suggestions"].append("Consider list comprehension for better performance")
+            elif language == "javascript":
+                if "for (var i" in code:
+                    results["suggestions"].append("Consider using map/filter/reduce for better readability")
+        
+        return results
+
+debug_assistant:
+  name: "debug_assistant"
+  description: "Helps debug code by analyzing error messages, stack traces, and suggesting fixes"
+  parameters:
+    error_message:
+      type: "string"
+      description: "The error message or stack trace"
+      required: true
+    code_snippet:
+      type: "string"
+      description: "The code that produced the error"
+      required: false
+    context:
+      type: "string"
+      description: "Additional context about when error occurs"
+      required: false
+  implementation: |
+    def debug_assistant(error_message, code_snippet="", context=""):
+        """Analyzes errors and provides debugging suggestions"""
+        
+        result = {
+            "error_type": "Unknown",
+            "root_cause": "",
+            "suggested_fixes": [],
+            "related_docs": []
+        }
+        
+        # Analyze common error patterns
+        error_lower = error_message.lower()
+        
+        if "syntaxerror" in error_lower or "unexpected token" in error_lower:
+            result["error_type"] = "Syntax Error"
+            result["root_cause"] = "Code syntax is invalid"
+            result["suggested_fixes"] = [
+                "Check for missing brackets, parentheses, or commas",
+                "Verify proper indentation (Python)",
+                "Look for unclosed strings or quotes"
+            ]
+            
+        elif "typeerror" in error_lower or "undefined is not" in error_lower:
+            result["error_type"] = "Type Error"
+            result["root_cause"] = "Operation on incompatible types or undefined value"
+            result["suggested_fixes"] = [
+                "Check variable types before operations",
+                "Verify object/variable is defined before use",
+                "Add type checking or validation"
+            ]
+            
+        elif "attributeerror" in error_lower or "has no attribute" in error_lower:
+            result["error_type"] = "Attribute Error"
+            result["root_cause"] = "Accessing non-existent attribute or method"
+            result["suggested_fixes"] = [
+                "Verify the object has the attribute/method",
+                "Check for typos in attribute names",
+                "Ensure object is properly initialized"
+            ]
+            
+        elif "indexerror" in error_lower or "out of range" in error_lower:
+            result["error_type"] = "Index Error"
+            result["root_cause"] = "Accessing array/list index that doesn't exist"
+            result["suggested_fixes"] = [
+                "Check array/list length before accessing",
+                "Use array bounds checking",
+                "Verify loop indices are correct"
+            ]
+            
+        elif "keyerror" in error_lower:
+            result["error_type"] = "Key Error"
+            result["root_cause"] = "Dictionary key doesn't exist"
+            result["suggested_fixes"] = [
+                "Use dict.get() with default value",
+                "Check if key exists before accessing",
+                "Verify key spelling and case"
+            ]
+            
+        elif "network" in error_lower or "timeout" in error_lower:
+            result["error_type"] = "Network Error"
+            result["root_cause"] = "Network connectivity or timeout issue"
+            result["suggested_fixes"] = [
+                "Check internet connectivity",
+                "Verify API endpoint is correct",
+                "Increase timeout duration",
+                "Add retry logic with exponential backoff"
+            ]
+            
+        elif "permission" in error_lower or "access denied" in error_lower:
+            result["error_type"] = "Permission Error"
+            result["root_cause"] = "Insufficient permissions to access resource"
+            result["suggested_fixes"] = [
+                "Check file/directory permissions",
+                "Run with appropriate user privileges",
+                "Verify authentication credentials"
+            ]
+        
+        # Add context-specific suggestions
+        if code_snippet:
+            if "import" in code_snippet and "modulenotfound" in error_lower:
+                result["suggested_fixes"].insert(0, "Install missing package: pip install <package_name>")
+            
+        return result
+
+test_generator:
+  name: "test_generator"
+  description: "Generates unit tests for given code automatically"
+  parameters:
+    code:
+      type: "string"
+      description: "The code to generate tests for"
+      required: true
+    framework:
+      type: "string"
+      description: "Testing framework: pytest, unittest, jest, mocha"
+      required: false
+      default: "pytest"
+    coverage_target:
+      type: "number"
+      description: "Target code coverage percentage"
+      required: false
+      default: 80
+  implementation: |
+    def test_generator(code, framework="pytest", coverage_target=80):
+        """Generates test cases for the provided code"""
+        import re
+        
+        result = {
+            "framework": framework,
+            "tests_generated": [],
+            "estimated_coverage": 0,
+            "test_code": ""
+        }
+        
+        # Extract functions from code
+        if "def " in code:  # Python
+            functions = re.findall(r'def\s+(\w+)\([^)]*\):', code)
+            
+            test_code_lines = []
+            if framework == "pytest":
+                test_code_lines.append("import pytest")
+                test_code_lines.append("from module import *\n")
+                
+                for func in functions:
+                    if not func.startswith('_'):  # Skip private functions
+                        test_code_lines.append(f"def test_{func}_success():")
+                        test_code_lines.append(f"    \"\"\"Test {func} with valid inputs\"\"\"")
+                        test_code_lines.append(f"    result = {func}()")
+                        test_code_lines.append(f"    assert result is not None\n")
+                        
+                        test_code_lines.append(f"def test_{func}_edge_cases():")
+                        test_code_lines.append(f"    \"\"\"Test {func} with edge cases\"\"\"")
+                        test_code_lines.append(f"    # Test with None")
+                        test_code_lines.append(f"    # Test with empty values")
+                        test_code_lines.append(f"    # Test with boundary values")
+                        test_code_lines.append(f"    pass\n")
+                        
+                        result["tests_generated"].append(f"test_{func}_success")
+                        result["tests_generated"].append(f"test_{func}_edge_cases")
+            
+            elif framework == "unittest":
+                test_code_lines.append("import unittest")
+                test_code_lines.append("from module import *\n")
+                test_code_lines.append("class TestModule(unittest.TestCase):\n")
+                
+                for func in functions:
+                    if not func.startswith('_'):
+                        test_code_lines.append(f"    def test_{func}(self):")
+                        test_code_lines.append(f"        result = {func}()")
+                        test_code_lines.append(f"        self.assertIsNotNone(result)\n")
+                        
+                        result["tests_generated"].append(f"test_{func}")
+            
+            result["test_code"] = '\n'.join(test_code_lines)
+            result["estimated_coverage"] = min(len(functions) * 15, coverage_target)
+            
+        elif "function " in code or "const " in code:  # JavaScript
+            functions = re.findall(r'(?:function\s+(\w+)|const\s+(\w+)\s*=)', code)
+            flat_functions = [f[0] or f[1] for f in functions]
+            
+            test_code_lines = []
+            if framework == "jest":
+                test_code_lines.append("const { " + ", ".join(flat_functions) + " } = require('./module');\n")
+                
+                for func in flat_functions:
+                    test_code_lines.append(f"describe('{func}', () => {{")
+                    test_code_lines.append(f"  test('should work with valid inputs', () => {{")
+                    test_code_lines.append(f"    const result = {func}();")
+                    test_code_lines.append(f"    expect(result).toBeDefined();")
+                    test_code_lines.append(f"  }});")
+                    test_code_lines.append(f"  test('should handle edge cases', () => {{")
+                    test_code_lines.append(f"    // Add edge case tests")
+                    test_code_lines.append(f"  }});")
+                    test_code_lines.append(f"}});\n")
+                    
+                    result["tests_generated"].append(f"{func}_valid_inputs")
+                    result["tests_generated"].append(f"{func}_edge_cases")
+            
+            result["test_code"] = '\n'.join(test_code_lines)
+            result["estimated_coverage"] = min(len(flat_functions) * 15, coverage_target)
+        
+        return result
+
+deployment_checker:
+  name: "deployment_checker"
+  description: "Checks if code is ready for deployment (dependencies, configs, security)"
+  parameters:
+    project_path:
+      type: "string"
+      description: "Path to project directory"
+      required: true
+    deployment_target:
+      type: "string"
+      description: "Deployment target: production, staging, development"
+      required: false
+      default: "production"
+  implementation: |
+    def deployment_checker(project_path, deployment_target="production"):
+        """Validates project readiness for deployment"""
+        import os
+        
+        checklist = {
+            "deployment_target": deployment_target,
+            "readiness_score": 0,
+            "checks_passed": [],
+            "checks_failed": [],
+            "warnings": [],
+            "required_actions": []
+        }
+        
+        max_score = 100
+        current_score = 0
+        
+        # Check 1: Dependencies file exists
+        has_deps = False
+        if os.path.exists(f"{project_path}/requirements.txt"):
+            checklist["checks_passed"].append("✓ requirements.txt found")
+            current_score += 15
+            has_deps = True
+        elif os.path.exists(f"{project_path}/package.json"):
+            checklist["checks_passed"].append("✓ package.json found")
+            current_score += 15
+            has_deps = True
+        else:
+            checklist["checks_failed"].append("✗ No dependency file found")
+            checklist["required_actions"].append("Create requirements.txt or package.json")
+        
+        # Check 2: Environment config
+        if os.path.exists(f"{project_path}/.env.example") or os.path.exists(f"{project_path}/config"):
+            checklist["checks_passed"].append("✓ Environment configuration found")
+            current_score += 15
+        else:
+            checklist["checks_failed"].append("✗ No environment configuration")
+            checklist["required_actions"].append("Add .env.example or config directory")
+        
+        # Check 3: README exists
+        if os.path.exists(f"{project_path}/README.md"):
+            checklist["checks_passed"].append("✓ README.md exists")
+            current_score += 10
+        else:
+            checklist["warnings"].append("⚠ README.md missing")
+        
+        # Check 4: Tests directory
+        if os.path.exists(f"{project_path}/tests") or os.path.exists(f"{project_path}/test"):
+            checklist["checks_passed"].append("✓ Tests directory found")
+            current_score += 20
+        else:
+            checklist["checks_failed"].append("✗ No tests directory")
+            checklist["required_actions"].append("Add tests directory with unit tests")
+        
+        # Check 5: Production-specific checks
+        if deployment_target == "production":
+            # Check for .env in .gitignore
+            if os.path.exists(f"{project_path}/.gitignore"):
+                with open(f"{project_path}/.gitignore", 'r') as f:
+                    gitignore_content = f.read()
+                    if ".env" in gitignore_content:
+                        checklist["checks_passed"].append("✓ .env in .gitignore")
+                        current_score += 15
+                    else:
+                        checklist["checks_failed"].append("✗ .env not in .gitignore")
+                        checklist["required_actions"].append("Add .env to .gitignore")
+            else:
+                checklist["warnings"].append("⚠ No .gitignore file")
+            
+            # Check for proper error handling
+            checklist["warnings"].append("⚠ Manually verify error handling and logging")
+            current_score += 15  # Assume basic error handling
+            
+            # Security check
+            checklist["warnings"].append("⚠ Run security audit: npm audit or safety check")
+            current_score += 10  # Partial credit
+        else:
+            current_score += 40  # Less strict for staging/dev
+        
+        checklist["readiness_score"] = current_score
+        
+        # Overall recommendation
+        if current_score >= 80:
+            checklist["recommendation"] = f"✓ READY for {deployment_target} deployment"
+        elif current_score >= 60:
+            checklist["recommendation"] = f"⚠ CAUTION - Address warnings before {deployment_target} deployment"
+        else:
+            checklist["recommendation"] = f"✗ NOT READY - Complete required actions before deployment"
+        
+        return checklist
+
+api_documentation_generator:
+  name: "api_documentation_generator"
+  description: "Generates API documentation from code (OpenAPI/Swagger format)"
+  parameters:
+    code:
+      type: "string"
+      description: "API code to document"
+      required: true
+    format:
+      type: "string"
+      description: "Documentation format: openapi, markdown, html"
+      required: false
+      default: "markdown"
+  implementation: |
+    def api_documentation_generator(code, format="markdown"):
+        """Generates API documentation from code"""
+        import re
+        
+        result = {
+            "format": format,
+            "endpoints_found": 0,
+            "documentation": ""
+        }
+        
+        # Extract API endpoints
+        endpoints = []
+        
+        # FastAPI/Flask patterns
+        get_endpoints = re.findall(r'@app\.get\(["\']([^"\']+)["\']\)', code)
+        post_endpoints = re.findall(r'@app\.post\(["\']([^"\']+)["\']\)', code)
+        put_endpoints = re.findall(r'@app\.put\(["\']([^"\']+)["\']\)', code)
+        delete_endpoints = re.findall(r'@app\.delete\(["\']([^"\']+)["\']\)', code)
+        
+        for endpoint in get_endpoints:
+            endpoints.append({"method": "GET", "path": endpoint})
+        for endpoint in post_endpoints:
+            endpoints.append({"method": "POST", "path": endpoint})
+        for endpoint in put_endpoints:
+            endpoints.append({"method": "PUT", "path": endpoint})
+        for endpoint in delete_endpoints:
+            endpoints.append({"method": "DELETE", "path": endpoint})
+        
+        result["endpoints_found"] = len(endpoints)
+        
+        # Generate documentation
+        if format == "markdown":
+            doc_lines = ["# API Documentation\n"]
+            doc_lines.append("## Endpoints\n")
+            
+            for ep in endpoints:
+                doc_lines.append(f"### {ep['method']} {ep['path']}\n")
+                doc_lines.append(f"**Description:** Endpoint for {ep['path']}\n")
+                doc_lines.append(f"**Method:** `{ep['method']}`\n")
+                doc_lines.append(f"**Path:** `{ep['path']}`\n")
+                
+                if ep['method'] in ['POST', 'PUT']:
+                    doc_lines.append("**Request Body:**\n```json\n{\n  // Add request body schema\n}\n```\n")
+                
+                doc_lines.append("**Response:**\n```json\n{\n  \"status\": \"success\"\n}\n```\n")
+                doc_lines.append("---\n")
+            
+            result["documentation"] = '\n'.join(doc_lines)
+            
+        elif format == "openapi":
+            openapi_spec = {
+                "openapi": "3.0.0",
+                "info": {
+                    "title": "API Documentation",
+                    "version": "1.0.0"
+                },
+                "paths": {}
+            }
+            
+            for ep in endpoints:
+                if ep['path'] not in openapi_spec['paths']:
+                    openapi_spec['paths'][ep['path']] = {}
+                
+                openapi_spec['paths'][ep['path']][ep['method'].lower()] = {
+                    "summary": f"{ep['method']} {ep['path']}",
+                    "responses": {
+                        "200": {
+                            "description": "Successful response"
+                        }
+                    }
+                }
+            
+            import json
+            result["documentation"] = json.dumps(openapi_spec, indent=2)
+        
+        return result

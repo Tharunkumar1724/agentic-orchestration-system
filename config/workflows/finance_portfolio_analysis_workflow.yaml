@@ -1,0 +1,45 @@
+# Finance & Investment Workflow 1: Portfolio Analysis and Rebalancing
+name: "Portfolio Analysis Workflow"
+description: "Comprehensive portfolio analysis with rebalancing recommendations"
+
+agent_nodes:
+  - performance_analyzer:
+      tools: ["portfolio_analyzer"]
+      task: "Analyze portfolio performance metrics and returns"
+      
+  - allocation_reviewer:
+      tools: ["portfolio_analyzer"]
+      task: "Review current allocation vs target allocation"
+      
+  - risk_assessor:
+      tools: ["portfolio_analyzer", "risk_assessor"]
+      task: "Assess portfolio risk and volatility"
+      
+  - rebalancing_advisor:
+      tools: ["portfolio_analyzer"]
+      task: "Generate rebalancing recommendations"
+
+inputs:
+  portfolio_id:
+    type: "string"
+    description: "Portfolio identifier"
+    example: "PORT-12345"
+    
+  analysis_depth:
+    type: "string"
+    description: "Depth of analysis"
+    default: "comprehensive"
+    options: ["quick", "standard", "comprehensive"]
+    
+  risk_tolerance:
+    type: "string"
+    description: "Investor risk tolerance"
+    default: "moderate"
+    options: ["conservative", "moderate", "aggressive"]
+
+outputs:
+  - performance_report
+  - allocation_analysis
+  - risk_assessment
+  - rebalancing_plan
+  - tax_considerations

@@ -1,0 +1,46 @@
+# Automobile Industry Workflow 3: Supply Chain and Inventory Optimization
+name: "Supply Chain Optimization"
+description: "Monitor and optimize automotive parts supply chain"
+
+agent_nodes:
+  - inventory_analyst:
+      tools: ["inventory_manager"]
+      task: "Analyze current inventory levels and stock status"
+      
+  - supply_monitor:
+      tools: ["supply_chain_monitor"]
+      task: "Monitor supplier availability and lead times"
+      
+  - demand_forecaster:
+      tools: ["supply_chain_monitor", "inventory_manager"]
+      task: "Forecast demand and identify reorder needs"
+      
+  - procurement_optimizer:
+      tools: ["supply_chain_monitor"]
+      task: "Optimize procurement strategy based on cost and availability"
+
+inputs:
+  part_category:
+    type: "string"
+    description: "Part category to analyze"
+    default: "Engine"
+    options: ["Engine", "Transmission", "Brakes", "Suspension", "Electrical", "Body"]
+    
+  analysis_period:
+    type: "string"
+    description: "Time period for analysis"
+    default: "monthly"
+    options: ["weekly", "monthly", "quarterly"]
+    
+  optimization_goal:
+    type: "string"
+    description: "Primary optimization goal"
+    default: "cost"
+    options: ["cost", "availability", "lead_time", "quality"]
+
+outputs:
+  - inventory_status
+  - supplier_analysis
+  - demand_forecast
+  - procurement_recommendations
+  - cost_savings_potential

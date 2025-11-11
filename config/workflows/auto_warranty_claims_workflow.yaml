@@ -1,0 +1,50 @@
+# Automobile Industry Workflow 4: Warranty Claims Processing
+name: "Warranty Claims Workflow"
+description: "Process and validate warranty claims for vehicles and parts"
+
+agent_nodes:
+  - claim_intake:
+      tools: ["warranty_validator", "service_tracker"]
+      task: "Receive and validate warranty claim information"
+      
+  - coverage_verifier:
+      tools: ["warranty_validator"]
+      task: "Verify warranty coverage and eligibility"
+      
+  - service_history_reviewer:
+      tools: ["service_tracker"]
+      task: "Review service history to validate claim"
+      
+  - claim_processor:
+      tools: ["warranty_validator", "inventory_manager"]
+      task: "Process approved claims and arrange parts/service"
+
+inputs:
+  vehicle_vin:
+    type: "string"
+    description: "Vehicle VIN for warranty claim"
+    example: "5FNRL6H78MB012345"
+    
+  claim_type:
+    type: "string"
+    description: "Type of warranty claim"
+    default: "powertrain"
+    options: ["bumper_to_bumper", "powertrain", "extended"]
+    
+  issue_description:
+    type: "string"
+    description: "Description of the issue"
+    example: "Transmission slipping between gears"
+    
+  current_mileage:
+    type: "number"
+    description: "Current vehicle mileage"
+    example: 45000
+
+outputs:
+  - warranty_status
+  - coverage_details
+  - service_history
+  - claim_decision
+  - approved_repairs
+  - estimated_coverage_amount

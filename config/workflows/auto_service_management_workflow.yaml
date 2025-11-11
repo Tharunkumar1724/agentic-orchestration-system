@@ -1,0 +1,44 @@
+# Automobile Industry Workflow 2: Service and Maintenance Management
+name: "Service Management Workflow"
+description: "Complete vehicle service and maintenance workflow from scheduling to completion"
+
+agent_nodes:
+  - service_scheduler:
+      tools: ["service_tracker"]
+      task: "Review service history and schedule appointment"
+      
+  - parts_coordinator:
+      tools: ["inventory_manager"]
+      task: "Check parts availability and reserve required components"
+      
+  - warranty_checker:
+      tools: ["warranty_validator"]
+      task: "Verify warranty coverage for service items"
+      
+  - service_estimator:
+      tools: ["service_tracker"]
+      task: "Provide cost estimate for service"
+
+inputs:
+  vehicle_vin:
+    type: "string"
+    description: "Vehicle VIN"
+    example: "JH4KA7650NC007439"
+    
+  service_type:
+    type: "string"
+    description: "Type of service needed"
+    default: "Oil Change"
+    options: ["Oil Change", "Brake Service", "Transmission Service", "General Maintenance", "Repair"]
+    
+  customer_concerns:
+    type: "string"
+    description: "Customer reported concerns"
+    example: "Engine making unusual noise, brake pedal feels soft"
+
+outputs:
+  - service_history
+  - parts_status
+  - warranty_coverage
+  - service_estimate
+  - appointment_details

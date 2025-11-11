@@ -1,0 +1,50 @@
+# Finance & Investment Workflow 2: Investment Research and Recommendation
+name: "Investment Research Workflow"
+description: "Complete investment research with buy/sell recommendations"
+
+agent_nodes:
+  - market_researcher:
+      tools: ["market_research"]
+      task: "Gather market data and price information"
+      
+  - fundamental_analyst:
+      tools: ["market_research"]
+      task: "Analyze fundamental metrics and company financials"
+      
+  - technical_analyst:
+      tools: ["market_research"]
+      task: "Perform technical analysis and identify patterns"
+      
+  - recommendation_engine:
+      tools: ["market_research", "risk_assessor"]
+      task: "Generate buy/sell/hold recommendation with risk assessment"
+
+inputs:
+  symbol:
+    type: "string"
+    description: "Stock ticker symbol"
+    example: "AAPL"
+    
+  investment_amount:
+    type: "number"
+    description: "Amount to invest"
+    example: 10000
+    
+  time_horizon:
+    type: "number"
+    description: "Investment time horizon in years"
+    default: 5
+    
+  investment_goal:
+    type: "string"
+    description: "Investment goal"
+    default: "wealth_building"
+    options: ["wealth_building", "income", "preservation"]
+
+outputs:
+  - market_data
+  - fundamental_analysis
+  - technical_analysis
+  - investment_recommendation
+  - risk_reward_ratio
+  - entry_exit_points

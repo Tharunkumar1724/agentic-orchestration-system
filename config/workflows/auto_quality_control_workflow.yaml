@@ -1,0 +1,44 @@
+# Automobile Industry Workflow 1: Vehicle Quality Control Process
+name: "Quality Control Workflow"
+description: "Complete vehicle quality control and inspection process"
+
+agent_nodes:
+  - pre_inspection:
+      tools: ["inventory_manager"]
+      task: "Verify all required parts are available"
+      
+  - quality_inspector:
+      tools: ["quality_inspector"]
+      task: "Perform comprehensive quality inspection"
+      
+  - defect_analyzer:
+      tools: ["quality_inspector"]
+      task: "Analyze any defects found and categorize severity"
+      
+  - approval_manager:
+      tools: ["quality_inspector"]
+      task: "Make final approval decision based on inspection results"
+
+inputs:
+  vehicle_vin:
+    type: "string"
+    description: "Vehicle Identification Number"
+    example: "1HGBH41JXMN109186"
+    
+  inspection_type:
+    type: "string"
+    description: "Type of inspection"
+    default: "pre_delivery"
+    options: ["vehicle", "assembly", "pre_delivery"]
+    
+  quality_threshold:
+    type: "number"
+    description: "Minimum quality score for approval"
+    default: 85
+
+outputs:
+  - parts_availability
+  - inspection_results
+  - defect_report
+  - approval_status
+  - next_actions

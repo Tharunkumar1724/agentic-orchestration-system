@@ -1,0 +1,504 @@
+# Automobile Industry Tools - Manufacturing & Service Management
+# Tools for inventory, quality control, service tracking, and supply chain
+
+inventory_manager:
+  name: "inventory_manager"
+  description: "Manages automotive parts inventory including stock levels and ordering"
+  parameters:
+    part_number:
+      type: "string"
+      description: "Part number or SKU to query"
+      required: true
+    action:
+      type: "string"
+      description: "Action: check_stock, order, reserve, release"
+      required: false
+      default: "check_stock"
+    quantity:
+      type: "number"
+      description: "Quantity for order/reserve actions"
+      required: false
+      default: 1
+  implementation: |
+    def inventory_manager(part_number, action="check_stock", quantity=1):
+        """Manages automotive parts inventory"""
+        import random
+        import hashlib
+        
+        # Generate consistent data based on part number
+        part_hash = int(hashlib.md5(part_number.encode()).hexdigest()[:8], 16)
+        random.seed(part_hash)
+        
+        # Part categories
+        categories = ["Engine", "Transmission", "Brakes", "Suspension", "Electrical", 
+                     "Body", "Interior", "Exhaust", "Cooling", "Fuel System"]
+        category = categories[part_hash % len(categories)]
+        
+        # Stock levels
+        stock_quantity = random.randint(0, 500)
+        reserved = random.randint(0, min(50, stock_quantity))
+        available = stock_quantity - reserved
+        
+        result = {
+            "part_number": part_number,
+            "action": action,
+            "part_info": {
+                "category": category,
+                "description": f"{category} Component - Part #{part_number}",
+                "manufacturer": random.choice(["OEM", "Aftermarket Premium", "Standard"]),
+                "unit_price": round(random.uniform(10, 2000), 2),
+                "weight_kg": round(random.uniform(0.1, 50), 2)
+            }
+        }
+        
+        if action == "check_stock":
+            result["inventory"] = {
+                "total_stock": stock_quantity,
+                "reserved": reserved,
+                "available": available,
+                "reorder_point": random.randint(10, 50),
+                "warehouse_locations": [
+                    {"location": f"WH-{random.randint(1,5)}", "quantity": random.randint(0, available)}
+                    for _ in range(random.randint(1, 3))
+                ],
+                "status": "IN_STOCK" if available > 0 else "OUT_OF_STOCK",
+                "lead_time_days": random.randint(1, 14)
+            }
+            
+        elif action == "order":
+            order_cost = result["part_info"]["unit_price"] * quantity
+            result["order"] = {
+                "order_id": f"PO-{random.randint(10000, 99999)}",
+                "quantity_ordered": quantity,
+                "unit_price": result["part_info"]["unit_price"],
+                "total_cost": round(order_cost, 2),
+                "estimated_delivery": f"{random.randint(3, 14)} days",
+                "supplier": random.choice(["Supplier A", "Supplier B", "Supplier C"]),
+                "status": "ORDER_PLACED"
+            }
+            
+        elif action == "reserve":
+            if quantity <= available:
+                result["reservation"] = {
+                    "reservation_id": f"RES-{random.randint(10000, 99999)}",
+                    "quantity_reserved": quantity,
+                    "status": "RESERVED",
+                    "valid_until": "2025-11-18",
+                    "pickup_location": f"WH-{random.randint(1,5)}"
+                }
+            else:
+                result["reservation"] = {
+                    "status": "FAILED",
+                    "reason": f"Insufficient stock. Available: {available}, Requested: {quantity}"
+                }
+                
+        elif action == "release":
+            result["release"] = {
+                "status": "RELEASED",
+                "quantity_released": quantity,
+                "new_available": available + quantity
+            }
+        
+        return result
+
+quality_inspector:
+  name: "quality_inspector"
+  description: "Performs quality control inspections on vehicles and parts"
+  parameters:
+    inspection_type:
+      type: "string"
+      description: "Type: vehicle, part, assembly, pre_delivery"
+      required: true
+    item_id:
+      type: "string"
+      description: "Vehicle VIN or part number"
+      required: true
+    checklist:
+      type: "string"
+      description: "Inspection checklist items (comma-separated)"
+      required: false
+  implementation: |
+    def quality_inspector(inspection_type, item_id, checklist=""):
+        """Performs quality control inspection"""
+        import random
+        
+        inspection_items = []
+        
+        if inspection_type == "vehicle":
+            standard_checks = [
+                "Body paint quality", "Panel alignment", "Door operation",
+                "Window operation", "Engine start", "Transmission shift",
+                "Brake function", "Suspension check", "Lights operation",
+                "Interior finish", "Instrument cluster", "Climate control"
+            ]
+        elif inspection_type == "part":
+            standard_checks = [
+                "Dimensional accuracy", "Surface finish", "Material quality",
+                "Welding/fastening", "Coating/paint", "Functional test"
+            ]
+        elif inspection_type == "assembly":
+            standard_checks = [
+                "Component fit", "Torque specifications", "Alignment",
+                "Fastener security", "Electrical connections", "Fluid levels"
+            ]
+        else:  # pre_delivery
+            standard_checks = [
+                "Full detailing", "Tire pressure", "Fluid levels",
+                "Documentation complete", "Accessories installed", "Final walk-around"
+            ]
+        
+        # Use custom checklist or standard
+        checks_to_perform = checklist.split(',') if checklist else standard_checks
+        
+        # Perform inspections
+        passed = 0
+        failed = 0
+        warnings = 0
+        
+        for check in checks_to_perform:
+            outcome = random.choices(
+                ["PASS", "FAIL", "WARNING"],
+                weights=[80, 10, 10]
+            )[0]
+            
+            inspection_items.append({
+                "item": check.strip(),
+                "status": outcome,
+                "notes": "" if outcome == "PASS" else f"Issue detected in {check.strip()}"
+            })
+            
+            if outcome == "PASS":
+                passed += 1
+            elif outcome == "FAIL":
+                failed += 1
+            else:
+                warnings += 1
+        
+        # Calculate overall score
+        total_items = len(inspection_items)
+        quality_score = (passed / total_items) * 100 if total_items > 0 else 0
+        
+        # Determine overall status
+        if failed > 0:
+            overall_status = "REJECTED"
+        elif warnings > 2:
+            overall_status = "CONDITIONAL_PASS"
+        else:
+            overall_status = "APPROVED"
+        
+        result = {
+            "inspection_id": f"QC-{random.randint(10000, 99999)}",
+            "inspection_type": inspection_type,
+            "item_id": item_id,
+            "inspector": f"Inspector-{random.randint(100, 999)}",
+            "date": "2025-11-11",
+            "summary": {
+                "total_checks": total_items,
+                "passed": passed,
+                "failed": failed,
+                "warnings": warnings,
+                "quality_score": round(quality_score, 1),
+                "overall_status": overall_status
+            },
+            "inspection_details": inspection_items,
+            "recommendations": [
+                "Rework required items" if failed > 0 else "No rework needed",
+                "Address warning items before final delivery" if warnings > 0 else "All checks passed",
+                "Document all corrections made" if failed > 0 or warnings > 0 else "Ready for next stage"
+            ]
+        }
+        
+        return result
+
+service_tracker:
+  name: "service_tracker"
+  description: "Tracks vehicle service history and schedules maintenance"
+  parameters:
+    vin:
+      type: "string"
+      description: "Vehicle Identification Number"
+      required: true
+    action:
+      type: "string"
+      description: "Action: history, schedule, estimate, status"
+      required: false
+      default: "history"
+    service_type:
+      type: "string"
+      description: "Service type for schedule/estimate"
+      required: false
+  implementation: |
+    def service_tracker(vin, action="history", service_type=""):
+        """Tracks vehicle service and maintenance"""
+        import random
+        from datetime import datetime, timedelta
+        
+        # Vehicle info
+        vehicle_info = {
+            "vin": vin,
+            "make": random.choice(["Toyota", "Honda", "Ford", "BMW", "Tesla"]),
+            "model": random.choice(["Sedan", "SUV", "Truck", "Coupe"]),
+            "year": random.randint(2018, 2024),
+            "mileage": random.randint(5000, 100000)
+        }
+        
+        result = {
+            "vin": vin,
+            "vehicle": vehicle_info,
+            "action": action
+        }
+        
+        if action == "history":
+            # Generate service history
+            num_services = random.randint(3, 10)
+            service_history = []
+            
+            service_types = [
+                "Oil Change", "Tire Rotation", "Brake Inspection",
+                "Battery Replacement", "Air Filter", "Transmission Service",
+                "Coolant Flush", "Alignment", "Inspection"
+            ]
+            
+            for i in range(num_services):
+                days_ago = random.randint(30, 730)  # Up to 2 years ago
+                service_date = (datetime.now() - timedelta(days=days_ago)).strftime("%Y-%m-%d")
+                
+                service_history.append({
+                    "service_id": f"SVC-{random.randint(10000, 99999)}",
+                    "date": service_date,
+                    "type": random.choice(service_types),
+                    "mileage_at_service": vehicle_info["mileage"] - random.randint(0, 10000),
+                    "cost": round(random.uniform(50, 800), 2),
+                    "dealer": f"Service Center {random.randint(1, 10)}",
+                    "notes": "Routine maintenance completed"
+                })
+            
+            service_history.sort(key=lambda x: x['date'], reverse=True)
+            result["service_history"] = service_history[:5]  # Last 5 services
+            
+        elif action == "schedule":
+            result["scheduling"] = {
+                "service_type": service_type or "General Maintenance",
+                "available_dates": [
+                    (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
+                    for i in range(1, 8)
+                ],
+                "estimated_duration": f"{random.randint(1, 4)} hours",
+                "location": f"Service Center {random.randint(1, 10)}",
+                "appointment_id": f"APT-{random.randint(10000, 99999)}"
+            }
+            
+        elif action == "estimate":
+            parts_cost = round(random.uniform(50, 500), 2)
+            labor_cost = round(random.uniform(80, 300), 2)
+            
+            result["estimate"] = {
+                "service_type": service_type or "General Service",
+                "parts_cost": parts_cost,
+                "labor_cost": labor_cost,
+                "total_estimate": parts_cost + labor_cost,
+                "estimated_time": f"{random.randint(1, 6)} hours",
+                "warranty_coverage": random.choice([True, False]),
+                "valid_until": (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d")
+            }
+            
+        elif action == "status":
+            result["current_status"] = {
+                "service_in_progress": random.choice([True, False]),
+                "stage": random.choice(["Diagnostic", "Repair", "Quality Check", "Completed"]),
+                "completion": f"{random.randint(20, 90)}%",
+                "estimated_ready": (datetime.now() + timedelta(hours=random.randint(1, 8))).strftime("%Y-%m-%d %H:00"),
+                "technician": f"Tech-{random.randint(100, 999)}"
+            }
+        
+        # Add maintenance recommendations
+        result["recommendations"] = []
+        if vehicle_info["mileage"] % 5000 < 500:
+            result["recommendations"].append("Oil change due soon")
+        if vehicle_info["mileage"] > 30000:
+            result["recommendations"].append("Consider transmission service")
+        if vehicle_info["mileage"] > 50000:
+            result["recommendations"].append("Brake system inspection recommended")
+        
+        return result
+
+supply_chain_monitor:
+  name: "supply_chain_monitor"
+  description: "Monitors supply chain for automotive parts and components"
+  parameters:
+    component:
+      type: "string"
+      description: "Component or part family to monitor"
+      required: true
+    metric:
+      type: "string"
+      description: "Metric: availability, lead_time, cost, supplier_status"
+      required: false
+      default: "availability"
+  implementation: |
+    def supply_chain_monitor(component, metric="availability"):
+        """Monitors supply chain metrics"""
+        import random
+        
+        result = {
+            "component": component,
+            "metric": metric,
+            "timestamp": "2025-11-11T10:30:00Z"
+        }
+        
+        suppliers = [
+            {"name": "Supplier A", "location": "USA", "tier": "Primary"},
+            {"name": "Supplier B", "location": "Mexico", "tier": "Secondary"},
+            {"name": "Supplier C", "location": "Japan", "tier": "Primary"}
+        ]
+        
+        if metric == "availability":
+            result["availability"] = {
+                "current_stock": random.randint(0, 10000),
+                "monthly_demand": random.randint(500, 5000),
+                "stock_coverage_days": random.randint(5, 90),
+                "status": random.choice(["ADEQUATE", "LOW", "CRITICAL", "SURPLUS"]),
+                "suppliers": [
+                    {
+                        **supplier,
+                        "available_quantity": random.randint(0, 5000),
+                        "delivery_time_days": random.randint(1, 30)
+                    }
+                    for supplier in suppliers
+                ]
+            }
+            
+        elif metric == "lead_time":
+            result["lead_time"] = {
+                "average_lead_time_days": random.randint(7, 45),
+                "fastest_supplier": random.choice(suppliers)["name"],
+                "fastest_time_days": random.randint(3, 10),
+                "slowest_supplier": random.choice(suppliers)["name"],
+                "slowest_time_days": random.randint(20, 60),
+                "trend": random.choice(["IMPROVING", "STABLE", "DEGRADING"])
+            }
+            
+        elif metric == "cost":
+            base_cost = round(random.uniform(10, 1000), 2)
+            result["cost"] = {
+                "current_price": base_cost,
+                "price_trend": random.choice(["UP", "DOWN", "STABLE"]),
+                "price_change_percent": round(random.uniform(-15, 15), 2),
+                "supplier_quotes": [
+                    {
+                        **supplier,
+                        "unit_price": round(base_cost * random.uniform(0.9, 1.1), 2),
+                        "moq": random.randint(100, 1000)
+                    }
+                    for supplier in suppliers
+                ]
+            }
+            
+        elif metric == "supplier_status":
+            result["supplier_status"] = {
+                "total_suppliers": len(suppliers),
+                "active_suppliers": random.randint(2, len(suppliers)),
+                "supplier_details": [
+                    {
+                        **supplier,
+                        "health_score": random.randint(60, 100),
+                        "on_time_delivery": f"{random.randint(85, 100)}%",
+                        "quality_rating": f"{random.randint(90, 100)}%",
+                        "risk_level": random.choice(["LOW", "MEDIUM", "HIGH"])
+                    }
+                    for supplier in suppliers
+                ],
+                "risks": [
+                    "Single source dependency" if random.choice([True, False]) else None,
+                    "Geographic concentration" if random.choice([True, False]) else None
+                ]
+            }
+            result["supplier_status"]["risks"] = [r for r in result["supplier_status"]["risks"] if r]
+        
+        return result
+
+warranty_validator:
+  name: "warranty_validator"
+  description: "Validates warranty coverage for vehicles and parts"
+  parameters:
+    vin:
+      type: "string"
+      description: "Vehicle Identification Number"
+      required: true
+    claim_type:
+      type: "string"
+      description: "Type of claim: powertrain, bumper_to_bumper, extended"
+      required: false
+      default: "bumper_to_bumper"
+  implementation: |
+    def warranty_validator(vin, claim_type="bumper_to_bumper"):
+        """Validates warranty coverage"""
+        import random
+        from datetime import datetime, timedelta
+        
+        # Vehicle age and mileage
+        purchase_date = datetime.now() - timedelta(days=random.randint(30, 1825))  # 0-5 years
+        current_mileage = random.randint(1000, 100000)
+        
+        warranties = {
+            "bumper_to_bumper": {
+                "years": 3,
+                "miles": 36000,
+                "description": "Comprehensive coverage for most components"
+            },
+            "powertrain": {
+                "years": 5,
+                "miles": 60000,
+                "description": "Engine, transmission, and drivetrain components"
+            },
+            "extended": {
+                "years": 7,
+                "miles": 100000,
+                "description": "Extended warranty coverage"
+            }
+        }
+        
+        warranty_info = warranties.get(claim_type, warranties["bumper_to_bumper"])
+        
+        # Calculate warranty expiration
+        expiry_date = purchase_date + timedelta(days=warranty_info["years"] * 365)
+        days_remaining = (expiry_date - datetime.now()).days
+        miles_remaining = warranty_info["miles"] - current_mileage
+        
+        # Determine coverage status
+        is_covered = (days_remaining > 0 and miles_remaining > 0)
+        
+        result = {
+            "vin": vin,
+            "claim_type": claim_type,
+            "warranty": {
+                "type": claim_type,
+                "description": warranty_info["description"],
+                "coverage_years": warranty_info["years"],
+                "coverage_miles": warranty_info["miles"],
+                "purchase_date": purchase_date.strftime("%Y-%m-%d"),
+                "expiry_date": expiry_date.strftime("%Y-%m-%d")
+            },
+            "current_status": {
+                "days_remaining": max(0, days_remaining),
+                "miles_remaining": max(0, miles_remaining),
+                "current_mileage": current_mileage,
+                "is_covered": is_covered,
+                "status": "ACTIVE" if is_covered else "EXPIRED"
+            },
+            "coverage_details": {
+                "parts_covered": [
+                    "Engine", "Transmission", "Electrical", "Suspension"
+                ] if claim_type == "powertrain" else [
+                    "All factory-installed components"
+                ],
+                "exclusions": [
+                    "Wear items (brake pads, tires)",
+                    "Maintenance services",
+                    "Accident damage"
+                ],
+                "deductible": random.choice([0, 50, 100, 200]) if is_covered else None
+            }
+        }
+        
+        return result

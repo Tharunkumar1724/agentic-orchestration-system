@@ -1,0 +1,54 @@
+# Full Stack Engineer Workflow 3: Test-Driven Development Pipeline
+name: "TDD Pipeline"
+description: "Test-driven development workflow with automated test generation and validation"
+
+agent_nodes:
+  - requirements_analyzer:
+      tools: ["code_analyzer"]
+      task: "Analyze code requirements and specifications"
+      
+  - test_creator:
+      tools: ["test_generator"]
+      task: "Generate unit tests based on requirements"
+      
+  - code_quality_checker:
+      tools: ["code_analyzer"]
+      task: "Verify code meets quality standards"
+      
+  - coverage_reporter:
+      tools: ["test_generator"]
+      task: "Generate test coverage report"
+
+inputs:
+  feature_code:
+    type: "string"
+    description: "Feature implementation code"
+    example: |
+      class UserManager:
+          def __init__(self):
+              self.users = {}
+          
+          def add_user(self, user_id, name, email):
+              if user_id in self.users:
+                  raise ValueError("User already exists")
+              self.users[user_id] = {"name": name, "email": email}
+              return True
+          
+          def get_user(self, user_id):
+              return self.users.get(user_id)
+              
+  testing_framework:
+    type: "string"
+    description: "Testing framework to use"
+    default: "pytest"
+    
+  coverage_target:
+    type: "number"
+    description: "Target code coverage percentage"
+    default: 85
+
+outputs:
+  - test_suite
+  - coverage_report
+  - quality_metrics
+  - recommendations

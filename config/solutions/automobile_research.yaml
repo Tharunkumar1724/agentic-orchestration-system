@@ -1,0 +1,142 @@
+# Automobile Industry Demo Solution - Research Mode (Agentic RAG)
+name: "Automobile Operations Assistant - Research Mode"
+description: "High-throughput manufacturing and service operations with cost-effective RAG"
+solution_type: "research"  # Uses Agentic RAG with TF-IDF embeddings
+
+# Workflows included in this solution
+workflows:
+  - name: "Quality Control Workflow"
+    file: "auto_quality_control_workflow.yaml"
+    priority: 1
+    description: "High-speed quality inspection with pattern matching"
+    
+  - name: "Service Management Workflow"
+    file: "auto_service_management_workflow.yaml"
+    priority: 2
+    description: "Automated service scheduling at scale"
+    
+  - name: "Supply Chain Optimization"
+    file: "auto_supply_chain_workflow.yaml"
+    priority: 3
+    description: "Real-time supply chain monitoring"
+    
+  - name: "Warranty Claims Workflow"
+    file: "auto_warranty_claims_workflow.yaml"
+    priority: 4
+    description: "Batch warranty processing"
+
+# Tools available to all workflows
+tools:
+  - inventory_manager
+  - quality_inspector
+  - service_tracker
+  - supply_chain_monitor
+  - warranty_validator
+
+# Solution configuration
+configuration:
+  intelligence_mode: "research"
+  memory_type: "agentic_rag"
+  embedding_type: "tfidf"
+  chunking_strategy: "inspection_based"
+  chunk_size: 200
+  similarity_threshold: 0.1
+  llm_calls: "zero_for_pattern_matching"
+  
+# Use cases for this solution
+use_cases:
+  - "High-volume manufacturing (1000+ vehicles/day)"
+  - "Fleet service operations"
+  - "Pattern-based defect detection"
+  - "Batch warranty processing"
+  - "Real-time supply chain monitoring"
+  - "Automated tier-1 inspections"
+  
+# Expected outcomes
+outcomes:
+  inspection_speed: "50x faster than Normal mode"
+  cost_reduction: "100% savings on pattern matching"
+  throughput: "5,000+ inspections per day"
+  data_efficiency: "97% reduction in data transfer"
+
+# Demo scenario
+demo_scenario:
+  title: "High-Volume Manufacturing Quality Control"
+  description: |
+    A manufacturing plant produces 2,000 vehicles daily and needs real-time quality checks.
+    
+    The solution will:
+    1. Chunk 10,000 previous inspection reports (50 MB)
+    2. Create TF-IDF vectors for common defect patterns
+    3. Match new inspections against known patterns
+    4. Provide inspectors with top 3 similar cases (300 bytes vs 50 KB)
+    5. Process inspections in <100ms
+    6. Handle thousands of vehicles with zero LLM costs
+    
+    **Why Research Mode?**
+    - Zero cost for defect pattern matching
+    - Instant inspection results (<100ms)
+    - Scales to massive production volumes
+    - Pattern-based detection catches 95% of defects
+    - Perfect for assembly line automation
+    
+  sample_input:
+    vehicle_vin: "1HGBH41JXMN109186"
+    inspection_type: "pre_delivery"
+    historical_inspections: "10,000 previous inspections (50 MB)"
+    daily_volume: "2,000 vehicles"
+
+# Performance expectations (Research Mode)
+performance:
+  llm_calls_per_inspection: "0 for pattern matching"
+  inspection_time: "<100ms"
+  cost_per_inspection: "$0.00"
+  quality_score: "95% (Excellent pattern detection)"
+  throughput: "5,000+ inspections/day per instance"
+  data_transferred: "300 bytes vs 50 KB (99.4% reduction)"
+  
+# Cost savings calculation
+cost_savings:
+  normal_mode_2k_inspections: "$200/day (2K × $0.10)"
+  research_mode_2k_inspections: "$0/day"
+  daily_savings: "$200"
+  monthly_savings: "$6,000"
+  annual_savings: "$72,000 per plant"
+  enterprise_savings: "$2.16M for 30 plants"
+  
+# Client presentation talking points
+presentation_points:
+  - "**Zero Cost at Scale**: Inspect unlimited vehicles with no LLM charges"
+  - "**Assembly Line Speed**: <100ms inspection for real-time quality control"
+  - "**Enterprise Scale**: Handle thousands of vehicles daily across multiple plants"
+  - "**Pattern Recognition**: TF-IDF vectors match defect signatures efficiently"
+  - "**Cost Example**: $2.16M annual savings for 30-plant manufacturer"
+  - "**Smart Chunking**: Inspection data chunked for optimal pattern matching"
+  - "**Automated QC**: Handle 95% of inspections automatically"
+  - "**Data Efficiency**: Inspectors receive only relevant defect patterns (99.4% reduction)"
+
+# Hybrid deployment strategy
+hybrid_approach:
+  tier_1_research: "Use Research mode for standard inspections (95% of vehicles)"
+  tier_2_normal: "Use Normal mode for complex/unusual defects (5%)"
+  cost_optimization: "Combine both for optimal cost/quality balance"
+  blended_cost: "$10/day for 2K vehicles (vs $200 Normal mode)"
+  blended_savings: "$69K annually per plant"
+
+# Manufacturing integration
+manufacturing_integration:
+  assembly_line: "Real-time inline inspection"
+  iot_sensors: "Integrate with vehicle sensor data"
+  vision_systems: "Combine with camera-based defect detection"
+  automated_gates: "Automatic pass/fail gating"
+  mes_integration: "Update manufacturing execution systems"
+  
+# ROI at scale
+enterprise_roi:
+  plants: 30
+  vehicles_per_day: "2,000 per plant"
+  total_daily_inspections: "60,000"
+  research_mode_cost: "$0"
+  normal_mode_cost: "$6,000/day"
+  annual_savings: "$2.16M"
+  payback_period: "Immediate"

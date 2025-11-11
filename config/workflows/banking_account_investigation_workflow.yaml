@@ -1,0 +1,44 @@
+# Banking Customer Care Workflow 1: Customer Account Investigation
+name: "Account Investigation Workflow"
+description: "Complete customer account verification and investigation for support cases"
+
+agent_nodes:
+  - identity_verifier:
+      tools: ["account_verifier"]
+      task: "Verify customer identity and KYC status"
+      
+  - account_analyst:
+      tools: ["account_verifier", "balance_inquiry"]
+      task: "Analyze account status and current balances"
+      
+  - transaction_investigator:
+      tools: ["transaction_lookup"]
+      task: "Review recent transaction history"
+      
+  - fraud_analyst:
+      tools: ["fraud_detector"]
+      task: "Check for suspicious activity or fraud patterns"
+
+inputs:
+  customer_id:
+    type: "string"
+    description: "Customer unique identifier"
+    example: "CUST-12345"
+    
+  case_type:
+    type: "string"
+    description: "Type of support case"
+    default: "general_inquiry"
+    options: ["general_inquiry", "fraud_alert", "transaction_dispute", "account_access"]
+    
+  timeframe_days:
+    type: "number"
+    description: "Days of transaction history to review"
+    default: 30
+
+outputs:
+  - customer_verification_status
+  - account_summary
+  - transaction_analysis
+  - fraud_risk_assessment
+  - recommended_actions

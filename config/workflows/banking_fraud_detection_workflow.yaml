@@ -1,0 +1,52 @@
+# Banking Customer Care Workflow 3: Fraud Detection and Prevention
+name: "Fraud Detection Workflow"
+description: "Real-time fraud detection and risk assessment for transactions"
+
+agent_nodes:
+  - transaction_monitor:
+      tools: ["transaction_lookup"]
+      task: "Monitor transaction patterns and history"
+      
+  - fraud_detector_agent:
+      tools: ["fraud_detector"]
+      task: "Analyze transaction for fraud indicators"
+      
+  - risk_evaluator:
+      tools: ["fraud_detector", "account_verifier"]
+      task: "Evaluate overall account risk level"
+      
+  - action_recommender:
+      tools: ["fraud_detector"]
+      task: "Recommend appropriate security actions"
+
+inputs:
+  account_number:
+    type: "string"
+    description: "Account number for monitoring"
+    example: "ACC-98765"
+    
+  transaction_data:
+    type: "object"
+    description: "Transaction details to analyze"
+    example: |
+      {
+        "amount": 5000,
+        "merchant": "Online Electronics Store",
+        "location": "OVERSEAS",
+        "merchant_type": "retail",
+        "hour": 2,
+        "recent_transaction_count": 7
+      }
+      
+  sensitivity:
+    type: "string"
+    description: "Detection sensitivity level"
+    default: "medium"
+    options: ["low", "medium", "high"]
+
+outputs:
+  - transaction_history
+  - fraud_score
+  - risk_assessment
+  - recommended_action
+  - customer_notification
